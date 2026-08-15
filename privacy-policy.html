@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
       line-height: 1.7;
     }
     h1 { font-size: 28px; margin-bottom: 4px; }
-    .updated { color: #888; font-size: 14px; margin-bottom: 36px; }
+    .updated { color: #888; font-size: 14px; margin-bottom: 8px; }
     h2 { font-size: 18px; margin-top: 36px; margin-bottom: 8px; }
     p, li { margin: 0 0 12px; }
     ul { margin: 0 0 16px; padding-left: 22px; }
@@ -22,148 +22,569 @@
     table { border-collapse: collapse; width: 100%; margin: 12px 0 20px; }
     th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; font-size: 14px; }
     th { color: #888; font-weight: 600; }
+    .lang-switch { display: flex; gap: 6px; margin-bottom: 28px; flex-wrap: wrap; }
+    .lang-switch button {
+      appearance: none; border: 1px solid #ddd; background: #fafafa; color: #444;
+      font-size: 12.5px; font-weight: 600; letter-spacing: 0.3px;
+      padding: 6px 13px; border-radius: 999px; cursor: pointer;
+    }
+    .lang-switch button.active { background: #111; color: #fff; border-color: #111; }
     .back-link { display: inline-block; margin-bottom: 8px; font-size: 14px; }
+    [data-i18n] { display: none; }
+    html[data-lang="tr"] [data-i18n="tr"],
+    html[data-lang="en"] [data-i18n="en"],
+    html[data-lang="id"] [data-i18n="id"],
+    html[data-lang="bn"] [data-i18n="bn"] { display: block; }
   </style>
 </head>
 <body>
 
   <a class="back-link" href="index.html">← Hakyol</a>
 
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 15, 2026</p>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button data-set-lang="tr">Türkçe</button>
+    <button data-set-lang="en">English</button>
+    <button data-set-lang="id">Indonesia</button>
+    <button data-set-lang="bn">বাংলা</button>
+  </div>
 
-  <p>
-    Hakyol ("the App") is an Islamic lifestyle and navigation companion — prayer times, qibla
-    direction, mosque navigation, Qur'an reading, and a dhikr counter. This Privacy Policy
-    explains what information the App accesses, why, and where it goes.
-  </p>
+  <!-- ==================== TÜRKÇE ==================== -->
+  <div data-i18n="tr">
+    <h1>Gizlilik Politikası</h1>
+    <p class="updated">Son güncelleme: 15 Temmuz 2026</p>
 
-  <h2>Summary</h2>
-  <p>
-    Hakyol does not require an account, does not run analytics or advertising SDKs, and does not
-    operate its own servers that store your personal data. The App does use your device location
-    to power its core features, and it queries a small number of third-party APIs to do so — each
-    is listed below with exactly what is sent and why.
-  </p>
+    <p>
+      Hakyol ("Uygulama"), namaz vakitleri, kıble yönü, cami navigasyonu, Kur'an-ı Kerim okuma ve
+      zikirmatik özellikleri sunan İslami bir yaşam ve navigasyon uygulamasıdır. Bu Gizlilik
+      Politikası, Uygulamanın hangi bilgilere eriştiğini, neden eriştiğini ve bu bilgilerin nereye
+      gittiğini açıklar.
+    </p>
 
-  <h2>Location</h2>
-  <p>
-    The App requests "When In Use" location access. It is used to:
-  </p>
-  <ul>
-    <li>Calculate accurate prayer times and the qibla direction for where you are.</li>
-    <li>Find nearby mosques and show turn-by-turn walking/driving directions to them.</li>
-    <li>Center the map and compute routes when you search for a destination.</li>
-  </ul>
-  <p>
-    Location is never collected in the background — it is only read while the App is open and a
-    location-dependent screen is active. It is not stored on any server we operate.
-  </p>
+    <h2>Özet</h2>
+    <p>
+      Hakyol hesap oluşturmanızı gerektirmez, herhangi bir analitik veya reklam SDK'sı
+      çalıştırmaz ve kişisel verilerinizi saklayan kendi sunucularını işletmez. Uygulama, temel
+      özelliklerini çalıştırmak için cihaz konumunuzu kullanır ve bunu yapmak için az sayıda
+      üçüncü taraf API'sini sorgular — her biri aşağıda, tam olarak ne gönderildiği ve neden
+      gönderildiği ile birlikte listelenmiştir.
+    </p>
 
-  <h2>Third-Party Services</h2>
-  <p>
-    To provide the features above, the App sends limited data directly from your device to the
-    following services. We do not operate a backend that this data passes through first — these
-    are direct, on-device API calls.
-  </p>
-  <table>
-    <tr><th>Service</th><th>What is sent</th><th>Purpose</th></tr>
-    <tr>
-      <td>Google Maps Platform (Directions, Geocoding, Places)</td>
-      <td>Your coordinates and/or search text when you look up a destination or nearby mosque</td>
-      <td>Map display, route calculation, mosque search</td>
-    </tr>
-    <tr>
-      <td>Diyanet prayer time source (ezanvakti.emushaf.net)</td>
-      <td>Your coordinates</td>
-      <td>Accurate daily prayer times for your location</td>
-    </tr>
-    <tr>
-      <td>Quran.com / QuranCDN</td>
-      <td>Chapter/verse numbers you are viewing (no personal or location data)</td>
-      <td>Qur'an text, translation, and audio recitation</td>
-    </tr>
-  </table>
-  <p>
-    Each of these services has its own privacy policy governing how it handles the data it
-    receives; we encourage you to review Google's Privacy Policy for details on its handling of
-    location and search queries.
-  </p>
+    <h2>Konum</h2>
+    <p>Uygulama, "Kullanım Sırasında" konum erişimi talep eder. Bu erişim şunlar için kullanılır:</p>
+    <ul>
+      <li>Bulunduğunuz yer için doğru namaz vakitlerini ve kıble yönünü hesaplamak.</li>
+      <li>Yakındaki camileri bulmak ve onlara adım adım yürüyüş/araç yol tarifi göstermek.</li>
+      <li>Bir hedef aradığınızda haritayı ortalamak ve rota hesaplamak.</li>
+    </ul>
+    <p>
+      Konum hiçbir zaman arka planda toplanmaz — yalnızca Uygulama açıkken ve konuma bağlı bir
+      ekran aktifken okunur. İşlettiğimiz herhangi bir sunucuda saklanmaz.
+    </p>
 
-  <h2>Notifications</h2>
-  <p>
-    Prayer time reminders are scheduled locally on your device using iOS's notification system.
-    No notification data is sent to or generated by any server — the App calculates the times and
-    schedules them on-device.
-  </p>
+    <h2>Üçüncü Taraf Hizmetler</h2>
+    <p>
+      Yukarıdaki özellikleri sağlamak için Uygulama, sınırlı verileri doğrudan cihazınızdan
+      aşağıdaki hizmetlere gönderir. Bu verinin önce geçtiği bir arka uç (backend)
+      işletmiyoruz — bunlar doğrudan, cihaz üzerinden yapılan API çağrılarıdır.
+    </p>
+    <table>
+      <tr><th>Hizmet</th><th>Gönderilen veri</th><th>Amaç</th></tr>
+      <tr>
+        <td>Google Maps Platform (Directions, Geocoding, Places)</td>
+        <td>Bir hedef veya yakın cami aradığınızda koordinatlarınız ve/veya arama metniniz</td>
+        <td>Harita gösterimi, rota hesaplama, cami arama</td>
+      </tr>
+      <tr>
+        <td>Diyanet namaz vakti kaynağı (ezanvakti.emushaf.net)</td>
+        <td>Koordinatlarınız</td>
+        <td>Bulunduğunuz konuma göre doğru günlük namaz vakitleri</td>
+      </tr>
+      <tr>
+        <td>Quran.com / QuranCDN</td>
+        <td>Görüntülediğiniz sure/ayet numaraları (kişisel veya konum verisi yok)</td>
+        <td>Kur'an metni, çevirisi ve sesli okunuşu</td>
+      </tr>
+    </table>
+    <p>
+      Bu hizmetlerin her birinin, aldığı veriyi nasıl işlediğini düzenleyen kendi gizlilik
+      politikası vardır; konum ve arama sorgularının işlenmesine dair ayrıntılar için Google'ın
+      Gizlilik Politikasını incelemenizi öneririz.
+    </p>
 
-  <h2>Data Stored On Your Device</h2>
-  <p>
-    Your app settings, Hatim (Qur'an completion) progress, dhikr counts, and theme preference are
-    stored locally on your device only. This data is never transmitted anywhere and is deleted
-    automatically if you uninstall the App.
-  </p>
+    <h2>Bildirimler</h2>
+    <p>
+      Namaz vakti hatırlatmaları, iOS'un bildirim sistemi kullanılarak cihazınızda yerel olarak
+      zamanlanır. Hiçbir bildirim verisi herhangi bir sunucuya gönderilmez veya sunucu tarafından
+      oluşturulmaz — Uygulama vakitleri hesaplar ve cihaz üzerinde zamanlar.
+    </p>
 
-  <h2>Home Screen Widget</h2>
-  <p>
-    If you add the Hakyol widget to your Home Screen, prayer time data is shared between the App
-    and the widget using Apple's App Group storage — a private, on-device mechanism. This data
-    never leaves your device.
-  </p>
+    <h2>Cihazınızda Saklanan Veriler</h2>
+    <p>
+      Uygulama ayarlarınız, Hatim (Kur'an tamamlama) ilerlemeniz, zikir sayaçlarınız ve tema
+      tercihiniz yalnızca cihazınızda yerel olarak saklanır. Bu veriler hiçbir yere iletilmez ve
+      Uygulamayı kaldırdığınızda otomatik olarak silinir.
+    </p>
 
-  <h2>Subscriptions</h2>
-  <p>
-    Hakyol offers an optional Premium subscription (auto-renewing monthly, auto-renewing annual,
-    or a one-time lifetime purchase) that unlocks the full Qur'an library, live dynamic qibla
-    during navigation, mosque-arrival alerts, and an ad-free experience. Core features — prayer
-    times, static qibla, basic navigation, the first three chapters of the Qur'an, dhikr counter,
-    and the Home Screen widget — remain free without a subscription.
-  </p>
-  <p>
-    All payments are processed by Apple through the App Store's In-App Purchase system; Hakyol
-    never receives or stores your payment card details. Purchase and entitlement status (i.e.
-    whether your subscription is active) is managed through <strong>RevenueCat</strong>, a
-    subscription infrastructure provider. RevenueCat receives an anonymous, app-specific user
-    identifier and your purchase/transaction data from Apple in order to verify your entitlement
-    across devices — it does not receive your name, email, or payment details. See RevenueCat's
-    own privacy policy at
-    <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>
-    for details. A free trial period may be offered on the annual plan; it is managed entirely
-    through your Apple ID subscription settings, where you can also cancel at any time.
-  </p>
+    <h2>Ana Ekran Widget'ı</h2>
+    <p>
+      Hakyol widget'ını Ana Ekranınıza eklerseniz, namaz vakti verileri Apple'ın App Group
+      depolama mekanizması — özel, cihaz üzerinde çalışan bir yöntem — kullanılarak Uygulama ile
+      widget arasında paylaşılır. Bu veri cihazınızdan asla ayrılmaz.
+    </p>
 
-  <h2>Analytics &amp; Advertising</h2>
-  <p>
-    The App does not integrate any analytics, tracking, or advertising SDKs.
-  </p>
+    <h2>Abonelikler</h2>
+    <p>
+      Hakyol; tam Kur'an kütüphanesini, navigasyon sırasında canlı dinamik kıbleyi, camiye
+      varış uyarılarını ve reklamsız bir deneyimi açan isteğe bağlı bir Premium abonelik sunar
+      (aylık otomatik yenilenen, yıllık otomatik yenilenen veya tek seferlik ömür boyu satın
+      alma). Temel özellikler — namaz vakitleri, statik kıble, temel navigasyon, Kur'an'ın ilk üç
+      suresi, zikirmatik ve Ana Ekran widget'ı — abonelik olmadan ücretsiz kalır.
+    </p>
+    <p>
+      Tüm ödemeler, App Store'un Uygulama İçi Satın Alma sistemi aracılığıyla Apple tarafından
+      işlenir; Hakyol ödeme kartı bilgilerinizi asla almaz veya saklamaz. Satın alma ve hak
+      durumu (yani aboneliğinizin aktif olup olmadığı), bir abonelik altyapı sağlayıcısı olan
+      <strong>RevenueCat</strong> üzerinden yönetilir. RevenueCat, hakkınızı cihazlar arasında
+      doğrulayabilmek için Apple'dan anonim, uygulamaya özgü bir kullanıcı kimliği ve satın
+      alma/işlem verinizi alır — adınızı, e-postanızı veya ödeme bilgilerinizi almaz.
+      Ayrıntılar için RevenueCat'in kendi gizlilik politikasına bakınız:
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>.
+      Yıllık planda ücretsiz deneme süresi sunulabilir; bu, tamamen Apple ID abonelik
+      ayarlarınız üzerinden yönetilir, aboneliğinizi dilediğiniz zaman oradan iptal edebilirsiniz.
+    </p>
 
-  <h2>Children's Privacy</h2>
-  <p>
-    The App does not knowingly collect personal information from children under 13.
-  </p>
+    <h2>Analitik ve Reklam</h2>
+    <p>Uygulama herhangi bir analitik, takip veya reklam SDK'sı entegre etmez.</p>
 
-  <h2>Your Rights</h2>
-  <p>
-    Since the App does not maintain server-side accounts or profiles, most data control happens
-    directly on your device: you can disable location or notification permissions at any time in
-    iOS Settings, and uninstalling the App removes all locally stored data. If you are located in
-    Turkey, see our separate
-    <a href="./kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a> for rights specific to Turkish
-    data protection law.
-  </p>
+    <h2>Çocukların Gizliliği</h2>
+    <p>Uygulama, 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamaz.</p>
 
-  <h2>Changes to This Policy</h2>
-  <p>
-    If we make material changes to this policy, we will update the date at the top of this page.
-  </p>
+    <h2>Haklarınız</h2>
+    <p>
+      Uygulama sunucu tarafında hesap veya profil tutmadığı için veri kontrolünün çoğu doğrudan
+      cihazınızda gerçekleşir: konum veya bildirim izinlerini istediğiniz zaman iOS Ayarlar'dan
+      kapatabilirsiniz, Uygulamayı kaldırmak yerel olarak saklanan tüm verileri siler. Türkiye'de
+      bulunuyorsanız, Türk veri koruma hukukuna özgü haklarınız için ayrı
+      <a href="./kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metnimize</a> bakınız.
+    </p>
 
-  <h2>Contact</h2>
-  <p>
-    If you have any questions about this Privacy Policy, please contact us at
-    <a href="mailto:hakyolapp@gmail.com">hakyolapp@gmail.com</a>.
-  </p>
+    <h2>Değişiklikler</h2>
+    <p>Bu politikada önemli bir değişiklik yaparsak, sayfanın en üstündeki tarihi güncelleriz.</p>
+
+    <h2>İletişim</h2>
+    <p>Bu Gizlilik Politikası hakkında sorularınız için: <a href="mailto:hakyolapp@gmail.com">hakyolapp@gmail.com</a></p>
+  </div>
+
+  <!-- ==================== ENGLISH ==================== -->
+  <div data-i18n="en">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: July 15, 2026</p>
+
+    <p>
+      Hakyol ("the App") is an Islamic lifestyle and navigation companion — prayer times, qibla
+      direction, mosque navigation, Qur'an reading, and a dhikr counter. This Privacy Policy
+      explains what information the App accesses, why, and where it goes.
+    </p>
+
+    <h2>Summary</h2>
+    <p>
+      Hakyol does not require an account, does not run analytics or advertising SDKs, and does not
+      operate its own servers that store your personal data. The App does use your device location
+      to power its core features, and it queries a small number of third-party APIs to do so — each
+      is listed below with exactly what is sent and why.
+    </p>
+
+    <h2>Location</h2>
+    <p>The App requests "When In Use" location access. It is used to:</p>
+    <ul>
+      <li>Calculate accurate prayer times and the qibla direction for where you are.</li>
+      <li>Find nearby mosques and show turn-by-turn walking/driving directions to them.</li>
+      <li>Center the map and compute routes when you search for a destination.</li>
+    </ul>
+    <p>
+      Location is never collected in the background — it is only read while the App is open and a
+      location-dependent screen is active. It is not stored on any server we operate.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <p>
+      To provide the features above, the App sends limited data directly from your device to the
+      following services. We do not operate a backend that this data passes through first — these
+      are direct, on-device API calls.
+    </p>
+    <table>
+      <tr><th>Service</th><th>What is sent</th><th>Purpose</th></tr>
+      <tr>
+        <td>Google Maps Platform (Directions, Geocoding, Places)</td>
+        <td>Your coordinates and/or search text when you look up a destination or nearby mosque</td>
+        <td>Map display, route calculation, mosque search</td>
+      </tr>
+      <tr>
+        <td>Diyanet prayer time source (ezanvakti.emushaf.net)</td>
+        <td>Your coordinates</td>
+        <td>Accurate daily prayer times for your location</td>
+      </tr>
+      <tr>
+        <td>Quran.com / QuranCDN</td>
+        <td>Chapter/verse numbers you are viewing (no personal or location data)</td>
+        <td>Qur'an text, translation, and audio recitation</td>
+      </tr>
+    </table>
+    <p>
+      Each of these services has its own privacy policy governing how it handles the data it
+      receives; we encourage you to review Google's Privacy Policy for details on its handling of
+      location and search queries.
+    </p>
+
+    <h2>Notifications</h2>
+    <p>
+      Prayer time reminders are scheduled locally on your device using iOS's notification system.
+      No notification data is sent to or generated by any server — the App calculates the times and
+      schedules them on-device.
+    </p>
+
+    <h2>Data Stored On Your Device</h2>
+    <p>
+      Your app settings, Hatim (Qur'an completion) progress, dhikr counts, and theme preference are
+      stored locally on your device only. This data is never transmitted anywhere and is deleted
+      automatically if you uninstall the App.
+    </p>
+
+    <h2>Home Screen Widget</h2>
+    <p>
+      If you add the Hakyol widget to your Home Screen, prayer time data is shared between the App
+      and the widget using Apple's App Group storage — a private, on-device mechanism. This data
+      never leaves your device.
+    </p>
+
+    <h2>Subscriptions</h2>
+    <p>
+      Hakyol offers an optional Premium subscription (auto-renewing monthly, auto-renewing annual,
+      or a one-time lifetime purchase) that unlocks the full Qur'an library, live dynamic qibla
+      during navigation, mosque-arrival alerts, and an ad-free experience. Core features — prayer
+      times, static qibla, basic navigation, the first three chapters of the Qur'an, dhikr counter,
+      and the Home Screen widget — remain free without a subscription.
+    </p>
+    <p>
+      All payments are processed by Apple through the App Store's In-App Purchase system; Hakyol
+      never receives or stores your payment card details. Purchase and entitlement status (i.e.
+      whether your subscription is active) is managed through <strong>RevenueCat</strong>, a
+      subscription infrastructure provider. RevenueCat receives an anonymous, app-specific user
+      identifier and your purchase/transaction data from Apple in order to verify your entitlement
+      across devices — it does not receive your name, email, or payment details. See RevenueCat's
+      own privacy policy at
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>
+      for details. A free trial period may be offered on the annual plan; it is managed entirely
+      through your Apple ID subscription settings, where you can also cancel at any time.
+    </p>
+
+    <h2>Analytics &amp; Advertising</h2>
+    <p>The App does not integrate any analytics, tracking, or advertising SDKs.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>The App does not knowingly collect personal information from children under 13.</p>
+
+    <h2>Your Rights</h2>
+    <p>
+      Since the App does not maintain server-side accounts or profiles, most data control happens
+      directly on your device: you can disable location or notification permissions at any time in
+      iOS Settings, and uninstalling the App removes all locally stored data. If you are located in
+      Turkey, see our separate
+      <a href="./kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a> for rights specific to Turkish
+      data protection law.
+    </p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we make material changes to this policy, we will update the date at the top of this page.</p>
+
+    <h2>Contact</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:hakyolapp@gmail.com">hakyolapp@gmail.com</a>.</p>
+  </div>
+
+  <!-- ==================== BAHASA INDONESIA ==================== -->
+  <div data-i18n="id">
+    <h1>Kebijakan Privasi</h1>
+    <p class="updated">Terakhir diperbarui: 15 Juli 2026</p>
+
+    <p>
+      Hakyol ("Aplikasi") adalah pendamping gaya hidup dan navigasi Islami — waktu salat, arah
+      kiblat, navigasi masjid, membaca Al-Qur'an, dan penghitung dzikir. Kebijakan Privasi ini
+      menjelaskan informasi apa yang diakses Aplikasi, mengapa, dan ke mana informasi itu pergi.
+    </p>
+
+    <h2>Ringkasan</h2>
+    <p>
+      Hakyol tidak memerlukan akun, tidak menjalankan SDK analitik atau iklan, dan tidak
+      mengoperasikan server sendiri yang menyimpan data pribadi Anda. Aplikasi menggunakan lokasi
+      perangkat Anda untuk menjalankan fitur intinya, dan meminta data ke sejumlah kecil API
+      pihak ketiga untuk melakukannya — masing-masing tercantum di bawah dengan data yang dikirim
+      dan alasannya.
+    </p>
+
+    <h2>Lokasi</h2>
+    <p>Aplikasi meminta akses lokasi "Saat Digunakan". Ini digunakan untuk:</p>
+    <ul>
+      <li>Menghitung waktu salat dan arah kiblat yang akurat sesuai lokasi Anda.</li>
+      <li>Menemukan masjid terdekat dan menampilkan petunjuk arah jalan kaki/berkendara langkah demi langkah.</li>
+      <li>Memusatkan peta dan menghitung rute saat Anda mencari tujuan.</li>
+    </ul>
+    <p>
+      Lokasi tidak pernah dikumpulkan di latar belakang — hanya dibaca saat Aplikasi terbuka dan
+      layar yang bergantung pada lokasi sedang aktif. Data ini tidak disimpan di server mana pun
+      yang kami operasikan.
+    </p>
+
+    <h2>Layanan Pihak Ketiga</h2>
+    <p>
+      Untuk menyediakan fitur di atas, Aplikasi mengirimkan data terbatas langsung dari perangkat
+      Anda ke layanan berikut. Kami tidak mengoperasikan backend yang dilalui data ini terlebih
+      dahulu — ini adalah panggilan API langsung dari perangkat.
+    </p>
+    <table>
+      <tr><th>Layanan</th><th>Data yang dikirim</th><th>Tujuan</th></tr>
+      <tr>
+        <td>Google Maps Platform (Directions, Geocoding, Places)</td>
+        <td>Koordinat dan/atau teks pencarian Anda saat mencari tujuan atau masjid terdekat</td>
+        <td>Tampilan peta, perhitungan rute, pencarian masjid</td>
+      </tr>
+      <tr>
+        <td>Sumber waktu salat Diyanet (ezanvakti.emushaf.net)</td>
+        <td>Koordinat Anda</td>
+        <td>Waktu salat harian yang akurat untuk lokasi Anda</td>
+      </tr>
+      <tr>
+        <td>Quran.com / QuranCDN</td>
+        <td>Nomor surah/ayat yang Anda lihat (tanpa data pribadi atau lokasi)</td>
+        <td>Teks, terjemahan, dan bacaan audio Al-Qur'an</td>
+      </tr>
+    </table>
+    <p>
+      Setiap layanan ini memiliki kebijakan privasinya sendiri yang mengatur bagaimana data yang
+      diterimanya diproses; kami menyarankan Anda meninjau Kebijakan Privasi Google untuk detail
+      tentang penanganan lokasi dan kueri pencarian.
+    </p>
+
+    <h2>Notifikasi</h2>
+    <p>
+      Pengingat waktu salat dijadwalkan secara lokal di perangkat Anda menggunakan sistem
+      notifikasi iOS. Tidak ada data notifikasi yang dikirim ke atau dihasilkan oleh server
+      mana pun — Aplikasi menghitung waktu dan menjadwalkannya di perangkat.
+    </p>
+
+    <h2>Data yang Disimpan di Perangkat Anda</h2>
+    <p>
+      Pengaturan aplikasi, kemajuan khatam Al-Qur'an, hitungan dzikir, dan preferensi tema Anda
+      hanya disimpan secara lokal di perangkat Anda. Data ini tidak pernah dikirim ke mana pun dan
+      akan otomatis dihapus jika Anda menghapus instalan Aplikasi.
+    </p>
+
+    <h2>Widget Layar Beranda</h2>
+    <p>
+      Jika Anda menambahkan widget Hakyol ke Layar Beranda, data waktu salat dibagikan antara
+      Aplikasi dan widget menggunakan penyimpanan App Group milik Apple — mekanisme pribadi di
+      perangkat. Data ini tidak pernah meninggalkan perangkat Anda.
+    </p>
+
+    <h2>Langganan</h2>
+    <p>
+      Hakyol menawarkan langganan Premium opsional (bulanan yang diperpanjang otomatis, tahunan
+      yang diperpanjang otomatis, atau pembelian seumur hidup satu kali) yang membuka
+      perpustakaan Al-Qur'an lengkap, kiblat dinamis langsung selama navigasi, peringatan
+      kedatangan masjid, dan pengalaman bebas iklan. Fitur inti — waktu salat, kiblat statis,
+      navigasi dasar, tiga surah pertama Al-Qur'an, penghitung dzikir, dan widget Layar Beranda —
+      tetap gratis tanpa langganan.
+    </p>
+    <p>
+      Semua pembayaran diproses oleh Apple melalui sistem Pembelian Dalam Aplikasi App Store;
+      Hakyol tidak pernah menerima atau menyimpan detail kartu pembayaran Anda. Status pembelian
+      dan hak akses (yaitu apakah langganan Anda aktif) dikelola melalui <strong>RevenueCat</strong>,
+      penyedia infrastruktur langganan. RevenueCat menerima pengenal pengguna anonim khusus
+      aplikasi dan data pembelian/transaksi Anda dari Apple untuk memverifikasi hak akses Anda di
+      berbagai perangkat — tidak menerima nama, email, atau detail pembayaran Anda. Lihat
+      kebijakan privasi RevenueCat sendiri di
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>
+      untuk detail. Masa uji coba gratis dapat ditawarkan pada paket tahunan; ini sepenuhnya
+      dikelola melalui pengaturan langganan Apple ID Anda, tempat Anda juga dapat membatalkan
+      kapan saja.
+    </p>
+
+    <h2>Analitik &amp; Iklan</h2>
+    <p>Aplikasi tidak mengintegrasikan SDK analitik, pelacakan, atau iklan apa pun.</p>
+
+    <h2>Privasi Anak</h2>
+    <p>Aplikasi tidak dengan sengaja mengumpulkan informasi pribadi dari anak di bawah 13 tahun.</p>
+
+    <h2>Hak Anda</h2>
+    <p>
+      Karena Aplikasi tidak memelihara akun atau profil di sisi server, sebagian besar kontrol
+      data terjadi langsung di perangkat Anda: Anda dapat menonaktifkan izin lokasi atau
+      notifikasi kapan saja di Pengaturan iOS, dan menghapus instalan Aplikasi akan menghapus
+      semua data yang disimpan secara lokal. Jika Anda berada di Turki, lihat
+      <a href="./kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a> kami secara terpisah untuk
+      hak-hak khusus hukum perlindungan data Turki.
+    </p>
+
+    <h2>Perubahan pada Kebijakan Ini</h2>
+    <p>Jika kami membuat perubahan material pada kebijakan ini, kami akan memperbarui tanggal di bagian atas halaman ini.</p>
+
+    <h2>Kontak</h2>
+    <p>Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, silakan hubungi kami di <a href="mailto:hakyolapp@gmail.com">hakyolapp@gmail.com</a>.</p>
+  </div>
+
+  <!-- ==================== বাংলা ==================== -->
+  <div data-i18n="bn">
+    <h1>গোপনীয়তা নীতি</h1>
+    <p class="updated">সর্বশেষ আপডেট: ১৫ জুলাই ২০২৬</p>
+
+    <p>
+      Hakyol ("অ্যাপ") একটি ইসলামিক জীবনযাত্রা ও নেভিগেশন সঙ্গী — নামাজের সময়, কিবলার দিক, মসজিদ
+      নেভিগেশন, কুরআন পড়া এবং একটি জিকির কাউন্টার। এই গোপনীয়তা নীতি ব্যাখ্যা করে অ্যাপটি কোন তথ্যে
+      প্রবেশ করে, কেন করে এবং সেই তথ্য কোথায় যায়।
+    </p>
+
+    <h2>সারসংক্ষেপ</h2>
+    <p>
+      Hakyol-এর কোনো অ্যাকাউন্টের প্রয়োজন নেই, কোনো অ্যানালিটিক্স বা বিজ্ঞাপন SDK চালায় না, এবং
+      আপনার ব্যক্তিগত ডেটা সংরক্ষণকারী নিজস্ব কোনো সার্ভার পরিচালনা করে না। অ্যাপটি এর মূল
+      বৈশিষ্ট্যগুলি চালাতে আপনার ডিভাইসের অবস্থান ব্যবহার করে এবং এটি করার জন্য অল্প সংখ্যক
+      তৃতীয়-পক্ষ API-তে অনুরোধ পাঠায় — প্রতিটি নিচে ঠিক কী পাঠানো হয় এবং কেন তার সাথে তালিকাভুক্ত।
+    </p>
+
+    <h2>অবস্থান</h2>
+    <p>অ্যাপটি "ব্যবহারের সময়" অবস্থান অ্যাক্সেসের অনুরোধ করে। এটি ব্যবহৃত হয়:</p>
+    <ul>
+      <li>আপনার অবস্থানের জন্য সঠিক নামাজের সময় ও কিবলার দিক গণনা করতে।</li>
+      <li>নিকটবর্তী মসজিদ খুঁজে বের করতে এবং সেখানে ধাপে ধাপে হাঁটা/গাড়ি চালানোর দিকনির্দেশ দেখাতে।</li>
+      <li>আপনি একটি গন্তব্য অনুসন্ধান করলে মানচিত্র কেন্দ্রীভূত করতে এবং রুট গণনা করতে।</li>
+    </ul>
+    <p>
+      অবস্থান কখনোই ব্যাকগ্রাউন্ডে সংগ্রহ করা হয় না — শুধুমাত্র অ্যাপ খোলা থাকা অবস্থায় এবং
+      অবস্থান-নির্ভর একটি স্ক্রিন সক্রিয় থাকলেই এটি পড়া হয়। আমরা পরিচালনা করি এমন কোনো সার্ভারে
+      এটি সংরক্ষিত হয় না।
+    </p>
+
+    <h2>তৃতীয়-পক্ষ পরিষেবা</h2>
+    <p>
+      উপরের বৈশিষ্ট্যগুলি প্রদানের জন্য, অ্যাপটি আপনার ডিভাইস থেকে সরাসরি নিম্নলিখিত পরিষেবাগুলিতে
+      সীমিত তথ্য পাঠায়। এই তথ্য প্রথমে যার মধ্য দিয়ে যায় এমন কোনো ব্যাকএন্ড আমরা পরিচালনা করি না —
+      এগুলো সরাসরি, ডিভাইসে সম্পাদিত API কল।
+    </p>
+    <table>
+      <tr><th>পরিষেবা</th><th>যা পাঠানো হয়</th><th>উদ্দেশ্য</th></tr>
+      <tr>
+        <td>Google Maps Platform (Directions, Geocoding, Places)</td>
+        <td>গন্তব্য বা নিকটবর্তী মসজিদ খোঁজার সময় আপনার স্থানাঙ্ক এবং/অথবা অনুসন্ধান পাঠ্য</td>
+        <td>মানচিত্র প্রদর্শন, রুট গণনা, মসজিদ অনুসন্ধান</td>
+      </tr>
+      <tr>
+        <td>দিয়ানেত নামাজের সময় উৎস (ezanvakti.emushaf.net)</td>
+        <td>আপনার স্থানাঙ্ক</td>
+        <td>আপনার অবস্থানের জন্য সঠিক দৈনিক নামাজের সময়</td>
+      </tr>
+      <tr>
+        <td>Quran.com / QuranCDN</td>
+        <td>আপনি যে সূরা/আয়াত নম্বর দেখছেন (কোনো ব্যক্তিগত বা অবস্থান তথ্য নেই)</td>
+        <td>কুরআনের পাঠ্য, অনুবাদ এবং অডিও তিলাওয়াত</td>
+      </tr>
+    </table>
+    <p>
+      এই পরিষেবাগুলির প্রতিটির নিজস্ব গোপনীয়তা নীতি রয়েছে যা এটি প্রাপ্ত তথ্য কীভাবে পরিচালনা করে
+      তা নিয়ন্ত্রণ করে; অবস্থান ও অনুসন্ধান কোয়েরি পরিচালনার বিস্তারিত জানতে Google-এর গোপনীয়তা
+      নীতি পর্যালোচনা করার পরামর্শ দিচ্ছি।
+    </p>
+
+    <h2>বিজ্ঞপ্তি</h2>
+    <p>
+      নামাজের সময়ের অনুস্মারক iOS-এর বিজ্ঞপ্তি সিস্টেম ব্যবহার করে আপনার ডিভাইসে স্থানীয়ভাবে
+      নির্ধারিত হয়। কোনো বিজ্ঞপ্তি তথ্য কোনো সার্ভারে পাঠানো বা সার্ভার দ্বারা তৈরি করা হয় না —
+      অ্যাপটি সময় গণনা করে এবং ডিভাইসেই নির্ধারণ করে।
+    </p>
+
+    <h2>আপনার ডিভাইসে সংরক্ষিত তথ্য</h2>
+    <p>
+      আপনার অ্যাপ সেটিংস, খতম (কুরআন সমাপ্তি) অগ্রগতি, জিকির গণনা এবং থিম পছন্দ শুধুমাত্র আপনার
+      ডিভাইসে স্থানীয়ভাবে সংরক্ষিত থাকে। এই তথ্য কখনো কোথাও প্রেরণ করা হয় না এবং আপনি অ্যাপটি
+      আনইনস্টল করলে স্বয়ংক্রিয়ভাবে মুছে যায়।
+    </p>
+
+    <h2>হোম স্ক্রিন উইজেট</h2>
+    <p>
+      আপনি যদি আপনার হোম স্ক্রিনে Hakyol উইজেট যোগ করেন, তাহলে Apple-এর App Group সংরক্ষণাগার —
+      একটি ব্যক্তিগত, ডিভাইস-ভিত্তিক পদ্ধতি — ব্যবহার করে অ্যাপ এবং উইজেটের মধ্যে নামাজের সময়ের
+      তথ্য শেয়ার করা হয়। এই তথ্য কখনো আপনার ডিভাইস ছেড়ে যায় না।
+    </p>
+
+    <h2>সাবস্ক্রিপশন</h2>
+    <p>
+      Hakyol একটি ঐচ্ছিক প্রিমিয়াম সাবস্ক্রিপশন প্রদান করে (মাসিক স্বয়ংক্রিয়-নবায়ন, বার্ষিক
+      স্বয়ংক্রিয়-নবায়ন, অথবা একবারের আজীবন ক্রয়) যা সম্পূর্ণ কুরআন লাইব্রেরি, নেভিগেশনের সময়
+      লাইভ ডাইনামিক কিবলা, মসজিদ-আগমন সতর্কতা এবং বিজ্ঞাপন-মুক্ত অভিজ্ঞতা আনলক করে। মূল
+      বৈশিষ্ট্যগুলি — নামাজের সময়, স্ট্যাটিক কিবলা, বেসিক নেভিগেশন, কুরআনের প্রথম তিনটি সূরা,
+      জিকির কাউন্টার এবং হোম স্ক্রিন উইজেট — সাবস্ক্রিপশন ছাড়াই বিনামূল্যে থাকে।
+    </p>
+    <p>
+      সমস্ত পেমেন্ট App Store-এর ইন-অ্যাপ পারচেজ সিস্টেমের মাধ্যমে Apple দ্বারা প্রক্রিয়া করা হয়;
+      Hakyol কখনো আপনার পেমেন্ট কার্ডের তথ্য গ্রহণ বা সংরক্ষণ করে না। ক্রয় ও এনটাইটেলমেন্ট স্থিতি
+      (অর্থাৎ আপনার সাবস্ক্রিপশন সক্রিয় কিনা) একটি সাবস্ক্রিপশন অবকাঠামো প্রদানকারী
+      <strong>RevenueCat</strong>-এর মাধ্যমে পরিচালিত হয়। RevenueCat বিভিন্ন ডিভাইস জুড়ে আপনার
+      অধিকার যাচাই করার জন্য Apple থেকে একটি বেনামী, অ্যাপ-নির্দিষ্ট ব্যবহারকারী পরিচয় এবং আপনার
+      ক্রয়/লেনদেন তথ্য গ্রহণ করে — এটি আপনার নাম, ইমেইল বা পেমেন্ট তথ্য গ্রহণ করে না। বিস্তারিত
+      জানতে RevenueCat-এর নিজস্ব গোপনীয়তা নীতি দেখুন
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a>।
+      বার্ষিক পরিকল্পনায় একটি বিনামূল্যে ট্রায়াল সময়কাল প্রদান করা হতে পারে; এটি সম্পূর্ণরূপে
+      আপনার Apple ID সাবস্ক্রিপশন সেটিংসের মাধ্যমে পরিচালিত হয়, যেখান থেকে আপনি যেকোনো সময় বাতিলও
+      করতে পারেন।
+    </p>
+
+    <h2>অ্যানালিটিক্স ও বিজ্ঞাপন</h2>
+    <p>অ্যাপটি কোনো অ্যানালিটিক্স, ট্র্যাকিং বা বিজ্ঞাপন SDK একীভূত করে না।</p>
+
+    <h2>শিশুদের গোপনীয়তা</h2>
+    <p>অ্যাপটি জেনেশুনে ১৩ বছরের কম বয়সী শিশুদের কাছ থেকে ব্যক্তিগত তথ্য সংগ্রহ করে না।</p>
+
+    <h2>আপনার অধিকার</h2>
+    <p>
+      যেহেতু অ্যাপটি সার্ভার-সাইড অ্যাকাউন্ট বা প্রোফাইল বজায় রাখে না, তাই বেশিরভাগ ডেটা নিয়ন্ত্রণ
+      সরাসরি আপনার ডিভাইসে ঘটে: আপনি iOS সেটিংসে যেকোনো সময় অবস্থান বা বিজ্ঞপ্তির অনুমতি নিষ্ক্রিয়
+      করতে পারেন, এবং অ্যাপ আনইনস্টল করলে স্থানীয়ভাবে সংরক্ষিত সমস্ত তথ্য মুছে যায়। আপনি যদি
+      তুরস্কে অবস্থান করেন, তুর্কি তথ্য সুরক্ষা আইন সংক্রান্ত নির্দিষ্ট অধিকারের জন্য আমাদের আলাদা
+      <a href="./kvkk-aydinlatma-metni.html">KVKK Aydınlatma Metni</a> দেখুন।
+    </p>
+
+    <h2>এই নীতিতে পরিবর্তন</h2>
+    <p>আমরা যদি এই নীতিতে উল্লেখযোগ্য পরিবর্তন করি, তাহলে আমরা এই পৃষ্ঠার শীর্ষে তারিখ আপডেট করব।</p>
+
+    <h2>যোগাযোগ</h2>
+    <p>এই গোপনীয়তা নীতি সম্পর্কে আপনার কোনো প্রশ্ন থাকলে, অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন: <a href="mailto:hakyolapp@gmail.com">hakyolapp@gmail.com</a></p>
+  </div>
 
   <a class="back-link" href="index.html">← Hakyol</a>
+
+<script>
+(function() {
+  var supported = ['tr', 'en', 'id', 'bn'];
+  var saved = localStorage.getItem('hakyol_lang');
+  var browserLang = (navigator.language || 'tr').slice(0, 2);
+  var initial = supported.indexOf(saved) !== -1 ? saved : (supported.indexOf(browserLang) !== -1 ? browserLang : 'tr');
+
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+    localStorage.setItem('hakyol_lang', lang);
+    document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setLang(btn.getAttribute('data-set-lang'));
+    });
+  });
+
+  setLang(initial);
+})();
+</script>
 
 </body>
 </html>
