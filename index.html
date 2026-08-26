@@ -122,7 +122,7 @@
   }
   .store-badge:hover { border-color: var(--card-border-strong); transform: translateY(-2px); text-decoration: none; }
   .store-badge svg { width: 26px; height: 26px; flex-shrink: 0; }
-  .store-badge .label { text-align: left; line-height: 1.25; }
+  .store-badge .label { text-align: start; line-height: 1.25; }
   .store-badge .label .small { display: block; font-size: 10.5px; color: var(--text-faint); font-weight: 600; letter-spacing: 0.3px; }
   .store-badge .label .big { display: block; font-family: var(--sans); font-size: 15.5px; font-weight: 700; }
   .store-badge.soon { opacity: 0.88; cursor: default; }
@@ -197,16 +197,25 @@
   html[data-lang="tr"] [data-i18n="tr"],
   html[data-lang="en"] [data-i18n="en"],
   html[data-lang="id"] [data-i18n="id"],
-  html[data-lang="bn"] [data-i18n="bn"] { display: revert; }
+  html[data-lang="bn"] [data-i18n="bn"],
+  html[data-lang="ar"] [data-i18n="ar"],
+  html[data-lang="fa"] [data-i18n="fa"],
+  html[data-lang="ur"] [data-i18n="ur"] { display: revert; }
   [data-i18n].inline { display: none; }
   html[data-lang="tr"] [data-i18n="tr"].inline,
   html[data-lang="en"] [data-i18n="en"].inline,
   html[data-lang="id"] [data-i18n="id"].inline,
-  html[data-lang="bn"] [data-i18n="bn"].inline { display: inline; }
+  html[data-lang="bn"] [data-i18n="bn"].inline,
+  html[data-lang="ar"] [data-i18n="ar"].inline,
+  html[data-lang="fa"] [data-i18n="fa"].inline,
+  html[data-lang="ur"] [data-i18n="ur"].inline { display: inline; }
   html[data-lang="tr"] [data-i18n="tr"].flex,
   html[data-lang="en"] [data-i18n="en"].flex,
   html[data-lang="id"] [data-i18n="id"].flex,
-  html[data-lang="bn"] [data-i18n="bn"].flex { display: flex; }
+  html[data-lang="bn"] [data-i18n="bn"].flex,
+  html[data-lang="ar"] [data-i18n="ar"].flex,
+  html[data-lang="fa"] [data-i18n="fa"].flex,
+  html[data-lang="ur"] [data-i18n="ur"].flex { display: flex; }
 </style>
 </head>
 <body>
@@ -222,6 +231,9 @@
       <button data-set-lang="en">EN</button>
       <button data-set-lang="id">ID</button>
       <button data-set-lang="bn">বাং</button>
+      <button data-set-lang="ar">AR</button>
+      <button data-set-lang="fa">FA</button>
+      <button data-set-lang="ur">UR</button>
     </div>
   </div>
 </nav>
@@ -236,16 +248,25 @@
     <div class="eyebrow" data-i18n="en">◆ PRAYER · QIBLA · QUR'AN · DHIKR</div>
     <div class="eyebrow" data-i18n="id">◆ SALAT · KIBLAT · QURAN · DZIKIR</div>
     <div class="eyebrow" data-i18n="bn">◆ নামাজ · কিবলা · কুরআন · জিকির</div>
+    <div class="eyebrow" data-i18n="ar">◆ الصلاة · القبلة · القرآن · الذكر</div>
+    <div class="eyebrow" data-i18n="fa">◆ نماز · قبله · قرآن · ذکر</div>
+    <div class="eyebrow" data-i18n="ur">◆ نماز · قبلہ · قرآن · ذکر</div>
 
     <h1 class="headline" data-i18n="tr">Kişisel <span class="accent">İslami</span> Rehberiniz</h1>
     <h1 class="headline" data-i18n="en">Your Personal <span class="accent">Islamic</span> Guide</h1>
     <h1 class="headline" data-i18n="id">Panduan <span class="accent">Islami</span> Pribadi Anda</h1>
     <h1 class="headline" data-i18n="bn">আপনার ব্যক্তিগত <span class="accent">ইসলামিক</span> গাইড</h1>
+    <h1 class="headline" data-i18n="ar">دليلك <span class="accent">الإسلامي</span> الشخصي</h1>
+    <h1 class="headline" data-i18n="fa">راهنمای <span class="accent">اسلامی</span> شخصی شما</h1>
+    <h1 class="headline" data-i18n="ur">آپ کا ذاتی <span class="accent">اسلامی</span> رہنما</h1>
 
     <p class="sub" data-i18n="tr">Namaz vakitleri, kıble yönü, Kur'an-ı Kerim, zikirmatik ve Kâbe canlı yayını — hepsi tek bir uygulamada. Yol arkadaşınız, ibadet arkadaşınız.</p>
     <p class="sub" data-i18n="en">Prayer times, qibla direction, the Qur'an, dhikr counter, and Kaaba live stream — all in one app. Your companion for daily worship.</p>
     <p class="sub" data-i18n="id">Waktu salat, arah kiblat, Al-Qur'an, penghitung dzikir, dan siaran langsung Ka'bah — semua dalam satu aplikasi.</p>
     <p class="sub" data-i18n="bn">নামাজের সময়, কিবলার দিক, কুরআন, জিকির কাউন্টার এবং কাবা লাইভ সম্প্রচার — সব এক অ্যাপে।</p>
+    <p class="sub" data-i18n="ar">أوقات الصلاة، اتجاه القبلة، القرآن الكريم، عداد الذكر وبث الكعبة المباشر — كل ذلك في تطبيق واحد. رفيقك في العبادة اليومية.</p>
+    <p class="sub" data-i18n="fa">اوقات نماز، جهت قبله، قرآن کریم، شمارشگر ذکر و پخش زنده کعبه — همه در یک برنامه. همراه شما در عبادت روزانه.</p>
+    <p class="sub" data-i18n="ur">نماز کے اوقات، قبلہ کی سمت، قرآن کریم، ذکر کاؤنٹر اور کعبہ لائیو اسٹریم — سب ایک ہی ایپ میں۔ آپ کے روزانہ کی عبادت کا ساتھی۔</p>
 
     <div class="badges">
       <a class="store-badge" href="https://apps.apple.com/us/app/hakyol/id6794740149" target="_blank" rel="noopener">
@@ -276,10 +297,16 @@
         <h3 data-i18n="en">Prayer Times</h3>
         <h3 data-i18n="id">Waktu Salat</h3>
         <h3 data-i18n="bn">নামাজের সময়</h3>
+        <h3 data-i18n="ar">أوقات الصلاة</h3>
+        <h3 data-i18n="fa">اوقات نماز</h3>
+        <h3 data-i18n="ur">نماز کے اوقات</h3>
         <p data-i18n="tr">Konumunuza göre 5 vakit namaz saatini anında görün, vakit girince hatırlatma alın.</p>
         <p data-i18n="en">See all 5 daily prayer times instantly based on your location, with timely reminders.</p>
         <p data-i18n="id">Lihat 5 waktu salat harian secara instan berdasarkan lokasi Anda, dengan pengingat.</p>
         <p data-i18n="bn">আপনার অবস্থান অনুযায়ী ৫ ওয়াক্ত নামাজের সময় সাথে সাথে দেখুন, অনুস্মারক সহ।</p>
+        <p data-i18n="ar">شاهد أوقات الصلوات الخمس فورًا بناءً على موقعك، مع تذكيرات في وقتها.</p>
+        <p data-i18n="fa">اوقات ۵ نماز روزانه را بلافاصله بر اساس موقعیت مکانی خود ببینید، همراه با یادآوری‌های به‌موقع.</p>
+        <p data-i18n="ur">اپنے مقام کی بنیاد پر پانچوں نمازوں کے اوقات فوری طور پر دیکھیں، بروقت یاد دہانیوں کے ساتھ۔</p>
       </div>
 
       <div class="feature-card">
@@ -288,10 +315,16 @@
         <h3 data-i18n="en">Qibla</h3>
         <h3 data-i18n="id">Kiblat</h3>
         <h3 data-i18n="bn">কিবলা</h3>
+        <h3 data-i18n="ar">القبلة</h3>
+        <h3 data-i18n="fa">قبله</h3>
+        <h3 data-i18n="ur">قبلہ</h3>
         <p data-i18n="tr">Pusula ve harita üzerinde, bulunduğunuz her yerden kıble yönünü kolayca bulun.</p>
         <p data-i18n="en">Find the qibla direction easily from anywhere, using the compass and map.</p>
         <p data-i18n="id">Temukan arah kiblat dengan mudah dari mana saja, menggunakan kompas dan peta.</p>
         <p data-i18n="bn">কম্পাস ও মানচিত্র ব্যবহার করে যেকোনো স্থান থেকে সহজেই কিবলার দিক খুঁজুন।</p>
+        <p data-i18n="ar">اعثر على اتجاه القبلة بسهولة من أي مكان، باستخدام البوصلة والخريطة.</p>
+        <p data-i18n="fa">جهت قبله را از هر کجا با استفاده از قطب‌نما و نقشه به راحتی پیدا کنید.</p>
+        <p data-i18n="ur">قطب نما اور نقشے کی مدد سے کہیں سے بھی قبلہ کی سمت آسانی سے معلوم کریں۔</p>
       </div>
 
       <div class="feature-card">
@@ -300,10 +333,16 @@
         <h3 data-i18n="en">The Qur'an</h3>
         <h3 data-i18n="id">Al-Qur'an</h3>
         <h3 data-i18n="bn">কুরআন</h3>
+        <h3 data-i18n="ar">القرآن الكريم</h3>
+        <h3 data-i18n="fa">قرآن کریم</h3>
+        <h3 data-i18n="ur">قرآن کریم</h3>
         <p data-i18n="tr">Tüm sureleri okuyun ve dinleyin, hatim modu ile düzenli okuma alışkanlığı edinin.</p>
         <p data-i18n="en">Read and listen to every chapter, with khatm mode to build a steady habit.</p>
         <p data-i18n="id">Baca dan dengarkan setiap surah, dengan mode khatam untuk kebiasaan membaca.</p>
         <p data-i18n="bn">প্রতিটি সূরা পড়ুন এবং শুনুন, নিয়মিত পড়ার অভ্যাস গড়তে খতম মোড ব্যবহার করুন।</p>
+        <p data-i18n="ar">اقرأ واستمع إلى جميع السور، مع وضع الختمة لبناء عادة قراءة منتظمة.</p>
+        <p data-i18n="fa">همه سوره‌ها را بخوانید و گوش دهید، با حالت ختم قرآن عادت خواندن منظم بسازید.</p>
+        <p data-i18n="ur">تمام سورتیں پڑھیں اور سنیں، ختم قرآن موڈ کے ساتھ باقاعدہ پڑھنے کی عادت بنائیں۔</p>
       </div>
 
       <div class="feature-card">
@@ -312,10 +351,16 @@
         <h3 data-i18n="en">Dhikr Counter</h3>
         <h3 data-i18n="id">Penghitung Dzikir</h3>
         <h3 data-i18n="bn">জিকির কাউন্টার</h3>
+        <h3 data-i18n="ar">عداد الذكر</h3>
+        <h3 data-i18n="fa">شمارشگر ذکر</h3>
+        <h3 data-i18n="ur">ذکر کاؤنٹر</h3>
         <p data-i18n="tr">Günlük zikirlerinizi sayın, geçmişinizi ve hedeflerinizi takip edin.</p>
         <p data-i18n="en">Count your daily dhikr, and track your history and goals.</p>
         <p data-i18n="id">Hitung dzikir harian Anda, dan lacak riwayat serta target Anda.</p>
         <p data-i18n="bn">আপনার দৈনিক জিকির গণনা করুন, ইতিহাস ও লক্ষ্য ট্র্যাক করুন।</p>
+        <p data-i18n="ar">أحصِ أذكارك اليومية، وتتبّع سجلك وأهدافك.</p>
+        <p data-i18n="fa">ذکرهای روزانه خود را بشمارید و تاریخچه و اهداف خود را پیگیری کنید.</p>
+        <p data-i18n="ur">اپنے روزانہ کے اذکار شمار کریں، اور اپنی تاریخ اور اہداف کو ٹریک کریں۔</p>
       </div>
 
       <div class="feature-card">
@@ -324,10 +369,16 @@
         <h3 data-i18n="en">Kaaba Live Stream</h3>
         <h3 data-i18n="id">Siaran Langsung Ka'bah</h3>
         <h3 data-i18n="bn">কাবা লাইভ সম্প্রচার</h3>
+        <h3 data-i18n="ar">بث الكعبة المباشر</h3>
+        <h3 data-i18n="fa">پخش زنده کعبه</h3>
+        <h3 data-i18n="ur">کعبہ لائیو اسٹریم</h3>
         <p data-i18n="tr">Mekke ve Medine'den resmi canlı yayınlara anında erişin.</p>
         <p data-i18n="en">Instant access to the official live streams from Mecca and Medina.</p>
         <p data-i18n="id">Akses instan ke siaran langsung resmi dari Mekah dan Madinah.</p>
         <p data-i18n="bn">মক্কা ও মদিনা থেকে সরকারি লাইভ সম্প্রচারে তাৎক্ষণিক প্রবেশাধিকার।</p>
+        <p data-i18n="ar">وصول فوري إلى البث المباشر الرسمي من مكة والمدينة.</p>
+        <p data-i18n="fa">دسترسی فوری به پخش‌های زنده رسمی از مکه و مدینه.</p>
+        <p data-i18n="ur">مکہ اور مدینہ سے سرکاری لائیو نشریات تک فوری رسائی۔</p>
       </div>
 
       <div class="feature-card">
@@ -336,10 +387,16 @@
         <h3 data-i18n="en">Navigation</h3>
         <h3 data-i18n="id">Navigasi</h3>
         <h3 data-i18n="bn">নেভিগেশন</h3>
+        <h3 data-i18n="ar">الملاحة</h3>
+        <h3 data-i18n="fa">مسیریابی</h3>
+        <h3 data-i18n="ur">نیویگیشن</h3>
         <p data-i18n="tr">Yol alırken kıble yönünü canlı takip edin, en yakın camiye kolayca ulaşın.</p>
         <p data-i18n="en">Track the qibla direction live while you drive, and reach the nearest mosque.</p>
         <p data-i18n="id">Ikuti arah kiblat secara langsung saat berkendara, capai masjid terdekat.</p>
         <p data-i18n="bn">গাড়ি চালানোর সময় কিবলার দিক লাইভ ট্র্যাক করুন, নিকটতম মসজিদে পৌঁছান।</p>
+        <p data-i18n="ar">تتبّع اتجاه القبلة مباشرة أثناء القيادة، وصِل إلى أقرب مسجد بسهولة.</p>
+        <p data-i18n="fa">هنگام رانندگی جهت قبله را به‌صورت زنده دنبال کنید و به نزدیک‌ترین مسجد برسید.</p>
+        <p data-i18n="ur">گاڑی چلاتے ہوئے قبلہ کی سمت لائیو ٹریک کریں، اور قریب ترین مسجد تک آسانی سے پہنچیں۔</p>
       </div>
 
     </div>
@@ -353,10 +410,16 @@
       <h2 data-i18n="en">Hakyol Premium</h2>
       <h2 data-i18n="id">Hakyol Premium</h2>
       <h2 data-i18n="bn">Hakyol প্রিমিয়াম</h2>
+      <h2 data-i18n="ar">Hakyol بريميوم</h2>
+      <h2 data-i18n="fa">Hakyol پریمیوم</h2>
+      <h2 data-i18n="ur">Hakyol پریمیم</h2>
       <p data-i18n="tr">Namaz vakitleri her zaman ücretsiz. Kıble, Kur'an, zikirmatik, navigasyon ve Kâbe canlı yayını için 7 gün ücretsiz deneyin.</p>
       <p data-i18n="en">Prayer times are always free. Try Qibla, Qur'an, dhikr, navigation, and Kaaba live free for 7 days.</p>
       <p data-i18n="id">Waktu salat selalu gratis. Coba Kiblat, Al-Qur'an, dzikir, navigasi, dan Ka'bah langsung gratis 7 hari.</p>
       <p data-i18n="bn">নামাজের সময় সবসময় বিনামূল্যে। কিবলা, কুরআন, জিকির, নেভিগেশন ও কাবা লাইভ ৭ দিন বিনামূল্যে চেষ্টা করুন।</p>
+      <p data-i18n="ar">أوقات الصلاة مجانية دائمًا. جرّب القبلة والقرآن والذكر والملاحة وبث الكعبة المباشر مجانًا لمدة 7 أيام.</p>
+      <p data-i18n="fa">اوقات نماز همیشه رایگان است. قبله، قرآن، ذکر، مسیریابی و پخش زنده کعبه را ۷ روز رایگان امتحان کنید.</p>
+      <p data-i18n="ur">نماز کے اوقات ہمیشہ مفت ہیں۔ قبلہ، قرآن، ذکر، نیویگیشن اور کعبہ لائیو کو 7 دن مفت آزمائیں۔</p>
     </div>
     <div class="price-row">
       <div class="price-pill">
@@ -364,6 +427,9 @@
         <div class="period" data-i18n="en">Monthly</div>
         <div class="period" data-i18n="id">Bulanan</div>
         <div class="period" data-i18n="bn">মাসিক</div>
+        <div class="period" data-i18n="ar">شهري</div>
+        <div class="period" data-i18n="fa">ماهانه</div>
+        <div class="period" data-i18n="ur">ماہانہ</div>
         <div class="amount">₺29,99</div>
       </div>
       <div class="price-pill pop">
@@ -371,10 +437,16 @@
         <span class="pop-tag" data-i18n="en">Most Popular</span>
         <span class="pop-tag" data-i18n="id">Paling Populer</span>
         <span class="pop-tag" data-i18n="bn">সবচেয়ে জনপ্রিয়</span>
+        <span class="pop-tag" data-i18n="ar">الأكثر شيوعًا</span>
+        <span class="pop-tag" data-i18n="fa">محبوب‌ترین</span>
+        <span class="pop-tag" data-i18n="ur">سب سے مقبول</span>
         <div class="period" data-i18n="tr">Yıllık</div>
         <div class="period" data-i18n="en">Annual</div>
         <div class="period" data-i18n="id">Tahunan</div>
         <div class="period" data-i18n="bn">বার্ষিক</div>
+        <div class="period" data-i18n="ar">سنوي</div>
+        <div class="period" data-i18n="fa">سالانه</div>
+        <div class="period" data-i18n="ur">سالانہ</div>
         <div class="amount">₺299,99</div>
       </div>
     </div>
@@ -394,24 +466,36 @@
           <span data-i18n="en" class="inline">Privacy Policy</span>
           <span data-i18n="id" class="inline">Kebijakan Privasi</span>
           <span data-i18n="bn" class="inline">গোপনীয়তা নীতি</span>
+          <span data-i18n="ar" class="inline">سياسة الخصوصية</span>
+          <span data-i18n="fa" class="inline">سیاست حریم خصوصی</span>
+          <span data-i18n="ur" class="inline">پرائیویسی پالیسی</span>
         </a>
         <a href="kvkk-aydinlatma-metni.html">
           <span data-i18n="tr" class="inline">KVKK Aydınlatma Metni</span>
           <span data-i18n="en" class="inline">KVKK Disclosure Notice</span>
           <span data-i18n="id" class="inline">Pemberitahuan KVKK</span>
           <span data-i18n="bn" class="inline">KVKK প্রকাশ বিজ্ঞপ্তি</span>
+          <span data-i18n="ar" class="inline">إشعار الإفصاح KVKK</span>
+          <span data-i18n="fa" class="inline">اطلاعیه افشای KVKK</span>
+          <span data-i18n="ur" class="inline">KVKK انکشاف نوٹس</span>
         </a>
         <a href="terms.html">
           <span data-i18n="tr" class="inline">Kullanım Şartları</span>
           <span data-i18n="en" class="inline">Terms of Use</span>
           <span data-i18n="id" class="inline">Ketentuan Penggunaan</span>
           <span data-i18n="bn" class="inline">ব্যবহারের শর্তাবলী</span>
+          <span data-i18n="ar" class="inline">شروط الاستخدام</span>
+          <span data-i18n="fa" class="inline">شرایط استفاده</span>
+          <span data-i18n="ur" class="inline">شرائطِ استعمال</span>
         </a>
         <a href="user-guide.html">
           <span data-i18n="tr" class="inline">Kullanım Kılavuzu</span>
           <span data-i18n="en" class="inline">User Guide</span>
           <span data-i18n="id" class="inline">Panduan Pengguna</span>
           <span data-i18n="bn" class="inline">ব্যবহার নির্দেশিকা</span>
+          <span data-i18n="ar" class="inline">دليل الاستخدام</span>
+          <span data-i18n="fa" class="inline">راهنمای کاربر</span>
+          <span data-i18n="ur" class="inline">صارف رہنما</span>
         </a>
       </div>
     </div>
@@ -420,6 +504,9 @@
       <span data-i18n="en" class="inline">© 2026 3B Tech. All rights reserved.</span>
       <span data-i18n="id" class="inline">© 2026 3B Tech. Semua hak dilindungi.</span>
       <span data-i18n="bn" class="inline">© 2026 3B Tech. সর্বস্বত্ব সংরক্ষিত।</span>
+      <span data-i18n="ar" class="inline">© 2026 3B Tech. جميع الحقوق محفوظة.</span>
+      <span data-i18n="fa" class="inline">© 2026 3B Tech. تمامی حقوق محفوظ است.</span>
+      <span data-i18n="ur" class="inline">© 2026 3B Tech. جملہ حقوق محفوظ ہیں۔</span>
       <span class="contact">info@hakyol.app</span>
     </div>
   </div>
@@ -427,7 +514,8 @@
 
 <script>
 (function() {
-  var supported = ['tr', 'en', 'id', 'bn'];
+  var supported = ['tr', 'en', 'id', 'bn', 'ar', 'fa', 'ur'];
+  var rtlLangs = ['ar', 'fa', 'ur'];
   var saved = localStorage.getItem('hakyol_lang');
   var browserLang = (navigator.language || 'tr').slice(0, 2);
   var initial = supported.indexOf(saved) !== -1 ? saved : (supported.indexOf(browserLang) !== -1 ? browserLang : 'tr');
@@ -435,6 +523,7 @@
   function setLang(lang) {
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', rtlLangs.indexOf(lang) !== -1 ? 'rtl' : 'ltr');
     localStorage.setItem('hakyol_lang', lang);
     document.querySelectorAll('.lang-switch button').forEach(function(btn) {
       btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
