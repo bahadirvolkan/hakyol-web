@@ -79,14 +79,15 @@
   .brand img { width: 34px; height: 34px; border-radius: 9px; display: block; }
   .brand span { font-family: var(--serif); font-weight: 600; font-size: 20px; letter-spacing: 0.2px; }
 
-  .lang-switch { display: flex; gap: 4px; background: var(--card); border: 1px solid var(--card-border); border-radius: 999px; padding: 4px; }
+  .lang-switch { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; padding: 4px; max-width: 380px; }
   .lang-switch button {
     appearance: none; border: none; background: transparent; color: var(--text-soft);
-    font-family: var(--sans); font-size: 12.5px; font-weight: 700; letter-spacing: 0.4px;
-    padding: 7px 13px; border-radius: 999px; cursor: pointer; transition: all .18s ease;
+    font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: 0.2px;
+    padding: 6px 10px; border-radius: 999px; cursor: pointer; transition: all .18s ease; white-space: nowrap;
   }
   .lang-switch button.active { background: var(--gold); color: #241a04; }
   .lang-switch button:not(.active):hover { color: var(--text); }
+  @media (max-width: 640px) { .lang-switch { max-width: 220px; } .lang-switch button { font-size: 11px; padding: 5px 8px; } }
 
   /* ---------- Hero ---------- */
   header.hero { padding: 44px 0 48px; text-align: center; position: relative; }
@@ -227,13 +228,13 @@
       <span>Hakyol</span>
     </div>
     <div class="lang-switch" role="group" aria-label="Language">
-      <button data-set-lang="tr">TR</button>
-      <button data-set-lang="en">EN</button>
-      <button data-set-lang="id">ID</button>
-      <button data-set-lang="bn">বাং</button>
-      <button data-set-lang="ar">AR</button>
-      <button data-set-lang="fa">FA</button>
-      <button data-set-lang="ur">UR</button>
+      <button data-set-lang="tr">Türkçe</button>
+      <button data-set-lang="en">English</button>
+      <button data-set-lang="id">Indonesia</button>
+      <button data-set-lang="bn">বাংলা</button>
+      <button data-set-lang="ar">العربية</button>
+      <button data-set-lang="fa">فارسی</button>
+      <button data-set-lang="ur">اردو</button>
     </div>
   </div>
 </nav>
