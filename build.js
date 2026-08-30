@@ -22,6 +22,26 @@ const RTL = new Set(META.rtl);
 const APP_ID = "6794740149";
 const PKG = "com.bahadir.hakyol";
 
+const PW_CSS = `
+  .pw-wrap { padding: 8px 0 32px; }
+  #prayer-widget { background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 18px; padding: 22px 24px; max-width: 560px; margin: 0 auto; text-align: center; }
+  .pw-h { font-family: var(--serif); font-size: 20px; margin: 0 0 4px; color: var(--gold-text); }
+  .pw-city { margin: 0 0 16px; color: var(--text-soft); font-size: 14px; }
+  .pw-city strong { color: var(--text); }
+  .pw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pw-row { background: var(--gold-soft); border-radius: 12px; padding: 10px 6px; }
+  .pw-name { display: block; font-size: 12px; color: var(--text-faint); letter-spacing: .3px; }
+  .pw-time { display: block; font-family: var(--mono); font-size: 18px; color: var(--text); margin-top: 2px; }
+  .pw-disc { margin: 16px 0 0; font-size: 12px; line-height: 1.5; color: var(--text-faint); }
+  .pw-msg { color: var(--text-soft); font-size: 14px; margin: 4px 0 14px; }
+  .pw-btn { appearance: none; border: 1px solid var(--gold); background: var(--gold);
+    color: #241a04; font-family: var(--sans); font-weight: 700; font-size: 13px;
+    padding: 9px 18px; border-radius: 999px; cursor: pointer; }
+  @media (max-width: 480px) { .pw-grid { grid-template-columns: repeat(2, 1fr); }
+    #prayer-widget { padding: 18px 14px; } }
+`;
+
 // language -> output directory ("" = repo root)
 const outDir = (lang) => (lang === "tr" ? "" : lang);
 const urlFor = (lang) => (lang === "tr" ? `${SITE}/` : `${SITE}/${lang}/`);
@@ -183,6 +203,24 @@ function buildLang(lang) {
       st.set_content(st.innerHTML.replace(/\.lang-switch button/g, ".lang-switch a"));
     }
   });
+
+  // 9. today's prayer times widget — inject section after the hero, CSS + scripts
+  const header = root.querySelector("header.hero");
+  if (header) {
+    header.insertAdjacentHTML(
+      "afterend",
+      '\n<section class="pw-wrap"><div class="wrap"><div id="prayer-widget"></div></div></section>\n'
+    );
+  }
+  root.querySelectorAll("style").forEach((st) => {
+    if (st.innerHTML.includes(":root")) {
+      st.set_content(st.innerHTML + "\n" + PW_CSS);
+    }
+  });
+  root.querySelector("body").insertAdjacentHTML(
+    "beforeend",
+    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n'
+  );
 
   const dest = path.join(ROOT, outDir(lang), "index.html");
   fs.mkdirSync(path.dirname(dest), { recursive: true });
