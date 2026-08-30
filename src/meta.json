@@ -1,0 +1,55 @@
+{
+  "_note": "Per-language <head> metadata + UI strings for build.js. Titles ~55 char, descriptions ~150 char. Onay dosyası.",
+  "langs": ["tr", "en", "id", "bn", "ar", "fa", "ur"],
+  "rtl": ["ar", "fa", "ur"],
+  "ogLocale": {
+    "tr": "tr_TR", "en": "en_US", "id": "id_ID", "bn": "bn_BD",
+    "ar": "ar_SA", "fa": "fa_IR", "ur": "ur_PK"
+  },
+  "pages": {
+    "index": {
+      "tr": {
+        "title": "Hakyol — Namaz Vakti, Kıble ve Kur'an Uygulaması",
+        "description": "Namaz vakitleri, kıble yönü, Kur'an-ı Kerim, zikirmatik, Esma-ül Hüsna ve Kâbe canlı yayını tek uygulamada. iOS ve Android için ücretsiz indir."
+      },
+      "en": {
+        "title": "Hakyol — Prayer Times, Qibla & Quran App",
+        "description": "Prayer times, qibla direction, the Holy Quran, dhikr counter, the 99 Names of Allah and Kaaba live stream in one app. Free on iOS and Android."
+      },
+      "id": {
+        "title": "Hakyol — Aplikasi Waktu Salat, Kiblat & Al-Qur'an",
+        "description": "Jadwal salat, arah kiblat, Al-Qur'an, penghitung dzikir, Asmaul Husna dan siaran langsung Ka'bah dalam satu aplikasi. Gratis di iOS dan Android."
+      },
+      "bn": {
+        "title": "Hakyol — নামাজের সময়, কিবলা ও কুরআন অ্যাপ",
+        "description": "নামাজের সময়সূচি, কিবলার দিক, আল-কুরআন, জিকির কাউন্টার, আসমাউল হুসনা ও কাবা লাইভ এক অ্যাপে। iOS ও Android-এ বিনামূল্যে।"
+      },
+      "ar": {
+        "title": "حاكيول — تطبيق مواقيت الصلاة والقبلة والقرآن",
+        "description": "مواقيت الصلاة واتجاه القبلة والقرآن الكريم وعدّاد الذكر وأسماء الله الحسنى وبث الكعبة المباشر في تطبيق واحد. مجانًا على iOS وأندرويد."
+      },
+      "fa": {
+        "title": "حاکیول — برنامه اوقات نماز، قبله و قرآن",
+        "description": "اوقات نماز، جهت قبله، قرآن کریم، ذکرشمار، اسماءالحسنی و پخش زنده کعبه در یک برنامه. رایگان برای iOS و اندروید."
+      },
+      "ur": {
+        "title": "حاکیول — نماز کے اوقات، قبلہ اور قرآن ایپ",
+        "description": "نماز کے اوقات، قبلہ کی سمت، قرآن پاک، ذکر کاؤنٹر، اسماء الحسنیٰ اور کعبہ لائیو ایک ایپ میں۔ iOS اور اینڈرائیڈ پر مفت۔"
+      }
+    }
+  },
+  "badges": {
+    "tr": { "appstore_small": "İndir", "appstore_big": "App Store", "play_small": "İNDİR", "play_big": "Google Play" },
+    "en": { "appstore_small": "Download on the", "appstore_big": "App Store", "play_small": "GET IT ON", "play_big": "Google Play" },
+    "id": { "appstore_small": "Unduh di", "appstore_big": "App Store", "play_small": "DAPATKAN DI", "play_big": "Google Play" },
+    "bn": { "appstore_small": "ডাউনলোড করুন", "appstore_big": "App Store", "play_small": "ডাউনলোড করুন", "play_big": "Google Play" },
+    "ar": { "appstore_small": "متوفر على", "appstore_big": "App Store", "play_small": "احصل عليه من", "play_big": "Google Play" },
+    "fa": { "appstore_small": "دریافت از", "appstore_big": "App Store", "play_small": "دریافت از", "play_big": "Google Play" },
+    "ur": { "appstore_small": "ڈاؤن لوڈ کریں", "appstore_big": "App Store", "play_small": "حاصل کریں", "play_big": "Google Play" }
+  },
+  "aggregateRating": {
+    "_note": "Filled from the App Store via marketing/scripts by fetch-rating.js — do not hand-edit with fake values. null = omit the rating from JSON-LD.",
+    "ratingValue": null,
+    "ratingCount": null
+  }
+}

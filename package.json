@@ -1,0 +1,12 @@
+{
+  "name": "hakyol-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "hakyol.app landing page — build generates per-language static pages",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "node-html-parser": "^7.0.1"
+  }
+}

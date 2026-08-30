@@ -1,28 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hakyol.app/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/en/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/id/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/bn/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/ar/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/fa/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
+  </url>
+  <url>
+    <loc>https://hakyol.app/ur/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://hakyol.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hakyol.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://hakyol.app/id/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://hakyol.app/bn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://hakyol.app/ar/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://hakyol.app/fa/"/>
+    <xhtml:link rel="alternate" hreflang="ur" href="https://hakyol.app/ur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hakyol.app/"/>
   </url>
   <url>
     <loc>https://hakyol.app/user-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-08-30</lastmod>
   </url>
   <url>
     <loc>https://hakyol.app/terms.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-08-30</lastmod>
   </url>
   <url>
     <loc>https://hakyol.app/privacy-policy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-08-30</lastmod>
   </url>
   <url>
     <loc>https://hakyol.app/kvkk-aydinlatma-metni.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-08-30</lastmod>
   </url>
 </urlset>
