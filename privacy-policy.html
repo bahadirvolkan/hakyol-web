@@ -69,8 +69,10 @@
 
     <h2>Özet</h2>
     <p>
-      Hakyol hesap oluşturmanızı gerektirmez, herhangi bir analitik veya reklam SDK'sı
-      çalıştırmaz ve kişisel verilerinizi saklayan kendi sunucularını işletmez. Uygulama, temel
+      Hakyol hesap oluşturmanızı gerektirmez, reklam SDK'sı çalıştırmaz ve kişisel
+      verilerinizi saklayan kendi sunucularını işletmez. Yalnızca anonim, toplu
+      ürün-kullanım analitiği (PostHog) kullanır — hangi ekranların açıldığı gibi —
+      ürünü geliştirmek için; kişisel veri veya konum gönderilmez. Uygulama, temel
       özelliklerini çalıştırmak için cihaz konumunuzu kullanır ve bunu yapmak için az sayıda
       üçüncü taraf API'sini sorgular — her biri aşağıda, tam olarak ne gönderildiği ve neden
       gönderildiği ile birlikte listelenmiştir.
@@ -161,7 +163,13 @@
     </p>
 
     <h2>Analitik ve Reklam</h2>
-    <p>Uygulama herhangi bir analitik, takip veya reklam SDK'sı entegre etmez.</p>
+    <p>
+      Uygulama reklam veya takip SDK'sı entegre etmez. Ürünü geliştirmek için
+      anonim ürün-kullanım analitiği (PostHog, AB sunucuları) kullanır: hangi
+      ekranların/özelliklerin açıldığı, abonelik ekranının görülüp görülmediği
+      gibi olaylar. Ad, e-posta, konum veya kişisel tanımlayıcı gönderilmez;
+      olaylar yalnızca rastgele bir cihaz kimliğiyle ilişkilendirilir.
+    </p>
 
     <h2>Çocukların Gizliliği</h2>
     <p>Uygulama, 13 yaşın altındaki çocuklardan bilerek kişisel bilgi toplamaz.</p>
@@ -195,8 +203,10 @@
 
     <h2>Summary</h2>
     <p>
-      Hakyol does not require an account, does not run analytics or advertising SDKs, and does not
-      operate its own servers that store your personal data. The App does use your device location
+      Hakyol does not require an account, does not run advertising SDKs, and does not
+      operate its own servers that store your personal data. It uses anonymous,
+      aggregate product-usage analytics (PostHog) — such as which screens are
+      opened — to improve the app; no personal data or location is sent. The App does use your device location
       to power its core features, and it queries a small number of third-party APIs to do so — each
       is listed below with exactly what is sent and why.
     </p>
@@ -286,7 +296,13 @@
     </p>
 
     <h2>Analytics &amp; Advertising</h2>
-    <p>The App does not integrate any analytics, tracking, or advertising SDKs.</p>
+    <p>
+      The App integrates no advertising or tracking SDKs. It uses anonymous
+      product-usage analytics (PostHog, EU servers) to improve the product:
+      events such as which screens or features are opened and whether the
+      subscription screen was shown. No name, email, location, or personal
+      identifier is sent; events are tied only to a random device id.
+    </p>
 
     <h2>Children's Privacy</h2>
     <p>The App does not knowingly collect personal information from children under 13.</p>
