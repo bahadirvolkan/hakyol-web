@@ -180,6 +180,14 @@
   }
   .price-pill .period { font-size: 11px; color: var(--text-faint); font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; }
   .price-pill .amount { font-family: var(--mono); font-size: 22px; font-weight: 500; margin-top: 6px; }
+  .price-note { max-width: 340px; }
+  .price-note p { font-size: 13.5px; color: var(--text-faint); margin: 0 0 12px; line-height: 1.5; }
+  .price-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .price-cta a {
+    display: inline-block; padding: 8px 16px; border: 1px solid var(--card-border-strong);
+    border-radius: 10px; font-size: 13.5px; font-weight: 700; color: var(--text);
+  }
+  .price-cta a:hover { border-color: var(--gold); text-decoration: none; }
 
   /* ---------- Footer ---------- */
   footer { padding: 56px 0 40px; }
@@ -474,8 +482,6 @@
         
         
         
-        
-        
       </div>
       <div class="price-pill pop">
         <span class="pop-tag" data-i18n="tr">En Popüler</span>
@@ -497,10 +503,10 @@
         
         
         
-        
-        
       </div>
     </div>
+    
+    
   </div>
 </section>
 

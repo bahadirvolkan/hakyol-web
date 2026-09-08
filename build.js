@@ -113,6 +113,15 @@ function buildLang(lang) {
     if (el.getAttribute("data-i18n") !== lang) el.remove();
   });
 
+  // 1b. Gulf / Iran: no single price fits the region (SAR/AED/QAR/USD/JOD/EGP),
+  // so drop the fixed price grid and keep the "check the store" note instead.
+  if (lang === "ar" || lang === "fa") {
+    const pr = root.querySelector(".price-row");
+    if (pr) pr.remove();
+  } else {
+    root.querySelectorAll(".price-note").forEach((n) => n.remove());
+  }
+
   // 2. rebuild <head> meta
   const p = META.pages.index[lang];
   head.querySelector("title") &&
