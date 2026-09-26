@@ -1,5 +1,5 @@
 {
-  "free": ["PrayerTimes", "Qibla", "Takvam", "Zikirmatik", "EsmaulHusna", "KaabaLive", "Radio", "QuranRead"],
+  "free": ["PrayerTimes", "Qibla", "Takvam", "Zikirmatik", "EsmaulHusna"],
   "onboardingPaywall": false,
-  "softPaywallAfterOpens": 3
+  "softPaywallEveryNFreeNavigations": 3
 }
