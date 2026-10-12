@@ -1,5 +1,15 @@
 {
-  "free": ["PrayerTimes", "Qibla", "Takvam", "Zikirmatik", "EsmaulHusna"],
+  "free": [
+    "PrayerTimes",
+    "Qibla",
+    "Takvam",
+    "Zikirmatik",
+    "EsmaulHusna"
+  ],
   "onboardingPaywall": false,
-  "softPaywallEveryNFreeNavigations": 3
+  "softPaywallEveryNFreeNavigations": 3,
+  "minBuild": {
+    "ios": 0,
+    "android": 0
+  }
 }
