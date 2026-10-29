@@ -10,7 +10,7 @@
   "onboardingPaywall": false,
   "softPaywallEveryNFreeNavigations": 3,
   "minBuild": {
-    "ios": 12,
-    "android": 57
+    "ios": 14,
+    "android": 59
   }
 }
