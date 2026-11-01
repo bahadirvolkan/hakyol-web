@@ -11,6 +11,15 @@
   "softPaywallEveryNFreeNavigations": 3,
   "minBuild": {
     "ios": 14,
-    "android": 59
+    "android": 60
+  },
+  "monetization": {
+    "ios": "subscription",
+    "android": "ads"
+  },
+  "ads": {
+    "firstDelaySec": 60,
+    "minIntervalSec": 150,
+    "noAdFeatures": ["QuranRead", "QuranOffline", "Qibla", "EsmaulHusna"]
   }
 }
