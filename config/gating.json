@@ -14,7 +14,7 @@
     "android": 60
   },
   "monetization": {
-    "ios": "subscription",
+    "ios": "ads",
     "android": "ads"
   },
   "ads": {
