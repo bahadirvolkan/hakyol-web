@@ -221,7 +221,7 @@ function buildLang(lang) {
   });
   root.querySelector("body").insertAdjacentHTML(
     "beforeend",
-    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n<script src="/js/app-popup.js" defer></script>\n'
+    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n<script src="/js/analytics.js" defer></script>\n<script src="/js/app-popup.js" defer></script>\n'
   );
 
   const dest = path.join(ROOT, outDir(lang), "index.html");

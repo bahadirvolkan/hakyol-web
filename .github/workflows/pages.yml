@@ -41,8 +41,10 @@ jobs:
         run: node scripts/fetch-vakitler.js --only-missing
 
       - name: Vakit verisini commit'le
+        id: data
         run: |
           if ! git diff --quiet -- data/vakitler.json; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             git config user.name "hakyol-bot"
             git config user.email "info@hakyol.app"
             git add data/vakitler.json
@@ -61,3 +63,9 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      # Bing/Yandex'e bildirim: push'ta ve haftalık vakit yenilemesinde (her gece değil — spam sayılmasın).
+      - name: IndexNow
+        if: github.event_name != 'schedule' || steps.data.outputs.changed == 'true'
+        continue-on-error: true
+        run: node scripts/indexnow.js

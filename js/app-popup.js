@@ -64,6 +64,7 @@
       '<button class="hk-x" type="button">' + T.x + "</button>";
     document.body.appendChild(box);
     requestAnimationFrame(function () { box.classList.add("in"); });
+    if (window.hakyolTrack) window.hakyolTrack("popup_shown", { platform: ios ? "ios" : android ? "android" : "desktop" });
     function hide() {
       try { localStorage.setItem(KEY, String(Date.now() + HIDE_MS)); } catch (e) {}
       box.classList.remove("in");

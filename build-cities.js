@@ -334,6 +334,7 @@ ${body}
 <p class="disc">Vakitler Diyanet İşleri Başkanlığı verisine dayanır. Resmî kaynak namazvakti.diyanet.gov.tr'dir. © 2026 3B Tech.</p>
 </div></footer>
 <script>${CLIENT_JS}</script>
+<script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 </body>
 </html>
