@@ -68,4 +68,4 @@ jobs:
       - name: IndexNow
         if: github.event_name != 'schedule' || steps.data.outputs.changed == 'true'
         continue-on-error: true
-        run: node scripts/indexnow.js
+        run: sleep 60 && node scripts/indexnow.js # yeni yayının anahtar dosyası görünsün
