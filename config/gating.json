@@ -20,10 +20,7 @@
   "ads": {
     "firstDelaySec": 20,
     "minIntervalSec": 60,
-    "noAdFeatures": [
-      "QuranRead",
-      "QuranOffline"
-    ],
+    "noAdFeatures": [],
     "removeAdsPromptEveryNAds": 1,
     "removeAdsPromptMinHours": 1
   }
