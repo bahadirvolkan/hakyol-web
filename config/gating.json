@@ -18,8 +18,11 @@
     "android": "ads"
   },
   "ads": {
-    "firstDelaySec": 60,
-    "minIntervalSec": 150,
-    "noAdFeatures": ["QuranRead", "QuranOffline", "Qibla", "EsmaulHusna"]
+    "firstDelaySec": 30,
+    "minIntervalSec": 90,
+    "noAdFeatures": [
+      "QuranRead",
+      "QuranOffline"
+    ]
   }
 }
