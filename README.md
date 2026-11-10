@@ -17,7 +17,7 @@ Qur'an app for iOS and Android, available in 7 languages
 - Dhikr counter, the 99 Names of Allah (Esma-ül Hüsna)
 - Live streams of the Kaaba and the Prophet's Mosque
 - Hakyol Radio, Hijri calendar
-- No ads
+- Free with ads; a one-time purchase removes ads (no subscription)
 
 ## This repo
 

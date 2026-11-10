@@ -1,0 +1,4867 @@
+[
+{
+"il": "Adana",
+"ilce": "Aladağ",
+"nufus": 15839
+},
+{
+"il": "Adana",
+"ilce": "Ceyhan",
+"nufus": 156081
+},
+{
+"il": "Adana",
+"ilce": "Çukurova",
+"nufus": 380653
+},
+{
+"il": "Adana",
+"ilce": "Feke",
+"nufus": 15586
+},
+{
+"il": "Adana",
+"ilce": "İmamoğlu",
+"nufus": 27196
+},
+{
+"il": "Adana",
+"ilce": "Karaisalı",
+"nufus": 22872
+},
+{
+"il": "Adana",
+"ilce": "Karataş",
+"nufus": 24005
+},
+{
+"il": "Adana",
+"ilce": "Kozan",
+"nufus": 132572
+},
+{
+"il": "Adana",
+"ilce": "Pozantı",
+"nufus": 19983
+},
+{
+"il": "Adana",
+"ilce": "Saimbeyli",
+"nufus": 13133
+},
+{
+"il": "Adana",
+"ilce": "Sarıçam",
+"nufus": 263080
+},
+{
+"il": "Adana",
+"ilce": "Seyhan",
+"nufus": 782204
+},
+{
+"il": "Adana",
+"ilce": "Tufanbeyli",
+"nufus": 16027
+},
+{
+"il": "Adana",
+"ilce": "Yumurtalık",
+"nufus": 17806
+},
+{
+"il": "Adana",
+"ilce": "Yüreğir",
+"nufus": 396572
+},
+{
+"il": "Adıyaman",
+"ilce": "Adıyaman",
+"nufus": 296876
+},
+{
+"il": "Adıyaman",
+"ilce": "Besni",
+"nufus": 75398
+},
+{
+"il": "Adıyaman",
+"ilce": "Çelikhan",
+"nufus": 14530
+},
+{
+"il": "Adıyaman",
+"ilce": "Gerger",
+"nufus": 14497
+},
+{
+"il": "Adıyaman",
+"ilce": "Gölbaşı",
+"nufus": 47917
+},
+{
+"il": "Adıyaman",
+"ilce": "Kâhta",
+"nufus": 136769
+},
+{
+"il": "Adıyaman",
+"ilce": "Samsat",
+"nufus": 6834
+},
+{
+"il": "Adıyaman",
+"ilce": "Sincik",
+"nufus": 15801
+},
+{
+"il": "Adıyaman",
+"ilce": "Tut",
+"nufus": 9199
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Afyonkarahisar",
+"nufus": 331982
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Başmakçı",
+"nufus": 9089
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Bayat",
+"nufus": 7580
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Bolvadin",
+"nufus": 45906
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Çay",
+"nufus": 29140
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Çobanlar",
+"nufus": 14457
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Dazkırı",
+"nufus": 11723
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Dinar",
+"nufus": 46878
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Emirdağ",
+"nufus": 43350
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Evciler",
+"nufus": 7038
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Hocalar",
+"nufus": 8220
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "İhsaniye",
+"nufus": 27636
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "İscehisar",
+"nufus": 25220
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Kızılören",
+"nufus": 1977
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Sandıklı",
+"nufus": 54376
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Sinanpaşa",
+"nufus": 38292
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Sultandağı",
+"nufus": 13641
+},
+{
+"il": "Afyonkarahisar",
+"ilce": "Şuhut",
+"nufus": 35303
+},
+{
+"il": "Ağrı",
+"ilce": "Ağrı",
+"nufus": 150035
+},
+{
+"il": "Ağrı",
+"ilce": "Diyadin",
+"nufus": 35439
+},
+{
+"il": "Ağrı",
+"ilce": "Doğubayazıt",
+"nufus": 113699
+},
+{
+"il": "Ağrı",
+"ilce": "Eleşkirt",
+"nufus": 28661
+},
+{
+"il": "Ağrı",
+"ilce": "Hamur",
+"nufus": 14336
+},
+{
+"il": "Ağrı",
+"ilce": "Patnos",
+"nufus": 105968
+},
+{
+"il": "Ağrı",
+"ilce": "Taşlıçay",
+"nufus": 17431
+},
+{
+"il": "Ağrı",
+"ilce": "Tutak",
+"nufus": 25920
+},
+{
+"il": "Aksaray",
+"ilce": "Ağaçören",
+"nufus": 7480
+},
+{
+"il": "Aksaray",
+"ilce": "Aksaray",
+"nufus": 327575
+},
+{
+"il": "Aksaray",
+"ilce": "Eskil",
+"nufus": 27946
+},
+{
+"il": "Aksaray",
+"ilce": "Gülağaç",
+"nufus": 19099
+},
+{
+"il": "Aksaray",
+"ilce": "Güzelyurt",
+"nufus": 10419
+},
+{
+"il": "Aksaray",
+"ilce": "Ortaköy",
+"nufus": 31089
+},
+{
+"il": "Aksaray",
+"ilce": "Sarıyahşi",
+"nufus": 4717
+},
+{
+"il": "Aksaray",
+"ilce": "Sultanhanı",
+"nufus": 12811
+},
+{
+"il": "Amasya",
+"ilce": "Amasya",
+"nufus": 151433
+},
+{
+"il": "Amasya",
+"ilce": "Göynücek",
+"nufus": 10823
+},
+{
+"il": "Amasya",
+"ilce": "Gümüşhacıköy",
+"nufus": 22319
+},
+{
+"il": "Amasya",
+"ilce": "Hamamözü",
+"nufus": 3628
+},
+{
+"il": "Amasya",
+"ilce": "Merzifon",
+"nufus": 77077
+},
+{
+"il": "Amasya",
+"ilce": "Suluova",
+"nufus": 46928
+},
+{
+"il": "Amasya",
+"ilce": "Taşova",
+"nufus": 30034
+},
+{
+"il": "Ankara",
+"ilce": "Akyurt",
+"nufus": 46956
+},
+{
+"il": "Ankara",
+"ilce": "Altındağ",
+"nufus": 418072
+},
+{
+"il": "Ankara",
+"ilce": "Ayaş",
+"nufus": 13136
+},
+{
+"il": "Ankara",
+"ilce": "Balâ",
+"nufus": 20109
+},
+{
+"il": "Ankara",
+"ilce": "Beypazarı",
+"nufus": 48359
+},
+{
+"il": "Ankara",
+"ilce": "Çamlıdere",
+"nufus": 10203
+},
+{
+"il": "Ankara",
+"ilce": "Çankaya",
+"nufus": 952198
+},
+{
+"il": "Ankara",
+"ilce": "Çubuk",
+"nufus": 101437
+},
+{
+"il": "Ankara",
+"ilce": "Elmadağ",
+"nufus": 45644
+},
+{
+"il": "Ankara",
+"ilce": "Etimesgut",
+"nufus": 632458
+},
+{
+"il": "Ankara",
+"ilce": "Evren",
+"nufus": 2927
+},
+{
+"il": "Ankara",
+"ilce": "Gölbaşı",
+"nufus": 172810
+},
+{
+"il": "Ankara",
+"ilce": "Güdül",
+"nufus": 8028
+},
+{
+"il": "Ankara",
+"ilce": "Haymana",
+"nufus": 25798
+},
+{
+"il": "Ankara",
+"ilce": "Kahramankazan",
+"nufus": 63134
+},
+{
+"il": "Ankara",
+"ilce": "Kalecik",
+"nufus": 12564
+},
+{
+"il": "Ankara",
+"ilce": "Keçiören",
+"nufus": 931722
+},
+{
+"il": "Ankara",
+"ilce": "Kızılcahamam",
+"nufus": 27841
+},
+{
+"il": "Ankara",
+"ilce": "Mamak",
+"nufus": 690329
+},
+{
+"il": "Ankara",
+"ilce": "Nallıhan",
+"nufus": 26083
+},
+{
+"il": "Ankara",
+"ilce": "Polatlı",
+"nufus": 131894
+},
+{
+"il": "Ankara",
+"ilce": "Pursaklar",
+"nufus": 168881
+},
+{
+"il": "Ankara",
+"ilce": "Sincan",
+"nufus": 605366
+},
+{
+"il": "Ankara",
+"ilce": "Şereflikoçhisar",
+"nufus": 32831
+},
+{
+"il": "Ankara",
+"ilce": "Yenimahalle",
+"nufus": 721531
+},
+{
+"il": "Antalya",
+"ilce": "Akseki",
+"nufus": 10609
+},
+{
+"il": "Antalya",
+"ilce": "Aksu",
+"nufus": 87070
+},
+{
+"il": "Antalya",
+"ilce": "Alanya",
+"nufus": 371547
+},
+{
+"il": "Antalya",
+"ilce": "Demre",
+"nufus": 28075
+},
+{
+"il": "Antalya",
+"ilce": "Döşemealtı",
+"nufus": 97121
+},
+{
+"il": "Antalya",
+"ilce": "Elmalı",
+"nufus": 41550
+},
+{
+"il": "Antalya",
+"ilce": "Finike",
+"nufus": 52436
+},
+{
+"il": "Antalya",
+"ilce": "Gazipaşa",
+"nufus": 55850
+},
+{
+"il": "Antalya",
+"ilce": "Gündoğmuş",
+"nufus": 6953
+},
+{
+"il": "Antalya",
+"ilce": "İbradı",
+"nufus": 3256
+},
+{
+"il": "Antalya",
+"ilce": "Kaş",
+"nufus": 63957
+},
+{
+"il": "Antalya",
+"ilce": "Kemer",
+"nufus": 52339
+},
+{
+"il": "Antalya",
+"ilce": "Kepez",
+"nufus": 649102
+},
+{
+"il": "Antalya",
+"ilce": "Konyaaltı",
+"nufus": 199414
+},
+{
+"il": "Antalya",
+"ilce": "Korkuteli",
+"nufus": 58381
+},
+{
+"il": "Antalya",
+"ilce": "Kumluca",
+"nufus": 75588
+},
+{
+"il": "Antalya",
+"ilce": "Manavgat",
+"nufus": 266480
+},
+{
+"il": "Antalya",
+"ilce": "Muratpaşa",
+"nufus": 510887
+},
+{
+"il": "Antalya",
+"ilce": "Serik",
+"nufus": 147062
+},
+{
+"il": "Ardahan",
+"ilce": "Ardahan",
+"nufus": 42136
+},
+{
+"il": "Ardahan",
+"ilce": "Çıldır",
+"nufus": 8048
+},
+{
+"il": "Ardahan",
+"ilce": "Damal",
+"nufus": 4526
+},
+{
+"il": "Ardahan",
+"ilce": "Göle",
+"nufus": 22038
+},
+{
+"il": "Ardahan",
+"ilce": "Hanak",
+"nufus": 7668
+},
+{
+"il": "Ardahan",
+"ilce": "Posof",
+"nufus": 5976
+},
+{
+"il": "Artvin",
+"ilce": "Ardanuç",
+"nufus": 10889
+},
+{
+"il": "Artvin",
+"ilce": "Arhavi",
+"nufus": 22025
+},
+{
+"il": "Artvin",
+"ilce": "Artvin",
+"nufus": 35710
+},
+{
+"il": "Artvin",
+"ilce": "Borçka",
+"nufus": 21628
+},
+{
+"il": "Artvin",
+"ilce": "Hopa",
+"nufus": 27844
+},
+{
+"il": "Artvin",
+"ilce": "Kemalpaşa",
+"nufus": 9263
+},
+{
+"il": "Artvin",
+"ilce": "Murgul",
+"nufus": 6457
+},
+{
+"il": "Artvin",
+"ilce": "Şavşat",
+"nufus": 16151
+},
+{
+"il": "Artvin",
+"ilce": "Yusufeli",
+"nufus": 17564
+},
+{
+"il": "Aydın",
+"ilce": "Bozdoğan",
+"nufus": 31624
+},
+{
+"il": "Aydın",
+"ilce": "Buharkent",
+"nufus": 13137
+},
+{
+"il": "Aydın",
+"ilce": "Çine",
+"nufus": 47906
+},
+{
+"il": "Aydın",
+"ilce": "Didim",
+"nufus": 103141
+},
+{
+"il": "Aydın",
+"ilce": "Efeler",
+"nufus": 310241
+},
+{
+"il": "Aydın",
+"ilce": "Germencik",
+"nufus": 44697
+},
+{
+"il": "Aydın",
+"ilce": "İncirliova",
+"nufus": 58230
+},
+{
+"il": "Aydın",
+"ilce": "Karacasu",
+"nufus": 17225
+},
+{
+"il": "Aydın",
+"ilce": "Karpuzlu",
+"nufus": 10352
+},
+{
+"il": "Aydın",
+"ilce": "Koçarlı",
+"nufus": 22234
+},
+{
+"il": "Aydın",
+"ilce": "Köşk",
+"nufus": 28307
+},
+{
+"il": "Aydın",
+"ilce": "Kuşadası",
+"nufus": 141431
+},
+{
+"il": "Aydın",
+"ilce": "Kuyucak",
+"nufus": 26196
+},
+{
+"il": "Aydın",
+"ilce": "Nazilli",
+"nufus": 162156
+},
+{
+"il": "Aydın",
+"ilce": "Söke",
+"nufus": 123843
+},
+{
+"il": "Aydın",
+"ilce": "Sultanhisar",
+"nufus": 19791
+},
+{
+"il": "Aydın",
+"ilce": "Yenipazar",
+"nufus": 11596
+},
+{
+"il": "Balıkesir",
+"ilce": "Altıeylül",
+"nufus": 188858
+},
+{
+"il": "Balıkesir",
+"ilce": "Ayvalık",
+"nufus": 75815
+},
+{
+"il": "Balıkesir",
+"ilce": "Balya",
+"nufus": 12296
+},
+{
+"il": "Balıkesir",
+"ilce": "Bandırma",
+"nufus": 169476
+},
+{
+"il": "Balıkesir",
+"ilce": "Bigadiç",
+"nufus": 49275
+},
+{
+"il": "Balıkesir",
+"ilce": "Burhaniye",
+"nufus": 68370
+},
+{
+"il": "Balıkesir",
+"ilce": "Dursunbey",
+"nufus": 32168
+},
+{
+"il": "Balıkesir",
+"ilce": "Edremit",
+"nufus": 176251
+},
+{
+"il": "Balıkesir",
+"ilce": "Erdek",
+"nufus": 32080
+},
+{
+"il": "Balıkesir",
+"ilce": "Gömeç",
+"nufus": 19020
+},
+{
+"il": "Balıkesir",
+"ilce": "Gönen",
+"nufus": 75730
+},
+{
+"il": "Balıkesir",
+"ilce": "Havran",
+"nufus": 28152
+},
+{
+"il": "Balıkesir",
+"ilce": "İvrindi",
+"nufus": 31295
+},
+{
+"il": "Balıkesir",
+"ilce": "Karesi",
+"nufus": 189444
+},
+{
+"il": "Balıkesir",
+"ilce": "Kepsut",
+"nufus": 21386
+},
+{
+"il": "Balıkesir",
+"ilce": "Manyas",
+"nufus": 17650
+},
+{
+"il": "Balıkesir",
+"ilce": "Marmara",
+"nufus": 11827
+},
+{
+"il": "Balıkesir",
+"ilce": "Savaştepe",
+"nufus": 16266
+},
+{
+"il": "Balıkesir",
+"ilce": "Sındırgı",
+"nufus": 31482
+},
+{
+"il": "Balıkesir",
+"ilce": "Susurluk",
+"nufus": 37676
+},
+{
+"il": "Bartın",
+"ilce": "Amasra",
+"nufus": 13705
+},
+{
+"il": "Bartın",
+"ilce": "Bartın",
+"nufus": 163766
+},
+{
+"il": "Bartın",
+"ilce": "Kurucaşile",
+"nufus": 6316
+},
+{
+"il": "Bartın",
+"ilce": "Ulus",
+"nufus": 22876
+},
+{
+"il": "Batman",
+"ilce": "Batman",
+"nufus": 517785
+},
+{
+"il": "Batman",
+"ilce": "Beşiri",
+"nufus": 31864
+},
+{
+"il": "Batman",
+"ilce": "Gercüş",
+"nufus": 18894
+},
+{
+"il": "Batman",
+"ilce": "Hasankeyf",
+"nufus": 7152
+},
+{
+"il": "Batman",
+"ilce": "Kozluk",
+"nufus": 58781
+},
+{
+"il": "Batman",
+"ilce": "Sason",
+"nufus": 28150
+},
+{
+"il": "Bayburt",
+"ilce": "Aydıntepe",
+"nufus": 5982
+},
+{
+"il": "Bayburt",
+"ilce": "Bayburt",
+"nufus": 68715
+},
+{
+"il": "Bayburt",
+"ilce": "Demirözü",
+"nufus": 8139
+},
+{
+"il": "Bilecik",
+"ilce": "Bilecik",
+"nufus": 82863
+},
+{
+"il": "Bilecik",
+"ilce": "Bozüyük",
+"nufus": 81332
+},
+{
+"il": "Bilecik",
+"ilce": "Gölpazarı",
+"nufus": 10049
+},
+{
+"il": "Bilecik",
+"ilce": "İnhisar",
+"nufus": 2079
+},
+{
+"il": "Bilecik",
+"ilce": "Osmaneli",
+"nufus": 22025
+},
+{
+"il": "Bilecik",
+"ilce": "Pazaryeri",
+"nufus": 9671
+},
+{
+"il": "Bilecik",
+"ilce": "Söğüt",
+"nufus": 18284
+},
+{
+"il": "Bilecik",
+"ilce": "Yenipazar",
+"nufus": 2692
+},
+{
+"il": "Bingöl",
+"ilce": "Adaklı",
+"nufus": 7491
+},
+{
+"il": "Bingöl",
+"ilce": "Bingöl",
+"nufus": 175438
+},
+{
+"il": "Bingöl",
+"ilce": "Genç",
+"nufus": 31654
+},
+{
+"il": "Bingöl",
+"ilce": "Karlıova",
+"nufus": 25265
+},
+{
+"il": "Bingöl",
+"ilce": "Kiğı",
+"nufus": 4487
+},
+{
+"il": "Bingöl",
+"ilce": "Solhan",
+"nufus": 33233
+},
+{
+"il": "Bingöl",
+"ilce": "Yayladere",
+"nufus": 1889
+},
+{
+"il": "Bingöl",
+"ilce": "Yedisu",
+"nufus": 2842
+},
+{
+"il": "Bitlis",
+"ilce": "Adilcevaz",
+"nufus": 28769
+},
+{
+"il": "Bitlis",
+"ilce": "Ahlat",
+"nufus": 45637
+},
+{
+"il": "Bitlis",
+"ilce": "Bitlis",
+"nufus": 74904
+},
+{
+"il": "Bitlis",
+"ilce": "Güroymak",
+"nufus": 49372
+},
+{
+"il": "Bitlis",
+"ilce": "Hizan",
+"nufus": 29948
+},
+{
+"il": "Bitlis",
+"ilce": "Mutki",
+"nufus": 26748
+},
+{
+"il": "Bitlis",
+"ilce": "Tatvan",
+"nufus": 105045
+},
+{
+"il": "Bolu",
+"ilce": "Bolu",
+"nufus": 222589
+},
+{
+"il": "Bolu",
+"ilce": "Dörtdivan",
+"nufus": 6214
+},
+{
+"il": "Bolu",
+"ilce": "Gerede",
+"nufus": 37196
+},
+{
+"il": "Bolu",
+"ilce": "Göynük",
+"nufus": 14257
+},
+{
+"il": "Bolu",
+"ilce": "Kıbrıscık",
+"nufus": 3783
+},
+{
+"il": "Bolu",
+"ilce": "Mengen",
+"nufus": 14152
+},
+{
+"il": "Bolu",
+"ilce": "Mudurnu",
+"nufus": 18101
+},
+{
+"il": "Bolu",
+"ilce": "Seben",
+"nufus": 4438
+},
+{
+"il": "Bolu",
+"ilce": "Yeniçağa",
+"nufus": 6443
+},
+{
+"il": "Burdur",
+"ilce": "Ağlasun",
+"nufus": 7347
+},
+{
+"il": "Burdur",
+"ilce": "Altınyayla",
+"nufus": 5060
+},
+{
+"il": "Burdur",
+"ilce": "Bucak",
+"nufus": 68312
+},
+{
+"il": "Burdur",
+"ilce": "Burdur",
+"nufus": 120832
+},
+{
+"il": "Burdur",
+"ilce": "Çavdır",
+"nufus": 12539
+},
+{
+"il": "Burdur",
+"ilce": "Çeltikçi",
+"nufus": 4914
+},
+{
+"il": "Burdur",
+"ilce": "Gölhisar",
+"nufus": 23969
+},
+{
+"il": "Burdur",
+"ilce": "Karamanlı",
+"nufus": 8097
+},
+{
+"il": "Burdur",
+"ilce": "Kemer",
+"nufus": 2727
+},
+{
+"il": "Burdur",
+"ilce": "Tefenni",
+"nufus": 9514
+},
+{
+"il": "Burdur",
+"ilce": "Yeşilova",
+"nufus": 13915
+},
+{
+"il": "Bursa",
+"ilce": "Büyükorhan",
+"nufus": 9148
+},
+{
+"il": "Bursa",
+"ilce": "Gemlik",
+"nufus": 124400
+},
+{
+"il": "Bursa",
+"ilce": "Gürsu",
+"nufus": 105799
+},
+{
+"il": "Bursa",
+"ilce": "Harmancık",
+"nufus": 6089
+},
+{
+"il": "Bursa",
+"ilce": "İnegöl",
+"nufus": 306004
+},
+{
+"il": "Bursa",
+"ilce": "İznik",
+"nufus": 45510
+},
+{
+"il": "Bursa",
+"ilce": "Karacabey",
+"nufus": 86543
+},
+{
+"il": "Bursa",
+"ilce": "Keles",
+"nufus": 10939
+},
+{
+"il": "Bursa",
+"ilce": "Kestel",
+"nufus": 77374
+},
+{
+"il": "Bursa",
+"ilce": "Mudanya",
+"nufus": 112225
+},
+{
+"il": "Bursa",
+"ilce": "Mustafakemalpaşa",
+"nufus": 103652
+},
+{
+"il": "Bursa",
+"ilce": "Nilüfer",
+"nufus": 578059
+},
+{
+"il": "Bursa",
+"ilce": "Orhaneli",
+"nufus": 18963
+},
+{
+"il": "Bursa",
+"ilce": "Orhangazi",
+"nufus": 81997
+},
+{
+"il": "Bursa",
+"ilce": "Osmangazi",
+"nufus": 886111
+},
+{
+"il": "Bursa",
+"ilce": "Yenişehir",
+"nufus": 55609
+},
+{
+"il": "Bursa",
+"ilce": "Yıldırım",
+"nufus": 654589
+},
+{
+"il": "Çanakkale",
+"ilce": "Ayvacık",
+"nufus": 35411
+},
+{
+"il": "Çanakkale",
+"ilce": "Bayramiç",
+"nufus": 28480
+},
+{
+"il": "Çanakkale",
+"ilce": "Biga",
+"nufus": 94526
+},
+{
+"il": "Çanakkale",
+"ilce": "Bozcaada",
+"nufus": 3384
+},
+{
+"il": "Çanakkale",
+"ilce": "Çan",
+"nufus": 46612
+},
+{
+"il": "Çanakkale",
+"ilce": "Çanakkale",
+"nufus": 208613
+},
+{
+"il": "Çanakkale",
+"ilce": "Eceabat",
+"nufus": 8746
+},
+{
+"il": "Çanakkale",
+"ilce": "Ezine",
+"nufus": 31894
+},
+{
+"il": "Çanakkale",
+"ilce": "Gelibolu",
+"nufus": 44689
+},
+{
+"il": "Çanakkale",
+"ilce": "Gökçeada",
+"nufus": 11331
+},
+{
+"il": "Çanakkale",
+"ilce": "Lapseki",
+"nufus": 30654
+},
+{
+"il": "Çanakkale",
+"ilce": "Yenice",
+"nufus": 29636
+},
+{
+"il": "Çankırı",
+"ilce": "Atkaracalar",
+"nufus": 5063
+},
+{
+"il": "Çankırı",
+"ilce": "Bayramören",
+"nufus": 2209
+},
+{
+"il": "Çankırı",
+"ilce": "Çankırı",
+"nufus": 99287
+},
+{
+"il": "Çankırı",
+"ilce": "Çerkeş",
+"nufus": 16927
+},
+{
+"il": "Çankırı",
+"ilce": "Eldivan",
+"nufus": 6198
+},
+{
+"il": "Çankırı",
+"ilce": "Ilgaz",
+"nufus": 13948
+},
+{
+"il": "Çankırı",
+"ilce": "Kızılırmak",
+"nufus": 6830
+},
+{
+"il": "Çankırı",
+"ilce": "Korgun",
+"nufus": 4239
+},
+{
+"il": "Çankırı",
+"ilce": "Kurşunlu",
+"nufus": 9130
+},
+{
+"il": "Çankırı",
+"ilce": "Orta",
+"nufus": 17223
+},
+{
+"il": "Çankırı",
+"ilce": "Şabanözü",
+"nufus": 12493
+},
+{
+"il": "Çankırı",
+"ilce": "Yapraklı",
+"nufus": 7002
+},
+{
+"il": "Çorum",
+"ilce": "Alaca",
+"nufus": 28989
+},
+{
+"il": "Çorum",
+"ilce": "Bayat",
+"nufus": 13312
+},
+{
+"il": "Çorum",
+"ilce": "Boğazkale",
+"nufus": 3587
+},
+{
+"il": "Çorum",
+"ilce": "Çorum",
+"nufus": 299565
+},
+{
+"il": "Çorum",
+"ilce": "Dodurga",
+"nufus": 5036
+},
+{
+"il": "Çorum",
+"ilce": "İskilip",
+"nufus": 28132
+},
+{
+"il": "Çorum",
+"ilce": "Kargı",
+"nufus": 15119
+},
+{
+"il": "Çorum",
+"ilce": "Laçin",
+"nufus": 4094
+},
+{
+"il": "Çorum",
+"ilce": "Mecitözü",
+"nufus": 12911
+},
+{
+"il": "Çorum",
+"ilce": "Oğuzlar",
+"nufus": 4610
+},
+{
+"il": "Çorum",
+"ilce": "Ortaköy",
+"nufus": 6491
+},
+{
+"il": "Çorum",
+"ilce": "Osmancık",
+"nufus": 42673
+},
+{
+"il": "Çorum",
+"ilce": "Sungurlu",
+"nufus": 49079
+},
+{
+"il": "Çorum",
+"ilce": "Uğurludağ",
+"nufus": 5992
+},
+{
+"il": "Denizli",
+"ilce": "Acıpayam",
+"nufus": 54769
+},
+{
+"il": "Denizli",
+"ilce": "Babadağ",
+"nufus": 6199
+},
+{
+"il": "Denizli",
+"ilce": "Baklan",
+"nufus": 5266
+},
+{
+"il": "Denizli",
+"ilce": "Bekilli",
+"nufus": 6243
+},
+{
+"il": "Denizli",
+"ilce": "Beyağaç",
+"nufus": 6011
+},
+{
+"il": "Denizli",
+"ilce": "Bozkurt",
+"nufus": 11176
+},
+{
+"il": "Denizli",
+"ilce": "Buldan",
+"nufus": 26231
+},
+{
+"il": "Denizli",
+"ilce": "Çal",
+"nufus": 17277
+},
+{
+"il": "Denizli",
+"ilce": "Çameli",
+"nufus": 17447
+},
+{
+"il": "Denizli",
+"ilce": "Çardak",
+"nufus": 8497
+},
+{
+"il": "Denizli",
+"ilce": "Çivril",
+"nufus": 59689
+},
+{
+"il": "Denizli",
+"ilce": "Güney",
+"nufus": 9043
+},
+{
+"il": "Denizli",
+"ilce": "Honaz",
+"nufus": 34468
+},
+{
+"il": "Denizli",
+"ilce": "Kale",
+"nufus": 18855
+},
+{
+"il": "Denizli",
+"ilce": "Merkezefendi",
+"nufus": 351085
+},
+{
+"il": "Denizli",
+"ilce": "Pamukkale",
+"nufus": 343071
+},
+{
+"il": "Denizli",
+"ilce": "Sarayköy",
+"nufus": 30883
+},
+{
+"il": "Denizli",
+"ilce": "Serinhisar",
+"nufus": 14661
+},
+{
+"il": "Denizli",
+"ilce": "Tavas",
+"nufus": 40104
+},
+{
+"il": "Diyarbakır",
+"ilce": "Bağlar",
+"nufus": 402275
+},
+{
+"il": "Diyarbakır",
+"ilce": "Bismil",
+"nufus": 119815
+},
+{
+"il": "Diyarbakır",
+"ilce": "Çermik",
+"nufus": 49299
+},
+{
+"il": "Diyarbakır",
+"ilce": "Çınar",
+"nufus": 79114
+},
+{
+"il": "Diyarbakır",
+"ilce": "Çüngüş",
+"nufus": 10057
+},
+{
+"il": "Diyarbakır",
+"ilce": "Dicle",
+"nufus": 35948
+},
+{
+"il": "Diyarbakır",
+"ilce": "Eğil",
+"nufus": 21674
+},
+{
+"il": "Diyarbakır",
+"ilce": "Ergani",
+"nufus": 141098
+},
+{
+"il": "Diyarbakır",
+"ilce": "Hani",
+"nufus": 32285
+},
+{
+"il": "Diyarbakır",
+"ilce": "Hazro",
+"nufus": 16024
+},
+{
+"il": "Diyarbakır",
+"ilce": "Kayapınar",
+"nufus": 454311
+},
+{
+"il": "Diyarbakır",
+"ilce": "Kocaköy",
+"nufus": 15088
+},
+{
+"il": "Diyarbakır",
+"ilce": "Kulp",
+"nufus": 33973
+},
+{
+"il": "Diyarbakır",
+"ilce": "Lice",
+"nufus": 24060
+},
+{
+"il": "Diyarbakır",
+"ilce": "Silvan",
+"nufus": 86752
+},
+{
+"il": "Diyarbakır",
+"ilce": "Sur",
+"nufus": 97961
+},
+{
+"il": "Diyarbakır",
+"ilce": "Yenişehir",
+"nufus": 232622
+},
+{
+"il": "Düzce",
+"ilce": "Akçakoca",
+"nufus": 41134
+},
+{
+"il": "Düzce",
+"ilce": "Cumayeri",
+"nufus": 16162
+},
+{
+"il": "Düzce",
+"ilce": "Çilimli",
+"nufus": 19022
+},
+{
+"il": "Düzce",
+"ilce": "Düzce",
+"nufus": 267249
+},
+{
+"il": "Düzce",
+"ilce": "Gölyaka",
+"nufus": 20840
+},
+{
+"il": "Düzce",
+"ilce": "Gümüşova",
+"nufus": 17344
+},
+{
+"il": "Düzce",
+"ilce": "Kaynaşlı",
+"nufus": 20379
+},
+{
+"il": "Düzce",
+"ilce": "Yığılca",
+"nufus": 13492
+},
+{
+"il": "Edirne",
+"ilce": "Edirne",
+"nufus": 200753
+},
+{
+"il": "Edirne",
+"ilce": "Enez",
+"nufus": 10399
+},
+{
+"il": "Edirne",
+"ilce": "Havsa",
+"nufus": 17302
+},
+{
+"il": "Edirne",
+"ilce": "İpsala",
+"nufus": 25278
+},
+{
+"il": "Edirne",
+"ilce": "Keşan",
+"nufus": 85259
+},
+{
+"il": "Edirne",
+"ilce": "Lalapaşa",
+"nufus": 5932
+},
+{
+"il": "Edirne",
+"ilce": "Meriç",
+"nufus": 12329
+},
+{
+"il": "Edirne",
+"ilce": "Süloğlu",
+"nufus": 6101
+},
+{
+"il": "Edirne",
+"ilce": "Uzunköprü",
+"nufus": 59085
+},
+{
+"il": "Elazığ",
+"ilce": "Ağın",
+"nufus": 2532
+},
+{
+"il": "Elazığ",
+"ilce": "Alacakaya",
+"nufus": 5336
+},
+{
+"il": "Elazığ",
+"ilce": "Arıcak",
+"nufus": 12340
+},
+{
+"il": "Elazığ",
+"ilce": "Baskil",
+"nufus": 13397
+},
+{
+"il": "Elazığ",
+"ilce": "Elazığ",
+"nufus": 463686
+},
+{
+"il": "Elazığ",
+"ilce": "Karakoçan",
+"nufus": 28320
+},
+{
+"il": "Elazığ",
+"ilce": "Keban",
+"nufus": 7112
+},
+{
+"il": "Elazığ",
+"ilce": "Kovancılar",
+"nufus": 37874
+},
+{
+"il": "Elazığ",
+"ilce": "Maden",
+"nufus": 9139
+},
+{
+"il": "Elazığ",
+"ilce": "Palu",
+"nufus": 17872
+},
+{
+"il": "Elazığ",
+"ilce": "Sivrice",
+"nufus": 8070
+},
+{
+"il": "Erzincan",
+"ilce": "Çayırlı",
+"nufus": 7491
+},
+{
+"il": "Erzincan",
+"ilce": "Erzincan",
+"nufus": 169506
+},
+{
+"il": "Erzincan",
+"ilce": "İliç",
+"nufus": 8543
+},
+{
+"il": "Erzincan",
+"ilce": "Kemah",
+"nufus": 6419
+},
+{
+"il": "Erzincan",
+"ilce": "Kemaliye",
+"nufus": 4484
+},
+{
+"il": "Erzincan",
+"ilce": "Otlukbeli",
+"nufus": 2123
+},
+{
+"il": "Erzincan",
+"ilce": "Refahiye",
+"nufus": 10954
+},
+{
+"il": "Erzincan",
+"ilce": "Tercan",
+"nufus": 16145
+},
+{
+"il": "Erzincan",
+"ilce": "Üzümlü",
+"nufus": 13960
+},
+{
+"il": "Erzurum",
+"ilce": "Aşkale",
+"nufus": 19983
+},
+{
+"il": "Erzurum",
+"ilce": "Aziziye",
+"nufus": 71827
+},
+{
+"il": "Erzurum",
+"ilce": "Çat",
+"nufus": 14015
+},
+{
+"il": "Erzurum",
+"ilce": "Hınıs",
+"nufus": 23011
+},
+{
+"il": "Erzurum",
+"ilce": "Horasan",
+"nufus": 34896
+},
+{
+"il": "Erzurum",
+"ilce": "İspir",
+"nufus": 13984
+},
+{
+"il": "Erzurum",
+"ilce": "Karaçoban",
+"nufus": 19922
+},
+{
+"il": "Erzurum",
+"ilce": "Karayazı",
+"nufus": 22570
+},
+{
+"il": "Erzurum",
+"ilce": "Köprüköy",
+"nufus": 12903
+},
+{
+"il": "Erzurum",
+"ilce": "Narman",
+"nufus": 11119
+},
+{
+"il": "Erzurum",
+"ilce": "Oltu",
+"nufus": 29765
+},
+{
+"il": "Erzurum",
+"ilce": "Olur",
+"nufus": 5985
+},
+{
+"il": "Erzurum",
+"ilce": "Palandöken",
+"nufus": 181922
+},
+{
+"il": "Erzurum",
+"ilce": "Pasinler",
+"nufus": 25401
+},
+{
+"il": "Erzurum",
+"ilce": "Pazaryolu",
+"nufus": 3537
+},
+{
+"il": "Erzurum",
+"ilce": "Şenkaya",
+"nufus": 14918
+},
+{
+"il": "Erzurum",
+"ilce": "Tekman",
+"nufus": 20826
+},
+{
+"il": "Erzurum",
+"ilce": "Tortum",
+"nufus": 12881
+},
+{
+"il": "Erzurum",
+"ilce": "Uzundere",
+"nufus": 8263
+},
+{
+"il": "Erzurum",
+"ilce": "Yakutiye",
+"nufus": 189149
+},
+{
+"il": "Eskişehir",
+"ilce": "Alpu",
+"nufus": 9725
+},
+{
+"il": "Eskişehir",
+"ilce": "Beylikova",
+"nufus": 5611
+},
+{
+"il": "Eskişehir",
+"ilce": "Çifteler",
+"nufus": 14487
+},
+{
+"il": "Eskişehir",
+"ilce": "Günyüzü",
+"nufus": 5008
+},
+{
+"il": "Eskişehir",
+"ilce": "Han",
+"nufus": 2126
+},
+{
+"il": "Eskişehir",
+"ilce": "İnönü",
+"nufus": 6114
+},
+{
+"il": "Eskişehir",
+"ilce": "Mahmudiye",
+"nufus": 7407
+},
+{
+"il": "Eskişehir",
+"ilce": "Mihalgazi",
+"nufus": 2861
+},
+{
+"il": "Eskişehir",
+"ilce": "Mihalıççık",
+"nufus": 7605
+},
+{
+"il": "Eskişehir",
+"ilce": "Odunpazarı",
+"nufus": 431652
+},
+{
+"il": "Eskişehir",
+"ilce": "Sarıcakaya",
+"nufus": 4477
+},
+{
+"il": "Eskişehir",
+"ilce": "Seyitgazi",
+"nufus": 12565
+},
+{
+"il": "Eskişehir",
+"ilce": "Sivrihisar",
+"nufus": 20189
+},
+{
+"il": "Eskişehir",
+"ilce": "Tepebaşı",
+"nufus": 398129
+},
+{
+"il": "Gaziantep",
+"ilce": "Araban",
+"nufus": 32540
+},
+{
+"il": "Gaziantep",
+"ilce": "İslahiye",
+"nufus": 66107
+},
+{
+"il": "Gaziantep",
+"ilce": "Karkamış",
+"nufus": 9087
+},
+{
+"il": "Gaziantep",
+"ilce": "Nizip",
+"nufus": 152660
+},
+{
+"il": "Gaziantep",
+"ilce": "Nurdağı",
+"nufus": 38269
+},
+{
+"il": "Gaziantep",
+"ilce": "Oğuzeli",
+"nufus": 36644
+},
+{
+"il": "Gaziantep",
+"ilce": "Şahinbey",
+"nufus": 957792
+},
+{
+"il": "Gaziantep",
+"ilce": "Şehitkamil",
+"nufus": 905880
+},
+{
+"il": "Gaziantep",
+"ilce": "Yavuzeli",
+"nufus": 23436
+},
+{
+"il": "Giresun",
+"ilce": "Alucra",
+"nufus": 8473
+},
+{
+"il": "Giresun",
+"ilce": "Bulancak",
+"nufus": 70397
+},
+{
+"il": "Giresun",
+"ilce": "Çamoluk",
+"nufus": 5709
+},
+{
+"il": "Giresun",
+"ilce": "Çanakçı",
+"nufus": 5783
+},
+{
+"il": "Giresun",
+"ilce": "Dereli",
+"nufus": 20100
+},
+{
+"il": "Giresun",
+"ilce": "Doğankent",
+"nufus": 7327
+},
+{
+"il": "Giresun",
+"ilce": "Espiye",
+"nufus": 39182
+},
+{
+"il": "Giresun",
+"ilce": "Eynesil",
+"nufus": 12548
+},
+{
+"il": "Giresun",
+"ilce": "Giresun",
+"nufus": 143915
+},
+{
+"il": "Giresun",
+"ilce": "Görele",
+"nufus": 31536
+},
+{
+"il": "Giresun",
+"ilce": "Güce",
+"nufus": 8194
+},
+{
+"il": "Giresun",
+"ilce": "Keşap",
+"nufus": 20859
+},
+{
+"il": "Giresun",
+"ilce": "Piraziz",
+"nufus": 15109
+},
+{
+"il": "Giresun",
+"ilce": "Şebinkarahisar",
+"nufus": 19130
+},
+{
+"il": "Giresun",
+"ilce": "Tirebolu",
+"nufus": 32124
+},
+{
+"il": "Giresun",
+"ilce": "Yağlıdere",
+"nufus": 14688
+},
+{
+"il": "Gümüşhane",
+"ilce": "Gümüşhane",
+"nufus": 54697
+},
+{
+"il": "Gümüşhane",
+"ilce": "Kelkit",
+"nufus": 38520
+},
+{
+"il": "Gümüşhane",
+"ilce": "Köse",
+"nufus": 6107
+},
+{
+"il": "Gümüşhane",
+"ilce": "Kürtün",
+"nufus": 11327
+},
+{
+"il": "Gümüşhane",
+"ilce": "Şiran",
+"nufus": 18377
+},
+{
+"il": "Gümüşhane",
+"ilce": "Torul",
+"nufus": 9779
+},
+{
+"il": "Hakkâri",
+"ilce": "Çukurca",
+"nufus": 14299
+},
+{
+"il": "Hakkâri",
+"ilce": "Derecik",
+"nufus": 24869
+},
+{
+"il": "Hakkâri",
+"ilce": "Hakkâri",
+"nufus": 76165
+},
+{
+"il": "Hakkâri",
+"ilce": "Şemdinli",
+"nufus": 43034
+},
+{
+"il": "Hakkâri",
+"ilce": "Yüksekova",
+"nufus": 121314
+},
+{
+"il": "Hatay",
+"ilce": "Altınözü",
+"nufus": 69834
+},
+{
+"il": "Hatay",
+"ilce": "Antakya",
+"nufus": 301855
+},
+{
+"il": "Hatay",
+"ilce": "Arsuz",
+"nufus": 115077
+},
+{
+"il": "Hatay",
+"ilce": "Belen",
+"nufus": 37876
+},
+{
+"il": "Hatay",
+"ilce": "Defne",
+"nufus": 139605
+},
+{
+"il": "Hatay",
+"ilce": "Dörtyol",
+"nufus": 132987
+},
+{
+"il": "Hatay",
+"ilce": "Erzin",
+"nufus": 43103
+},
+{
+"il": "Hatay",
+"ilce": "Hassa",
+"nufus": 57457
+},
+{
+"il": "Hatay",
+"ilce": "İskenderun",
+"nufus": 228149
+},
+{
+"il": "Hatay",
+"ilce": "Kırıkhan",
+"nufus": 108200
+},
+{
+"il": "Hatay",
+"ilce": "Kumlu",
+"nufus": 16242
+},
+{
+"il": "Hatay",
+"ilce": "Payas",
+"nufus": 44530
+},
+{
+"il": "Hatay",
+"ilce": "Reyhanlı",
+"nufus": 117645
+},
+{
+"il": "Hatay",
+"ilce": "Samandağ",
+"nufus": 122952
+},
+{
+"il": "Hatay",
+"ilce": "Yayladağı",
+"nufus": 42019
+},
+{
+"il": "Iğdır",
+"ilce": "Aralık",
+"nufus": 18477
+},
+{
+"il": "Iğdır",
+"ilce": "Iğdır",
+"nufus": 152455
+},
+{
+"il": "Iğdır",
+"ilce": "Karakoyunlu",
+"nufus": 12614
+},
+{
+"il": "Iğdır",
+"ilce": "Tuzluca",
+"nufus": 21525
+},
+{
+"il": "Isparta",
+"ilce": "Aksu",
+"nufus": 4073
+},
+{
+"il": "Isparta",
+"ilce": "Atabey",
+"nufus": 6204
+},
+{
+"il": "Isparta",
+"ilce": "Eğirdir",
+"nufus": 29200
+},
+{
+"il": "Isparta",
+"ilce": "Gelendost",
+"nufus": 13985
+},
+{
+"il": "Isparta",
+"ilce": "Gönen",
+"nufus": 7065
+},
+{
+"il": "Isparta",
+"ilce": "Isparta",
+"nufus": 273638
+},
+{
+"il": "Isparta",
+"ilce": "Keçiborlu",
+"nufus": 14033
+},
+{
+"il": "Isparta",
+"ilce": "Senirkent",
+"nufus": 10331
+},
+{
+"il": "Isparta",
+"ilce": "Sütçüler",
+"nufus": 9228
+},
+{
+"il": "Isparta",
+"ilce": "Şarkikaraağaç",
+"nufus": 24310
+},
+{
+"il": "Isparta",
+"ilce": "Uluborlu",
+"nufus": 6287
+},
+{
+"il": "Isparta",
+"ilce": "Yalvaç",
+"nufus": 44596
+},
+{
+"il": "Isparta",
+"ilce": "Yenişarbademli",
+"nufus": 2353
+},
+{
+"il": "İstanbul",
+"ilce": "Adalar",
+"nufus": 17489
+},
+{
+"il": "İstanbul",
+"ilce": "Arnavutköy",
+"nufus": 358469
+},
+{
+"il": "İstanbul",
+"ilce": "Ataşehir",
+"nufus": 412125
+},
+{
+"il": "İstanbul",
+"ilce": "Avcılar",
+"nufus": 440663
+},
+{
+"il": "İstanbul",
+"ilce": "Bağcılar",
+"nufus": 707635
+},
+{
+"il": "İstanbul",
+"ilce": "Bahçelievler",
+"nufus": 539035
+},
+{
+"il": "İstanbul",
+"ilce": "Bakırköy",
+"nufus": 218204
+},
+{
+"il": "İstanbul",
+"ilce": "Başakşehir",
+"nufus": 536797
+},
+{
+"il": "İstanbul",
+"ilce": "Bayrampaşa",
+"nufus": 272978
+},
+{
+"il": "İstanbul",
+"ilce": "Beşiktaş",
+"nufus": 165895
+},
+{
+"il": "İstanbul",
+"ilce": "Beykoz",
+"nufus": 246833
+},
+{
+"il": "İstanbul",
+"ilce": "Beylikdüzü",
+"nufus": 422988
+},
+{
+"il": "İstanbul",
+"ilce": "Beyoğlu",
+"nufus": 215991
+},
+{
+"il": "İstanbul",
+"ilce": "Büyükçekmece",
+"nufus": 283239
+},
+{
+"il": "İstanbul",
+"ilce": "Çatalca",
+"nufus": 81143
+},
+{
+"il": "İstanbul",
+"ilce": "Çekmeköy",
+"nufus": 315959
+},
+{
+"il": "İstanbul",
+"ilce": "Esenler",
+"nufus": 419878
+},
+{
+"il": "İstanbul",
+"ilce": "Esenyurt",
+"nufus": 1003905
+},
+{
+"il": "İstanbul",
+"ilce": "Eyüpsultan",
+"nufus": 425216
+},
+{
+"il": "İstanbul",
+"ilce": "Fatih",
+"nufus": 351786
+},
+{
+"il": "İstanbul",
+"ilce": "Gaziosmanpaşa",
+"nufus": 478395
+},
+{
+"il": "İstanbul",
+"ilce": "Güngören",
+"nufus": 251242
+},
+{
+"il": "İstanbul",
+"ilce": "Kadıköy",
+"nufus": 458573
+},
+{
+"il": "İstanbul",
+"ilce": "Kâğıthane",
+"nufus": 446420
+},
+{
+"il": "İstanbul",
+"ilce": "Kartal",
+"nufus": 475630
+},
+{
+"il": "İstanbul",
+"ilce": "Küçükçekmece",
+"nufus": 785270
+},
+{
+"il": "İstanbul",
+"ilce": "Maltepe",
+"nufus": 525044
+},
+{
+"il": "İstanbul",
+"ilce": "Pendik",
+"nufus": 752033
+},
+{
+"il": "İstanbul",
+"ilce": "Sancaktepe",
+"nufus": 507500
+},
+{
+"il": "İstanbul",
+"ilce": "Sarıyer",
+"nufus": 344883
+},
+{
+"il": "İstanbul",
+"ilce": "Silivri",
+"nufus": 240029
+},
+{
+"il": "İstanbul",
+"ilce": "Sultanbeyli",
+"nufus": 378908
+},
+{
+"il": "İstanbul",
+"ilce": "Sultangazi",
+"nufus": 529306
+},
+{
+"il": "İstanbul",
+"ilce": "Şile",
+"nufus": 50090
+},
+{
+"il": "İstanbul",
+"ilce": "Şişli",
+"nufus": 261959
+},
+{
+"il": "İstanbul",
+"ilce": "Tuzla",
+"nufus": 313865
+},
+{
+"il": "İstanbul",
+"ilce": "Ümraniye",
+"nufus": 728913
+},
+{
+"il": "İstanbul",
+"ilce": "Üsküdar",
+"nufus": 514294
+},
+{
+"il": "İstanbul",
+"ilce": "Zeytinburnu",
+"nufus": 275471
+},
+{
+"il": "İzmir",
+"ilce": "Aliağa",
+"nufus": 110892
+},
+{
+"il": "İzmir",
+"ilce": "Balçova",
+"nufus": 75743
+},
+{
+"il": "İzmir",
+"ilce": "Bayındır",
+"nufus": 39971
+},
+{
+"il": "İzmir",
+"ilce": "Bayraklı",
+"nufus": 296481
+},
+{
+"il": "İzmir",
+"ilce": "Bergama",
+"nufus": 107549
+},
+{
+"il": "İzmir",
+"ilce": "Beydağ",
+"nufus": 11904
+},
+{
+"il": "İzmir",
+"ilce": "Bornova",
+"nufus": 452479
+},
+{
+"il": "İzmir",
+"ilce": "Buca",
+"nufus": 520941
+},
+{
+"il": "İzmir",
+"ilce": "Çeşme",
+"nufus": 51902
+},
+{
+"il": "İzmir",
+"ilce": "Çiğli",
+"nufus": 216430
+},
+{
+"il": "İzmir",
+"ilce": "Dikili",
+"nufus": 49138
+},
+{
+"il": "İzmir",
+"ilce": "Foça",
+"nufus": 37711
+},
+{
+"il": "İzmir",
+"ilce": "Gaziemir",
+"nufus": 137220
+},
+{
+"il": "İzmir",
+"ilce": "Güzelbahçe",
+"nufus": 39474
+},
+{
+"il": "İzmir",
+"ilce": "Karabağlar",
+"nufus": 467572
+},
+{
+"il": "İzmir",
+"ilce": "Karaburun",
+"nufus": 13725
+},
+{
+"il": "İzmir",
+"ilce": "Karşıyaka",
+"nufus": 339624
+},
+{
+"il": "İzmir",
+"ilce": "Kemalpaşa",
+"nufus": 122840
+},
+{
+"il": "İzmir",
+"ilce": "Kınık",
+"nufus": 28604
+},
+{
+"il": "İzmir",
+"ilce": "Kiraz",
+"nufus": 43340
+},
+{
+"il": "İzmir",
+"ilce": "Konak",
+"nufus": 317399
+},
+{
+"il": "İzmir",
+"ilce": "Menderes",
+"nufus": 112853
+},
+{
+"il": "İzmir",
+"ilce": "Menemen",
+"nufus": 220510
+},
+{
+"il": "İzmir",
+"ilce": "Narlıdere",
+"nufus": 61320
+},
+{
+"il": "İzmir",
+"ilce": "Ödemiş",
+"nufus": 132548
+},
+{
+"il": "İzmir",
+"ilce": "Seferihisar",
+"nufus": 63712
+},
+{
+"il": "İzmir",
+"ilce": "Selçuk",
+"nufus": 38578
+},
+{
+"il": "İzmir",
+"ilce": "Tire",
+"nufus": 87571
+},
+{
+"il": "İzmir",
+"ilce": "Torbalı",
+"nufus": 224133
+},
+{
+"il": "İzmir",
+"ilce": "Urla",
+"nufus": 82021
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Afşin",
+"nufus": 80124
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Andırın",
+"nufus": 31609
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Çağlayancerit",
+"nufus": 22440
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Dulkadiroğlu",
+"nufus": 213930
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Ekinözü",
+"nufus": 9896
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Elbistan",
+"nufus": 132036
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Göksun",
+"nufus": 49145
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Nurhak",
+"nufus": 11675
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Onikişubat",
+"nufus": 447591
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Pazarcık",
+"nufus": 66777
+},
+{
+"il": "Kahramanmaraş",
+"ilce": "Türkoğlu",
+"nufus": 81055
+},
+{
+"il": "Karabük",
+"ilce": "Eflani",
+"nufus": 8663
+},
+{
+"il": "Karabük",
+"ilce": "Eskipazar",
+"nufus": 12570
+},
+{
+"il": "Karabük",
+"ilce": "Karabük",
+"nufus": 135819
+},
+{
+"il": "Karabük",
+"ilce": "Ovacık",
+"nufus": 3986
+},
+{
+"il": "Karabük",
+"ilce": "Safranbolu",
+"nufus": 69592
+},
+{
+"il": "Karabük",
+"ilce": "Yenice",
+"nufus": 18984
+},
+{
+"il": "Karaman",
+"ilce": "Ayrancı",
+"nufus": 7127
+},
+{
+"il": "Karaman",
+"ilce": "Başyayla",
+"nufus": 3353
+},
+{
+"il": "Karaman",
+"ilce": "Ermenek",
+"nufus": 27629
+},
+{
+"il": "Karaman",
+"ilce": "Karaman",
+"nufus": 207973
+},
+{
+"il": "Karaman",
+"ilce": "Kazımkarabekir",
+"nufus": 4679
+},
+{
+"il": "Karaman",
+"ilce": "Sarıveliler",
+"nufus": 11594
+},
+{
+"il": "Kars",
+"ilce": "Akyaka",
+"nufus": 9382
+},
+{
+"il": "Kars",
+"ilce": "Arpaçay",
+"nufus": 13770
+},
+{
+"il": "Kars",
+"ilce": "Digor",
+"nufus": 17557
+},
+{
+"il": "Kars",
+"ilce": "Kağızman",
+"nufus": 42717
+},
+{
+"il": "Kars",
+"ilce": "Kars",
+"nufus": 121154
+},
+{
+"il": "Kars",
+"ilce": "Sarıkamış",
+"nufus": 35518
+},
+{
+"il": "Kars",
+"ilce": "Selim",
+"nufus": 20476
+},
+{
+"il": "Kars",
+"ilce": "Susuz",
+"nufus": 8417
+},
+{
+"il": "Kastamonu",
+"ilce": "Abana",
+"nufus": 4474
+},
+{
+"il": "Kastamonu",
+"ilce": "Ağlı",
+"nufus": 3176
+},
+{
+"il": "Kastamonu",
+"ilce": "Araç",
+"nufus": 18121
+},
+{
+"il": "Kastamonu",
+"ilce": "Azdavay",
+"nufus": 7266
+},
+{
+"il": "Kastamonu",
+"ilce": "Bozkurt",
+"nufus": 9250
+},
+{
+"il": "Kastamonu",
+"ilce": "Cide",
+"nufus": 22496
+},
+{
+"il": "Kastamonu",
+"ilce": "Çatalzeytin",
+"nufus": 7185
+},
+{
+"il": "Kastamonu",
+"ilce": "Daday",
+"nufus": 7736
+},
+{
+"il": "Kastamonu",
+"ilce": "Devrekani",
+"nufus": 12033
+},
+{
+"il": "Kastamonu",
+"ilce": "Doğanyurt",
+"nufus": 5057
+},
+{
+"il": "Kastamonu",
+"ilce": "Hanönü",
+"nufus": 4286
+},
+{
+"il": "Kastamonu",
+"ilce": "İhsangazi",
+"nufus": 4976
+},
+{
+"il": "Kastamonu",
+"ilce": "İnebolu",
+"nufus": 19678
+},
+{
+"il": "Kastamonu",
+"ilce": "Kastamonu",
+"nufus": 158953
+},
+{
+"il": "Kastamonu",
+"ilce": "Küre",
+"nufus": 5108
+},
+{
+"il": "Kastamonu",
+"ilce": "Pınarbaşı",
+"nufus": 5782
+},
+{
+"il": "Kastamonu",
+"ilce": "Seydiler",
+"nufus": 4639
+},
+{
+"il": "Kastamonu",
+"ilce": "Şenpazar",
+"nufus": 4083
+},
+{
+"il": "Kastamonu",
+"ilce": "Taşköprü",
+"nufus": 36544
+},
+{
+"il": "Kastamonu",
+"ilce": "Tosya",
+"nufus": 39091
+},
+{
+"il": "Kayseri",
+"ilce": "Akkışla",
+"nufus": 5440
+},
+{
+"il": "Kayseri",
+"ilce": "Bünyan",
+"nufus": 30362
+},
+{
+"il": "Kayseri",
+"ilce": "Develi",
+"nufus": 67818
+},
+{
+"il": "Kayseri",
+"ilce": "Felahiye",
+"nufus": 5529
+},
+{
+"il": "Kayseri",
+"ilce": "Hacılar",
+"nufus": 13701
+},
+{
+"il": "Kayseri",
+"ilce": "İncesu",
+"nufus": 29780
+},
+{
+"il": "Kayseri",
+"ilce": "Kocasinan",
+"nufus": 421472
+},
+{
+"il": "Kayseri",
+"ilce": "Melikgazi",
+"nufus": 593262
+},
+{
+"il": "Kayseri",
+"ilce": "Özvatan",
+"nufus": 3877
+},
+{
+"il": "Kayseri",
+"ilce": "Pınarbaşı",
+"nufus": 20598
+},
+{
+"il": "Kayseri",
+"ilce": "Sarıoğlan",
+"nufus": 13510
+},
+{
+"il": "Kayseri",
+"ilce": "Sarız",
+"nufus": 9213
+},
+{
+"il": "Kayseri",
+"ilce": "Talas",
+"nufus": 173657
+},
+{
+"il": "Kayseri",
+"ilce": "Tomarza",
+"nufus": 20156
+},
+{
+"il": "Kayseri",
+"ilce": "Yahyalı",
+"nufus": 35207
+},
+{
+"il": "Kayseri",
+"ilce": "Yeşilhisar",
+"nufus": 15409
+},
+{
+"il": "Kırıkkale",
+"ilce": "Bahşılı",
+"nufus": 7353
+},
+{
+"il": "Kırıkkale",
+"ilce": "Balışeyh",
+"nufus": 5888
+},
+{
+"il": "Kırıkkale",
+"ilce": "Çelebi",
+"nufus": 2587
+},
+{
+"il": "Kırıkkale",
+"ilce": "Delice",
+"nufus": 10577
+},
+{
+"il": "Kırıkkale",
+"ilce": "Karakeçili",
+"nufus": 3062
+},
+{
+"il": "Kırıkkale",
+"ilce": "Keskin",
+"nufus": 15841
+},
+{
+"il": "Kırıkkale",
+"ilce": "Kırıkkale",
+"nufus": 192821
+},
+{
+"il": "Kırıkkale",
+"ilce": "Sulakyurt",
+"nufus": 5564
+},
+{
+"il": "Kırıkkale",
+"ilce": "Yahşihan",
+"nufus": 39137
+},
+{
+"il": "Kırklareli",
+"ilce": "Babaeski",
+"nufus": 46355
+},
+{
+"il": "Kırklareli",
+"ilce": "Demirköy",
+"nufus": 9364
+},
+{
+"il": "Kırklareli",
+"ilce": "Kırklareli",
+"nufus": 114710
+},
+{
+"il": "Kırklareli",
+"ilce": "Kofçaz",
+"nufus": 2291
+},
+{
+"il": "Kırklareli",
+"ilce": "Lüleburgaz",
+"nufus": 157136
+},
+{
+"il": "Kırklareli",
+"ilce": "Pehlivanköy",
+"nufus": 3276
+},
+{
+"il": "Kırklareli",
+"ilce": "Pınarhisar",
+"nufus": 17694
+},
+{
+"il": "Kırklareli",
+"ilce": "Vize",
+"nufus": 28769
+},
+{
+"il": "Kırşehir",
+"ilce": "Akçakent",
+"nufus": 3301
+},
+{
+"il": "Kırşehir",
+"ilce": "Akpınar",
+"nufus": 6435
+},
+{
+"il": "Kırşehir",
+"ilce": "Boztepe",
+"nufus": 5049
+},
+{
+"il": "Kırşehir",
+"ilce": "Çiçekdağı",
+"nufus": 13350
+},
+{
+"il": "Kırşehir",
+"ilce": "Kaman",
+"nufus": 33354
+},
+{
+"il": "Kırşehir",
+"ilce": "Kırşehir",
+"nufus": 163368
+},
+{
+"il": "Kırşehir",
+"ilce": "Mucur",
+"nufus": 17920
+},
+{
+"il": "Kilis",
+"ilce": "Elbeyli",
+"nufus": 5273
+},
+{
+"il": "Kilis",
+"ilce": "Kilis",
+"nufus": 135430
+},
+{
+"il": "Kilis",
+"ilce": "Musabeyli",
+"nufus": 11692
+},
+{
+"il": "Kilis",
+"ilce": "Polateli",
+"nufus": 4968
+},
+{
+"il": "Kocaeli",
+"ilce": "Başiskele",
+"nufus": 131387
+},
+{
+"il": "Kocaeli",
+"ilce": "Çayırova",
+"nufus": 162262
+},
+{
+"il": "Kocaeli",
+"ilce": "Darıca",
+"nufus": 235632
+},
+{
+"il": "Kocaeli",
+"ilce": "Derince",
+"nufus": 147892
+},
+{
+"il": "Kocaeli",
+"ilce": "Dilovası",
+"nufus": 55355
+},
+{
+"il": "Kocaeli",
+"ilce": "Gebze",
+"nufus": 414960
+},
+{
+"il": "Kocaeli",
+"ilce": "Gölcük",
+"nufus": 181227
+},
+{
+"il": "Kocaeli",
+"ilce": "İzmit",
+"nufus": 381254
+},
+{
+"il": "Kocaeli",
+"ilce": "Kandıra",
+"nufus": 54260
+},
+{
+"il": "Kocaeli",
+"ilce": "Karamürsel",
+"nufus": 59488
+},
+{
+"il": "Kocaeli",
+"ilce": "Kartepe",
+"nufus": 154377
+},
+{
+"il": "Kocaeli",
+"ilce": "Körfez",
+"nufus": 183077
+},
+{
+"il": "Konya",
+"ilce": "Ahırlı",
+"nufus": 4536
+},
+{
+"il": "Konya",
+"ilce": "Akören",
+"nufus": 5744
+},
+{
+"il": "Konya",
+"ilce": "Akşehir",
+"nufus": 93613
+},
+{
+"il": "Konya",
+"ilce": "Altınekin",
+"nufus": 14374
+},
+{
+"il": "Konya",
+"ilce": "Beyşehir",
+"nufus": 80353
+},
+{
+"il": "Konya",
+"ilce": "Bozkır",
+"nufus": 24704
+},
+{
+"il": "Konya",
+"ilce": "Cihanbeyli",
+"nufus": 49126
+},
+{
+"il": "Konya",
+"ilce": "Çeltik",
+"nufus": 9482
+},
+{
+"il": "Konya",
+"ilce": "Çumra",
+"nufus": 68803
+},
+{
+"il": "Konya",
+"ilce": "Derbent",
+"nufus": 3954
+},
+{
+"il": "Konya",
+"ilce": "Derebucak",
+"nufus": 5353
+},
+{
+"il": "Konya",
+"ilce": "Doğanhisar",
+"nufus": 14097
+},
+{
+"il": "Konya",
+"ilce": "Emirgazi",
+"nufus": 7647
+},
+{
+"il": "Konya",
+"ilce": "Ereğli",
+"nufus": 158010
+},
+{
+"il": "Konya",
+"ilce": "Güneysınır",
+"nufus": 9237
+},
+{
+"il": "Konya",
+"ilce": "Hadim",
+"nufus": 10621
+},
+{
+"il": "Konya",
+"ilce": "Halkapınar",
+"nufus": 3947
+},
+{
+"il": "Konya",
+"ilce": "Hüyük",
+"nufus": 14878
+},
+{
+"il": "Konya",
+"ilce": "Ilgın",
+"nufus": 53167
+},
+{
+"il": "Konya",
+"ilce": "Kadınhanı",
+"nufus": 31478
+},
+{
+"il": "Konya",
+"ilce": "Karapınar",
+"nufus": 51756
+},
+{
+"il": "Konya",
+"ilce": "Karatay",
+"nufus": 395499
+},
+{
+"il": "Konya",
+"ilce": "Kulu",
+"nufus": 51732
+},
+{
+"il": "Konya",
+"ilce": "Meram",
+"nufus": 349685
+},
+{
+"il": "Konya",
+"ilce": "Sarayönü",
+"nufus": 28401
+},
+{
+"il": "Konya",
+"ilce": "Selçuklu",
+"nufus": 703449
+},
+{
+"il": "Konya",
+"ilce": "Seydişehir",
+"nufus": 66079
+},
+{
+"il": "Konya",
+"ilce": "Taşkent",
+"nufus": 5669
+},
+{
+"il": "Konya",
+"ilce": "Tuzlukçu",
+"nufus": 6052
+},
+{
+"il": "Konya",
+"ilce": "Yalıhüyük",
+"nufus": 1704
+},
+{
+"il": "Konya",
+"ilce": "Yunak",
+"nufus": 20259
+},
+{
+"il": "Kütahya",
+"ilce": "Altıntaş",
+"nufus": 14739
+},
+{
+"il": "Kütahya",
+"ilce": "Aslanapa",
+"nufus": 7813
+},
+{
+"il": "Kütahya",
+"ilce": "Çavdarhisar",
+"nufus": 5503
+},
+{
+"il": "Kütahya",
+"ilce": "Domaniç",
+"nufus": 13900
+},
+{
+"il": "Kütahya",
+"ilce": "Dumlupınar",
+"nufus": 2812
+},
+{
+"il": "Kütahya",
+"ilce": "Emet",
+"nufus": 17352
+},
+{
+"il": "Kütahya",
+"ilce": "Gediz",
+"nufus": 48539
+},
+{
+"il": "Kütahya",
+"ilce": "Hisarcık",
+"nufus": 10799
+},
+{
+"il": "Kütahya",
+"ilce": "Kütahya",
+"nufus": 277000
+},
+{
+"il": "Kütahya",
+"ilce": "Pazarlar",
+"nufus": 4713
+},
+{
+"il": "Kütahya",
+"ilce": "Simav",
+"nufus": 60886
+},
+{
+"il": "Kütahya",
+"ilce": "Şaphane",
+"nufus": 5540
+},
+{
+"il": "Kütahya",
+"ilce": "Tavşanlı",
+"nufus": 100882
+},
+{
+"il": "Malatya",
+"ilce": "Akçadağ",
+"nufus": 31479
+},
+{
+"il": "Malatya",
+"ilce": "Arapgir",
+"nufus": 9917
+},
+{
+"il": "Malatya",
+"ilce": "Arguvan",
+"nufus": 6859
+},
+{
+"il": "Malatya",
+"ilce": "Battalgazi",
+"nufus": 274563
+},
+{
+"il": "Malatya",
+"ilce": "Darende",
+"nufus": 24806
+},
+{
+"il": "Malatya",
+"ilce": "Doğanşehir",
+"nufus": 36037
+},
+{
+"il": "Malatya",
+"ilce": "Doğanyol",
+"nufus": 4002
+},
+{
+"il": "Malatya",
+"ilce": "Hekimhan",
+"nufus": 17116
+},
+{
+"il": "Malatya",
+"ilce": "Kale",
+"nufus": 7462
+},
+{
+"il": "Malatya",
+"ilce": "Kuluncak",
+"nufus": 7414
+},
+{
+"il": "Malatya",
+"ilce": "Pütürge",
+"nufus": 12372
+},
+{
+"il": "Malatya",
+"ilce": "Yazıhan",
+"nufus": 13937
+},
+{
+"il": "Malatya",
+"ilce": "Yeşilyurt",
+"nufus": 309890
+},
+{
+"il": "Manisa",
+"ilce": "Ahmetli",
+"nufus": 17612
+},
+{
+"il": "Manisa",
+"ilce": "Akhisar",
+"nufus": 181472
+},
+{
+"il": "Manisa",
+"ilce": "Alaşehir",
+"nufus": 104565
+},
+{
+"il": "Manisa",
+"ilce": "Demirci",
+"nufus": 35629
+},
+{
+"il": "Manisa",
+"ilce": "Gölmarmara",
+"nufus": 15140
+},
+{
+"il": "Manisa",
+"ilce": "Gördes",
+"nufus": 25456
+},
+{
+"il": "Manisa",
+"ilce": "Kırkağaç",
+"nufus": 37363
+},
+{
+"il": "Manisa",
+"ilce": "Köprübaşı",
+"nufus": 12217
+},
+{
+"il": "Manisa",
+"ilce": "Kula",
+"nufus": 43015
+},
+{
+"il": "Manisa",
+"ilce": "Salihli",
+"nufus": 165007
+},
+{
+"il": "Manisa",
+"ilce": "Sarıgöl",
+"nufus": 34786
+},
+{
+"il": "Manisa",
+"ilce": "Saruhanlı",
+"nufus": 58475
+},
+{
+"il": "Manisa",
+"ilce": "Selendi",
+"nufus": 18568
+},
+{
+"il": "Manisa",
+"ilce": "Soma",
+"nufus": 110188
+},
+{
+"il": "Manisa",
+"ilce": "Şehzadeler",
+"nufus": 168582
+},
+{
+"il": "Manisa",
+"ilce": "Turgutlu",
+"nufus": 179326
+},
+{
+"il": "Manisa",
+"ilce": "Yunusemre",
+"nufus": 270355
+},
+{
+"il": "Mardin",
+"ilce": "Artuklu",
+"nufus": 198718
+},
+{
+"il": "Mardin",
+"ilce": "Dargeçit",
+"nufus": 26675
+},
+{
+"il": "Mardin",
+"ilce": "Derik",
+"nufus": 61553
+},
+{
+"il": "Mardin",
+"ilce": "Kızıltepe",
+"nufus": 275217
+},
+{
+"il": "Mardin",
+"ilce": "Mazıdağı",
+"nufus": 37381
+},
+{
+"il": "Mardin",
+"ilce": "Midyat",
+"nufus": 125791
+},
+{
+"il": "Mardin",
+"ilce": "Nusaybin",
+"nufus": 119559
+},
+{
+"il": "Mardin",
+"ilce": "Ömerli",
+"nufus": 14112
+},
+{
+"il": "Mardin",
+"ilce": "Savur",
+"nufus": 23404
+},
+{
+"il": "Mardin",
+"ilce": "Yeşilli",
+"nufus": 21166
+},
+{
+"il": "Mersin",
+"ilce": "Akdeniz",
+"nufus": 254292
+},
+{
+"il": "Mersin",
+"ilce": "Anamur",
+"nufus": 66952
+},
+{
+"il": "Mersin",
+"ilce": "Aydıncık",
+"nufus": 11271
+},
+{
+"il": "Mersin",
+"ilce": "Bozyazı",
+"nufus": 26832
+},
+{
+"il": "Mersin",
+"ilce": "Çamlıyayla",
+"nufus": 8383
+},
+{
+"il": "Mersin",
+"ilce": "Erdemli",
+"nufus": 157566
+},
+{
+"il": "Mersin",
+"ilce": "Gülnar",
+"nufus": 32785
+},
+{
+"il": "Mersin",
+"ilce": "Mezitli",
+"nufus": 233140
+},
+{
+"il": "Mersin",
+"ilce": "Mut",
+"nufus": 62758
+},
+{
+"il": "Mersin",
+"ilce": "Silifke",
+"nufus": 139610
+},
+{
+"il": "Mersin",
+"ilce": "Tarsus",
+"nufus": 358510
+},
+{
+"il": "Mersin",
+"ilce": "Toroslar",
+"nufus": 322971
+},
+{
+"il": "Mersin",
+"ilce": "Yenişehir",
+"nufus": 281358
+},
+{
+"il": "Muğla",
+"ilce": "Bodrum",
+"nufus": 207196
+},
+{
+"il": "Muğla",
+"ilce": "Dalaman",
+"nufus": 53327
+},
+{
+"il": "Muğla",
+"ilce": "Datça",
+"nufus": 26067
+},
+{
+"il": "Muğla",
+"ilce": "Fethiye",
+"nufus": 187332
+},
+{
+"il": "Muğla",
+"ilce": "Kavaklıdere",
+"nufus": 10854
+},
+{
+"il": "Muğla",
+"ilce": "Köyceğiz",
+"nufus": 41810
+},
+{
+"il": "Muğla",
+"ilce": "Marmaris",
+"nufus": 97373
+},
+{
+"il": "Muğla",
+"ilce": "Menteşe",
+"nufus": 126288
+},
+{
+"il": "Muğla",
+"ilce": "Milas",
+"nufus": 152275
+},
+{
+"il": "Muğla",
+"ilce": "Ortaca",
+"nufus": 58704
+},
+{
+"il": "Muğla",
+"ilce": "Seydikemer",
+"nufus": 65648
+},
+{
+"il": "Muğla",
+"ilce": "Ula",
+"nufus": 27649
+},
+{
+"il": "Muğla",
+"ilce": "Yatağan",
+"nufus": 45024
+},
+{
+"il": "Muş",
+"ilce": "Bulanık",
+"nufus": 68983
+},
+{
+"il": "Muş",
+"ilce": "Hasköy",
+"nufus": 27684
+},
+{
+"il": "Muş",
+"ilce": "Korkut",
+"nufus": 19251
+},
+{
+"il": "Muş",
+"ilce": "Malazgirt",
+"nufus": 40595
+},
+{
+"il": "Muş",
+"ilce": "Muş",
+"nufus": 203810
+},
+{
+"il": "Muş",
+"ilce": "Varto",
+"nufus": 28804
+},
+{
+"il": "Nevşehir",
+"ilce": "Acıgöl",
+"nufus": 19430
+},
+{
+"il": "Nevşehir",
+"ilce": "Avanos",
+"nufus": 32093
+},
+{
+"il": "Nevşehir",
+"ilce": "Derinkuyu",
+"nufus": 21107
+},
+{
+"il": "Nevşehir",
+"ilce": "Gülşehir",
+"nufus": 21173
+},
+{
+"il": "Nevşehir",
+"ilce": "Hacıbektaş",
+"nufus": 10564
+},
+{
+"il": "Nevşehir",
+"ilce": "Kozaklı",
+"nufus": 12678
+},
+{
+"il": "Nevşehir",
+"ilce": "Nevşehir",
+"nufus": 163126
+},
+{
+"il": "Nevşehir",
+"ilce": "Ürgüp",
+"nufus": 39979
+},
+{
+"il": "Niğde",
+"ilce": "Altunhisar",
+"nufus": 12004
+},
+{
+"il": "Niğde",
+"ilce": "Bor",
+"nufus": 62594
+},
+{
+"il": "Niğde",
+"ilce": "Çamardı",
+"nufus": 11631
+},
+{
+"il": "Niğde",
+"ilce": "Çiftlik",
+"nufus": 25157
+},
+{
+"il": "Niğde",
+"ilce": "Niğde",
+"nufus": 244326
+},
+{
+"il": "Niğde",
+"ilce": "Ulukışla",
+"nufus": 18780
+},
+{
+"il": "Ordu",
+"ilce": "Akkuş",
+"nufus": 20465
+},
+{
+"il": "Ordu",
+"ilce": "Altınordu",
+"nufus": 239714
+},
+{
+"il": "Ordu",
+"ilce": "Aybastı",
+"nufus": 19784
+},
+{
+"il": "Ordu",
+"ilce": "Çamaş",
+"nufus": 8407
+},
+{
+"il": "Ordu",
+"ilce": "Çatalpınar",
+"nufus": 12888
+},
+{
+"il": "Ordu",
+"ilce": "Çaybaşı",
+"nufus": 11656
+},
+{
+"il": "Ordu",
+"ilce": "Fatsa",
+"nufus": 129844
+},
+{
+"il": "Ordu",
+"ilce": "Gölköy",
+"nufus": 24780
+},
+{
+"il": "Ordu",
+"ilce": "Gülyalı",
+"nufus": 8881
+},
+{
+"il": "Ordu",
+"ilce": "Gürgentepe",
+"nufus": 12499
+},
+{
+"il": "Ordu",
+"ilce": "İkizce",
+"nufus": 12537
+},
+{
+"il": "Ordu",
+"ilce": "Kabadüz",
+"nufus": 6794
+},
+{
+"il": "Ordu",
+"ilce": "Kabataş",
+"nufus": 9949
+},
+{
+"il": "Ordu",
+"ilce": "Korgan",
+"nufus": 26428
+},
+{
+"il": "Ordu",
+"ilce": "Kumru",
+"nufus": 27638
+},
+{
+"il": "Ordu",
+"ilce": "Mesudiye",
+"nufus": 11829
+},
+{
+"il": "Ordu",
+"ilce": "Perşembe",
+"nufus": 30053
+},
+{
+"il": "Ordu",
+"ilce": "Ulubey",
+"nufus": 18027
+},
+{
+"il": "Ordu",
+"ilce": "Ünye",
+"nufus": 135914
+},
+{
+"il": "Osmaniye",
+"ilce": "Bahçe",
+"nufus": 22989
+},
+{
+"il": "Osmaniye",
+"ilce": "Düziçi",
+"nufus": 88274
+},
+{
+"il": "Osmaniye",
+"ilce": "Hasanbeyli",
+"nufus": 4914
+},
+{
+"il": "Osmaniye",
+"ilce": "Kadirli",
+"nufus": 127644
+},
+{
+"il": "Osmaniye",
+"ilce": "Osmaniye",
+"nufus": 284895
+},
+{
+"il": "Osmaniye",
+"ilce": "Sumbas",
+"nufus": 13049
+},
+{
+"il": "Osmaniye",
+"ilce": "Toprakkale",
+"nufus": 22358
+},
+{
+"il": "Rize",
+"ilce": "Ardeşen",
+"nufus": 43519
+},
+{
+"il": "Rize",
+"ilce": "Çamlıhemşin",
+"nufus": 7051
+},
+{
+"il": "Rize",
+"ilce": "Çayeli",
+"nufus": 42032
+},
+{
+"il": "Rize",
+"ilce": "Derepazarı",
+"nufus": 6772
+},
+{
+"il": "Rize",
+"ilce": "Fındıklı",
+"nufus": 16388
+},
+{
+"il": "Rize",
+"ilce": "Güneysu",
+"nufus": 15013
+},
+{
+"il": "Rize",
+"ilce": "Hemşin",
+"nufus": 2299
+},
+{
+"il": "Rize",
+"ilce": "İkizdere",
+"nufus": 6287
+},
+{
+"il": "Rize",
+"ilce": "İyidere",
+"nufus": 8495
+},
+{
+"il": "Rize",
+"ilce": "Kalkandere",
+"nufus": 13350
+},
+{
+"il": "Rize",
+"ilce": "Pazar",
+"nufus": 32144
+},
+{
+"il": "Rize",
+"ilce": "Rize",
+"nufus": 153597
+},
+{
+"il": "Sakarya",
+"ilce": "Adapazarı",
+"nufus": 284006
+},
+{
+"il": "Sakarya",
+"ilce": "Akyazı",
+"nufus": 99561
+},
+{
+"il": "Sakarya",
+"ilce": "Arifiye",
+"nufus": 55589
+},
+{
+"il": "Sakarya",
+"ilce": "Erenler",
+"nufus": 92549
+},
+{
+"il": "Sakarya",
+"ilce": "Ferizli",
+"nufus": 36015
+},
+{
+"il": "Sakarya",
+"ilce": "Geyve",
+"nufus": 51708
+},
+{
+"il": "Sakarya",
+"ilce": "Hendek",
+"nufus": 93990
+},
+{
+"il": "Sakarya",
+"ilce": "Karapürçek",
+"nufus": 13734
+},
+{
+"il": "Sakarya",
+"ilce": "Karasu",
+"nufus": 75887
+},
+{
+"il": "Sakarya",
+"ilce": "Kaynarca",
+"nufus": 25440
+},
+{
+"il": "Sakarya",
+"ilce": "Kocaali",
+"nufus": 24966
+},
+{
+"il": "Sakarya",
+"ilce": "Pamukova",
+"nufus": 31536
+},
+{
+"il": "Sakarya",
+"ilce": "Sapanca",
+"nufus": 47505
+},
+{
+"il": "Sakarya",
+"ilce": "Serdivan",
+"nufus": 168855
+},
+{
+"il": "Sakarya",
+"ilce": "Söğütlü",
+"nufus": 15288
+},
+{
+"il": "Sakarya",
+"ilce": "Taraklı",
+"nufus": 7064
+},
+{
+"il": "Samsun",
+"ilce": "19 Mayıs",
+"nufus": 28658
+},
+{
+"il": "Samsun",
+"ilce": "Alaçam",
+"nufus": 24560
+},
+{
+"il": "Samsun",
+"ilce": "Asarcık",
+"nufus": 15673
+},
+{
+"il": "Samsun",
+"ilce": "Atakum",
+"nufus": 261809
+},
+{
+"il": "Samsun",
+"ilce": "Ayvacık",
+"nufus": 18557
+},
+{
+"il": "Samsun",
+"ilce": "Bafra",
+"nufus": 143387
+},
+{
+"il": "Samsun",
+"ilce": "Canik",
+"nufus": 100247
+},
+{
+"il": "Samsun",
+"ilce": "Çarşamba",
+"nufus": 143206
+},
+{
+"il": "Samsun",
+"ilce": "Havza",
+"nufus": 38103
+},
+{
+"il": "Samsun",
+"ilce": "İlkadım",
+"nufus": 330290
+},
+{
+"il": "Samsun",
+"ilce": "Kavak",
+"nufus": 25370
+},
+{
+"il": "Samsun",
+"ilce": "Ladik",
+"nufus": 15942
+},
+{
+"il": "Samsun",
+"ilce": "Salıpazarı",
+"nufus": 19406
+},
+{
+"il": "Samsun",
+"ilce": "Tekkeköy",
+"nufus": 59356
+},
+{
+"il": "Samsun",
+"ilce": "Terme",
+"nufus": 71348
+},
+{
+"il": "Samsun",
+"ilce": "Vezirköprü",
+"nufus": 87575
+},
+{
+"il": "Samsun",
+"ilce": "Yakakent",
+"nufus": 8916
+},
+{
+"il": "Siirt",
+"ilce": "Baykan",
+"nufus": 23219
+},
+{
+"il": "Siirt",
+"ilce": "Eruh",
+"nufus": 18339
+},
+{
+"il": "Siirt",
+"ilce": "Kurtalan",
+"nufus": 60674
+},
+{
+"il": "Siirt",
+"ilce": "Pervari",
+"nufus": 26437
+},
+{
+"il": "Siirt",
+"ilce": "Siirt",
+"nufus": 180837
+},
+{
+"il": "Siirt",
+"ilce": "Şirvan",
+"nufus": 18773
+},
+{
+"il": "Siirt",
+"ilce": "Tillo",
+"nufus": 4090
+},
+{
+"il": "Sinop",
+"ilce": "Ayancık",
+"nufus": 23818
+},
+{
+"il": "Sinop",
+"ilce": "Boyabat",
+"nufus": 44901
+},
+{
+"il": "Sinop",
+"ilce": "Dikmen",
+"nufus": 4810
+},
+{
+"il": "Sinop",
+"ilce": "Durağan",
+"nufus": 16788
+},
+{
+"il": "Sinop",
+"ilce": "Erfelek",
+"nufus": 12565
+},
+{
+"il": "Sinop",
+"ilce": "Gerze",
+"nufus": 30701
+},
+{
+"il": "Sinop",
+"ilce": "Saraydüzü",
+"nufus": 5656
+},
+{
+"il": "Sinop",
+"ilce": "Sinop",
+"nufus": 70311
+},
+{
+"il": "Sinop",
+"ilce": "Türkeli",
+"nufus": 16298
+},
+{
+"il": "Sivas",
+"ilce": "Akıncılar",
+"nufus": 4641
+},
+{
+"il": "Sivas",
+"ilce": "Altınyayla",
+"nufus": 8245
+},
+{
+"il": "Sivas",
+"ilce": "Divriği",
+"nufus": 15657
+},
+{
+"il": "Sivas",
+"ilce": "Doğanşar",
+"nufus": 2770
+},
+{
+"il": "Sivas",
+"ilce": "Gemerek",
+"nufus": 21342
+},
+{
+"il": "Sivas",
+"ilce": "Gölova",
+"nufus": 2998
+},
+{
+"il": "Sivas",
+"ilce": "Gürün",
+"nufus": 17062
+},
+{
+"il": "Sivas",
+"ilce": "Hafik",
+"nufus": 8950
+},
+{
+"il": "Sivas",
+"ilce": "İmranlı",
+"nufus": 6788
+},
+{
+"il": "Sivas",
+"ilce": "Kangal",
+"nufus": 19406
+},
+{
+"il": "Sivas",
+"ilce": "Koyulhisar",
+"nufus": 11782
+},
+{
+"il": "Sivas",
+"ilce": "Sivas",
+"nufus": 393912
+},
+{
+"il": "Sivas",
+"ilce": "Suşehri",
+"nufus": 25056
+},
+{
+"il": "Sivas",
+"ilce": "Şarkışla",
+"nufus": 37282
+},
+{
+"il": "Sivas",
+"ilce": "Ulaş",
+"nufus": 7603
+},
+{
+"il": "Sivas",
+"ilce": "Yıldızeli",
+"nufus": 26567
+},
+{
+"il": "Sivas",
+"ilce": "Zara",
+"nufus": 21340
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Akçakale",
+"nufus": 131351
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Birecik",
+"nufus": 91837
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Bozova",
+"nufus": 50534
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Ceylanpınar",
+"nufus": 93105
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Eyyübiye",
+"nufus": 414516
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Halfeti",
+"nufus": 41624
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Haliliye",
+"nufus": 395975
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Harran",
+"nufus": 101710
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Hilvan",
+"nufus": 41969
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Karaköprü",
+"nufus": 312031
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Siverek",
+"nufus": 277399
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Suruç",
+"nufus": 98022
+},
+{
+"il": "Şanlıurfa",
+"ilce": "Viranşehir",
+"nufus": 215727
+},
+{
+"il": "Şırnak",
+"ilce": "Beytüşşebap",
+"nufus": 13971
+},
+{
+"il": "Şırnak",
+"ilce": "Cizre",
+"nufus": 166290
+},
+{
+"il": "Şırnak",
+"ilce": "Güçlükonak",
+"nufus": 12562
+},
+{
+"il": "Şırnak",
+"ilce": "İdil",
+"nufus": 76548
+},
+{
+"il": "Şırnak",
+"ilce": "Silopi",
+"nufus": 152610
+},
+{
+"il": "Şırnak",
+"ilce": "Şırnak",
+"nufus": 105697
+},
+{
+"il": "Şırnak",
+"ilce": "Uludere",
+"nufus": 45988
+},
+{
+"il": "Tekirdağ",
+"ilce": "Çerkezköy",
+"nufus": 223975
+},
+{
+"il": "Tekirdağ",
+"ilce": "Çorlu",
+"nufus": 306939
+},
+{
+"il": "Tekirdağ",
+"ilce": "Ergene",
+"nufus": 68648
+},
+{
+"il": "Tekirdağ",
+"ilce": "Hayrabolu",
+"nufus": 29706
+},
+{
+"il": "Tekirdağ",
+"ilce": "Kapaklı",
+"nufus": 152509
+},
+{
+"il": "Tekirdağ",
+"ilce": "Malkara",
+"nufus": 50123
+},
+{
+"il": "Tekirdağ",
+"ilce": "Marmaraereğlisi",
+"nufus": 33623
+},
+{
+"il": "Tekirdağ",
+"ilce": "Muratlı",
+"nufus": 30410
+},
+{
+"il": "Tekirdağ",
+"ilce": "Saray",
+"nufus": 51468
+},
+{
+"il": "Tekirdağ",
+"ilce": "Süleymanpaşa",
+"nufus": 226582
+},
+{
+"il": "Tekirdağ",
+"ilce": "Şarköy",
+"nufus": 34458
+},
+{
+"il": "Tokat",
+"ilce": "Almus",
+"nufus": 28135
+},
+{
+"il": "Tokat",
+"ilce": "Artova",
+"nufus": 7589
+},
+{
+"il": "Tokat",
+"ilce": "Başçiftlik",
+"nufus": 8445
+},
+{
+"il": "Tokat",
+"ilce": "Erbaa",
+"nufus": 103409
+},
+{
+"il": "Tokat",
+"ilce": "Niksar",
+"nufus": 63594
+},
+{
+"il": "Tokat",
+"ilce": "Pazar",
+"nufus": 12875
+},
+{
+"il": "Tokat",
+"ilce": "Reşadiye",
+"nufus": 43108
+},
+{
+"il": "Tokat",
+"ilce": "Sulusaray",
+"nufus": 6536
+},
+{
+"il": "Tokat",
+"ilce": "Tokat",
+"nufus": 201969
+},
+{
+"il": "Tokat",
+"ilce": "Turhal",
+"nufus": 77707
+},
+{
+"il": "Tokat",
+"ilce": "Yeşilyurt",
+"nufus": 8045
+},
+{
+"il": "Tokat",
+"ilce": "Zile",
+"nufus": 52729
+},
+{
+"il": "Trabzon",
+"ilce": "Akçaabat",
+"nufus": 131162
+},
+{
+"il": "Trabzon",
+"ilce": "Araklı",
+"nufus": 49230
+},
+{
+"il": "Trabzon",
+"ilce": "Arsin",
+"nufus": 31493
+},
+{
+"il": "Trabzon",
+"ilce": "Beşikdüzü",
+"nufus": 23246
+},
+{
+"il": "Trabzon",
+"ilce": "Çarşıbaşı",
+"nufus": 15004
+},
+{
+"il": "Trabzon",
+"ilce": "Çaykara",
+"nufus": 12921
+},
+{
+"il": "Trabzon",
+"ilce": "Dernekpazarı",
+"nufus": 3717
+},
+{
+"il": "Trabzon",
+"ilce": "Düzköy",
+"nufus": 13105
+},
+{
+"il": "Trabzon",
+"ilce": "Hayrat",
+"nufus": 7410
+},
+{
+"il": "Trabzon",
+"ilce": "Köprübaşı",
+"nufus": 4271
+},
+{
+"il": "Trabzon",
+"ilce": "Maçka",
+"nufus": 24931
+},
+{
+"il": "Trabzon",
+"ilce": "Of",
+"nufus": 43591
+},
+{
+"il": "Trabzon",
+"ilce": "Ortahisar",
+"nufus": 335116
+},
+{
+"il": "Trabzon",
+"ilce": "Sürmene",
+"nufus": 25281
+},
+{
+"il": "Trabzon",
+"ilce": "Şalpazarı",
+"nufus": 10575
+},
+{
+"il": "Trabzon",
+"ilce": "Tonya",
+"nufus": 13332
+},
+{
+"il": "Trabzon",
+"ilce": "Vakfıkebir",
+"nufus": 27278
+},
+{
+"il": "Trabzon",
+"ilce": "Yomra",
+"nufus": 51660
+},
+{
+"il": "Tunceli",
+"ilce": "Çemişgezek",
+"nufus": 7505
+},
+{
+"il": "Tunceli",
+"ilce": "Hozat",
+"nufus": 5332
+},
+{
+"il": "Tunceli",
+"ilce": "Mazgirt",
+"nufus": 7257
+},
+{
+"il": "Tunceli",
+"ilce": "Nazımiye",
+"nufus": 3095
+},
+{
+"il": "Tunceli",
+"ilce": "Ovacık",
+"nufus": 6700
+},
+{
+"il": "Tunceli",
+"ilce": "Pertek",
+"nufus": 10569
+},
+{
+"il": "Tunceli",
+"ilce": "Pülümür",
+"nufus": 3580
+},
+{
+"il": "Tunceli",
+"ilce": "Tunceli",
+"nufus": 41045
+},
+{
+"il": "Uşak",
+"ilce": "Banaz",
+"nufus": 34624
+},
+{
+"il": "Uşak",
+"ilce": "Eşme",
+"nufus": 34444
+},
+{
+"il": "Uşak",
+"ilce": "Karahallı",
+"nufus": 9408
+},
+{
+"il": "Uşak",
+"ilce": "Sivaslı",
+"nufus": 19193
+},
+{
+"il": "Uşak",
+"ilce": "Ulubey",
+"nufus": 11365
+},
+{
+"il": "Uşak",
+"ilce": "Uşak",
+"nufus": 265371
+},
+{
+"il": "Van",
+"ilce": "Bahçesaray",
+"nufus": 11438
+},
+{
+"il": "Van",
+"ilce": "Başkale",
+"nufus": 37568
+},
+{
+"il": "Van",
+"ilce": "Çaldıran",
+"nufus": 50170
+},
+{
+"il": "Van",
+"ilce": "Çatak",
+"nufus": 16361
+},
+{
+"il": "Van",
+"ilce": "Edremit",
+"nufus": 132309
+},
+{
+"il": "Van",
+"ilce": "Erciş",
+"nufus": 169040
+},
+{
+"il": "Van",
+"ilce": "Gevaş",
+"nufus": 26253
+},
+{
+"il": "Van",
+"ilce": "Gürpınar",
+"nufus": 28505
+},
+{
+"il": "Van",
+"ilce": "İpekyolu",
+"nufus": 362816
+},
+{
+"il": "Van",
+"ilce": "Muradiye",
+"nufus": 41402
+},
+{
+"il": "Van",
+"ilce": "Özalp",
+"nufus": 51357
+},
+{
+"il": "Van",
+"ilce": "Saray",
+"nufus": 17036
+},
+{
+"il": "Van",
+"ilce": "Tuşba",
+"nufus": 167758
+},
+{
+"il": "Yalova",
+"ilce": "Altınova",
+"nufus": 35490
+},
+{
+"il": "Yalova",
+"ilce": "Armutlu",
+"nufus": 11984
+},
+{
+"il": "Yalova",
+"ilce": "Çınarcık",
+"nufus": 40174
+},
+{
+"il": "Yalova",
+"ilce": "Çiftlikköy",
+"nufus": 58589
+},
+{
+"il": "Yalova",
+"ilce": "Termal",
+"nufus": 7497
+},
+{
+"il": "Yalova",
+"ilce": "Yalova",
+"nufus": 157901
+},
+{
+"il": "Yozgat",
+"ilce": "Akdağmadeni",
+"nufus": 39642
+},
+{
+"il": "Yozgat",
+"ilce": "Aydıncık",
+"nufus": 9317
+},
+{
+"il": "Yozgat",
+"ilce": "Boğazlıyan",
+"nufus": 35316
+},
+{
+"il": "Yozgat",
+"ilce": "Çandır",
+"nufus": 4360
+},
+{
+"il": "Yozgat",
+"ilce": "Çayıralan",
+"nufus": 11777
+},
+{
+"il": "Yozgat",
+"ilce": "Çekerek",
+"nufus": 18426
+},
+{
+"il": "Yozgat",
+"ilce": "Kadışehri",
+"nufus": 9854
+},
+{
+"il": "Yozgat",
+"ilce": "Saraykent",
+"nufus": 12605
+},
+{
+"il": "Yozgat",
+"ilce": "Sarıkaya",
+"nufus": 30785
+},
+{
+"il": "Yozgat",
+"ilce": "Sorgun",
+"nufus": 80068
+},
+{
+"il": "Yozgat",
+"ilce": "Şefaatli",
+"nufus": 14008
+},
+{
+"il": "Yozgat",
+"ilce": "Yenifakılı",
+"nufus": 5008
+},
+{
+"il": "Yozgat",
+"ilce": "Yerköy",
+"nufus": 33000
+},
+{
+"il": "Yozgat",
+"ilce": "Yozgat",
+"nufus": 109042
+},
+{
+"il": "Zonguldak",
+"ilce": "Alaplı",
+"nufus": 43217
+},
+{
+"il": "Zonguldak",
+"ilce": "Çaycuma",
+"nufus": 91796
+},
+{
+"il": "Zonguldak",
+"ilce": "Devrek",
+"nufus": 56900
+},
+{
+"il": "Zonguldak",
+"ilce": "Gökçebey",
+"nufus": 21070
+},
+{
+"il": "Zonguldak",
+"ilce": "Karadeniz Ereğli",
+"nufus": 173884
+},
+{
+"il": "Zonguldak",
+"ilce": "Kilimli",
+"nufus": 32441
+},
+{
+"il": "Zonguldak",
+"ilce": "Kozlu",
+"nufus": 50616
+},
+{
+"il": "Zonguldak",
+"ilce": "Zonguldak",
+"nufus": 115279
+}
+]

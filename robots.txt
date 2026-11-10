@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hakyol.app/sitemap.xml
+Sitemap: https://hakyol.app/sitemap-namaz.xml

@@ -156,6 +156,10 @@
   .feature-card h3 { font-family: var(--serif); font-weight: 600; font-size: 18px; margin: 0 0 8px; }
   .feature-card p { font-size: 14.5px; color: var(--text-soft); margin: 0; }
 
+  .free-band { width: fit-content; margin: 0 auto 18px; padding: 7px 16px; border-radius: 999px;
+    background: var(--gold); color: #241a04; font-weight: 800; font-size: 12.5px; letter-spacing: .5px; }
+  .city-link { margin: 18px 0 0; font-size: 15px; }
+  .city-link a { color: var(--gold-text); font-weight: 600; }
   /* ---------- Premium strip ---------- */
   section.premium {
     padding: 64px 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);
@@ -277,6 +281,14 @@
     <p class="sub" data-i18n="fa">اوقات نماز، جهت قبله، قرآن کریم، شمارشگر ذکر و پخش زنده کعبه — همه در یک برنامه. همراه شما در عبادت روزانه.</p>
     <p class="sub" data-i18n="ur">نماز کے اوقات، قبلہ کی سمت، قرآن کریم، ذکر کاؤنٹر اور کعبہ لائیو اسٹریم — سب ایک ہی ایپ میں۔ آپ کے روزانہ کی عبادت کا ساتھی۔</p>
 
+    <div class="free-band" data-i18n="tr">ÜCRETSİZ İNDİR · ÜYELİK YOK · ABONELİK YOK</div>
+    <div class="free-band" data-i18n="en">FREE DOWNLOAD · NO SIGN-UP · NO SUBSCRIPTION</div>
+    <div class="free-band" data-i18n="id">UNDUH GRATIS · TANPA DAFTAR · TANPA LANGGANAN</div>
+    <div class="free-band" data-i18n="bn">বিনামূল্যে ডাউনলোড · নিবন্ধন নেই · সাবস্ক্রিপশন নেই</div>
+    <div class="free-band" data-i18n="ar">تنزيل مجاني · بلا تسجيل · بلا اشتراك</div>
+    <div class="free-band" data-i18n="fa">دانلود رایگان · بدون ثبت‌نام · بدون اشتراک</div>
+    <div class="free-band" data-i18n="ur">مفت ڈاؤن لوڈ · رجسٹریشن نہیں · سبسکرپشن نہیں</div>
+
     <div class="badges">
       <a class="store-badge" href="https://apps.apple.com/us/app/hakyol/id6794740149" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.5 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.82zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -293,6 +305,7 @@
         </span>
       </a>
     </div>
+    <p class="city-link" data-i18n="tr"><a href="/namaz-vakitleri/">İl ve ilçe namaz vakitleri →</a></p>
   </div>
 </header>
 
@@ -415,71 +428,20 @@
 <section class="premium">
   <div class="wrap premium-inner">
     <div class="premium-copy">
-      <h2 data-i18n="tr">Hakyol Premium</h2>
-      <h2 data-i18n="en">Hakyol Premium</h2>
-      <h2 data-i18n="id">Hakyol Premium</h2>
-      <h2 data-i18n="bn">Hakyol প্রিমিয়াম</h2>
-      <h2 data-i18n="ar">Hakyol بريميوم</h2>
-      <h2 data-i18n="fa">Hakyol پریمیوم</h2>
-      <h2 data-i18n="ur">Hakyol پریمیم</h2>
-      <p data-i18n="tr">Namaz vakitleri her zaman ücretsiz. Kıble, Kur'an, zikirmatik, navigasyon ve Kâbe canlı yayını için 7 gün ücretsiz deneyin.</p>
-      <p data-i18n="en">Prayer times are always free. Try Qibla, Qur'an, dhikr, navigation, and Kaaba live free for 7 days.</p>
-      <p data-i18n="id">Waktu salat selalu gratis. Coba Kiblat, Al-Qur'an, dzikir, navigasi, dan Ka'bah langsung gratis 7 hari.</p>
-      <p data-i18n="bn">নামাজের সময় সবসময় বিনামূল্যে। কিবলা, কুরআন, জিকির, নেভিগেশন ও কাবা লাইভ ৭ দিন বিনামূল্যে চেষ্টা করুন।</p>
-      <p data-i18n="ar">أوقات الصلاة مجانية دائمًا. جرّب القبلة والقرآن والذكر والملاحة وبث الكعبة المباشر مجانًا لمدة 7 أيام.</p>
-      <p data-i18n="fa">اوقات نماز همیشه رایگان است. قبله، قرآن، ذکر، مسیریابی و پخش زنده کعبه را ۷ روز رایگان امتحان کنید.</p>
-      <p data-i18n="ur">نماز کے اوقات ہمیشہ مفت ہیں۔ قبلہ، قرآن، ذکر، نیویگیشن اور کعبہ لائیو کو 7 دن مفت آزمائیں۔</p>
-    </div>
-    <div class="price-row">
-      <div class="price-pill">
-        <div class="period" data-i18n="tr">Aylık</div>
-        <div class="period" data-i18n="en">Monthly</div>
-        <div class="period" data-i18n="id">Bulanan</div>
-        <div class="period" data-i18n="bn">মাসিক</div>
-        <div class="period" data-i18n="ar">شهري</div>
-        <div class="period" data-i18n="fa">ماهانه</div>
-        <div class="period" data-i18n="ur">ماہانہ</div>
-        <div class="amount" data-i18n="tr">₺29,99</div>
-        <div class="amount" data-i18n="en">$0.99</div>
-        <div class="amount" data-i18n="id">Rp11.000</div>
-        <div class="amount" data-i18n="bn">৳90</div>
-        <div class="amount" data-i18n="ur">₨200</div>
-      </div>
-      <div class="price-pill pop">
-        <span class="pop-tag" data-i18n="tr">En Popüler</span>
-        <span class="pop-tag" data-i18n="en">Most Popular</span>
-        <span class="pop-tag" data-i18n="id">Paling Populer</span>
-        <span class="pop-tag" data-i18n="bn">সবচেয়ে জনপ্রিয়</span>
-        <span class="pop-tag" data-i18n="ar">الأكثر شيوعًا</span>
-        <span class="pop-tag" data-i18n="fa">محبوب‌ترین</span>
-        <span class="pop-tag" data-i18n="ur">سب سے مقبول</span>
-        <div class="period" data-i18n="tr">Yıllık</div>
-        <div class="period" data-i18n="en">Annual</div>
-        <div class="period" data-i18n="id">Tahunan</div>
-        <div class="period" data-i18n="bn">বার্ষিক</div>
-        <div class="period" data-i18n="ar">سنوي</div>
-        <div class="period" data-i18n="fa">سالانه</div>
-        <div class="period" data-i18n="ur">سالانہ</div>
-        <div class="amount" data-i18n="tr">₺299,99</div>
-        <div class="amount" data-i18n="en">$6.49</div>
-        <div class="amount" data-i18n="id">Rp109.000</div>
-        <div class="amount" data-i18n="bn">৳900</div>
-        <div class="amount" data-i18n="ur">₨1.750</div>
-      </div>
-    </div>
-    <div class="price-note" data-i18n="ar">
-      <p>تختلف الأسعار حسب بلدك. اطّلع على السعر الدقيق في المتجر:</p>
-      <div class="price-cta">
-        <a href="https://apps.apple.com/app/hakyol/id6794740149?ct=hakyol_web_ar&amp;mt=8">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.bahadir.hakyol&amp;referrer=utm_source%3Dhakyol.app%26utm_medium%3Dweb%26utm_campaign%3Dlanding_ar">Google Play</a>
-      </div>
-    </div>
-    <div class="price-note" data-i18n="fa">
-      <p>قیمت‌ها بسته به کشور شما متفاوت است. قیمت دقیق را در فروشگاه ببینید:</p>
-      <div class="price-cta">
-        <a href="https://apps.apple.com/app/hakyol/id6794740149?ct=hakyol_web_fa&amp;mt=8">App Store</a>
-        <a href="https://play.google.com/store/apps/details?id=com.bahadir.hakyol&amp;referrer=utm_source%3Dhakyol.app%26utm_medium%3Dweb%26utm_campaign%3Dlanding_fa">Google Play</a>
-      </div>
+      <h2 data-i18n="tr">Tamamen Ücretsiz</h2>
+      <h2 data-i18n="en">Completely Free</h2>
+      <h2 data-i18n="id">Sepenuhnya Gratis</h2>
+      <h2 data-i18n="bn">সম্পূর্ণ বিনামূল্যে</h2>
+      <h2 data-i18n="ar">مجاني بالكامل</h2>
+      <h2 data-i18n="fa">کاملاً رایگان</h2>
+      <h2 data-i18n="ur">مکمل طور پر مفت</h2>
+      <p data-i18n="tr">Namaz vakitleri, ezan bildirimi, kıble, Kur'an-ı Kerim, zikirmatik, navigasyon ve Kâbe canlı yayını: hepsi ücretsiz. Üyelik yok, abonelik yok. Reklamsız kullanmak isterseniz reklamları tek seferlik ödemeyle kalıcı olarak kaldırabilirsiniz.</p>
+      <p data-i18n="en">Prayer times, adhan alerts, qibla, the Qur'an, dhikr, navigation and Kaaba live — all free. No sign-up, no subscription. Prefer no ads? Remove them for good with a one-time purchase.</p>
+      <p data-i18n="id">Waktu salat, notifikasi azan, kiblat, Al-Qur'an, dzikir, navigasi, dan siaran langsung Ka'bah — semuanya gratis. Tanpa daftar, tanpa langganan. Ingin tanpa iklan? Hapus iklan selamanya dengan sekali bayar.</p>
+      <p data-i18n="bn">নামাজের সময়, আজানের বিজ্ঞপ্তি, কিবলা, কুরআন, জিকির, নেভিগেশন ও কাবা লাইভ — সবই বিনামূল্যে। কোনো নিবন্ধন নেই, কোনো সাবস্ক্রিপশন নেই। বিজ্ঞাপন ছাড়া চান? একবার কিনে চিরতরে বিজ্ঞাপন সরিয়ে ফেলুন।</p>
+      <p data-i18n="ar">مواقيت الصلاة وتنبيهات الأذان والقبلة والقرآن الكريم والذكر والملاحة وبث الكعبة المباشر — كلها مجانية. بلا تسجيل وبلا اشتراك. تفضّل بدون إعلانات؟ أزلها نهائيًا بعملية شراء واحدة.</p>
+      <p data-i18n="fa">اوقات نماز، اعلان اذان، قبله، قرآن کریم، ذکر، مسیریابی و پخش زنده کعبه — همه رایگان. بدون ثبت‌نام، بدون اشتراک. تبلیغات نمی‌خواهید؟ با یک بار خرید برای همیشه حذفشان کنید.</p>
+      <p data-i18n="ur">نماز کے اوقات، اذان کی اطلاع، قبلہ، قرآن کریم، ذکر، نیویگیشن اور کعبہ لائیو — سب مفت۔ نہ رجسٹریشن، نہ سبسکرپشن۔ اشتہارات نہیں چاہتے؟ ایک بار کی خریداری سے ہمیشہ کے لیے ہٹا دیں۔</p>
     </div>
   </div>
 </section>
