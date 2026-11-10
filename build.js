@@ -173,23 +173,16 @@ function buildLang(lang) {
     btn.replaceWith(a);
   });
 
-  // 5. store badges: localized labels + UTM, fix App Store storefront
+  // 5. store badges (hero + "free" section): localized labels + UTM, fix App Store storefront
   const { appStore, play, b } = storeLinks(lang);
-  const badges = root.querySelectorAll(".store-badge");
-  if (badges[0]) {
-    badges[0].setAttribute("href", appStore);
-    const small = badges[0].querySelector(".small");
-    const big = badges[0].querySelector(".big");
-    if (small) small.set_content(b.appstore_small);
-    if (big) big.set_content(b.appstore_big);
-  }
-  if (badges[1]) {
-    badges[1].setAttribute("href", play);
-    const small = badges[1].querySelector(".small");
-    const big = badges[1].querySelector(".big");
-    if (small) small.set_content(b.play_small);
-    if (big) big.set_content(b.play_big);
-  }
+  root.querySelectorAll(".store-badge").forEach((badge) => {
+    const apple = badge.getAttribute("href").includes("apps.apple.com");
+    badge.setAttribute("href", apple ? appStore : play);
+    const small = badge.querySelector(".small");
+    const big = badge.querySelector(".big");
+    if (small) small.set_content(apple ? b.appstore_small : b.play_small);
+    if (big) big.set_content(apple ? b.appstore_big : b.play_big);
+  });
 
   // 6. drop the now-obsolete JS language switcher <script>
   root.querySelectorAll("script").forEach((s) => {
@@ -228,7 +221,7 @@ function buildLang(lang) {
   });
   root.querySelector("body").insertAdjacentHTML(
     "beforeend",
-    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n'
+    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n<script src="/js/app-popup.js" defer></script>\n'
   );
 
   const dest = path.join(ROOT, outDir(lang), "index.html");
