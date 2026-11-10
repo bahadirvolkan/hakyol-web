@@ -18,11 +18,13 @@
     "android": "ads"
   },
   "ads": {
-    "firstDelaySec": 30,
-    "minIntervalSec": 90,
+    "firstDelaySec": 20,
+    "minIntervalSec": 60,
     "noAdFeatures": [
       "QuranRead",
       "QuranOffline"
-    ]
+    ],
+    "removeAdsPromptEveryNAds": 1,
+    "removeAdsPromptMinHours": 1
   }
 }
