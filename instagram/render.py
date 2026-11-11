@@ -32,6 +32,10 @@ HERE = ROOT / "instagram"
 OUT = ROOT / "ig"
 CACHE = HERE / ".cache"
 START = date(2026, 11, 12)
+# 11-11 profil doldurma VERSES[0:17] ile 81 ilin vakit kartını kullandı; günlük takvim
+# bunlardan sonra devam etsin, ilk haftalarda aynı ayet ızgarada tekrar görünmesin.
+VERSE_OFFSET = 17
+CITY_OFFSET = 0
 
 # Bilinen, tek başına anlamı tam ayetler/ayet grupları. Sıra döner.
 VERSES = [
@@ -211,10 +215,10 @@ def post_for(d):
         body, cap = ayet(key, tr_date(d), "Hayırlı Cumalar")
         return "cuma", body, "Hayırlı Cumalar.\n\n" + cap, {}
     if wd in (1, 3, 6):
-        r = vakit(d, count_days(d, {1, 3, 6}))
+        r = vakit(d, CITY_OFFSET + count_days(d, {1, 3, 6}))
         if r:
             return "vakit", r[0], r[1], {"city": r[2]}
-    key = VERSES[count_days(d, {0, 2, 5}) % len(VERSES)]
+    key = VERSES[(VERSE_OFFSET + count_days(d, {0, 2, 5})) % len(VERSES)]
     body, cap = ayet(key, "Günün Ayeti")
     return "ayet", body, cap, {}
 
