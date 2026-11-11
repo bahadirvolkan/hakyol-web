@@ -1,0 +1,46 @@
+# @hakyol.app Instagram: her sabah günün gönderisini üret, commit'le, yayınla.
+# Gönderi türü ve içerik instagram/render.py'deki takvimden gelir.
+name: instagram
+
+on:
+  schedule:
+    - cron: "30 5 * * *" # 08:30 TSİ
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Tarih (YYYY-AA-GG), boşsa bugün"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow
+
+      - name: Görseli üret
+        run: python instagram/render.py ${{ inputs.date }}
+
+      - name: Görseli commit'le
+        run: |
+          git config user.name "hakyol-bot"
+          git config user.email "info@hakyol.app"
+          git add ig/
+          git diff --cached --quiet || { git commit -m "ig: ${{ inputs.date || 'günlük' }} gönderisi"; git pull --rebase && git push; }
+
+      - name: Instagram'da yayınla
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python instagram/publish.py ${{ inputs.date }}
