@@ -3,8 +3,11 @@
     python3 instagram/render.py [YYYY-AA-GG]     # varsayılan: bugün (TSİ)
     python3 instagram/render.py --all-verses     # ayet listesindeki her kartı önizle (taşma kontrolü)
 
-Çıktı: ig/<tarih>.jpg + ig/<tarih>.txt (repo kökünde; raw.githubusercontent üzerinden
-Instagram'a verilir, bkz. instagram/publish.py ve .github/workflows/instagram.yml).
+    python3 instagram/render.py [YYYY-AA-GG] --story N   # N=0..3, 1080x1920 hikâye
+
+Çıktı: ig/<tarih>.jpg + .txt (gönderi), ig/<tarih>-s<N>.jpg (hikâye). ig/ commit'lenmez;
+workflow görseli tek dosyalık ig-media dalına itip raw.githubusercontent üzerinden
+Instagram'a verir (bkz. instagram/publish.py ve .github/workflows/instagram.yml).
 
 Takvim durumsuz: gönderi türü haftanın gününden, sıradaki ayet/şehir START'tan bu yana
 geçen gün sayısından çıkar. Cuma: Cuma mesajı; Salı/Perşembe/Pazar: şehir vakitleri;
@@ -146,9 +149,18 @@ document.fonts.ready.then(function(){
 </script>"""
 
 
-def page(body):
+# Hikâye 9:16; üst ve alttaki Instagram arayüzü (profil satırı, yanıt kutusu) içeriği örtmesin.
+STORY_CSS = """
+html,body{height:1920px}
+.wrap{padding:300px 90px 420px}
+.foot{bottom:330px}
+"""
+
+
+def page(body, story=False):
     foot = f'<div class="foot"><img src="file://{ROOT / "icon.png"}"> hakyol.app <span>· ücretsiz</span></div>'
-    return f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="pattern"></div><div class="frame"></div><div class="wrap">{body}</div>{foot}{FIT_JS}'
+    css = CSS + (STORY_CSS if story else "")
+    return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap">{body}</div>{foot}{FIT_JS}'
 
 
 def ayet(key, kicker, title=None):
@@ -207,6 +219,18 @@ def post_for(d):
     return "ayet", body, cap, {}
 
 
+def story_for(d, slot):
+    """Günde 4 hikâye: 0 günün gönderisi, 1 başka bir şehrin vakitleri, 2-3 ayet."""
+    n = (d - START).days
+    if slot == 0:
+        return post_for(d)[1]
+    if slot == 1:
+        r = vakit(d, n + 11)
+        if r:
+            return r[0]
+    return ayet(VERSES[(2 * n + 7 * slot) % len(VERSES)], "Günün Ayeti")[0]
+
+
 def chrome():
     for c in (os.environ.get("CHROME"), "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
               shutil.which("google-chrome"), shutil.which("chromium")):
@@ -215,13 +239,13 @@ def chrome():
     sys.exit("Chrome bulunamadı")
 
 
-def shoot(body, jpg):
+def shoot(body, jpg, story=False):
     CACHE.mkdir(exist_ok=True)
     src = CACHE / (jpg.stem + ".html")
     png = CACHE / (jpg.stem + ".png")
-    src.write_text(page(body))
+    src.write_text(page(body, story))
     subprocess.run([chrome(), "--headless=new", "--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1",
-                    "--window-size=1080,1350", "--virtual-time-budget=5000", f"--screenshot={png}", f"file://{src}"],
+                    f"--window-size=1080,{1920 if story else 1350}", "--virtual-time-budget=5000", f"--screenshot={png}", f"file://{src}"],
                    check=True, capture_output=True)
     # Instagram API yalnız JPEG kabul ediyor.
     try:
@@ -241,7 +265,14 @@ def main():
         print(prev)
         return
     tr_now = datetime.now(timezone(timedelta(hours=3)))
-    d = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else tr_now.date()
+    args = [a for a in sys.argv[1:] if re.fullmatch(r"\d{4}-\d\d-\d\d", a)]
+    d = date.fromisoformat(args[0]) if args else tr_now.date()
+    if "--story" in sys.argv:
+        slot = int(sys.argv[sys.argv.index("--story") + 1])
+        jpg = OUT / f"{d}-s{slot}.jpg"
+        shoot(story_for(d, slot), jpg, story=True)
+        print("story", jpg)
+        return
     kind, body, cap, extra = post_for(d)
     tags = TAGS[kind].replace("{city}", extra.get("city", "") + "namazvakitleri")
     shoot(body, OUT / f"{d}.jpg")

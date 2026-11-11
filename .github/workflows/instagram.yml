@@ -1,15 +1,23 @@
-# @hakyol.app Instagram: her sabah günün gönderisini üret, commit'le, yayınla.
-# Gönderi türü ve içerik instagram/render.py'deki takvimden gelir.
+# @hakyol.app Instagram: sabah günün gönderisi + günde 4 hikâye.
+# İçerik takvimi instagram/render.py'de. Görsel ana dala commit'lenmez: her çalışmada
+# tek dosyalık ig-media dalına itilir (Instagram'ın çekeceği herkese açık URL için).
 name: instagram
 
 on:
   schedule:
-    - cron: "30 5 * * *" # 08:30 TSİ
+    - cron: "30 5 * * *" # 08:30 TSİ: gönderi + hikâye 0
+    - cron: "30 9 * * *" # 12:30 TSİ: hikâye 1 (şehir vakitleri)
+    - cron: "30 14 * * *" # 17:30 TSİ: hikâye 2 (ayet)
+    - cron: "0 18 * * *" # 21:00 TSİ: hikâye 3 (ayet)
   workflow_dispatch:
     inputs:
       date:
         description: "Tarih (YYYY-AA-GG), boşsa bugün"
         required: false
+      what:
+        description: "post, 0, 1, 2 ya da 3 (hikâye)"
+        required: true
+        default: post
 
 permissions:
   contents: write
@@ -19,7 +27,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  post:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,17 +38,30 @@ jobs:
 
       - run: pip install pillow
 
-      - name: Görseli üret
-        run: python instagram/render.py ${{ inputs.date }}
+      - name: Ne paylaşılacak
+        id: plan
+        run: |
+          case "${{ github.event.schedule }}" in
+            "30 5 * * *") echo "items=post 0" ;;
+            "30 9 * * *") echo "items=1" ;;
+            "30 14 * * *") echo "items=2" ;;
+            "0 18 * * *") echo "items=3" ;;
+            *) echo "items=${{ inputs.what }}" ;;
+          esac >> "$GITHUB_OUTPUT"
 
-      - name: Görseli commit'le
+      - name: Üret ve yayınla
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          DATE: ${{ inputs.date }}
         run: |
           git config user.name "hakyol-bot"
           git config user.email "info@hakyol.app"
-          git add ig/
-          git diff --cached --quiet || { git commit -m "ig: ${{ inputs.date || 'günlük' }} gönderisi"; git pull --rebase && git push; }
-
-      - name: Instagram'da yayınla
-        env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
-        run: python instagram/publish.py ${{ inputs.date }}
+          for item in ${{ steps.plan.outputs.items }}; do
+            if [ "$item" = post ]; then flag=""; else flag="--story $item"; fi
+            jpg=$(python instagram/render.py $DATE $flag | awk '{print $2}')
+            name=$(basename "$jpg")
+            blob=$(git hash-object -w "$jpg")
+            tree=$(printf "100644 blob %s\t%s\n" "$blob" "$name" | git mktree)
+            git push -fq origin "$(git commit-tree "$tree" -m "media $name"):refs/heads/ig-media"
+            python instagram/publish.py $DATE $flag
+          done
