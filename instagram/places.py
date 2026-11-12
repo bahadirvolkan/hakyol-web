@@ -93,7 +93,7 @@ def reel(jpg, mp4, secs=15, seed=None):
         "-filter_complex",
         f"[0:v]scale=1620:-1,zoompan=z='1+0.05*on/{frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
         f":d={frames}:s=1080x1920:fps=30,format=yuv420p[v];"
-        f"[1:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.5,afade=t=out:st={secs - 2}:d=2[a]",
+        f"[1:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.5,afade=t=out:st={secs - 2}:d=2,aresample=44100[a]",
         "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
         "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(mp4),
     ], check=True)
