@@ -16,7 +16,9 @@ import render as R
 
 HERE = Path(__file__).resolve().parent
 PLACES = json.loads((HERE / "places.json").read_text())
-MUSIC = sorted((HERE / "music").glob("*.m4a"))
+# Kullanıcının seçtiği Pixabay parçaları (11-12); Desert Sunrise Ney favori, iki kat sık çalar.
+MUSIC = sorted((HERE / "music").glob("*.mp3"))
+MUSIC += [m for m in MUSIC if m.stem == "desert-sunrise-ney"]
 GENERIC = ["#namazvakitleri", "#ezanvakti", "#namaz", "#ezan", "#islam", "#hakyol"]
 ASCII = str.maketrans("çğıöşüâîû", "cgiosuaiu")
 NAMES = ["İmsak", "Güneş", "Öğle", "İkindi", "Akşam", "Yatsı"]
@@ -81,7 +83,9 @@ def reel(jpg, mp4, secs=15, seed=None):
     """Durağan kartı yavaş yakınlaşan, fon müzikli dikey videoya çevirir (Instagram sessiz içerik istemiyoruz)."""
     rnd = random.Random(seed if seed is not None else jpg.name)
     track = rnd.choice(MUSIC)
-    start = rnd.uniform(4, 75 - secs - 4)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(track)],
+                               capture_output=True, text=True, check=True).stdout)
+    start = rnd.uniform(5, dur - secs - 5)
     frames = secs * 30
     subprocess.run([
         "ffmpeg", "-y", "-v", "error", "-loop", "1", "-framerate", "30", "-i", str(jpg),
@@ -89,7 +93,7 @@ def reel(jpg, mp4, secs=15, seed=None):
         "-filter_complex",
         f"[0:v]scale=1620:-1,zoompan=z='1+0.05*on/{frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
         f":d={frames}:s=1080x1920:fps=30,format=yuv420p[v];"
-        f"[1:a]afade=t=in:d=1.5,afade=t=out:st={secs - 2}:d=2[a]",
+        f"[1:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.5,afade=t=out:st={secs - 2}:d=2[a]",
         "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
         "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(mp4),
     ], check=True)

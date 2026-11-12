@@ -6,7 +6,7 @@
     python3 instagram/render.py [YYYY-AA-GG] --story N   # N=0..3, 1080x1920 hikâye
 
 Çıktı: ig/<tarih>.mp4 + .txt (reels), ig/<tarih>-s<N>.mp4 (hikâye); fon müzikli, bkz. places.reel. ig/ commit'lenmez;
-workflow görseli tek dosyalık ig-media dalına itip raw.githubusercontent üzerinden
+workflow görseli tek dosyalık ig-daily dalına itip raw.githubusercontent üzerinden
 Instagram'a verir (bkz. instagram/publish.py ve .github/workflows/instagram.yml).
 
 Takvim durumsuz: gönderi türü haftanın gününden, sıradaki ayet/şehir START'tan bu yana
