@@ -5,7 +5,7 @@
 
     python3 instagram/render.py [YYYY-AA-GG] --story N   # N=0..3, 1080x1920 hikâye
 
-Çıktı: ig/<tarih>.jpg + .txt (gönderi), ig/<tarih>-s<N>.jpg (hikâye). ig/ commit'lenmez;
+Çıktı: ig/<tarih>.mp4 + .txt (reels), ig/<tarih>-s<N>.mp4 (hikâye); fon müzikli, bkz. places.reel. ig/ commit'lenmez;
 workflow görseli tek dosyalık ig-media dalına itip raw.githubusercontent üzerinden
 Instagram'a verir (bkz. instagram/publish.py ve .github/workflows/instagram.yml).
 
@@ -65,7 +65,6 @@ CTA = "Vakit girince ezan sesiyle haber veren uygulama Hakyol: ücretsiz, üyeli
 TAGS = {
     "ayet": "#ayet #kuran #kuranıkerim #gününayeti #dua #islam #müslüman #hakyol",
     "cuma": "#hayırlıcumalar #cumamesajları #cuma #ayet #kuran #dua #islam #hakyol",
-    "vakit": "#namazvakitleri #ezanvakti #namaz #ezan #{city} #islam #müslüman #hakyol",
 }
 
 
@@ -183,24 +182,17 @@ def ayet(key, kicker, title=None):
 
 
 def vakit(d, n):
-    tr_name, name, slug = CITIES[n % len(CITIES)]
-    il = next(x for x in json.loads((ROOT / "data/diyanet-tr.json").read_text()) if x["sehir"] == tr_name)
-    center = next((x for x in il["ilceler"] if x["ilce"] == il["sehir"]), il["ilceler"][0])
-    rows = json.loads((ROOT / "data/vakitler.json").read_text())["ilce"].get(center["ilceId"], [])
-    row = next((r for r in rows if r[0] == d.isoformat()), None)
-    if not row:
-        return None
-    names = ["İmsak", "Güneş", "Öğle", "İkindi", "Akşam", "Yatsı"]
-    trs = "".join(f"<tr><td>{a}</td><td>{b}</td></tr>" for a, b in zip(names, row[1:7]))
-    body = (
-        f'<div class="kicker">{tr_date(d)}</div><div class="title">{html.escape(name)}<br>Namaz Vakitleri</div>'
-        f'<div class="ref" style="margin-top:20px">{html.escape(row[8])}</div>'
-        f'<div class="rule" style="margin:30px auto 10px"></div><table>{trs}</table>'
-    )
-    times = "\n".join(f"{a}: {b}" for a, b in zip(names, row[1:7]))
-    cap = (f"{name} namaz vakitleri, {tr_date(d)}\n\n{times}\n\nKaynak: Diyanet İşleri Başkanlığı. "
-           f"İlçe ilçe 30 günlük vakitler: hakyol.app/namaz-vakitleri/{slug}/")
-    return body, cap, slug.replace("-", "")
+    """n. sıradaki büyük ilin kartı: (gövde, etiketli açıklama) ya da None."""
+    import places
+    return places.card(d, places.il(CITIES[n % len(CITIES)][2]))
+
+
+def ilce_vakit(d, n):
+    """Nüfusça büyük ilçeler sırayla (11-12 toplu paylaşım ilk 69'u kullandı)."""
+    import places
+    big = sorted(((x, i) for x in places.PLACES for i in x["ilceler"]), key=lambda p: -p[1]["nufus"])
+    il, ilce = big[(69 + n) % len(big)]
+    return places.card(d, il, ilce)
 
 
 def count_days(d, weekdays):
@@ -213,23 +205,23 @@ def post_for(d):
     if wd == 4:
         key = CUMA_VERSES[count_days(d, {4}) % len(CUMA_VERSES)]
         body, cap = ayet(key, tr_date(d), "Hayırlı Cumalar")
-        return "cuma", body, "Hayırlı Cumalar.\n\n" + cap, {}
+        return body, f"Hayırlı Cumalar.\n\n{cap}\n\n{CTA}\n\n{TAGS['cuma']}"
     if wd in (1, 3, 6):
         r = vakit(d, CITY_OFFSET + count_days(d, {1, 3, 6}))
         if r:
-            return "vakit", r[0], r[1], {"city": r[2]}
+            return r
     key = VERSES[(VERSE_OFFSET + count_days(d, {0, 2, 5})) % len(VERSES)]
     body, cap = ayet(key, "Günün Ayeti")
-    return "ayet", body, cap, {}
+    return body, f"{cap}\n\n{CTA}\n\n{TAGS['ayet']}"
 
 
 def story_for(d, slot):
-    """Günde 4 hikâye: 0 günün gönderisi, 1 başka bir şehrin vakitleri, 2-3 ayet."""
+    """Günde 4 hikâye: 0 günün gönderisi, 1 büyük bir ilçenin vakitleri, 2-3 ayet."""
     n = (d - START).days
     if slot == 0:
-        return post_for(d)[1]
+        return post_for(d)[0]
     if slot == 1:
-        r = vakit(d, n + 11)
+        r = ilce_vakit(d, n)
         if r:
             return r[0]
     return ayet(VERSES[(2 * n + 7 * slot) % len(VERSES)], "Günün Ayeti")[0]
@@ -271,17 +263,19 @@ def main():
     tr_now = datetime.now(timezone(timedelta(hours=3)))
     args = [a for a in sys.argv[1:] if re.fullmatch(r"\d{4}-\d\d-\d\d", a)]
     d = date.fromisoformat(args[0]) if args else tr_now.date()
+    import places
+
+    # Her paylaşım müzikli dikey video: gönderi reels (ızgarada da görünür), hikâye video.
     if "--story" in sys.argv:
         slot = int(sys.argv[sys.argv.index("--story") + 1])
-        jpg = OUT / f"{d}-s{slot}.jpg"
-        shoot(story_for(d, slot), jpg, story=True)
-        print("story", jpg)
-        return
-    kind, body, cap, extra = post_for(d)
-    tags = TAGS[kind].replace("{city}", extra.get("city", "") + "namazvakitleri")
-    shoot(body, OUT / f"{d}.jpg")
-    (OUT / f"{d}.txt").write_text(f"{cap}\n\n{CTA}\n\n{tags}\n")
-    print(kind, OUT / f"{d}.jpg")
+        name, body, secs = f"{d}-s{slot}", story_for(d, slot), 12
+    else:
+        body, cap = post_for(d)
+        name, secs = f"{d}", 15
+        (OUT / f"{name}.txt").write_text(cap + "\n")
+    shoot(body, OUT / f"{name}.jpg", story=True)
+    places.reel(OUT / f"{name}.jpg", OUT / f"{name}.mp4", secs=secs)
+    print(name, OUT / f"{name}.mp4")
 
 
 if __name__ == "__main__":

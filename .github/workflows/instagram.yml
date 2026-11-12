@@ -1,6 +1,6 @@
-# @hakyol.app Instagram: sabah günün gönderisi + günde 4 hikâye.
+# @hakyol.app Instagram: sabah günün reels'i + günde 4 hikâye, hepsi fon müzikli video.
 # İçerik takvimi instagram/render.py'de. Görsel ana dala commit'lenmez: her çalışmada
-# tek dosyalık ig-media dalına itilir (Instagram'ın çekeceği herkese açık URL için).
+# tek dosyalık ig-daily dalına itilir (Instagram'ın çekeceği herkese açık URL için).
 name: instagram
 
 on:
@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pillow
+      - run: pip install pillow && sudo apt-get install -y -qq ffmpeg >/dev/null
 
       - name: Ne paylaşılacak
         id: plan
@@ -58,10 +58,10 @@ jobs:
           git config user.email "info@hakyol.app"
           for item in ${{ steps.plan.outputs.items }}; do
             if [ "$item" = post ]; then flag=""; else flag="--story $item"; fi
-            jpg=$(python instagram/render.py $DATE $flag | awk '{print $2}')
-            name=$(basename "$jpg")
-            blob=$(git hash-object -w "$jpg")
+            mp4=$(python instagram/render.py $DATE $flag | awk '{print $2}')
+            name=$(basename "$mp4")
+            blob=$(git hash-object -w "$mp4")
             tree=$(printf "100644 blob %s\t%s\n" "$blob" "$name" | git mktree)
-            git push -fq origin "$(git commit-tree "$tree" -m "media $name"):refs/heads/ig-media"
+            git push -fq origin "$(git commit-tree "$tree" -m "media $name"):refs/heads/ig-daily"
             python instagram/publish.py $DATE $flag
           done

@@ -1,8 +1,8 @@
-"""ig/<tarih>.jpg + .txt'yi (gönderi) ya da ig/<tarih>-s<N>.jpg'yi (hikâye) @hakyol.app'te yayınlar.
+"""ig/<tarih>.mp4 + .txt'yi (reels, ızgarada da) ya da ig/<tarih>-s<N>.mp4'ü (hikâye) @hakyol.app'te yayınlar.
 
     IG_TOKEN=... python3 instagram/publish.py [YYYY-AA-GG] [--story N]
 
-Görsel URL'si raw.githubusercontent'teki ig-media dalı (repo herkese açık); workflow dosyayı
+Görsel URL'si raw.githubusercontent'teki ig-daily dalı (repo herkese açık); workflow dosyayı
 yayından önce oraya iter.
 Token: Meta "Hakyol Paylaşım" uygulaması (1147129041141985), Unified login sistem kullanıcısı
 token'ı, süresiz. Yerelde ~/.instagram/hakyol.token, Actions'ta IG_TOKEN secret.
@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 IG_USER = "17841441445490981"
 API = "https://graph.facebook.com/v23.0"
-RAW = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-media"
+RAW = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-daily"
 
 
 def token():
@@ -55,13 +55,13 @@ def main():
             print(f"{name}: son 90 dakikada hikâye var, atlandı")
             return
     else:
-        params = {"caption": (ROOT / "ig" / f"{name}.txt").read_text().strip()}
+        params = {"media_type": "REELS", "share_to_feed": "true", "caption": (ROOT / "ig" / f"{name}.txt").read_text().strip()}
         recent = call("GET", f"{IG_USER}/media", fields="caption", limit=5).get("data", [])
         if any((m.get("caption") or "").strip() == params["caption"] for m in recent):
             print(f"{name} zaten paylaşılmış, atlandı")
             return
 
-    url = f"{RAW}/{name}.jpg"
+    url = f"{RAW}/{name}.mp4"
     for _ in range(10):  # raw.githubusercontent push'tan hemen sonra 404 verebilir
         try:
             urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=20)
@@ -69,8 +69,8 @@ def main():
         except urllib.error.HTTPError:
             time.sleep(15)
 
-    container = call("POST", f"{IG_USER}/media", image_url=url, **params)["id"]
-    for _ in range(20):
+    container = call("POST", f"{IG_USER}/media", video_url=url, **params)["id"]
+    for _ in range(72):  # video işleme dakikalar sürebilir
         status = call("GET", container, fields="status_code")["status_code"]
         if status == "FINISHED":
             break

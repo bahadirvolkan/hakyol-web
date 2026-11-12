@@ -134,6 +134,26 @@ const iller = LIST.map((il) => {
   return { name, slug, centerId: center.ilceId, ilceler, viaCenter };
 }).sort((a, b) => a.name.localeCompare(b.name, "tr"));
 
+// Instagram gönderileri aynı il/ilçe eşleştirmesini kullanır (instagram/places.py); nüfus etiket sırası için.
+const nufus = Object.fromEntries(OFFICIAL.map((r) => [slugify(r.il) + "/" + slugify(r.ilce), r.nufus]));
+fs.writeFileSync(
+  path.join(ROOT, "instagram", "places.json"),
+  JSON.stringify(
+    iller.map((il) => ({
+      name: il.name,
+      slug: il.slug,
+      centerId: il.centerId,
+      ilceler: [...il.ilceler, ...il.viaCenter].map((x) => ({
+        name: x.name,
+        slug: x.slug,
+        id: x.id || il.centerId,
+        viaCenter: !!x.viaCenter,
+        nufus: nufus[il.slug + "/" + x.slug] || 0,
+      })),
+    })),
+  ),
+);
+
 function rowsFor(id) {
   const rows = (VAKIT[id] || []).filter((r) => r[0] >= today).slice(0, DAYS_SHOWN);
   return rows.length && rows[0][0] === today ? rows : null;
