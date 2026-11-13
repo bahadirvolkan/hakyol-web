@@ -263,14 +263,12 @@ def post_for(d):
 
 
 def story_for(d, slot):
-    """Günde 4 hikâye: 0 günün reels'i, 1 büyük bir ilin vakitleri, 2-3 büyük ilçelerin vakitleri."""
+    """Günde 4 hikâye: 0 günün reels'i, 1-3 sıradaki tek ayet/hadis kartları (11-13: vakit kartları ilgi görmedi)."""
+    if slot == 0:
+        return post_for(d)[0]
+    singles = [q for q in json.loads((HERE / "queue.json").read_text()) if q["kind"] == "single"]
     n = (d - START).days
-    r = None
-    if slot == 1:
-        r = vakit(d, n)
-    elif slot in (2, 3):
-        r = ilce_vakit(d, 2 * n + slot - 2)
-    return r[0] if r else post_for(d)[0]
+    return singles[(3 * n + slot * 7) % len(singles)]["cards"][0]
 
 
 def chrome():
