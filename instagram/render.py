@@ -94,8 +94,23 @@ def verses(key):
     for n in range(int(a), int(b or a) + 1):
         v = cached(f"{sura}_{n}.json", f"https://api.quran.com/api/v4/verses/by_key/{sura}:{n}?translations=77&fields=text_uthmani")["verse"]
         meal = re.sub(r"<sup.*?</sup>|<[^>]+>", "", v["translations"][0]["text"])
-        out.append((v["text_uthmani"], html.unescape(meal).strip()))
+        out.append((v["text_uthmani"], ilah(html.unescape(meal).strip())))
     return out
+
+
+# Quran.com'daki Diyanet meali bazı ayetlerde "tanrı" der (ör. Tâhâ 14); güncel Diyanet meali
+# ve takipçiler "ilah" bekliyor (11-13 şikâyet). Ekler ünlü/ünsüz uyumuna göre çevrilir.
+ILAH_EKLERI = {"": "", "yı": "ı", "ya": "a", "nın": "ın", "sı": "ı", "dan": "tan", "da": "ta", "yla": "la",
+               "lar": "lar", "ları": "ları", "lara": "lara", "ların": "ların", "lardan": "lardan", "larda": "larda"}
+
+
+def ilah(text):
+    def sub(m):
+        root, ek = m.group(1), m.group(2)
+        if ek not in ILAH_EKLERI:
+            raise ValueError(f"'{m.group(0)}' için ilah karşılığı tanımlı değil")
+        return ("İlah" if root[0] == "T" else "ilah") + ILAH_EKLERI[ek]
+    return re.sub(r"\b([Tt]anrı)([a-zçğıöşü]*)", sub, text)
 
 
 def sura_name(sura):
