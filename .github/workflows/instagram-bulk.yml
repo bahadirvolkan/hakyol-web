@@ -1,0 +1,36 @@
+# @hakyol.app toplu reels: queue.json'daki sıradaki ayet/hadis/tema paketini saat başı yayınlar.
+# TSİ 06:05–01:05 arası günde 20 reels; sıra bitince her çalışma "sıra bitti" deyip çıkar.
+# Sıra: python3 instagram/series.py (yerelde, ağ gerekir) → queue.json commit'le.
+name: instagram-bulk
+
+on:
+  schedule:
+    - cron: "5 3-22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow && sudo apt-get install -y -qq ffmpeg >/dev/null
+
+      - name: Sıradaki reels
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          git config user.name "hakyol-bot"
+          git config user.email "info@hakyol.app"
+          cd instagram && python bulk.py

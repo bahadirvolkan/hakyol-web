@@ -124,7 +124,9 @@ def verses(key):
 # Quran.com'daki Diyanet meali bazı ayetlerde "tanrı" der (ör. Tâhâ 14); güncel Diyanet meali
 # ve takipçiler "ilah" bekliyor (11-13 şikâyet). Ekler ünlü/ünsüz uyumuna göre çevrilir.
 ILAH_EKLERI = {"": "", "yı": "ı", "ya": "a", "nın": "ın", "sı": "ı", "dan": "tan", "da": "ta", "yla": "la",
-               "lar": "lar", "ları": "ları", "lara": "lara", "ların": "ların", "lardan": "lardan", "larda": "larda"}
+               "m": "ım", "n": "ın", "mız": "ımız", "nız": "ınız", "mızı": "ımızı", "nızı": "ınızı", "ları": "ları",
+               "lar": "lar", "lara": "lara", "ların": "ların", "lardan": "lardan", "larda": "larda",
+               "larınız": "larınız", "larımız": "larımız"}
 
 
 def ilah(text):
@@ -206,8 +208,9 @@ html,body{height:1920px}
 def page(body, story=False):
     foot = f'<div class="foot"><img src="file://{ROOT / "icon.png"}"> hakyol.app <span>· ücretsiz</span></div>'
     tur = "hadis" if "Hadis-i Şerif" in body else "ayet"
-    # Vakit kartında "bu ayeti" denmez: yalnız genel davetler.
-    options = [c for c in CARD_FOLLOW if "{tur}" not in c] if "Namaz Vakitleri" in body else CARD_FOLLOW
+    # "Bu ayeti/hadisi" yalnız tek ayet ya da hadis taşıyan kartta; vakit, başlık, son kartta genel davet.
+    specific = 'class="ar"' in body or "Kırk Hadis" in body
+    options = CARD_FOLLOW if specific else [c for c in CARD_FOLLOW if "{tur}" not in c]
     follow = f'<div class="follow">{html.escape(pick(options, body).format(tur=tur))}</div>'
     css = CSS + (STORY_CSS if story else "")
     return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap"><div class="inner">{body}</div></div>{follow}{foot}{FIT_JS}'
