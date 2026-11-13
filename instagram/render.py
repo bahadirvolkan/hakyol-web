@@ -23,6 +23,7 @@ import re
 import shutil
 import subprocess
 import sys
+import zlib
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -62,6 +63,28 @@ CITIES = [
 MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 DAYS = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
 CTA = "Vakit girince ezan sesiyle haber veren uygulama Hakyol: ücretsiz, üyelik yok. İndirme linki profilde."
+# Takibe davet (11-13, kullanıcı hepsini onayladı): kartta kısa satır, açıklamada uzun; içeriğe göre dönüşümlü.
+# Hadis atfı her yerde "(Hadis-i Şerif)", derleyen adı değil.
+CARD_FOLLOW = [
+    "Her gün bir {tur} için takip edin. Allah razı olsun.",
+    "Hayırlı bir paylaşıma vesile olun, takip edin.",
+    "Günlük ayet ve hadisler için takipte kalın.",
+    "Bu {tur}i paylaşın, sevaba ortak olun.",
+    "Kaydedin, paylaşın; hayra vesile olun.",
+]
+CAPTION_FOLLOW = [
+    "Her gün bir ayet, bir hadis. Takip edin ki akışınızda hayırlı bir hatırlatma olsun. Allah razı olsun.",
+    "Bu hatırlatmayı sevdiklerinize gönderin. \u201cHayra vesile olan, onu yapan gibidir.\u201d (Hadis-i Şerif)",
+    "\u201cDikkat edin, kalpler ancak Allah'ı anmakla huzura kavuşur.\u201d (Ra'd Suresi 28. ayet) Günlük ayetler için @hakyol.app'i takip edin.",
+]
+
+
+def pick(options, seed):
+    return options[zlib.crc32(seed.encode()) % len(options)]
+
+
+def follow_caption(cap):
+    return pick(CAPTION_FOLLOW, cap)
 TAGS = {
     "ayet": "#ayet #kuran #kuranıkerim #gününayeti #dua #islam #müslüman #hakyol",
     "cuma": "#hayırlıcumalar #cumamesajları #cuma #ayet #kuran #dua #islam #hakyol",
@@ -134,7 +157,8 @@ body{background:radial-gradient(ellipse at 50% 0%,#1A2742 0%,#0B1220 55%,#070C16
 .pattern{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='1.2'%3E%3Cpath d='M60 6l15 39 39 15-39 15-15 39-15-39L6 60l39-15z'/%3E%3Crect x='32' y='32' width='56' height='56' transform='rotate(45 60 60)'/%3E%3C/g%3E%3C/svg%3E")}
 .frame{position:absolute;inset:44px;border:2px solid rgba(212,175,55,.45);border-radius:36px}
 .frame:after{content:'';position:absolute;inset:12px;border:1px solid rgba(212,175,55,.18);border-radius:28px}
-.wrap{position:absolute;inset:44px;padding:70px 90px 150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.wrap{position:absolute;inset:44px;padding:70px 90px 210px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.inner{width:100%;display:flow-root;display:flex;flex-direction:column;align-items:center}
 .kicker{font-size:24px;letter-spacing:.32em;color:#D4AF37;font-weight:700;text-transform:uppercase}
 .title{font-family:'Playfair Display',serif;font-size:76px;font-weight:700;color:#F2D58C;line-height:1.1;margin-top:26px}
 .rule{width:120px;height:2px;flex-shrink:0;background:linear-gradient(90deg,transparent,#D4AF37,transparent);margin:40px auto}
@@ -144,6 +168,7 @@ body{background:radial-gradient(ellipse at 50% 0%,#1A2742 0%,#0B1220 55%,#070C16
 .foot{position:absolute;left:0;right:0;bottom:78px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:26px;font-weight:700;color:#F2D58C;letter-spacing:.04em}
 .foot img{width:52px;height:52px;border-radius:13px}
 .foot span{color:#7C8AA3;font-weight:500}
+.follow{position:absolute;left:90px;right:90px;bottom:146px;text-align:center;font-size:25px;font-weight:600;color:#D4AF37;letter-spacing:.02em}
 table{width:100%;border-collapse:collapse;margin-top:8px}
 td{padding:22px 10px;border-bottom:1px solid rgba(212,175,55,.18);font-size:40px}
 td:first-child{text-align:left;color:#C9CEDA}
@@ -156,7 +181,9 @@ tr:last-child td{border-bottom:0}
 FIT_JS = """<script>
 document.fonts.ready.then(function(){
   var w=document.querySelector('.wrap'),m=document.querySelector('.meal'),a=document.querySelector('.ar');
-  function over(){return w.scrollHeight>w.clientHeight+1}
+  // Ortalanmış flex içerik taşınca scrollHeight artmaz; içeriği padding'li alana göre ölç.
+  var inner=w.firstElementChild;
+  function over(){var cs=getComputedStyle(w);return inner.offsetHeight>w.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)}
   for(var i=0;i<60&&over();i++){
     if(m&&parseFloat(getComputedStyle(m).fontSize)>30)m.style.fontSize=(parseFloat(getComputedStyle(m).fontSize)-2)+'px';
     if(a&&parseFloat(getComputedStyle(a).fontSize)>32)a.style.fontSize=(parseFloat(getComputedStyle(a).fontSize)-2)+'px';
@@ -170,15 +197,20 @@ document.fonts.ready.then(function(){
 # Hikâye 9:16; üst ve alttaki Instagram arayüzü (profil satırı, yanıt kutusu) içeriği örtmesin.
 STORY_CSS = """
 html,body{height:1920px}
-.wrap{padding:300px 90px 420px}
+.wrap{padding:300px 90px 480px}
 .foot{bottom:330px}
+.follow{bottom:400px}
 """
 
 
 def page(body, story=False):
     foot = f'<div class="foot"><img src="file://{ROOT / "icon.png"}"> hakyol.app <span>· ücretsiz</span></div>'
+    tur = "hadis" if "Hadis-i Şerif" in body else "ayet"
+    # Vakit kartında "bu ayeti" denmez: yalnız genel davetler.
+    options = [c for c in CARD_FOLLOW if "{tur}" not in c] if "Namaz Vakitleri" in body else CARD_FOLLOW
+    follow = f'<div class="follow">{html.escape(pick(options, body).format(tur=tur))}</div>'
     css = CSS + (STORY_CSS if story else "")
-    return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap">{body}</div>{foot}{FIT_JS}'
+    return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap"><div class="inner">{body}</div></div>{follow}{foot}{FIT_JS}'
 
 
 def ayet(key, kicker, title=None):
@@ -220,11 +252,11 @@ def post_for(d):
     if d.weekday() == 4:
         key = CUMA_VERSES[count_days(d, {4}) % len(CUMA_VERSES)]
         body, cap = ayet(key, tr_date(d), "Hayırlı Cumalar")
-        return body, f"Hayırlı Cumalar.\n\n{cap}\n\n{CTA}\n\n{TAGS['cuma']}"
+        return body, f"Hayırlı Cumalar.\n\n{cap}\n\n{follow_caption(cap)}\n\n{CTA}\n\n{TAGS['cuma']}"
     n = sum(1 for i in range((d - AYET_START).days) if (AYET_START + timedelta(days=i)).weekday() != 4)
     key = VERSES[(VERSE_OFFSET + n) % len(VERSES)]
     body, cap = ayet(key, "Günün Ayeti")
-    return body, f"{cap}\n\n{CTA}\n\n{TAGS['ayet']}"
+    return body, f"{cap}\n\n{follow_caption(cap)}\n\n{CTA}\n\n{TAGS['ayet']}"
 
 
 def story_for(d, slot):
