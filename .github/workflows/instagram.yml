@@ -5,10 +5,10 @@ name: instagram
 
 on:
   schedule:
-    - cron: "30 5 * * *" # 08:30 TSİ: gönderi + hikâye 0
-    - cron: "30 9 * * *" # 12:30 TSİ: hikâye 1 (şehir vakitleri)
-    - cron: "30 14 * * *" # 17:30 TSİ: hikâye 2 (ayet)
-    - cron: "0 18 * * *" # 21:00 TSİ: hikâye 3 (ayet)
+    - cron: "30 5 * * *" # 08:30 TSİ: günün ayet reels'i + aynısı hikâyede
+    - cron: "30 9 * * *" # 12:30 TSİ: hikâye 1 (büyük il vakitleri)
+    - cron: "30 14 * * *" # 17:30 TSİ: hikâye 2 (büyük ilçe vakitleri)
+    - cron: "0 18 * * *" # 21:00 TSİ: hikâye 3 (büyük ilçe vakitleri)
   workflow_dispatch:
     inputs:
       date:

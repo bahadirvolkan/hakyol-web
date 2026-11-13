@@ -32,10 +32,10 @@ HERE = ROOT / "instagram"
 OUT = ROOT / "ig"
 CACHE = HERE / ".cache"
 START = date(2026, 11, 12)
-# 11-11 profil doldurma VERSES[0:17] ile 81 ilin vakit kartını kullandı; günlük takvim
-# bunlardan sonra devam etsin, ilk haftalarda aynı ayet ızgarada tekrar görünmesin.
-VERSE_OFFSET = 17
-CITY_OFFSET = 0
+# 11-11/12 toplu paylaşımlar VERSES[0:27]'yi kullandı; 11-14'ten itibaren her gün (Cuma hariç)
+# günün ayeti bunlardan sonra devam etsin, ilk haftalarda aynı ayet ızgarada tekrar görünmesin.
+AYET_START = date(2026, 11, 14)
+VERSE_OFFSET = 27
 
 # Bilinen, tek başına anlamı tam ayetler/ayet grupları. Sıra döner.
 VERSES = [
@@ -216,30 +216,26 @@ def count_days(d, weekdays):
 
 
 def post_for(d):
-    wd = d.weekday()
-    if wd == 4:
+    """Günün reels'i her zaman ayet (11-13 karar: vakit kartları reels'te değil hikâyede); Cuma'da Cuma mesajı."""
+    if d.weekday() == 4:
         key = CUMA_VERSES[count_days(d, {4}) % len(CUMA_VERSES)]
         body, cap = ayet(key, tr_date(d), "Hayırlı Cumalar")
         return body, f"Hayırlı Cumalar.\n\n{cap}\n\n{CTA}\n\n{TAGS['cuma']}"
-    if wd in (1, 3, 6):
-        r = vakit(d, CITY_OFFSET + count_days(d, {1, 3, 6}))
-        if r:
-            return r
-    key = VERSES[(VERSE_OFFSET + count_days(d, {0, 2, 5})) % len(VERSES)]
+    n = sum(1 for i in range((d - AYET_START).days) if (AYET_START + timedelta(days=i)).weekday() != 4)
+    key = VERSES[(VERSE_OFFSET + n) % len(VERSES)]
     body, cap = ayet(key, "Günün Ayeti")
     return body, f"{cap}\n\n{CTA}\n\n{TAGS['ayet']}"
 
 
 def story_for(d, slot):
-    """Günde 4 hikâye: 0 günün gönderisi, 1 büyük bir ilçenin vakitleri, 2-3 ayet."""
+    """Günde 4 hikâye: 0 günün reels'i, 1 büyük bir ilin vakitleri, 2-3 büyük ilçelerin vakitleri."""
     n = (d - START).days
-    if slot == 0:
-        return post_for(d)[0]
+    r = None
     if slot == 1:
-        r = ilce_vakit(d, n)
-        if r:
-            return r[0]
-    return ayet(VERSES[(2 * n + 7 * slot) % len(VERSES)], "Günün Ayeti")[0]
+        r = vakit(d, n)
+    elif slot in (2, 3):
+        r = ilce_vakit(d, 2 * n + slot - 2)
+    return r[0] if r else post_for(d)[0]
 
 
 def chrome():
