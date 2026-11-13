@@ -1,6 +1,6 @@
 """queue.json'daki sıradaki reels'i üretip yayınlar (saat başı workflow: instagram-bulk.yml).
 
-    IG_TOKEN=... python3 instagram/bulk.py [--dry]
+    IG_TOKEN=... python3 instagram/bulk.py [--dry] [--count N --gap SANİYE]
 
 Durumsuz: son ~300 gönderinin açıklamasına bakar, henüz paylaşılmamış ilk öğeyi seçer.
 Tekli öğe: places.reel (yavaş yakınlaşma, 15 sn). Paket: kart başına kısa klipler, geçişli,
@@ -107,5 +107,14 @@ def main():
     sys.exit(f"{item['id']} yayınlanamadı")
 
 
+def arg(name, default):
+    return int(sys.argv[sys.argv.index(name) + 1]) if name in sys.argv else default
+
+
 if __name__ == "__main__":
-    main()
+    # GitHub saatlik cron'u güvenilmez (çoğu tetik düşüyor); bir çalışma aralıklı birkaç reels atar.
+    count, gap = arg("--count", 1), arg("--gap", 0)
+    for i in range(count):
+        if i:
+            time.sleep(gap)
+        main()
