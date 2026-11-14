@@ -65,7 +65,8 @@ def pack_video(cards, mp4, seed):
 def main():
     queue = json.loads((HERE / "queue.json").read_text())
     done = published_captions()
-    item = next((q for q in queue if q["caption"].strip() not in done), None)
+    # Tema paketleri (çok kartlı, ~30 sn) 7/7 denemede 5-16 izlenmede kaldı; tek kartlar ~1500. Paket atlanır.
+    item = next((q for q in queue if q["kind"] != "pack" and q["caption"].strip() not in done), None)
     if not item:
         print("sıra bitti")
         return
