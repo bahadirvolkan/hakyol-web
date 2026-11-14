@@ -225,6 +225,8 @@ tr.today td{background:var(--gold-soft);color:var(--gold-text)}
 footer{margin-top:40px;border-top:1px solid var(--card-border);padding:20px 0 32px;font-size:13px;color:var(--text-faint)}
 footer a{color:var(--text-soft);margin-right:14px}
 .disc{font-size:12px;color:var(--text-faint);margin-top:10px}
+.ig{margin:28px 0 0;padding:14px 16px;border:1px solid var(--card-border);border-radius:12px;font-size:15px;color:var(--text-soft);text-align:center}
+.ig a{font-weight:700}
 @media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}.cell .t{font-size:20px}
 table{min-width:0;font-size:12px}th,td{padding:7px 3px}th{font-size:10.5px}td:first-child,th:first-child{padding-left:8px}}
 `;
@@ -348,9 +350,10 @@ ${ld.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script
 <main class="wrap">
 <div class="crumbs">${crumbHtml}</div>
 ${body}
+<p class="ig">Günlük ayet ve hadisler için Instagram'da takip edin: <a href="https://www.instagram.com/hakyol.app/" rel="noopener">@hakyol.app</a></p>
 </main>
 <footer><div class="wrap">
-<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a>
+<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a><a href="https://www.instagram.com/hakyol.app/" rel="noopener">Instagram</a>
 <p class="disc">Vakitler Diyanet İşleri Başkanlığı verisine dayanır. Resmî kaynak namazvakti.diyanet.gov.tr'dir. © 2026 3B Tech.</p>
 </div></footer>
 <script>${CLIENT_JS}</script>

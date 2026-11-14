@@ -3,7 +3,7 @@
     IG_TOKEN=... python3 instagram/bulk.py [--dry] [--count N --gap SANİYE]
 
 Durumsuz: son ~300 gönderinin açıklamasına bakar, henüz paylaşılmamış ilk öğeyi seçer.
-Tekli öğe: places.reel (yavaş yakınlaşma, 15 sn). Paket: kart başına kısa klipler, geçişli,
+Tekli öğe: places.reel (yavaş yakınlaşma, meal uzunluğuna göre 8-15 sn). Paket: kart başına kısa klipler, geçişli,
 tek fon müziği. Video tek dosyalık ig-bulk dalına itilir (raw URL).
 """
 import random
@@ -15,6 +15,7 @@ from pathlib import Path
 import places as PL
 import publish as P
 import render as R
+import replies
 import json
 
 HERE = Path(__file__).resolve().parent
@@ -77,7 +78,7 @@ def main():
     else:
         jpg = OUT / f"{item['id']}.jpg"
         R.shoot(item["cards"][0], jpg, story=True)
-        PL.reel(jpg, mp4, seed=item["id"])
+        PL.reel(jpg, mp4, secs=PL.secs_for(item["cards"][0]), seed=item["id"])
     print("üretildi", mp4)
     if "--dry" in sys.argv:
         return
@@ -102,6 +103,10 @@ def main():
         if r["status_code"] == "FINISHED":
             P.call("POST", f"{P.IG_USER}/media_publish", creation_id=c)
             print("yayınlandı", item["id"], item["kind"])
+            try:
+                replies.run()
+            except Exception as e:  # yorum cevabı yayını asla düşürmesin
+                print("yorum cevabı hatası:", e)
             return
         print("tekrar", item["id"], r.get("status"))
         time.sleep(90)

@@ -322,7 +322,7 @@ def main():
         name, body, secs = f"{d}-s{slot}", story_for(d, slot), 12
     else:
         body, cap = post_for(d)
-        name, secs = f"{d}", 15
+        name, secs = f"{d}", places.secs_for(body)
         (OUT / f"{name}.txt").write_text(cap + "\n")
     shoot(body, OUT / f"{name}.jpg", story=True)
     places.reel(OUT / f"{name}.jpg", OUT / f"{name}.mp4", secs=secs)

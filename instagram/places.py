@@ -79,6 +79,13 @@ def card(d, il_rec, ilce=None):
     return body, cap
 
 
+def secs_for(body):
+    """Reels süresi meal uzunluğuna göre 8-15 sn: kısa ayet sonuna kadar izlensin (ort. izlenme ~4 sn, 11-14)."""
+    m = re.search(r'class="meal"[^>]*>(.*?)</div>', body, re.S)
+    n = len(re.sub(r"<[^>]+>", "", m.group(1))) if m else 300
+    return max(8, min(15, round(4 + n / 22)))
+
+
 def reel(jpg, mp4, secs=15, seed=None):
     """Durağan kartı yavaş yakınlaşan, fon müzikli dikey videoya çevirir (Instagram sessiz içerik istemiyoruz)."""
     rnd = random.Random(seed if seed is not None else jpg.name)
