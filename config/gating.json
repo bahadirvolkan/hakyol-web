@@ -11,7 +11,7 @@
   "softPaywallEveryNFreeNavigations": 3,
   "minBuild": {
     "ios": 17,
-    "android": 63
+    "android": 64
   },
   "monetization": {
     "ios": "ads",
