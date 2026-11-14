@@ -159,7 +159,7 @@ body{background:radial-gradient(ellipse at 50% 0%,#1A2742 0%,#0B1220 55%,#070C16
 .pattern{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='1.2'%3E%3Cpath d='M60 6l15 39 39 15-39 15-15 39-15-39L6 60l39-15z'/%3E%3Crect x='32' y='32' width='56' height='56' transform='rotate(45 60 60)'/%3E%3C/g%3E%3C/svg%3E")}
 .frame{position:absolute;inset:44px;border:2px solid rgba(212,175,55,.45);border-radius:36px}
 .frame:after{content:'';position:absolute;inset:12px;border:1px solid rgba(212,175,55,.18);border-radius:28px}
-.wrap{position:absolute;inset:44px;padding:70px 90px 210px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.wrap{position:absolute;inset:44px;padding:70px 90px 250px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .inner{width:100%;display:flow-root;display:flex;flex-direction:column;align-items:center}
 .kicker{font-size:24px;letter-spacing:.32em;color:#D4AF37;font-weight:700;text-transform:uppercase}
 .title{font-family:'Playfair Display',serif;font-size:76px;font-weight:700;color:#F2D58C;line-height:1.1;margin-top:26px}
@@ -170,7 +170,9 @@ body{background:radial-gradient(ellipse at 50% 0%,#1A2742 0%,#0B1220 55%,#070C16
 .foot{position:absolute;left:0;right:0;bottom:78px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:26px;font-weight:700;color:#F2D58C;letter-spacing:.04em}
 .foot img{width:52px;height:52px;border-radius:13px}
 .foot span{color:#7C8AA3;font-weight:500}
-.follow{position:absolute;left:90px;right:90px;bottom:146px;text-align:center;font-size:25px;font-weight:600;color:#D4AF37;letter-spacing:.02em}
+.follow{position:absolute;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center}
+.follow p{margin-bottom:16px;font-size:26px;font-weight:600;color:#D4AF37}
+.follow div{max-width:900px;padding:18px 40px;border:3px solid #D4AF37;border-radius:60px;background:rgba(212,175,55,.14);text-align:center;font-size:34px;line-height:1.3;font-weight:800;color:#F2D58C;letter-spacing:.01em}
 table{width:100%;border-collapse:collapse;margin-top:8px}
 td{padding:22px 10px;border-bottom:1px solid rgba(212,175,55,.18);font-size:40px}
 td:first-child{text-align:left;color:#C9CEDA}
@@ -196,12 +198,13 @@ document.fonts.ready.then(function(){
 </script>"""
 
 
-# Hikâye 9:16; üst ve alttaki Instagram arayüzü (profil satırı, yanıt kutusu) içeriği örtmesin.
+# Hikâye/reels 9:16; üst ve alttaki Instagram arayüzü (profil satırı, reels açıklaması) içeriği örtmesin.
+# Takip daveti büyük kutu, alttan 520 px: reels açıklama katmanının üstünde kalır (11-14).
 STORY_CSS = """
 html,body{height:1920px}
-.wrap{padding:300px 90px 480px}
+.wrap{padding:300px 90px 640px}
 .foot{bottom:330px}
-.follow{bottom:400px}
+.follow{bottom:520px}
 """
 
 
@@ -211,7 +214,11 @@ def page(body, story=False):
     # "Bu ayeti/hadisi" yalnız tek ayet ya da hadis taşıyan kartta; vakit, başlık, son kartta genel davet.
     specific = 'class="ar"' in body or "Kırk Hadis" in body
     options = CARD_FOLLOW if specific else [c for c in CARD_FOLLOW if "{tur}" not in c]
-    follow = f'<div class="follow">{html.escape(pick(options, body).format(tur=tur))}</div>'
+    # Kutuda her zaman takip cümlesi; paylaşım cümleleri kutunun üstünde küçük satır (11-14).
+    follows = [c for c in options if "takip" in c.lower()]
+    shares = [c for c in options if "takip" not in c.lower()]
+    small = f'<p>{html.escape(pick(shares, body).format(tur=tur))}</p>' if shares else ""
+    follow = f'<div class="follow">{small}<div>{html.escape(pick(follows, body).format(tur=tur))}</div></div>'
     css = CSS + (STORY_CSS if story else "")
     return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap"><div class="inner">{body}</div></div>{follow}{foot}{FIT_JS}'
 
