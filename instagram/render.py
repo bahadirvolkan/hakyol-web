@@ -62,7 +62,10 @@ CITIES = [
 
 MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 DAYS = ["Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"]
-CTA = "Vakit girince ezan sesiyle haber veren uygulama Hakyol: ücretsiz, üyelik yok. İndirme linki profilde."
+OLD_CTA = "Vakit girince ezan sesiyle haber veren uygulama Hakyol: ücretsiz, üyelik yok. İndirme linki profilde."
+# Yorumdan şehir linki (11-15): replies.py il/ilçe adı yazan yorumcuya özel mesajla sayfa linkini gönderir.
+CITY_ASK = "Şehrinizin ya da ilçenizin namaz vakitleri için yoruma adını yazın, linki mesajla gönderelim."
+CTA = f"{CITY_ASK}\n\n{OLD_CTA}"
 # Takibe davet (11-13, kullanıcı hepsini onayladı): kartta kısa satır, açıklamada uzun; içeriğe göre dönüşümlü.
 # Hadis atfı her yerde "(Hadis-i Şerif)", derleyen adı değil.
 CARD_FOLLOW = [

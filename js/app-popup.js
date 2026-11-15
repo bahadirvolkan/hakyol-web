@@ -6,8 +6,10 @@
 (function () {
   var KEY = "hakyol_popup_until";
   var HIDE_MS = 24 * 3600000;
+  // Ana ekrandaki şehir simgesinden açılışta (11-15, kullanıcı isteği) kart her açılışta çıkar.
+  var standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
   try {
-    if (Number(localStorage.getItem(KEY)) > Date.now()) return;
+    if (!standalone && Number(localStorage.getItem(KEY)) > Date.now()) return;
   } catch (e) {}
 
   var L = document.documentElement.getAttribute("lang") || "tr";
@@ -25,7 +27,7 @@
   var ua = navigator.userAgent;
   var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var android = /Android/.test(ua);
-  var campaign = "popup_" + (location.pathname.indexOf("/namaz-vakitleri") === 0 ? "city" : L);
+  var campaign = standalone ? "popup_homescreen" : "popup_" + (location.pathname.indexOf("/namaz-vakitleri") === 0 ? "city" : L);
   var appStore = "https://apps.apple.com/app/hakyol/id6794740149?ct=" + campaign + "&mt=8";
   var play = "https://play.google.com/store/apps/details?id=com.bahadir.hakyol&referrer=utm_source%3Dhakyol.app%26utm_medium%3Dweb%26utm_campaign%3D" + campaign;
 

@@ -216,6 +216,12 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5vw,38px);line-
 .cell .t{display:block;font-family:var(--mono);font-size:22px;margin-top:2px}
 .next-line{margin:14px 0 0;text-align:center;color:var(--gold-text);font-weight:600;min-height:1.6em}
 .meta{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:10px;font-size:13px;color:var(--text-soft)}
+.a2hs{position:relative;margin:16px 0 0;background:var(--card);border:1px dashed var(--gold);border-radius:18px;padding:16px 44px 14px 18px}
+.a2hs strong{display:block;font-size:16px;color:var(--gold-text);margin-bottom:4px}
+.a2hs p{margin:0 0 10px;font-size:14px;line-height:1.5;color:var(--text-soft)}
+.a2hs .a2hs-how{margin:10px 0 0}
+.a2hs .a2hs-btn{display:inline-block;background:var(--gold);color:#241a04;font-weight:800;font-size:15px;border:0;border-radius:12px;padding:11px 18px;text-decoration:none;font-family:inherit;cursor:pointer}
+.a2hs .a2hs-x{position:absolute;top:8px;right:10px;background:none;border:0;color:var(--text-faint);font-size:24px;line-height:1;cursor:pointer;padding:4px}
 .cta{margin:24px 0;background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(212,175,55,.06));border:1px solid var(--gold);border-radius:18px;padding:20px;text-align:center}
 .cta h2{font-family:var(--serif);font-size:22px;margin:0 0 6px}
 .cta p{margin:0 0 14px;color:var(--text-soft)}
@@ -334,7 +340,7 @@ function breadcrumbLd(trail) {
   };
 }
 
-function page({ url, title, description, crumbs, body, ld, localClock, turkeyMap }) {
+function page({ url, title, description, crumbs, body, ld, localClock, turkeyMap, appName }) {
   const crumbHtml = crumbs
     .map(([name, href], i) => (i === crumbs.length - 1 ? esc(name) : `<a href="${href}">${esc(name)}</a>`))
     .join(" › ");
@@ -357,6 +363,12 @@ function page({ url, title, description, crumbs, body, ld, localClock, turkeyMap
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+${appName ? `<link rel="manifest" href="${url}manifest.webmanifest" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="${esc(appName)}" />
+<meta name="theme-color" content="#0B1220" />` : ""}
 <link rel="stylesheet" href="/fonts/fonts.css" />
 ${turkeyMap ? '<link rel="stylesheet" href="/css/turkey-map.css" />' : ""}
 <style>${CSS}</style>
@@ -378,6 +390,7 @@ ${body}
 ${turkeyMap ? '<script src="/js/turkey-map.js" defer></script>' : ""}
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
+${appName ? '<script src="/js/home-screen.js" defer></script>' : ""}
 </body>
 </html>
 `;
@@ -396,6 +409,7 @@ function placePage({ place, fullPlace, url, crumbs, rows, campaign, extra, note,
 <div data-city-search data-index="${BASE_PATH}/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>
 ${note ? `<p class="note">${esc(note)}</p>` : ""}
 ${todayBox(r)}
+<div class="a2hs" data-a2hs data-place="${esc(place)}" hidden></div>
 ${cta(place, campaign)}
 <h2 class="sec">${esc(place)} ${DAYS_SHOWN} günlük namaz vakitleri</h2>
 ${monthTable(rows)}
@@ -411,7 +425,31 @@ ${f.html}`;
     body,
     ld: [breadcrumbLd(crumbs.map(([n, h]) => [n, h])), f.ld],
     localClock: !!country,
+    appName: homeScreenApp(place, fullPlace, url),
   });
+}
+
+// Ana ekrana ekleme (11-15): her il/ilçe sayfası kendi manifest'iyle kurulur, simge o sayfayı açar.
+function homeScreenApp(place, fullPlace, url) {
+  const short = place.length <= 12 ? place : "Vakitler";
+  const dest = path.join(ROOT, url, "manifest.webmanifest");
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, JSON.stringify({
+    id: url,
+    name: `${fullPlace} Namaz Vakitleri`,
+    short_name: short,
+    lang: "tr",
+    start_url: `${url}?utm_source=homescreen`,
+    scope: `${BASE_PATH}/`,
+    display: "standalone",
+    background_color: "#0B1220",
+    theme_color: "#0B1220",
+    icons: [
+      { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+  }));
+  return short;
 }
 
 // --- üretim ---------------------------------------------------------------

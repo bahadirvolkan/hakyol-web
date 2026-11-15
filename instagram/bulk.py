@@ -112,7 +112,7 @@ def main():
             print("yayınlandı", item["id"], item["kind"])
             try:
                 replies.run()
-            except Exception as e:  # yorum cevabı yayını asla düşürmesin
+            except (Exception, SystemExit) as e:  # yorum cevabı yayını asla düşürmesin
                 print("yorum cevabı hatası:", e)
             return
         print("tekrar", item["id"], r.get("status"))
