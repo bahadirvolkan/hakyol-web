@@ -37,7 +37,7 @@
   <a class="back-link" href="index.html">← Hakyol</a>
 
   <h1>KVKK Aydınlatma Metni</h1>
-  <p class="updated">Son güncelleme: 7 Kasım 2026</p>
+  <p class="updated">Son güncelleme: 15 Kasım 2026</p>
 
   <p>
     Bu Aydınlatma Metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") madde 10 uyarınca,
@@ -76,6 +76,12 @@
       <td>Anonim ürün-kullanım olayları (açılan ekran/özellik), rastgele cihaz kimliğiyle</td>
       <td>Uygulamanın geliştirilmesi (PostHog, AB sunucuları) — ad, e-posta veya konum içermez</td>
     </tr>
+    <tr>
+      <td>Bildirim anahtarı (APNs/FCM push token), rastgele kurulum kimliği, uygulama sürümü, dil, ülke,
+        saat dilimi, bildirim izni durumu, reklamsız/abone bilgisi — 2.0.11 ve sonraki sürümlerde</td>
+      <td>Güncelleme ve önemli duyuru bildirimlerinin iletilmesi (3B Konsol, konsol.3btech.tr);
+        pazarlama bildirimi ayrıca izin verilmedikçe gönderilmez</td>
+    </tr>
   </table>
   <p>
     Uygulama; ad, e-posta, telefon numarası gibi kimlik/iletişim verisi talep etmez, kullanıcı
@@ -110,6 +116,12 @@
     Abonelik durumunuzun (aktif/pasif) cihazlar arası doğrulanabilmesi amacıyla, anonim bir
     kullanıcı kimliği ve satın alma/işlem verisi <strong>RevenueCat</strong> adlı abonelik altyapı
     sağlayıcısına aktarılır; ad, e-posta veya ödeme bilgisi RevenueCat'e aktarılmaz.
+  </p>
+  <p>
+    2.0.11 ve sonraki sürümlerde bildirim anahtarı ve yukarıdaki tabloda sayılan cihaz bilgileri,
+    3B Marine'in kiraladığı sunucuda (Hetzner Online GmbH) çalışan bildirim panelimize aktarılır;
+    bildirimler <strong>Apple Push Notification service</strong> ve <strong>Google Firebase Cloud
+    Messaging</strong> üzerinden iletilir. Ad, e-posta, telefon veya konum aktarılmaz.
   </p>
 
   <h2>4. Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebebi</h2>
