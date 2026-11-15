@@ -21,6 +21,7 @@ const LANGS = META.langs;
 const RTL = new Set(META.rtl);
 const APP_ID = "6794740149";
 const PKG = "com.bahadir.hakyol";
+const WORLD = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "world-cities.json"), "utf8"));
 
 const PW_CSS = `
   .pw-wrap { padding: 8px 0 32px; }
@@ -79,7 +80,20 @@ const BIG_CITIES = [
   ["sanliurfa", "Şanlıurfa"], ["kocaeli", "Kocaeli"], ["diyarbakir", "Diyarbakır"], ["kayseri", "Kayseri"],
 ];
 
-function cityLinksHtml() {
+function cityLinksHtml(lang = "tr") {
+  if (lang !== "tr") {
+    const cfg = {
+      id: ["Jadwal Sholat di Indonesia", "Pilih kota untuk melihat jadwal sholat 30 hari", "Semua kota", "jadwal-sholat", "Cari kota", "Tidak ada hasil"],
+      bn: ["বাংলাদেশে নামাজের সময়", "৩০ দিনের নামাজের সময় দেখতে শহর বেছে নিন", "সব শহর", "namaz-er-somoy", "শহর খুঁজুন", "কোনো ফল পাওয়া যায়নি"],
+      ur: ["پاکستان میں نماز کے اوقات", "30 دن کے اوقات کے لیے شہر منتخب کریں", "تمام شہر", "namaz-ke-auqat", "شہر تلاش کریں", "کوئی نتیجہ نہیں"],
+      ar: ["مواقيت الصلاة حول العالم", "اختر مدينتك لعرض مواقيت الصلاة لـ30 يومًا", "كل المدن", "mawaqit-al-salat", "ابحث عن مدينة", "لا توجد نتائج"],
+      fa: ["اوقات شرعی شهرها", "برای مشاهده اوقات شرعی ۳۰ روزه شهر را انتخاب کنید", "همه شهرها", "owghat-sharei", "جستجوی شهر", "نتیجه‌ای یافت نشد"],
+    }[lang];
+    const cities = WORLD.countries.filter((c) => c.lang === lang).flatMap((c) => c.cities.map((city) => ({ ...city, country: c }))).sort((a, b) => b.pop - a.pop).slice(0, 10);
+    const root = `/${lang}/${cfg[3]}`;
+    const items = cities.map((city) => `<li><a href="${root}/${["ar", "fa"].includes(lang) ? city.country.slug + "/" : ""}${city.slug}/">${city.name}</a></li>`).join("");
+    return `<section class="city-links"><div class="wrap"><div class="box"><h2>${cfg[0]}</h2><div data-city-search data-index="${root}/search.json" data-placeholder="${cfg[4]}" data-no-results="${cfg[5]}"></div><p>${cfg[1]}</p><ul>${items}</ul><a class="all" href="${root}/">${cfg[2]}</a></div></div></section>`;
+  }
   const items = BIG_CITIES.map(
     ([slug, name]) => `<li><a href="/namaz-vakitleri/${slug}/" title="${name} namaz vakitleri">${name}</a></li>`
   ).join("");
@@ -269,19 +283,19 @@ function buildLang(lang) {
     );
   }
   // 9b. Turkish home: internal links to the il/ilçe prayer-time pages (SEO + navigation)
-  if (lang === "tr") {
+  if (lang === "tr" || ["id", "bn", "ur", "ar", "fa"].includes(lang)) {
     const pw = root.querySelector("section.pw-wrap");
-    if (pw) pw.insertAdjacentHTML("afterend", "\n" + cityLinksHtml() + "\n");
+    if (pw) pw.insertAdjacentHTML("afterend", "\n" + cityLinksHtml(lang) + "\n");
   }
   root.querySelectorAll("style").forEach((st) => {
     if (st.innerHTML.includes(":root")) {
-      st.set_content(st.innerHTML + "\n" + PW_CSS + "\n" + CITY_CSS + (lang === "tr" ? "\n" + SEARCH_CSS : ""));
+      st.set_content(st.innerHTML + "\n" + PW_CSS + "\n" + CITY_CSS + (lang === "en" ? "" : "\n" + SEARCH_CSS));
     }
   });
   root.querySelector("body").insertAdjacentHTML(
     "beforeend",
     '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n' +
-      (lang === "tr" ? '<script src="/js/city-search.js" defer></script>\n' : '') +
+      (lang !== "en" ? '<script src="/js/city-search.js" defer></script>\n' : '') +
       '<script src="/js/analytics.js" defer></script>\n<script src="/js/app-popup.js" defer></script>\n'
   );
 

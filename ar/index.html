@@ -267,6 +267,20 @@
   .city-links .all { display: inline-block; border: 1px solid var(--gold); background: var(--gold);
     color: #241a04; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 999px;
     text-decoration: none; }
+
+
+  .city-links [data-city-search] { margin: 14px 0; text-align: start; }
+  .city-search { position: relative; }
+  .city-search input { width: 100%; min-height: 48px; border: 1px solid var(--card-border); border-radius: 12px;
+    background: var(--bg); color: var(--text); font: 16px var(--sans); padding: 11px 14px; outline: none; }
+  .city-search input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+  .city-search-results { position: absolute; z-index: 20; inset-inline: 0; top: calc(100% + 4px);
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+  .city-search-results:empty { display: none; }
+  .city-search-results a { display: block; padding: 10px 14px; color: var(--text); text-decoration: none; }
+  .city-search-results a[aria-selected="true"], .city-search-results a:hover { background: var(--gold-soft); }
+  .city-search-results span { color: var(--text-faint); }
 </style>
 
 <link rel="alternate" hreflang="tr" href="https://hakyol.app/" >
@@ -361,6 +375,8 @@
   </div>
 </header>
 <section class="pw-wrap"><div class="wrap"><div id="prayer-widget"></div></div></section>
+<section class="city-links"><div class="wrap"><div class="box"><h2>مواقيت الصلاة حول العالم</h2><div data-city-search data-index="/ar/mawaqit-al-salat/search.json" data-placeholder="ابحث عن مدينة" data-no-results="لا توجد نتائج"></div><p>اختر مدينتك لعرض مواقيت الصلاة لـ30 يومًا</p><ul><li><a href="/ar/mawaqit-al-salat/egypt/cairo/">القاهرة</a></li><li><a href="/ar/mawaqit-al-salat/egypt/alexandria/">الإسكندرية</a></li><li><a href="/ar/mawaqit-al-salat/saudi-arabia/jeddah/">جدة</a></li><li><a href="/ar/mawaqit-al-salat/egypt/giza/">الجيزة</a></li><li><a href="/ar/mawaqit-al-salat/saudi-arabia/riyadh/">الرياض</a></li><li><a href="/ar/mawaqit-al-salat/uae/dubai/">دبي</a></li><li><a href="/ar/mawaqit-al-salat/uae/abu-dhabi/">أبوظبي</a></li><li><a href="/ar/mawaqit-al-salat/uae/sharjah/">الشارقة</a></li><li><a href="/ar/mawaqit-al-salat/saudi-arabia/makkah/">مكة المكرمة</a></li><li><a href="/ar/mawaqit-al-salat/saudi-arabia/madinah/">المدينة</a></li></ul><a class="all" href="/ar/mawaqit-al-salat/">كل المدن</a></div></div></section>
+
 
 
 <section class="features">
@@ -590,6 +606,7 @@
 
 <script src="/js/adhan.min.js"></script>
 <script src="/js/prayer-widget.js"></script>
+<script src="/js/city-search.js" defer></script>
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 </body>

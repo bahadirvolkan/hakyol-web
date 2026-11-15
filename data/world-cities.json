@@ -1,0 +1,3255 @@
+{
+  "countries": [
+    {
+      "cc": "ID",
+      "lang": "id",
+      "slug": "indonesia",
+      "names": {
+        "id": "Indonesia"
+      },
+      "method": "kemenag",
+      "cities": [
+        {
+          "slug": "jakarta",
+          "name": "Jakarta",
+          "asciiName": "Jakarta",
+          "geonameId": 1642911,
+          "lat": -6.21462,
+          "lng": 106.84513,
+          "tz": "Asia/Jakarta",
+          "pop": 8540121
+        },
+        {
+          "slug": "surabaya",
+          "name": "Surabaya",
+          "asciiName": "Surabaya",
+          "geonameId": 1625822,
+          "lat": -7.24917,
+          "lng": 112.75083,
+          "tz": "Asia/Jakarta",
+          "pop": 3018022
+        },
+        {
+          "slug": "bekasi",
+          "name": "Bekasi",
+          "asciiName": "Bekasi",
+          "geonameId": 1649378,
+          "lat": -6.2349,
+          "lng": 106.9896,
+          "tz": "Asia/Jakarta",
+          "pop": 2648272
+        },
+        {
+          "slug": "bandung",
+          "name": "Bandung",
+          "asciiName": "Bandung",
+          "geonameId": 1650357,
+          "lat": -6.92222,
+          "lng": 107.60694,
+          "tz": "Asia/Jakarta",
+          "pop": 2528163
+        },
+        {
+          "slug": "medan",
+          "name": "Medan",
+          "asciiName": "Medan",
+          "geonameId": 1214520,
+          "lat": 3.58333,
+          "lng": 98.66667,
+          "tz": "Asia/Jakarta",
+          "pop": 2486283
+        },
+        {
+          "slug": "depok",
+          "name": "Depok",
+          "asciiName": "Depok",
+          "geonameId": 1645524,
+          "lat": -6.4,
+          "lng": 106.81861,
+          "tz": "Asia/Jakarta",
+          "pop": 2163635
+        },
+        {
+          "slug": "tangerang",
+          "name": "Tangerang",
+          "asciiName": "Tangerang",
+          "geonameId": 1625084,
+          "lat": -6.17806,
+          "lng": 106.63,
+          "tz": "Asia/Jakarta",
+          "pop": 1927815
+        },
+        {
+          "slug": "palembang",
+          "name": "Palembang",
+          "asciiName": "Palembang",
+          "geonameId": 1633070,
+          "lat": -2.91673,
+          "lng": 104.7458,
+          "tz": "Asia/Jakarta",
+          "pop": 1801367
+        },
+        {
+          "slug": "semarang",
+          "name": "Semarang",
+          "asciiName": "Semarang",
+          "geonameId": 1627896,
+          "lat": -6.99306,
+          "lng": 110.42083,
+          "tz": "Asia/Jakarta",
+          "pop": 1694740
+        },
+        {
+          "slug": "makassar",
+          "name": "Makassar",
+          "asciiName": "Makassar",
+          "geonameId": 1622786,
+          "lat": -5.14861,
+          "lng": 119.43194,
+          "tz": "Asia/Makassar",
+          "pop": 1474393
+        },
+        {
+          "slug": "south-tangerang",
+          "name": "Tangerang Selatan",
+          "asciiName": "South Tangerang",
+          "geonameId": 8581443,
+          "lat": -6.28862,
+          "lng": 106.71789,
+          "tz": "Asia/Jakarta",
+          "pop": 1429529
+        },
+        {
+          "slug": "batam",
+          "name": "Batam",
+          "asciiName": "Batam",
+          "geonameId": 6295587,
+          "lat": 1.14937,
+          "lng": 104.02491,
+          "tz": "Asia/Jakarta",
+          "pop": 1296960
+        },
+        {
+          "slug": "jepara",
+          "name": "Jepara",
+          "asciiName": "Jepara",
+          "geonameId": 1642548,
+          "lat": -6.5924,
+          "lng": 110.671,
+          "tz": "Asia/Jakarta",
+          "pop": 1257912
+        },
+        {
+          "slug": "pekanbaru",
+          "name": "Pekanbaru",
+          "asciiName": "Pekanbaru",
+          "geonameId": 1631761,
+          "lat": 0.51667,
+          "lng": 101.44167,
+          "tz": "Asia/Jakarta",
+          "pop": 1167599
+        },
+        {
+          "slug": "bandar-lampung",
+          "name": "Bandarlampung",
+          "asciiName": "Bandar Lampung",
+          "geonameId": 1624917,
+          "lat": -5.42917,
+          "lng": 105.26111,
+          "tz": "Asia/Jakarta",
+          "pop": 1088200
+        },
+        {
+          "slug": "bogor",
+          "name": "Bogor",
+          "asciiName": "Bogor",
+          "geonameId": 1648473,
+          "lat": -6.59444,
+          "lng": 106.78917,
+          "tz": "Asia/Jakarta",
+          "pop": 1078351
+        },
+        {
+          "slug": "padang",
+          "name": "Padang",
+          "asciiName": "Padang",
+          "geonameId": 1633419,
+          "lat": -0.94924,
+          "lng": 100.35427,
+          "tz": "Asia/Jakarta",
+          "pop": 942938
+        },
+        {
+          "slug": "malang",
+          "name": "Malang",
+          "asciiName": "Malang",
+          "geonameId": 1636722,
+          "lat": -7.9797,
+          "lng": 112.6304,
+          "tz": "Asia/Jakarta",
+          "pop": 889359
+        },
+        {
+          "slug": "samarinda",
+          "name": "Samarinda",
+          "asciiName": "Samarinda",
+          "geonameId": 1629001,
+          "lat": -0.49167,
+          "lng": 117.14583,
+          "tz": "Asia/Makassar",
+          "pop": 865306
+        },
+        {
+          "slug": "tasikmalaya",
+          "name": "Tasikmalaya",
+          "asciiName": "Tasikmalaya",
+          "geonameId": 1624647,
+          "lat": -7.3274,
+          "lng": 108.2207,
+          "tz": "Asia/Jakarta",
+          "pop": 770839
+        },
+        {
+          "slug": "serang",
+          "name": "Serang",
+          "asciiName": "Serang",
+          "geonameId": 1627549,
+          "lat": -6.11528,
+          "lng": 106.15417,
+          "tz": "Asia/Jakarta",
+          "pop": 735651
+        },
+        {
+          "slug": "balikpapan",
+          "name": "Balikpapan",
+          "asciiName": "Balikpapan",
+          "geonameId": 1650527,
+          "lat": -1.26753,
+          "lng": 116.82887,
+          "tz": "Asia/Makassar",
+          "pop": 695287
+        },
+        {
+          "slug": "pontianak",
+          "name": "Pontianak",
+          "asciiName": "Pontianak",
+          "geonameId": 1630789,
+          "lat": -0.03194,
+          "lng": 109.325,
+          "tz": "Asia/Pontianak",
+          "pop": 686019
+        },
+        {
+          "slug": "situbondo",
+          "name": "Situbondo",
+          "asciiName": "Situbondo",
+          "geonameId": 1626801,
+          "lat": -7.70623,
+          "lng": 114.00976,
+          "tz": "Asia/Jakarta",
+          "pop": 685967
+        },
+        {
+          "slug": "denpasar",
+          "name": "Denpasar",
+          "asciiName": "Denpasar",
+          "geonameId": 1645528,
+          "lat": -8.65,
+          "lng": 115.21667,
+          "tz": "Asia/Makassar",
+          "pop": 670210
+        },
+        {
+          "slug": "banjarmasin",
+          "name": "Banjarmasin",
+          "asciiName": "Banjarmasin",
+          "geonameId": 1650213,
+          "lat": -3.31987,
+          "lng": 114.59075,
+          "tz": "Asia/Makassar",
+          "pop": 657663
+        },
+        {
+          "slug": "jambi-city",
+          "name": "Jambi",
+          "asciiName": "Jambi City",
+          "geonameId": 1642858,
+          "lat": -1.6,
+          "lng": 103.61667,
+          "tz": "Asia/Jakarta",
+          "pop": 635101
+        },
+        {
+          "slug": "surakarta",
+          "name": "Surakarta",
+          "asciiName": "Surakarta",
+          "geonameId": 1625812,
+          "lat": -7.55611,
+          "lng": 110.83167,
+          "tz": "Asia/Jakarta",
+          "pop": 526870
+        },
+        {
+          "slug": "kupang",
+          "name": "Kupang",
+          "asciiName": "Kupang",
+          "geonameId": 2057087,
+          "lat": -10.17083,
+          "lng": 123.60694,
+          "tz": "Asia/Makassar",
+          "pop": 474801
+        },
+        {
+          "slug": "cilegon",
+          "name": "Cilegon",
+          "asciiName": "Cilegon",
+          "geonameId": 1646511,
+          "lat": -6.0144,
+          "lng": 106.0542,
+          "tz": "Asia/Jakarta",
+          "pop": 470378
+        },
+        {
+          "slug": "manado",
+          "name": "Manado",
+          "asciiName": "Manado",
+          "geonameId": 1636544,
+          "lat": 1.48218,
+          "lng": 124.84892,
+          "tz": "Asia/Makassar",
+          "pop": 458582
+        },
+        {
+          "slug": "mataram",
+          "name": "Mataram",
+          "asciiName": "Mataram",
+          "geonameId": 1635882,
+          "lat": -8.58333,
+          "lng": 116.11667,
+          "tz": "Asia/Makassar",
+          "pop": 441147
+        },
+        {
+          "slug": "jayapura",
+          "name": "Jayapura",
+          "asciiName": "Jayapura",
+          "geonameId": 2082600,
+          "lat": -2.53371,
+          "lng": 140.71813,
+          "tz": "Asia/Jayapura",
+          "pop": 410852
+        },
+        {
+          "slug": "bengkulu",
+          "name": "Bengkulu",
+          "asciiName": "Bengkulu",
+          "geonameId": 1649150,
+          "lat": -3.80044,
+          "lng": 102.26554,
+          "tz": "Asia/Jakarta",
+          "pop": 397321
+        },
+        {
+          "slug": "palu",
+          "name": "Palu",
+          "asciiName": "Palu",
+          "geonameId": 1633034,
+          "lat": -0.90833,
+          "lng": 119.87083,
+          "tz": "Asia/Makassar",
+          "pop": 389959
+        },
+        {
+          "slug": "yogyakarta",
+          "name": "Yogyakarta",
+          "asciiName": "Yogyakarta",
+          "geonameId": 1621177,
+          "lat": -7.80139,
+          "lng": 110.36472,
+          "tz": "Asia/Jakarta",
+          "pop": 375699
+        },
+        {
+          "slug": "sukabumi",
+          "name": "Sukabumi",
+          "asciiName": "Sukabumi",
+          "geonameId": 1626381,
+          "lat": -6.91806,
+          "lng": 106.92667,
+          "tz": "Asia/Jakarta",
+          "pop": 365735
+        },
+        {
+          "slug": "kendari",
+          "name": "Kendari",
+          "asciiName": "Kendari",
+          "geonameId": 1640344,
+          "lat": -3.9778,
+          "lng": 122.51507,
+          "tz": "Asia/Makassar",
+          "pop": 351085
+        },
+        {
+          "slug": "dumai",
+          "name": "Dumai",
+          "asciiName": "Dumai",
+          "geonameId": 1645133,
+          "lat": 1.66711,
+          "lng": 101.44316,
+          "tz": "Asia/Jakarta",
+          "pop": 349389
+        },
+        {
+          "slug": "ambon",
+          "name": "Ambon",
+          "asciiName": "Ambon",
+          "geonameId": 1651531,
+          "lat": -3.69583,
+          "lng": 128.18333,
+          "tz": "Asia/Jayapura",
+          "pop": 347288
+        },
+        {
+          "slug": "cirebon",
+          "name": "Cirebon",
+          "asciiName": "Cirebon",
+          "geonameId": 1646170,
+          "lat": -6.7063,
+          "lng": 108.557,
+          "tz": "Asia/Jakarta",
+          "pop": 344851
+        },
+        {
+          "slug": "pekalongan",
+          "name": "Pekalongan",
+          "asciiName": "Pekalongan",
+          "geonameId": 1631766,
+          "lat": -6.8886,
+          "lng": 109.6753,
+          "tz": "Asia/Jakarta",
+          "pop": 324564
+        },
+        {
+          "slug": "palangkaraya",
+          "name": "Palangka Raya",
+          "asciiName": "Palangkaraya",
+          "geonameId": 1633118,
+          "lat": -2.20833,
+          "lng": 113.91667,
+          "tz": "Asia/Pontianak",
+          "pop": 318247
+        },
+        {
+          "slug": "karawang",
+          "name": "Karawang",
+          "asciiName": "Karawang",
+          "geonameId": 1641134,
+          "lat": -6.30525,
+          "lng": 107.3197,
+          "tz": "Asia/Jakarta",
+          "pop": 307880
+        },
+        {
+          "slug": "kediri",
+          "name": "Kediri",
+          "asciiName": "Kediri",
+          "geonameId": 1640660,
+          "lat": -7.81667,
+          "lng": 112.01667,
+          "tz": "Asia/Jakarta",
+          "pop": 301424
+        },
+        {
+          "slug": "jember",
+          "name": "Jember",
+          "asciiName": "Jember",
+          "geonameId": 1642588,
+          "lat": -8.17211,
+          "lng": 113.69953,
+          "tz": "Asia/Jakarta",
+          "pop": 298585
+        },
+        {
+          "slug": "tegal",
+          "name": "Tegal",
+          "asciiName": "Tegal",
+          "geonameId": 1624494,
+          "lat": -6.8694,
+          "lng": 109.1402,
+          "tz": "Asia/Jakarta",
+          "pop": 297173
+        },
+        {
+          "slug": "banjarbaru",
+          "name": "Bandjarbaru",
+          "asciiName": "Banjarbaru",
+          "geonameId": 1650217,
+          "lat": -3.4406,
+          "lng": 114.8365,
+          "tz": "Asia/Makassar",
+          "pop": 293332
+        },
+        {
+          "slug": "binjai",
+          "name": "Binjai",
+          "asciiName": "Binjai",
+          "geonameId": 1215355,
+          "lat": 3.6001,
+          "lng": 98.4854,
+          "tz": "Asia/Jakarta",
+          "pop": 279302
+        },
+        {
+          "slug": "pematangsiantar",
+          "name": "Pematangsiantar",
+          "asciiName": "Pematangsiantar",
+          "geonameId": 1214204,
+          "lat": 2.9595,
+          "lng": 99.0687,
+          "tz": "Asia/Jakarta",
+          "pop": 279198
+        },
+        {
+          "slug": "banda-aceh",
+          "name": "Banda Aceh",
+          "asciiName": "Banda Aceh",
+          "geonameId": 1215502,
+          "lat": 5.54167,
+          "lng": 95.33333,
+          "tz": "Asia/Jakarta",
+          "pop": 267962
+        },
+        {
+          "slug": "cilacap",
+          "name": "Cilacap",
+          "asciiName": "Cilacap",
+          "geonameId": 1646559,
+          "lat": -7.72639,
+          "lng": 109.00944,
+          "tz": "Asia/Jakarta",
+          "pop": 256996
+        },
+        {
+          "slug": "tarakan",
+          "name": "Tarakan",
+          "asciiName": "Tarakan",
+          "geonameId": 1624725,
+          "lat": 3.31332,
+          "lng": 117.59152,
+          "tz": "Asia/Makassar",
+          "pop": 255310
+        },
+        {
+          "slug": "singkawang",
+          "name": "Singkawang",
+          "asciiName": "Singkawang",
+          "geonameId": 1626916,
+          "lat": 0.90925,
+          "lng": 108.98463,
+          "tz": "Asia/Pontianak",
+          "pop": 253812
+        },
+        {
+          "slug": "padangsidempuan",
+          "name": "Padangsidempuan",
+          "asciiName": "Padangsidempuan",
+          "geonameId": 1214369,
+          "lat": 1.37952,
+          "lng": 99.27146,
+          "tz": "Asia/Jakarta",
+          "pop": 243843
+        },
+        {
+          "slug": "probolinggo",
+          "name": "Probolinggo",
+          "asciiName": "Probolinggo",
+          "geonameId": 1630634,
+          "lat": -7.7543,
+          "lng": 113.2159,
+          "tz": "Asia/Jakarta",
+          "pop": 243746
+        },
+        {
+          "slug": "toli-toli",
+          "name": "Tolitoli",
+          "asciiName": "Toli-Toli",
+          "geonameId": 1623502,
+          "lat": 1.04018,
+          "lng": 120.81764,
+          "tz": "Asia/Makassar",
+          "pop": 242783
+        },
+        {
+          "slug": "lubuklinggau",
+          "name": "Lubuklinggau",
+          "asciiName": "Lubuklinggau",
+          "geonameId": 1637158,
+          "lat": -3.2945,
+          "lng": 102.8614,
+          "tz": "Asia/Jakarta",
+          "pop": 234166
+        },
+        {
+          "slug": "purwokerto",
+          "name": "Purwokerto",
+          "asciiName": "Purwokerto",
+          "geonameId": 1630328,
+          "lat": -7.42139,
+          "lng": 109.23444,
+          "tz": "Asia/Jakarta",
+          "pop": 230235
+        },
+        {
+          "slug": "tanjung-pinang",
+          "name": "Tanjungpinang",
+          "asciiName": "Tanjung Pinang",
+          "geonameId": 1624863,
+          "lat": 0.91667,
+          "lng": 104.45833,
+          "tz": "Asia/Jakarta",
+          "pop": 227663
+        },
+        {
+          "slug": "pangkalpinang",
+          "name": "Pangkalpinang",
+          "asciiName": "Pangkalpinang",
+          "geonameId": 1632654,
+          "lat": -2.12914,
+          "lng": 106.11377,
+          "tz": "Asia/Jakarta",
+          "pop": 226297
+        },
+        {
+          "slug": "batu",
+          "name": "Batu",
+          "asciiName": "Batu",
+          "geonameId": 1649824,
+          "lat": -7.87,
+          "lng": 112.52833,
+          "tz": "Asia/Jakarta",
+          "pop": 225408
+        },
+        {
+          "slug": "bitung",
+          "name": "Bitung",
+          "asciiName": "Bitung",
+          "geonameId": 1648637,
+          "lat": 1.44059,
+          "lng": 125.12824,
+          "tz": "Asia/Makassar",
+          "pop": 225134
+        },
+        {
+          "slug": "klungkung",
+          "name": "Klungkung",
+          "asciiName": "Klungkung",
+          "geonameId": 1639850,
+          "lat": -8.53333,
+          "lng": 115.4,
+          "tz": "Asia/Makassar",
+          "pop": 223720
+        },
+        {
+          "slug": "sorong",
+          "name": "Sorong",
+          "asciiName": "Sorong",
+          "geonameId": 1626542,
+          "lat": -0.87956,
+          "lng": 131.26104,
+          "tz": "Asia/Jayapura",
+          "pop": 219958
+        },
+        {
+          "slug": "pasuruan",
+          "name": "Pasuruan",
+          "asciiName": "Pasuruan",
+          "geonameId": 1632033,
+          "lat": -7.6453,
+          "lng": 112.9075,
+          "tz": "Asia/Jakarta",
+          "pop": 213469
+        },
+        {
+          "slug": "ternate",
+          "name": "Ternate",
+          "asciiName": "Ternate",
+          "geonameId": 1624041,
+          "lat": 0.79065,
+          "lng": 127.38424,
+          "tz": "Asia/Jayapura",
+          "pop": 210836
+        },
+        {
+          "slug": "banjar",
+          "name": "Banjar",
+          "asciiName": "Banjar",
+          "geonameId": 1650234,
+          "lat": -7.1955,
+          "lng": 107.4313,
+          "tz": "Asia/Jakarta",
+          "pop": 209791
+        },
+        {
+          "slug": "gorontalo",
+          "name": "Gorontalo",
+          "asciiName": "Gorontalo",
+          "geonameId": 1643837,
+          "lat": 0.5375,
+          "lng": 123.0625,
+          "tz": "Asia/Makassar",
+          "pop": 205390
+        },
+        {
+          "slug": "madiun",
+          "name": "Madiun",
+          "asciiName": "Madiun",
+          "geonameId": 1636930,
+          "lat": -7.6298,
+          "lng": 111.5239,
+          "tz": "Asia/Jakarta",
+          "pop": 202544
+        },
+        {
+          "slug": "rengasdengklok",
+          "name": "Rengasdengklok",
+          "asciiName": "Rengasdengklok",
+          "geonameId": 1629710,
+          "lat": -6.15917,
+          "lng": 107.29806,
+          "tz": "Asia/Jakarta",
+          "pop": 201463
+        },
+        {
+          "slug": "lhokseumawe",
+          "name": "Lhokseumawe",
+          "asciiName": "Lhokseumawe",
+          "geonameId": 1214658,
+          "lat": 5.1801,
+          "lng": 97.1507,
+          "tz": "Asia/Jakarta",
+          "pop": 200876
+        },
+        {
+          "slug": "sumedang",
+          "name": "Sumedang",
+          "asciiName": "Sumedang",
+          "geonameId": 1626103,
+          "lat": -6.85861,
+          "lng": 107.91639,
+          "tz": "Asia/Jakarta",
+          "pop": 200000
+        },
+        {
+          "slug": "salatiga",
+          "name": "Salatiga",
+          "asciiName": "Salatiga",
+          "geonameId": 1629131,
+          "lat": -7.33194,
+          "lng": 110.49278,
+          "tz": "Asia/Jakarta",
+          "pop": 198971
+        },
+        {
+          "slug": "bontang",
+          "name": "Bontang",
+          "asciiName": "Bontang",
+          "geonameId": 1648186,
+          "lat": 0.1324,
+          "lng": 117.4854,
+          "tz": "Asia/Makassar",
+          "pop": 194606
+        },
+        {
+          "slug": "padalarang",
+          "name": "Padalarang",
+          "asciiName": "Padalarang",
+          "geonameId": 1963770,
+          "lat": -6.83778,
+          "lng": 107.47278,
+          "tz": "Asia/Jakarta",
+          "pop": 193114
+        },
+        {
+          "slug": "curug",
+          "name": "Curug",
+          "asciiName": "Curug",
+          "geonameId": 1645895,
+          "lat": -6.26583,
+          "lng": 106.55639,
+          "tz": "Asia/Jakarta",
+          "pop": 191406
+        },
+        {
+          "slug": "tanjungbalai",
+          "name": "Tanjungbalai",
+          "asciiName": "Tanjungbalai",
+          "geonameId": 1213547,
+          "lat": 2.96667,
+          "lng": 99.8,
+          "tz": "Asia/Jakarta",
+          "pop": 190935
+        },
+        {
+          "slug": "labuan-bajo",
+          "name": "Labuanbajo",
+          "asciiName": "Labuan Bajo",
+          "geonameId": 1638868,
+          "lat": -8.4964,
+          "lng": 119.8877,
+          "tz": "Asia/Makassar",
+          "pop": 188724
+        },
+        {
+          "slug": "palopo",
+          "name": "Palopo",
+          "asciiName": "Palopo",
+          "geonameId": 1633037,
+          "lat": -2.9925,
+          "lng": 120.19694,
+          "tz": "Asia/Makassar",
+          "pop": 184961
+        },
+        {
+          "slug": "pemalang",
+          "name": "Pemalang",
+          "asciiName": "Pemalang",
+          "geonameId": 1631648,
+          "lat": -6.89193,
+          "lng": 109.38263,
+          "tz": "Asia/Jakarta",
+          "pop": 184149
+        },
+        {
+          "slug": "langsa",
+          "name": "Langsa",
+          "asciiName": "Langsa",
+          "geonameId": 1214724,
+          "lat": 4.4683,
+          "lng": 97.9683,
+          "tz": "Asia/Jakarta",
+          "pop": 184016
+        },
+        {
+          "slug": "lembang",
+          "name": "Lembang",
+          "asciiName": "Lembang",
+          "geonameId": 1638063,
+          "lat": -6.81167,
+          "lng": 107.6175,
+          "tz": "Asia/Jakarta",
+          "pop": 183130
+        },
+        {
+          "slug": "metro",
+          "name": "Metro",
+          "asciiName": "Metro",
+          "geonameId": 1635283,
+          "lat": -5.11306,
+          "lng": 105.30667,
+          "tz": "Asia/Jakarta",
+          "pop": 182293
+        },
+        {
+          "slug": "purwakarta",
+          "name": "Purwakarta",
+          "asciiName": "Purwakarta",
+          "geonameId": 1630341,
+          "lat": -6.55694,
+          "lng": 107.44333,
+          "tz": "Asia/Jakarta",
+          "pop": 179233
+        },
+        {
+          "slug": "cianjur",
+          "name": "Cianjur",
+          "asciiName": "Cianjur",
+          "geonameId": 1647142,
+          "lat": -6.82222,
+          "lng": 107.13944,
+          "tz": "Asia/Jakarta",
+          "pop": 174587
+        },
+        {
+          "slug": "ungaran",
+          "name": "Ungaran",
+          "asciiName": "Ungaran",
+          "geonameId": 1622636,
+          "lat": -7.13972,
+          "lng": 110.405,
+          "tz": "Asia/Jakarta",
+          "pop": 171378
+        },
+        {
+          "slug": "sampit",
+          "name": "Sampit",
+          "asciiName": "Sampit",
+          "geonameId": 1628884,
+          "lat": -2.5315,
+          "lng": 112.9496,
+          "tz": "Asia/Pontianak",
+          "pop": 166773
+        },
+        {
+          "slug": "bima",
+          "name": "Bima",
+          "asciiName": "Bima",
+          "geonameId": 1648759,
+          "lat": -8.46006,
+          "lng": 118.72667,
+          "tz": "Asia/Makassar",
+          "pop": 165113
+        },
+        {
+          "slug": "banjaran",
+          "name": "Banjaran",
+          "asciiName": "Banjaran",
+          "geonameId": 1650227,
+          "lat": -7.04528,
+          "lng": 107.58778,
+          "tz": "Asia/Jakarta",
+          "pop": 164952
+        },
+        {
+          "slug": "baubau",
+          "name": "Baubau",
+          "asciiName": "Baubau",
+          "geonameId": 1649541,
+          "lat": -5.4633,
+          "lng": 122.6024,
+          "tz": "Asia/Makassar",
+          "pop": 161280
+        },
+        {
+          "slug": "blitar",
+          "name": "Blitar",
+          "asciiName": "Blitar",
+          "geonameId": 1648580,
+          "lat": -8.0983,
+          "lng": 112.1681,
+          "tz": "Asia/Jakarta",
+          "pop": 161204
+        },
+        {
+          "slug": "parepare",
+          "name": "Parepare",
+          "asciiName": "Parepare",
+          "geonameId": 1632353,
+          "lat": -4.0135,
+          "lng": 119.6255,
+          "tz": "Asia/Makassar",
+          "pop": 160309
+        },
+        {
+          "slug": "perbaungan",
+          "name": "Perbaungan",
+          "asciiName": "Perbaungan",
+          "geonameId": 1214191,
+          "lat": 3.5679,
+          "lng": 98.956,
+          "tz": "Asia/Jakarta",
+          "pop": 157174
+        }
+      ]
+    },
+    {
+      "cc": "BD",
+      "lang": "bn",
+      "slug": "bangladesh",
+      "names": {
+        "bn": "বাংলাদেশ"
+      },
+      "method": "karachi-hanafi",
+      "cities": [
+        {
+          "slug": "dhaka",
+          "name": "ঢাকা",
+          "asciiName": "Dhaka",
+          "geonameId": 1185241,
+          "lat": 23.7104,
+          "lng": 90.40744,
+          "tz": "Asia/Dhaka",
+          "pop": 10356500
+        },
+        {
+          "slug": "chattogram",
+          "name": "চট্টগ্রাম",
+          "asciiName": "Chattogram",
+          "geonameId": 1205733,
+          "lat": 22.3384,
+          "lng": 91.83168,
+          "tz": "Asia/Dhaka",
+          "pop": 3920222
+        },
+        {
+          "slug": "gazipur",
+          "name": "গাজীপুর",
+          "asciiName": "Gazipur",
+          "geonameId": 1200109,
+          "lat": 23.99844,
+          "lng": 90.42234,
+          "tz": "Asia/Dhaka",
+          "pop": 2674697
+        },
+        {
+          "slug": "khulna",
+          "name": "খুলনা",
+          "asciiName": "Khulna",
+          "geonameId": 1336135,
+          "lat": 22.80979,
+          "lng": 89.56439,
+          "tz": "Asia/Dhaka",
+          "pop": 1500689
+        },
+        {
+          "slug": "rangpur",
+          "name": "রংপুর",
+          "asciiName": "Rangpur",
+          "geonameId": 1185188,
+          "lat": 25.74664,
+          "lng": 89.25166,
+          "tz": "Asia/Dhaka",
+          "pop": 1031388
+        },
+        {
+          "slug": "rajshahi",
+          "name": "রাজশাহী",
+          "asciiName": "Rajshahi",
+          "geonameId": 1185128,
+          "lat": 24.374,
+          "lng": 88.60114,
+          "tz": "Asia/Dhaka",
+          "pop": 763580
+        },
+        {
+          "slug": "comilla",
+          "name": "কুমিল্লা",
+          "asciiName": "Comilla",
+          "geonameId": 1185186,
+          "lat": 23.46186,
+          "lng": 91.18503,
+          "tz": "Asia/Dhaka",
+          "pop": 634654
+        },
+        {
+          "slug": "bogura",
+          "name": "বগুড়া",
+          "asciiName": "Bogura",
+          "geonameId": 1337233,
+          "lat": 24.85098,
+          "lng": 89.37108,
+          "tz": "Asia/Dhaka",
+          "pop": 421858
+        },
+        {
+          "slug": "savar",
+          "name": "সাভার",
+          "asciiName": "Savar",
+          "geonameId": 1349452,
+          "lat": 23.84858,
+          "lng": 90.25002,
+          "tz": "Asia/Dhaka",
+          "pop": 379115
+        },
+        {
+          "slug": "natore",
+          "name": "নাটোর",
+          "asciiName": "Natore",
+          "geonameId": 7483813,
+          "lat": 24.41112,
+          "lng": 88.98673,
+          "tz": "Asia/Dhaka",
+          "pop": 369138
+        },
+        {
+          "slug": "tungi",
+          "name": "টঙ্গী",
+          "asciiName": "Tungi",
+          "geonameId": 1185098,
+          "lat": 23.89154,
+          "lng": 90.40232,
+          "tz": "Asia/Dhaka",
+          "pop": 337579
+        },
+        {
+          "slug": "nagar-naluakot",
+          "name": "সুটরিয়া",
+          "asciiName": "Nagar Naluakot",
+          "geonameId": 1193745,
+          "lat": 24.15608,
+          "lng": 90.7728,
+          "tz": "Asia/Dhaka",
+          "pop": 273000
+        },
+        {
+          "slug": "bagerhat",
+          "name": "বাগেরহাট",
+          "asciiName": "Bagerhat",
+          "geonameId": 1185281,
+          "lat": 22.65657,
+          "lng": 89.79123,
+          "tz": "Asia/Dhaka",
+          "pop": 266388
+        },
+        {
+          "slug": "cox-s-bazar",
+          "name": "কক্সবাজার",
+          "asciiName": "Cox's Bazar",
+          "geonameId": 1336134,
+          "lat": 21.43973,
+          "lng": 92.00955,
+          "tz": "Asia/Dhaka",
+          "pop": 253788
+        },
+        {
+          "slug": "jessore",
+          "name": "যশোর",
+          "asciiName": "Jessore",
+          "geonameId": 1336140,
+          "lat": 23.16971,
+          "lng": 89.21371,
+          "tz": "Asia/Dhaka",
+          "pop": 243987
+        },
+        {
+          "slug": "sylhet",
+          "name": "সিলেট",
+          "asciiName": "Sylhet",
+          "geonameId": 1185099,
+          "lat": 24.89904,
+          "lng": 91.87198,
+          "tz": "Asia/Dhaka",
+          "pop": 237000
+        },
+        {
+          "slug": "mymensingh",
+          "name": "ময়মনসিংহ",
+          "asciiName": "Mymensingh",
+          "geonameId": 1185162,
+          "lat": 24.75636,
+          "lng": 90.40646,
+          "tz": "Asia/Dhaka",
+          "pop": 225126
+        },
+        {
+          "slug": "narayanganj",
+          "name": "নারায়ণগঞ্জ",
+          "asciiName": "Narayanganj",
+          "geonameId": 1185155,
+          "lat": 23.61352,
+          "lng": 90.50298,
+          "tz": "Asia/Dhaka",
+          "pop": 223622
+        },
+        {
+          "slug": "dinajpur",
+          "name": "দিনাজপুর",
+          "asciiName": "Dinajpur",
+          "geonameId": 1203891,
+          "lat": 25.62745,
+          "lng": 88.63779,
+          "tz": "Asia/Dhaka",
+          "pop": 206234
+        },
+        {
+          "slug": "barishal",
+          "name": "বরিশাল",
+          "asciiName": "Barishal",
+          "geonameId": 1336137,
+          "lat": 22.70497,
+          "lng": 90.37013,
+          "tz": "Asia/Dhaka",
+          "pop": 202242
+        },
+        {
+          "slug": "saidpur",
+          "name": "সৈয়দপুর",
+          "asciiName": "Saidpur",
+          "geonameId": 6545349,
+          "lat": 25.77769,
+          "lng": 88.89169,
+          "tz": "Asia/Dhaka",
+          "pop": 199422
+        },
+        {
+          "slug": "jamalpur",
+          "name": "জামালপুর",
+          "asciiName": "Jamalpur",
+          "geonameId": 1185106,
+          "lat": 24.91965,
+          "lng": 89.94812,
+          "tz": "Asia/Dhaka",
+          "pop": 167900
+        },
+        {
+          "slug": "kushtia",
+          "name": "কুষ্টিয়া",
+          "asciiName": "Kushtia",
+          "geonameId": 1185191,
+          "lat": 23.9028,
+          "lng": 89.11943,
+          "tz": "Asia/Dhaka",
+          "pop": 135724
+        },
+        {
+          "slug": "sirajganj",
+          "name": "সিরাজগঞ্জ",
+          "asciiName": "Sirajganj",
+          "geonameId": 1185115,
+          "lat": 24.45771,
+          "lng": 89.70802,
+          "tz": "Asia/Dhaka",
+          "pop": 127481
+        },
+        {
+          "slug": "thakurgaon",
+          "name": "ঠাকুরগাঁও",
+          "asciiName": "Thakurgaon",
+          "geonameId": 1185092,
+          "lat": 26.03097,
+          "lng": 88.46989,
+          "tz": "Asia/Dhaka",
+          "pop": 100442
+        }
+      ]
+    },
+    {
+      "cc": "PK",
+      "lang": "ur",
+      "slug": "pakistan",
+      "names": {
+        "ur": "پاکستان"
+      },
+      "method": "karachi-hanafi",
+      "cities": [
+        {
+          "slug": "lahore",
+          "name": "لاہور",
+          "asciiName": "Lahore",
+          "geonameId": 1172451,
+          "lat": 31.558,
+          "lng": 74.35071,
+          "tz": "Asia/Karachi",
+          "pop": 13004135
+        },
+        {
+          "slug": "karachi",
+          "name": "کراچی",
+          "asciiName": "Karachi",
+          "geonameId": 1174872,
+          "lat": 24.8608,
+          "lng": 67.0104,
+          "tz": "Asia/Karachi",
+          "pop": 11624219
+        },
+        {
+          "slug": "peshawar",
+          "name": "پشاور",
+          "asciiName": "Peshawar",
+          "geonameId": 1168197,
+          "lat": 34.008,
+          "lng": 71.57849,
+          "tz": "Asia/Karachi",
+          "pop": 4758762
+        },
+        {
+          "slug": "faisalabad",
+          "name": "فیصل آباد",
+          "asciiName": "Faisalabad",
+          "geonameId": 1179400,
+          "lat": 31.41554,
+          "lng": 73.08969,
+          "tz": "Asia/Karachi",
+          "pop": 3800193
+        },
+        {
+          "slug": "rawalpindi",
+          "name": "راولپنڈی",
+          "asciiName": "Rawalpindi",
+          "geonameId": 1166993,
+          "lat": 33.59733,
+          "lng": 73.0479,
+          "tz": "Asia/Karachi",
+          "pop": 3357612
+        },
+        {
+          "slug": "gujranwala",
+          "name": "گوجرانوالہ",
+          "asciiName": "Gujranwala",
+          "geonameId": 1177662,
+          "lat": 32.15567,
+          "lng": 74.18705,
+          "tz": "Asia/Karachi",
+          "pop": 2511118
+        },
+        {
+          "slug": "multan",
+          "name": "ملتان",
+          "asciiName": "Multan",
+          "geonameId": 1169825,
+          "lat": 30.19679,
+          "lng": 71.47824,
+          "tz": "Asia/Karachi",
+          "pop": 2169915
+        },
+        {
+          "slug": "hyderabad",
+          "name": "حیدرآباد",
+          "asciiName": "Hyderabad",
+          "geonameId": 1176734,
+          "lat": 25.39689,
+          "lng": 68.37718,
+          "tz": "Asia/Karachi",
+          "pop": 1921275
+        },
+        {
+          "slug": "quetta",
+          "name": "کوئٹہ",
+          "asciiName": "Quetta",
+          "geonameId": 1167528,
+          "lat": 30.18414,
+          "lng": 67.00141,
+          "tz": "Asia/Karachi",
+          "pop": 1565546
+        },
+        {
+          "slug": "bannu",
+          "name": "بنوں",
+          "asciiName": "Bannu",
+          "geonameId": 1183460,
+          "lat": 32.98527,
+          "lng": 70.60403,
+          "tz": "Asia/Karachi",
+          "pop": 1357890
+        },
+        {
+          "slug": "sargodha",
+          "name": "سرگودھا",
+          "asciiName": "Sargodha",
+          "geonameId": 1166000,
+          "lat": 32.08586,
+          "lng": 72.67418,
+          "tz": "Asia/Karachi",
+          "pop": 975886
+        },
+        {
+          "slug": "sialkot",
+          "name": "سیالکوٹ",
+          "asciiName": "Sialkot",
+          "geonameId": 1164909,
+          "lat": 32.49268,
+          "lng": 74.53134,
+          "tz": "Asia/Karachi",
+          "pop": 911817
+        },
+        {
+          "slug": "muzaffarabad",
+          "name": "مظفر آباد",
+          "asciiName": "Muzaffarabad",
+          "geonameId": 1169607,
+          "lat": 34.37002,
+          "lng": 73.47082,
+          "tz": "Asia/Karachi",
+          "pop": 725000
+        },
+        {
+          "slug": "chunian",
+          "name": "چونیاں",
+          "asciiName": "Chunian",
+          "geonameId": 1180942,
+          "lat": 30.96621,
+          "lng": 73.97908,
+          "tz": "Asia/Karachi",
+          "pop": 634236
+        },
+        {
+          "slug": "jhang-sadr",
+          "name": "جھنگ صدر",
+          "asciiName": "Jhang Sadr",
+          "geonameId": 1175892,
+          "lat": 31.26981,
+          "lng": 72.31687,
+          "tz": "Asia/Karachi",
+          "pop": 606533
+        },
+        {
+          "slug": "islamabad",
+          "name": "اسلام آباد",
+          "asciiName": "Islamabad",
+          "geonameId": 1176615,
+          "lat": 33.72148,
+          "lng": 73.04329,
+          "tz": "Asia/Karachi",
+          "pop": 601600
+        },
+        {
+          "slug": "shekhupura",
+          "name": "شیخوپورہ",
+          "asciiName": "Shekhupura",
+          "geonameId": 1165221,
+          "lat": 31.71287,
+          "lng": 73.98556,
+          "tz": "Asia/Karachi",
+          "pop": 591424
+        },
+        {
+          "slug": "gujrat",
+          "name": "گجرات",
+          "asciiName": "Gujrat",
+          "geonameId": 1177654,
+          "lat": 32.5742,
+          "lng": 74.07542,
+          "tz": "Asia/Karachi",
+          "pop": 574240
+        },
+        {
+          "slug": "sukkur",
+          "name": "سکھر",
+          "asciiName": "Sukkur",
+          "geonameId": 1164408,
+          "lat": 27.70323,
+          "lng": 68.85889,
+          "tz": "Asia/Karachi",
+          "pop": 563851
+        },
+        {
+          "slug": "sahiwal",
+          "name": "ساہیوال",
+          "asciiName": "Sahiwal",
+          "geonameId": 1166548,
+          "lat": 30.66595,
+          "lng": 73.10186,
+          "tz": "Asia/Karachi",
+          "pop": 538344
+        },
+        {
+          "slug": "rahim-yar-khan",
+          "name": "رحیم یار خان",
+          "asciiName": "Rahim Yar Khan",
+          "geonameId": 1167460,
+          "lat": 28.41987,
+          "lng": 70.30345,
+          "tz": "Asia/Karachi",
+          "pop": 517000
+        },
+        {
+          "slug": "jalalpur-pirwala",
+          "name": "جلالپور پیروالا",
+          "asciiName": "Jalalpur Pirwala",
+          "geonameId": 1176358,
+          "lat": 29.5051,
+          "lng": 71.22202,
+          "tz": "Asia/Karachi",
+          "pop": 500000
+        },
+        {
+          "slug": "dera-ghazi-khan",
+          "name": "ڈیرہ غازی خان",
+          "asciiName": "Dera Ghazi Khan",
+          "geonameId": 1180289,
+          "lat": 30.04587,
+          "lng": 70.64029,
+          "tz": "Asia/Karachi",
+          "pop": 494464
+        },
+        {
+          "slug": "pindi-bhattian",
+          "name": "پنڈی بھٹیاں",
+          "asciiName": "Pindi Bhattian",
+          "geonameId": 1168021,
+          "lat": 31.89844,
+          "lng": 73.27339,
+          "tz": "Asia/Karachi",
+          "pop": 493222
+        },
+        {
+          "slug": "tando-bago",
+          "name": "ٹنڈو باگو",
+          "asciiName": "Tando Bago",
+          "geonameId": 1163964,
+          "lat": 24.78914,
+          "lng": 68.96535,
+          "tz": "Asia/Karachi",
+          "pop": 426535
+        },
+        {
+          "slug": "bhawana",
+          "name": "بھوانہ",
+          "asciiName": "Bhawana",
+          "geonameId": 1182682,
+          "lat": 31.56884,
+          "lng": 72.64917,
+          "tz": "Asia/Karachi",
+          "pop": 373841
+        },
+        {
+          "slug": "mingora",
+          "name": "مینگورہ",
+          "asciiName": "Mingora",
+          "geonameId": 1170395,
+          "lat": 34.7795,
+          "lng": 72.36265,
+          "tz": "Asia/Karachi",
+          "pop": 361112
+        },
+        {
+          "slug": "sinjhoro",
+          "name": "سنجھورو",
+          "asciiName": "Sinjhoro",
+          "geonameId": 1164776,
+          "lat": 26.03008,
+          "lng": 68.80867,
+          "tz": "Asia/Karachi",
+          "pop": 354709
+        },
+        {
+          "slug": "chiniot",
+          "name": "چنیوٹ",
+          "asciiName": "Chiniot",
+          "geonameId": 1181096,
+          "lat": 31.72091,
+          "lng": 72.97836,
+          "tz": "Asia/Karachi",
+          "pop": 318165
+        },
+        {
+          "slug": "mardan",
+          "name": "مردان",
+          "asciiName": "Mardan",
+          "geonameId": 1170880,
+          "lat": 34.19794,
+          "lng": 72.04965,
+          "tz": "Asia/Karachi",
+          "pop": 300424
+        },
+        {
+          "slug": "mirpur-khas",
+          "name": "میر پور خاص",
+          "asciiName": "Mirpur Khas",
+          "geonameId": 1170295,
+          "lat": 25.5276,
+          "lng": 69.01255,
+          "tz": "Asia/Karachi",
+          "pop": 267833
+        },
+        {
+          "slug": "skardu",
+          "name": "سکردو",
+          "asciiName": "Skardu",
+          "geonameId": 1164709,
+          "lat": 35.29787,
+          "lng": 75.63372,
+          "tz": "Asia/Karachi",
+          "pop": 260000
+        },
+        {
+          "slug": "muridke",
+          "name": "مریدکے",
+          "asciiName": "Muridke",
+          "geonameId": 1169692,
+          "lat": 31.80258,
+          "lng": 74.25772,
+          "tz": "Asia/Karachi",
+          "pop": 254291
+        },
+        {
+          "slug": "bahawalnagar",
+          "name": "بہاولپور",
+          "asciiName": "Bahawalnagar",
+          "geonameId": 1183883,
+          "lat": 29.99835,
+          "lng": 73.25272,
+          "tz": "Asia/Karachi",
+          "pop": 241873
+        },
+        {
+          "slug": "muzaffargarh",
+          "name": "مظفر گڑھ",
+          "asciiName": "Muzaffargarh",
+          "geonameId": 1169605,
+          "lat": 30.07258,
+          "lng": 71.19379,
+          "tz": "Asia/Karachi",
+          "pop": 235541
+        },
+        {
+          "slug": "jacobabad",
+          "name": "جیکب آباد",
+          "asciiName": "Jacobabad",
+          "geonameId": 1176515,
+          "lat": 28.28187,
+          "lng": 68.43761,
+          "tz": "Asia/Karachi",
+          "pop": 219315
+        },
+        {
+          "slug": "khuzdar",
+          "name": "خضدار",
+          "asciiName": "Khuzdar",
+          "geonameId": 1173664,
+          "lat": 27.81193,
+          "lng": 66.61096,
+          "tz": "Asia/Karachi",
+          "pop": 218112
+        },
+        {
+          "slug": "gilgit",
+          "name": "گلگت",
+          "asciiName": "Gilgit",
+          "geonameId": 1178338,
+          "lat": 35.91869,
+          "lng": 74.31245,
+          "tz": "Asia/Karachi",
+          "pop": 216760
+        },
+        {
+          "slug": "gojra",
+          "name": "گوجرہ",
+          "asciiName": "Gojra",
+          "geonameId": 1178231,
+          "lat": 31.14926,
+          "lng": 72.68323,
+          "tz": "Asia/Karachi",
+          "pop": 214000
+        },
+        {
+          "slug": "dadu",
+          "name": "دادو",
+          "asciiName": "Dadu",
+          "geonameId": 1180809,
+          "lat": 26.73033,
+          "lng": 67.7769,
+          "tz": "Asia/Karachi",
+          "pop": 201017
+        },
+        {
+          "slug": "ahmadpur-east",
+          "name": "احمد پور شرقیہ",
+          "asciiName": "Ahmadpur East",
+          "geonameId": 1184845,
+          "lat": 29.14269,
+          "lng": 71.25771,
+          "tz": "Asia/Karachi",
+          "pop": 196718
+        },
+        {
+          "slug": "jhelum",
+          "name": "جہلم",
+          "asciiName": "Jhelum",
+          "geonameId": 1175864,
+          "lat": 32.93448,
+          "lng": 73.73102,
+          "tz": "Asia/Karachi",
+          "pop": 190425
+        },
+        {
+          "slug": "hasilpur",
+          "name": "حاصل پور",
+          "asciiName": "Hasilpur",
+          "geonameId": 1177042,
+          "lat": 29.69221,
+          "lng": 72.54566,
+          "tz": "Asia/Karachi",
+          "pop": 168146
+        },
+        {
+          "slug": "kamalia",
+          "name": "کمالیہ",
+          "asciiName": "Kamalia",
+          "geonameId": 1175156,
+          "lat": 30.72708,
+          "lng": 72.64607,
+          "tz": "Asia/Karachi",
+          "pop": 166617
+        },
+        {
+          "slug": "wazirabad",
+          "name": "وزیر آباد",
+          "asciiName": "Wazirabad",
+          "geonameId": 1162456,
+          "lat": 32.44324,
+          "lng": 74.12,
+          "tz": "Asia/Karachi",
+          "pop": 152624
+        },
+        {
+          "slug": "jaranwala",
+          "name": "جڑانوالہ",
+          "asciiName": "Jaranwala",
+          "geonameId": 1176106,
+          "lat": 31.3332,
+          "lng": 73.41868,
+          "tz": "Asia/Karachi",
+          "pop": 150380
+        }
+      ]
+    },
+    {
+      "cc": "SA",
+      "lang": "ar",
+      "slug": "saudi-arabia",
+      "names": {
+        "ar": "السعودية"
+      },
+      "method": "umm-al-qura",
+      "cities": [
+        {
+          "slug": "jeddah",
+          "name": "جدة",
+          "asciiName": "Jeddah",
+          "geonameId": 105343,
+          "lat": 21.49012,
+          "lng": 39.18624,
+          "tz": "Asia/Riyadh",
+          "pop": 4697000
+        },
+        {
+          "slug": "riyadh",
+          "name": "الرياض",
+          "asciiName": "Riyadh",
+          "geonameId": 108410,
+          "lat": 24.68773,
+          "lng": 46.72185,
+          "tz": "Asia/Riyadh",
+          "pop": 4205961
+        },
+        {
+          "slug": "makkah",
+          "name": "مكة المكرمة",
+          "asciiName": "Makkah",
+          "geonameId": 104515,
+          "lat": 21.42664,
+          "lng": 39.82563,
+          "tz": "Asia/Riyadh",
+          "pop": 1578722
+        },
+        {
+          "slug": "madinah",
+          "name": "المدينة",
+          "asciiName": "Madinah",
+          "geonameId": 109223,
+          "lat": 24.46861,
+          "lng": 39.61417,
+          "tz": "Asia/Riyadh",
+          "pop": 1300000
+        },
+        {
+          "slug": "dammam",
+          "name": "الدمام",
+          "asciiName": "Dammam",
+          "geonameId": 110336,
+          "lat": 26.43442,
+          "lng": 50.10326,
+          "tz": "Asia/Riyadh",
+          "pop": 1252523
+        },
+        {
+          "slug": "buraydah",
+          "name": "بريدة",
+          "asciiName": "Buraydah",
+          "geonameId": 107304,
+          "lat": 26.32599,
+          "lng": 43.97497,
+          "tz": "Asia/Riyadh",
+          "pop": 745353
+        },
+        {
+          "slug": "ta-if",
+          "name": "الطائف",
+          "asciiName": "Ta'if",
+          "geonameId": 107968,
+          "lat": 21.27028,
+          "lng": 40.41583,
+          "tz": "Asia/Riyadh",
+          "pop": 688693
+        },
+        {
+          "slug": "tabuk",
+          "name": "تبوك",
+          "asciiName": "Tabuk",
+          "geonameId": 101628,
+          "lat": 28.3998,
+          "lng": 36.57151,
+          "tz": "Asia/Riyadh",
+          "pop": 667000
+        },
+        {
+          "slug": "ha-il",
+          "name": "حائل",
+          "asciiName": "Ha'il",
+          "geonameId": 106281,
+          "lat": 27.52188,
+          "lng": 41.69073,
+          "tz": "Asia/Riyadh",
+          "pop": 605930
+        },
+        {
+          "slug": "najran",
+          "name": "نجران",
+          "asciiName": "Najran",
+          "geonameId": 103630,
+          "lat": 17.49326,
+          "lng": 44.12766,
+          "tz": "Asia/Riyadh",
+          "pop": 505652
+        },
+        {
+          "slug": "al-kharj",
+          "name": "الخرج",
+          "asciiName": "Al Kharj",
+          "geonameId": 109353,
+          "lat": 24.15541,
+          "lng": 47.33457,
+          "tz": "Asia/Riyadh",
+          "pop": 425300
+        },
+        {
+          "slug": "khamis-mushait",
+          "name": "خميس مشيط",
+          "asciiName": "Khamis Mushait",
+          "geonameId": 105072,
+          "lat": 18.3,
+          "lng": 42.73333,
+          "tz": "Asia/Riyadh",
+          "pop": 387553
+        },
+        {
+          "slug": "al-hufuf",
+          "name": "الهفوف",
+          "asciiName": "Al Hufuf",
+          "geonameId": 109571,
+          "lat": 25.36467,
+          "lng": 49.58764,
+          "tz": "Asia/Riyadh",
+          "pop": 293179
+        },
+        {
+          "slug": "hafar-al-batin",
+          "name": "حفر الباطن",
+          "asciiName": "Hafar Al-Batin",
+          "geonameId": 106297,
+          "lat": 28.43279,
+          "lng": 45.97077,
+          "tz": "Asia/Riyadh",
+          "pop": 271642
+        },
+        {
+          "slug": "al-jubayl",
+          "name": "الجبيل",
+          "asciiName": "Al Jubayl",
+          "geonameId": 109435,
+          "lat": 27.0174,
+          "lng": 49.62251,
+          "tz": "Asia/Riyadh",
+          "pop": 237274
+        },
+        {
+          "slug": "sabya",
+          "name": "صبيا",
+          "asciiName": "Sabya",
+          "geonameId": 102651,
+          "lat": 17.1495,
+          "lng": 42.62537,
+          "tz": "Asia/Riyadh",
+          "pop": 228375
+        },
+        {
+          "slug": "yanbu",
+          "name": "ينبع",
+          "asciiName": "Yanbu",
+          "geonameId": 100425,
+          "lat": 24.08954,
+          "lng": 38.0618,
+          "tz": "Asia/Riyadh",
+          "pop": 200161
+        },
+        {
+          "slug": "khobar",
+          "name": "الخبر",
+          "asciiName": "Khobar",
+          "geonameId": 109323,
+          "lat": 26.27944,
+          "lng": 50.20833,
+          "tz": "Asia/Riyadh",
+          "pop": 165799
+        },
+        {
+          "slug": "arar",
+          "name": "عرعر",
+          "asciiName": "Arar",
+          "geonameId": 108512,
+          "lat": 30.97531,
+          "lng": 41.03808,
+          "tz": "Asia/Riyadh",
+          "pop": 148540
+        },
+        {
+          "slug": "sakakah",
+          "name": "سكاكا",
+          "asciiName": "Sakakah",
+          "geonameId": 102527,
+          "lat": 29.96974,
+          "lng": 40.20641,
+          "tz": "Asia/Riyadh",
+          "pop": 128332
+        },
+        {
+          "slug": "az-zulfi",
+          "name": "الزلفي",
+          "asciiName": "Az Zulfi",
+          "geonameId": 107781,
+          "lat": 26.29945,
+          "lng": 44.81542,
+          "tz": "Asia/Riyadh",
+          "pop": 125000
+        },
+        {
+          "slug": "bishah",
+          "name": "بيشة",
+          "asciiName": "Bishah",
+          "geonameId": 103369,
+          "lat": 20.00054,
+          "lng": 42.6052,
+          "tz": "Asia/Riyadh",
+          "pop": 115537
+        },
+        {
+          "slug": "jizan",
+          "name": "جازان",
+          "asciiName": "Jizan",
+          "geonameId": 105299,
+          "lat": 16.88917,
+          "lng": 42.55111,
+          "tz": "Asia/Riyadh",
+          "pop": 105198
+        },
+        {
+          "slug": "qurayyat",
+          "name": "القريات",
+          "asciiName": "Qurayyat",
+          "geonameId": 108648,
+          "lat": 31.33176,
+          "lng": 37.34282,
+          "tz": "Asia/Riyadh",
+          "pop": 102903
+        }
+      ]
+    },
+    {
+      "cc": "AE",
+      "lang": "ar",
+      "slug": "uae",
+      "names": {
+        "ar": "الإمارات"
+      },
+      "method": "dubai",
+      "cities": [
+        {
+          "slug": "dubai",
+          "name": "دبي",
+          "asciiName": "Dubai",
+          "geonameId": 292223,
+          "lat": 25.07725,
+          "lng": 55.30927,
+          "tz": "Asia/Dubai",
+          "pop": 3790000
+        },
+        {
+          "slug": "abu-dhabi",
+          "name": "أبوظبي",
+          "asciiName": "Abu Dhabi",
+          "geonameId": 292968,
+          "lat": 24.45118,
+          "lng": 54.39696,
+          "tz": "Asia/Dubai",
+          "pop": 1807000
+        },
+        {
+          "slug": "sharjah",
+          "name": "الشارقة",
+          "asciiName": "Sharjah",
+          "geonameId": 292672,
+          "lat": 25.3342,
+          "lng": 55.41221,
+          "tz": "Asia/Dubai",
+          "pop": 1800000
+        },
+        {
+          "slug": "al-ain-city",
+          "name": "العين",
+          "asciiName": "Al Ain City",
+          "geonameId": 292913,
+          "lat": 24.19167,
+          "lng": 55.76056,
+          "tz": "Asia/Dubai",
+          "pop": 846747
+        },
+        {
+          "slug": "ajman",
+          "name": "عجمان",
+          "asciiName": "Ajman",
+          "geonameId": 292932,
+          "lat": 25.40177,
+          "lng": 55.47878,
+          "tz": "Asia/Dubai",
+          "pop": 490035
+        },
+        {
+          "slug": "ras-al-khaimah",
+          "name": "رأس الخيمة",
+          "asciiName": "Ras Al Khaimah",
+          "geonameId": 291074,
+          "lat": 25.78953,
+          "lng": 55.9432,
+          "tz": "Asia/Dubai",
+          "pop": 351943
+        },
+        {
+          "slug": "fujairah",
+          "name": "الفجيرة",
+          "asciiName": "Fujairah",
+          "geonameId": 292878,
+          "lat": 25.11641,
+          "lng": 56.34141,
+          "tz": "Asia/Dubai",
+          "pop": 118933
+        },
+        {
+          "slug": "zayed-city",
+          "name": "مدينة زايد",
+          "asciiName": "Zayed City",
+          "geonameId": 291580,
+          "lat": 23.65416,
+          "lng": 53.70522,
+          "tz": "Asia/Dubai",
+          "pop": 63482
+        },
+        {
+          "slug": "al-shamkhah-city",
+          "name": "مدينة الشامخة",
+          "asciiName": "Al Shamkhah City",
+          "geonameId": 12047416,
+          "lat": 24.39268,
+          "lng": 54.70779,
+          "tz": "Asia/Dubai",
+          "pop": 61710
+        },
+        {
+          "slug": "umm-al-quwain-city",
+          "name": "أم القيوين",
+          "asciiName": "Umm Al Quwain City",
+          "geonameId": 290594,
+          "lat": 25.56473,
+          "lng": 55.55517,
+          "tz": "Asia/Dubai",
+          "pop": 59098
+        }
+      ]
+    },
+    {
+      "cc": "QA",
+      "lang": "ar",
+      "slug": "qatar",
+      "names": {
+        "ar": "قطر"
+      },
+      "method": "qatar",
+      "cities": [
+        {
+          "slug": "doha",
+          "name": "الدوحة",
+          "asciiName": "Doha",
+          "geonameId": 290030,
+          "lat": 25.28545,
+          "lng": 51.53096,
+          "tz": "Asia/Qatar",
+          "pop": 344939
+        },
+        {
+          "slug": "ar-rayyan",
+          "name": "الريان",
+          "asciiName": "Ar Rayyan",
+          "geonameId": 289888,
+          "lat": 25.29194,
+          "lng": 51.42444,
+          "tz": "Asia/Qatar",
+          "pop": 272465
+        },
+        {
+          "slug": "az-za-ayin",
+          "name": "الضعاين",
+          "asciiName": "Az Za'ayin",
+          "geonameId": 289847,
+          "lat": 25.57744,
+          "lng": 51.48306,
+          "tz": "Asia/Qatar",
+          "pop": 54339
+        },
+        {
+          "slug": "al-wakrah",
+          "name": "الوكرة",
+          "asciiName": "Al Wakrah",
+          "geonameId": 289915,
+          "lat": 25.17151,
+          "lng": 51.60337,
+          "tz": "Asia/Qatar",
+          "pop": 26436
+        }
+      ]
+    },
+    {
+      "cc": "KW",
+      "lang": "ar",
+      "slug": "kuwait",
+      "names": {
+        "ar": "الكويت"
+      },
+      "method": "kuwait",
+      "cities": [
+        {
+          "slug": "al-ahmadi",
+          "name": "الأحمدي",
+          "asciiName": "Al Ahmadi",
+          "geonameId": 285839,
+          "lat": 29.07694,
+          "lng": 48.08389,
+          "tz": "Asia/Kuwait",
+          "pop": 637411
+        },
+        {
+          "slug": "hawalli",
+          "name": "حولي",
+          "asciiName": "Hawalli",
+          "geonameId": 285629,
+          "lat": 29.33278,
+          "lng": 48.02861,
+          "tz": "Asia/Kuwait",
+          "pop": 164212
+        },
+        {
+          "slug": "kuwait-city",
+          "name": "مدينة الكويت",
+          "asciiName": "Kuwait City",
+          "geonameId": 285787,
+          "lat": 29.367,
+          "lng": 47.97429,
+          "tz": "Asia/Kuwait",
+          "pop": 60064
+        },
+        {
+          "slug": "al-jahra",
+          "name": "الجهراء",
+          "asciiName": "Al Jahra'",
+          "geonameId": 285799,
+          "lat": 29.3375,
+          "lng": 47.65806,
+          "tz": "Asia/Kuwait",
+          "pop": 24281
+        }
+      ]
+    },
+    {
+      "cc": "EG",
+      "lang": "ar",
+      "slug": "egypt",
+      "names": {
+        "ar": "مصر"
+      },
+      "method": "egyptian",
+      "cities": [
+        {
+          "slug": "cairo",
+          "name": "القاهرة",
+          "asciiName": "Cairo",
+          "geonameId": 360630,
+          "lat": 30.06263,
+          "lng": 31.24967,
+          "tz": "Africa/Cairo",
+          "pop": 9606916
+        },
+        {
+          "slug": "alexandria",
+          "name": "الإسكندرية",
+          "asciiName": "Alexandria",
+          "geonameId": 361058,
+          "lat": 31.20176,
+          "lng": 29.91582,
+          "tz": "Africa/Cairo",
+          "pop": 5263542
+        },
+        {
+          "slug": "giza",
+          "name": "الجيزة",
+          "asciiName": "Giza",
+          "geonameId": 360995,
+          "lat": 30.00944,
+          "lng": 31.20861,
+          "tz": "Africa/Cairo",
+          "pop": 4367343
+        },
+        {
+          "slug": "port-said",
+          "name": "بورسعيد",
+          "asciiName": "Port Said",
+          "geonameId": 358619,
+          "lat": 31.26531,
+          "lng": 32.3019,
+          "tz": "Africa/Cairo",
+          "pop": 780515
+        },
+        {
+          "slug": "suez",
+          "name": "السويس",
+          "asciiName": "Suez",
+          "geonameId": 359796,
+          "lat": 29.97371,
+          "lng": 32.52627,
+          "tz": "Africa/Cairo",
+          "pop": 699541
+        },
+        {
+          "slug": "al-mansurah",
+          "name": "المنصورة",
+          "asciiName": "Al Mansurah",
+          "geonameId": 360761,
+          "lat": 31.03637,
+          "lng": 31.38069,
+          "tz": "Africa/Cairo",
+          "pop": 621953
+        },
+        {
+          "slug": "al-mahallah-al-kubra",
+          "name": "المحلة الكبرى",
+          "asciiName": "Al Mahallah al Kubra",
+          "geonameId": 360829,
+          "lat": 30.97063,
+          "lng": 31.1669,
+          "tz": "Africa/Cairo",
+          "pop": 592573
+        },
+        {
+          "slug": "tanta",
+          "name": "طنطا",
+          "asciiName": "Tanta",
+          "geonameId": 347497,
+          "lat": 30.78847,
+          "lng": 31.00192,
+          "tz": "Africa/Cairo",
+          "pop": 576648
+        },
+        {
+          "slug": "assiut",
+          "name": "أسيوط",
+          "asciiName": "Assiut",
+          "geonameId": 359783,
+          "lat": 27.18096,
+          "lng": 31.18368,
+          "tz": "Africa/Cairo",
+          "pop": 528669
+        },
+        {
+          "slug": "al-fayyum",
+          "name": "الفيوم",
+          "asciiName": "Al Fayyum",
+          "geonameId": 361320,
+          "lat": 29.30995,
+          "lng": 30.8418,
+          "tz": "Africa/Cairo",
+          "pop": 519047
+        },
+        {
+          "slug": "esna",
+          "name": "إسنا",
+          "asciiName": "Esna",
+          "geonameId": 355449,
+          "lat": 25.29336,
+          "lng": 32.55402,
+          "tz": "Africa/Cairo",
+          "pop": 462787
+        },
+        {
+          "slug": "zagazig",
+          "name": "الزقازيق",
+          "asciiName": "Zagazig",
+          "geonameId": 359493,
+          "lat": 30.58768,
+          "lng": 31.502,
+          "tz": "Africa/Cairo",
+          "pop": 430445
+        },
+        {
+          "slug": "ismailia",
+          "name": "الإسماعيلية",
+          "asciiName": "Ismailia",
+          "geonameId": 361055,
+          "lat": 30.60427,
+          "lng": 32.27225,
+          "tz": "Africa/Cairo",
+          "pop": 429465
+        },
+        {
+          "slug": "luxor",
+          "name": "الأقصر",
+          "asciiName": "Luxor",
+          "geonameId": 360502,
+          "lat": 25.69893,
+          "lng": 32.6421,
+          "tz": "Africa/Cairo",
+          "pop": 422407
+        },
+        {
+          "slug": "aswan",
+          "name": "أسوان",
+          "asciiName": "Aswan",
+          "geonameId": 359792,
+          "lat": 24.09082,
+          "lng": 32.89942,
+          "tz": "Africa/Cairo",
+          "pop": 379774
+        },
+        {
+          "slug": "damanhur",
+          "name": "دمنهور",
+          "asciiName": "Damanhur",
+          "geonameId": 358448,
+          "lat": 31.03408,
+          "lng": 30.46823,
+          "tz": "Africa/Cairo",
+          "pop": 318207
+        },
+        {
+          "slug": "new-cairo",
+          "name": "القاهرة الجديدة",
+          "asciiName": "New Cairo",
+          "geonameId": 7799991,
+          "lat": 30.03,
+          "lng": 31.47,
+          "tz": "Africa/Cairo",
+          "pop": 313139
+        },
+        {
+          "slug": "damietta",
+          "name": "دمياط",
+          "asciiName": "Damietta",
+          "geonameId": 358048,
+          "lat": 31.41648,
+          "lng": 31.81332,
+          "tz": "Africa/Cairo",
+          "pop": 305920
+        },
+        {
+          "slug": "rosetta",
+          "name": "رشيد",
+          "asciiName": "Rosetta",
+          "geonameId": 350203,
+          "lat": 31.39951,
+          "lng": 30.41718,
+          "tz": "Africa/Cairo",
+          "pop": 301795
+        },
+        {
+          "slug": "minya",
+          "name": "المنيا",
+          "asciiName": "Minya",
+          "geonameId": 360686,
+          "lat": 28.09193,
+          "lng": 30.75813,
+          "tz": "Africa/Cairo",
+          "pop": 283605
+        },
+        {
+          "slug": "bani-suwayf",
+          "name": "بني سويف",
+          "asciiName": "Bani Suwayf",
+          "geonameId": 359173,
+          "lat": 29.07441,
+          "lng": 31.09785,
+          "tz": "Africa/Cairo",
+          "pop": 273151
+        },
+        {
+          "slug": "shibin-al-kawm",
+          "name": "شبين الكوم",
+          "asciiName": "Shibin al Kawm",
+          "geonameId": 349158,
+          "lat": 30.55258,
+          "lng": 31.00904,
+          "tz": "Africa/Cairo",
+          "pop": 267945
+        },
+        {
+          "slug": "sohag",
+          "name": "سوهاج",
+          "asciiName": "Sohag",
+          "geonameId": 347796,
+          "lat": 26.55695,
+          "lng": 31.69478,
+          "tz": "Africa/Cairo",
+          "pop": 266944
+        },
+        {
+          "slug": "qina",
+          "name": "قنا",
+          "asciiName": "Qina",
+          "geonameId": 350550,
+          "lat": 26.16418,
+          "lng": 32.72671,
+          "tz": "Africa/Cairo",
+          "pop": 252883
+        },
+        {
+          "slug": "al-ashir-min-ramadan",
+          "name": "العاشر من رمضان",
+          "asciiName": "Al 'Ashir min Ramadan",
+          "geonameId": 353229,
+          "lat": 30.29636,
+          "lng": 31.74633,
+          "tz": "Africa/Cairo",
+          "pop": 246148
+        },
+        {
+          "slug": "halwan",
+          "name": "حلوان",
+          "asciiName": "Halwan",
+          "geonameId": 355795,
+          "lat": 29.84144,
+          "lng": 31.30084,
+          "tz": "Africa/Cairo",
+          "pop": 230000
+        },
+        {
+          "slug": "mallawi",
+          "name": "ملوي",
+          "asciiName": "Mallawi",
+          "geonameId": 352951,
+          "lat": 27.73264,
+          "lng": 30.84129,
+          "tz": "Africa/Cairo",
+          "pop": 212628
+        },
+        {
+          "slug": "hurghada",
+          "name": "الغردقة",
+          "asciiName": "Hurghada",
+          "geonameId": 361291,
+          "lat": 27.25738,
+          "lng": 33.81291,
+          "tz": "Africa/Cairo",
+          "pop": 207132
+        }
+      ]
+    },
+    {
+      "cc": "JO",
+      "lang": "ar",
+      "slug": "jordan",
+      "names": {
+        "ar": "الأردن"
+      },
+      "method": "jordan",
+      "cities": [
+        {
+          "slug": "amman",
+          "name": "عمان",
+          "asciiName": "Amman",
+          "geonameId": 250441,
+          "lat": 31.95522,
+          "lng": 35.94503,
+          "tz": "Asia/Amman",
+          "pop": 1275857
+        },
+        {
+          "slug": "zarqa",
+          "name": "الزرقاء",
+          "asciiName": "Zarqa",
+          "geonameId": 250090,
+          "lat": 32.07275,
+          "lng": 36.08796,
+          "tz": "Asia/Amman",
+          "pop": 792665
+        },
+        {
+          "slug": "irbid",
+          "name": "إربد",
+          "asciiName": "Irbid",
+          "geonameId": 248946,
+          "lat": 32.55556,
+          "lng": 35.85,
+          "tz": "Asia/Amman",
+          "pop": 569068
+        },
+        {
+          "slug": "ar-ramtha",
+          "name": "الرمثا",
+          "asciiName": "Ar Ramtha",
+          "geonameId": 250336,
+          "lat": 32.55873,
+          "lng": 36.00816,
+          "tz": "Asia/Amman",
+          "pop": 155693
+        },
+        {
+          "slug": "suwaylih",
+          "name": "صويلح",
+          "asciiName": "Suwaylih",
+          "geonameId": 13286467,
+          "lat": 32.0221,
+          "lng": 35.84394,
+          "tz": "Asia/Amman",
+          "pop": 151016
+        },
+        {
+          "slug": "ajlun",
+          "name": "عجلون",
+          "asciiName": "'Ajlun",
+          "geonameId": 250799,
+          "lat": 32.33326,
+          "lng": 35.75279,
+          "tz": "Asia/Amman",
+          "pop": 125557
+        },
+        {
+          "slug": "aqaba",
+          "name": "العقبة",
+          "asciiName": "Aqaba",
+          "geonameId": 250774,
+          "lat": 29.52667,
+          "lng": 35.00778,
+          "tz": "Asia/Amman",
+          "pop": 95048
+        },
+        {
+          "slug": "madaba",
+          "name": "مادبا",
+          "asciiName": "Madaba",
+          "geonameId": 248370,
+          "lat": 31.71599,
+          "lng": 35.79392,
+          "tz": "Asia/Amman",
+          "pop": 82335
+        },
+        {
+          "slug": "mafraq",
+          "name": "المفرق",
+          "asciiName": "Mafraq",
+          "geonameId": 250582,
+          "lat": 32.34289,
+          "lng": 36.20804,
+          "tz": "Asia/Amman",
+          "pop": 57118
+        },
+        {
+          "slug": "az-zulayl",
+          "name": "الظليل",
+          "asciiName": "Az Zulayl",
+          "geonameId": 10861986,
+          "lat": 32.1208,
+          "lng": 36.28008,
+          "tz": "Asia/Amman",
+          "pop": 50931
+        },
+        {
+          "slug": "ma-an",
+          "name": "معان",
+          "asciiName": "Ma'an",
+          "geonameId": 248382,
+          "lat": 30.19624,
+          "lng": 35.73405,
+          "tz": "Asia/Amman",
+          "pop": 50350
+        }
+      ]
+    },
+    {
+      "cc": "IR",
+      "lang": "fa",
+      "slug": "iran",
+      "names": {
+        "fa": "ایران"
+      },
+      "method": "tehran",
+      "cities": [
+        {
+          "slug": "tehran",
+          "name": "تهران",
+          "asciiName": "Tehran",
+          "geonameId": 112931,
+          "lat": 35.69439,
+          "lng": 51.42151,
+          "tz": "Asia/Tehran",
+          "pop": 7153309
+        },
+        {
+          "slug": "mashhad",
+          "name": "مشهد",
+          "asciiName": "Mashhad",
+          "geonameId": 124665,
+          "lat": 36.29807,
+          "lng": 59.60567,
+          "tz": "Asia/Tehran",
+          "pop": 2307177
+        },
+        {
+          "slug": "isfahan",
+          "name": "اصفهان",
+          "asciiName": "Isfahan",
+          "geonameId": 418863,
+          "lat": 32.65246,
+          "lng": 51.67462,
+          "tz": "Asia/Tehran",
+          "pop": 1547164
+        },
+        {
+          "slug": "karaj",
+          "name": "کرج",
+          "asciiName": "Karaj",
+          "geonameId": 128747,
+          "lat": 35.83266,
+          "lng": 50.99155,
+          "tz": "Asia/Tehran",
+          "pop": 1448075
+        },
+        {
+          "slug": "tabriz",
+          "name": "تبریز",
+          "asciiName": "Tabriz",
+          "geonameId": 113646,
+          "lat": 38.08,
+          "lng": 46.2919,
+          "tz": "Asia/Tehran",
+          "pop": 1424641
+        },
+        {
+          "slug": "shiraz",
+          "name": "شیراز",
+          "asciiName": "Shiraz",
+          "geonameId": 115019,
+          "lat": 29.61031,
+          "lng": 52.53113,
+          "tz": "Asia/Tehran",
+          "pop": 1249942
+        },
+        {
+          "slug": "qom",
+          "name": "قم",
+          "asciiName": "Qom",
+          "geonameId": 119208,
+          "lat": 34.6401,
+          "lng": 50.8764,
+          "tz": "Asia/Tehran",
+          "pop": 900000
+        },
+        {
+          "slug": "ahvaz",
+          "name": "اهواز",
+          "asciiName": "Ahvaz",
+          "geonameId": 144448,
+          "lat": 31.31901,
+          "lng": 48.6842,
+          "tz": "Asia/Tehran",
+          "pop": 841145
+        },
+        {
+          "slug": "kermanshah",
+          "name": "کرمانشاه",
+          "asciiName": "Kermanshah",
+          "geonameId": 128226,
+          "lat": 34.31417,
+          "lng": 47.065,
+          "tz": "Asia/Tehran",
+          "pop": 621100
+        },
+        {
+          "slug": "rasht",
+          "name": "رشت",
+          "asciiName": "Rasht",
+          "geonameId": 118743,
+          "lat": 37.27611,
+          "lng": 49.58862,
+          "tz": "Asia/Tehran",
+          "pop": 594590
+        },
+        {
+          "slug": "kerman",
+          "name": "کرمان",
+          "asciiName": "Kerman",
+          "geonameId": 128234,
+          "lat": 30.28321,
+          "lng": 57.07879,
+          "tz": "Asia/Tehran",
+          "pop": 577514
+        },
+        {
+          "slug": "orumiyeh",
+          "name": "ارومیه",
+          "asciiName": "Orumiyeh",
+          "geonameId": 121801,
+          "lat": 37.55274,
+          "lng": 45.07605,
+          "tz": "Asia/Tehran",
+          "pop": 577307
+        },
+        {
+          "slug": "zahedan",
+          "name": "زاهدان",
+          "asciiName": "Zahedan",
+          "geonameId": 1159301,
+          "lat": 29.4963,
+          "lng": 60.8629,
+          "tz": "Asia/Tehran",
+          "pop": 551980
+        },
+        {
+          "slug": "hamadan",
+          "name": "همدان",
+          "asciiName": "Hamadan",
+          "geonameId": 132144,
+          "lat": 34.79922,
+          "lng": 48.51456,
+          "tz": "Asia/Tehran",
+          "pop": 528256
+        },
+        {
+          "slug": "arak",
+          "name": "اراک",
+          "asciiName": "Arak",
+          "geonameId": 143127,
+          "lat": 34.09493,
+          "lng": 49.69809,
+          "tz": "Asia/Tehran",
+          "pop": 503647
+        },
+        {
+          "slug": "yazd",
+          "name": "یزد",
+          "asciiName": "Yazd",
+          "geonameId": 111822,
+          "lat": 31.89722,
+          "lng": 54.3675,
+          "tz": "Asia/Tehran",
+          "pop": 477905
+        },
+        {
+          "slug": "eslamshahr",
+          "name": "اسلامشهر",
+          "asciiName": "Eslamshahr",
+          "geonameId": 449504,
+          "lat": 35.55222,
+          "lng": 51.23504,
+          "tz": "Asia/Tehran",
+          "pop": 450000
+        },
+        {
+          "slug": "ardabil",
+          "name": "اردبیل",
+          "asciiName": "Ardabil",
+          "geonameId": 143083,
+          "lat": 38.2498,
+          "lng": 48.2933,
+          "tz": "Asia/Tehran",
+          "pop": 410753
+        },
+        {
+          "slug": "zanjan",
+          "name": "زنجان",
+          "asciiName": "Zanjan",
+          "geonameId": 111453,
+          "lat": 36.67642,
+          "lng": 48.49628,
+          "tz": "Asia/Tehran",
+          "pop": 357471
+        },
+        {
+          "slug": "bandar-abbas",
+          "name": "بندر عباس",
+          "asciiName": "Bandar Abbas",
+          "geonameId": 141681,
+          "lat": 27.1865,
+          "lng": 56.2808,
+          "tz": "Asia/Tehran",
+          "pop": 352173
+        },
+        {
+          "slug": "sanandaj",
+          "name": "سنندج",
+          "asciiName": "Sanandaj",
+          "geonameId": 117574,
+          "lat": 35.31495,
+          "lng": 46.99883,
+          "tz": "Asia/Tehran",
+          "pop": 349176
+        },
+        {
+          "slug": "qazvin",
+          "name": "قزوین",
+          "asciiName": "Qazvin",
+          "geonameId": 119505,
+          "lat": 36.26877,
+          "lng": 50.0041,
+          "tz": "Asia/Tehran",
+          "pop": 333635
+        },
+        {
+          "slug": "khorramshahr",
+          "name": "بندر خرمشهر",
+          "asciiName": "Khorramshahr",
+          "geonameId": 127319,
+          "lat": 30.44079,
+          "lng": 48.18428,
+          "tz": "Asia/Tehran",
+          "pop": 330606
+        },
+        {
+          "slug": "khorramabad",
+          "name": "خرم آباد",
+          "asciiName": "Khorramabad",
+          "geonameId": 127349,
+          "lat": 33.48778,
+          "lng": 48.35583,
+          "tz": "Asia/Tehran",
+          "pop": 329825
+        },
+        {
+          "slug": "shahriar",
+          "name": "شهریار",
+          "asciiName": "Shahriar",
+          "geonameId": 143860,
+          "lat": 35.65884,
+          "lng": 51.05775,
+          "tz": "Asia/Tehran",
+          "pop": 309607
+        },
+        {
+          "slug": "kashan",
+          "name": "کاشان",
+          "asciiName": "Kashan",
+          "geonameId": 128476,
+          "lat": 33.98237,
+          "lng": 51.42769,
+          "tz": "Asia/Tehran",
+          "pop": 304487
+        },
+        {
+          "slug": "khomeyni-shahr",
+          "name": "خمینی شهر",
+          "asciiName": "Khomeyni Shahr",
+          "geonameId": 418710,
+          "lat": 32.6856,
+          "lng": 51.53609,
+          "tz": "Asia/Tehran",
+          "pop": 277334
+        },
+        {
+          "slug": "dezful",
+          "name": "دزفول",
+          "asciiName": "Dezful",
+          "geonameId": 136256,
+          "lat": 32.38114,
+          "lng": 48.40581,
+          "tz": "Asia/Tehran",
+          "pop": 264709
+        },
+        {
+          "slug": "maragheh",
+          "name": "مراغه",
+          "asciiName": "Maragheh",
+          "geonameId": 124877,
+          "lat": 37.39206,
+          "lng": 46.23909,
+          "tz": "Asia/Tehran",
+          "pop": 262604
+        },
+        {
+          "slug": "sari",
+          "name": "ساری",
+          "asciiName": "Sari",
+          "geonameId": 116996,
+          "lat": 36.56332,
+          "lng": 53.06009,
+          "tz": "Asia/Tehran",
+          "pop": 255396
+        },
+        {
+          "slug": "borujerd",
+          "name": "بروجرد",
+          "asciiName": "Borujerd",
+          "geonameId": 140044,
+          "lat": 33.8973,
+          "lng": 48.7516,
+          "tz": "Asia/Tehran",
+          "pop": 251958
+        },
+        {
+          "slug": "qarchak",
+          "name": "قرچک",
+          "asciiName": "Qarchak",
+          "geonameId": 32767,
+          "lat": 35.42873,
+          "lng": 51.57757,
+          "tz": "Asia/Tehran",
+          "pop": 251834
+        },
+        {
+          "slug": "gorgan",
+          "name": "گرگان",
+          "asciiName": "Gorgan",
+          "geonameId": 132892,
+          "lat": 36.8427,
+          "lng": 54.44391,
+          "tz": "Asia/Tehran",
+          "pop": 244937
+        },
+        {
+          "slug": "sabzevar",
+          "name": "سبزوار",
+          "asciiName": "Sabzevar",
+          "geonameId": 118063,
+          "lat": 36.2126,
+          "lng": 57.68191,
+          "tz": "Asia/Tehran",
+          "pop": 243700
+        },
+        {
+          "slug": "amol",
+          "name": "آمل",
+          "asciiName": "Amol",
+          "geonameId": 143534,
+          "lat": 36.46961,
+          "lng": 52.35072,
+          "tz": "Asia/Tehran",
+          "pop": 237528
+        },
+        {
+          "slug": "najafabad",
+          "name": "نجف آباد",
+          "asciiName": "Najafabad",
+          "geonameId": 418606,
+          "lat": 32.63464,
+          "lng": 51.36525,
+          "tz": "Asia/Tehran",
+          "pop": 235281
+        },
+        {
+          "slug": "abadan",
+          "name": "آبادان",
+          "asciiName": "Abadan",
+          "geonameId": 145459,
+          "lat": 30.3392,
+          "lng": 48.3043,
+          "tz": "Asia/Tehran",
+          "pop": 231476
+        },
+        {
+          "slug": "varamin",
+          "name": "ورامین",
+          "asciiName": "Varamin",
+          "geonameId": 112214,
+          "lat": 35.3242,
+          "lng": 51.6457,
+          "tz": "Asia/Tehran",
+          "pop": 225628
+        },
+        {
+          "slug": "neyshabur",
+          "name": "نیشابور",
+          "asciiName": "Neyshabur",
+          "geonameId": 122285,
+          "lat": 36.21329,
+          "lng": 58.79575,
+          "tz": "Asia/Tehran",
+          "pop": 220929
+        },
+        {
+          "slug": "saveh",
+          "name": "ساوه",
+          "asciiName": "Saveh",
+          "geonameId": 116667,
+          "lat": 35.0213,
+          "lng": 50.3566,
+          "tz": "Asia/Tehran",
+          "pop": 220762
+        },
+        {
+          "slug": "nazarabad",
+          "name": "نظر آباد",
+          "asciiName": "Nazarabad",
+          "geonameId": 122438,
+          "lat": 35.95411,
+          "lng": 50.60607,
+          "tz": "Asia/Tehran",
+          "pop": 213388
+        },
+        {
+          "slug": "qa-em-shahr",
+          "name": "قائم شهر",
+          "asciiName": "Qa'em Shahr",
+          "geonameId": 120695,
+          "lat": 36.46671,
+          "lng": 52.86762,
+          "tz": "Asia/Tehran",
+          "pop": 204953
+        },
+        {
+          "slug": "babol",
+          "name": "بابل",
+          "asciiName": "Babol",
+          "geonameId": 142363,
+          "lat": 36.55102,
+          "lng": 52.6786,
+          "tz": "Asia/Tehran",
+          "pop": 202796
+        },
+        {
+          "slug": "khuy",
+          "name": "خوی",
+          "asciiName": "Khuy",
+          "geonameId": 126972,
+          "lat": 38.5503,
+          "lng": 44.9521,
+          "tz": "Asia/Tehran",
+          "pop": 198845
+        },
+        {
+          "slug": "birjand",
+          "name": "بیرجند",
+          "asciiName": "Birjand",
+          "geonameId": 140463,
+          "lat": 32.86628,
+          "lng": 59.22114,
+          "tz": "Asia/Tehran",
+          "pop": 196982
+        },
+        {
+          "slug": "bukan",
+          "name": "بوکان",
+          "asciiName": "Bukan",
+          "geonameId": 139889,
+          "lat": 36.521,
+          "lng": 46.2089,
+          "tz": "Asia/Tehran",
+          "pop": 193501
+        },
+        {
+          "slug": "bojnurd",
+          "name": "بجنورد",
+          "asciiName": "Bojnurd",
+          "geonameId": 140380,
+          "lat": 37.47473,
+          "lng": 57.32903,
+          "tz": "Asia/Tehran",
+          "pop": 192041
+        },
+        {
+          "slug": "shahin-shahr",
+          "name": "شاهین شهر",
+          "asciiName": "Shahin Shahr",
+          "geonameId": 417472,
+          "lat": 32.85788,
+          "lng": 51.5529,
+          "tz": "Asia/Tehran",
+          "pop": 173329
+        },
+        {
+          "slug": "malayer",
+          "name": "ملایر",
+          "asciiName": "Malayer",
+          "geonameId": 125185,
+          "lat": 34.30158,
+          "lng": 48.82166,
+          "tz": "Asia/Tehran",
+          "pop": 170237
+        },
+        {
+          "slug": "mahabad",
+          "name": "مهاباد",
+          "asciiName": "Mahabad",
+          "geonameId": 125446,
+          "lat": 36.7631,
+          "lng": 45.7222,
+          "tz": "Asia/Tehran",
+          "pop": 168393
+        },
+        {
+          "slug": "piranshahr",
+          "name": "پیرانشهر",
+          "asciiName": "Piranshahr",
+          "geonameId": 121110,
+          "lat": 36.701,
+          "lng": 45.1413,
+          "tz": "Asia/Tehran",
+          "pop": 168393
+        },
+        {
+          "slug": "bushehr",
+          "name": "بوشهر",
+          "asciiName": "Bushehr",
+          "geonameId": 139817,
+          "lat": 28.96887,
+          "lng": 50.83657,
+          "tz": "Asia/Tehran",
+          "pop": 165377
+        },
+        {
+          "slug": "saqqez",
+          "name": "سقز",
+          "asciiName": "Saqqez",
+          "geonameId": 117392,
+          "lat": 36.24992,
+          "lng": 46.2735,
+          "tz": "Asia/Tehran",
+          "pop": 165258
+        },
+        {
+          "slug": "shahrud",
+          "name": "شاهرود",
+          "asciiName": "Shahrud",
+          "geonameId": 135423,
+          "lat": 36.41819,
+          "lng": 54.97628,
+          "tz": "Asia/Tehran",
+          "pop": 165000
+        },
+        {
+          "slug": "bandar-e-mahshahr",
+          "name": "بندر ماهشهر",
+          "asciiName": "Bandar-e Mahshahr",
+          "geonameId": 141663,
+          "lat": 30.55655,
+          "lng": 49.18852,
+          "tz": "Asia/Tehran",
+          "pop": 162797
+        },
+        {
+          "slug": "gonbad-e-kavus",
+          "name": "گنبد کاووس",
+          "asciiName": "Gonbad-e Kavus",
+          "geonameId": 132938,
+          "lat": 37.25004,
+          "lng": 55.16721,
+          "tz": "Asia/Tehran",
+          "pop": 151910
+        }
+      ]
+    },
+    {
+      "cc": "AF",
+      "lang": "fa",
+      "slug": "afghanistan",
+      "names": {
+        "fa": "افغانستان"
+      },
+      "method": "karachi-hanafi",
+      "cities": [
+        {
+          "slug": "kabul",
+          "name": "کابل",
+          "asciiName": "Kabul",
+          "geonameId": 1138958,
+          "lat": 34.52813,
+          "lng": 69.17233,
+          "tz": "Asia/Kabul",
+          "pop": 4434550
+        },
+        {
+          "slug": "herat",
+          "name": "هرات",
+          "asciiName": "Herat",
+          "geonameId": 1140026,
+          "lat": 34.34817,
+          "lng": 62.19967,
+          "tz": "Asia/Kabul",
+          "pop": 574300
+        },
+        {
+          "slug": "kandahar",
+          "name": "قندهار",
+          "asciiName": "Kandahar",
+          "geonameId": 1138336,
+          "lat": 31.61332,
+          "lng": 65.71013,
+          "tz": "Asia/Kabul",
+          "pop": 523300
+        },
+        {
+          "slug": "mazar-e-sharif",
+          "name": "مزار شریف",
+          "asciiName": "Mazar-e Sharif",
+          "geonameId": 1133616,
+          "lat": 36.70904,
+          "lng": 67.11087,
+          "tz": "Asia/Kabul",
+          "pop": 523300
+        },
+        {
+          "slug": "jalalabad",
+          "name": "جلال‌آباد",
+          "asciiName": "Jalalabad",
+          "geonameId": 1139715,
+          "lat": 34.42647,
+          "lng": 70.45153,
+          "tz": "Asia/Kabul",
+          "pop": 271900
+        },
+        {
+          "slug": "kunduz",
+          "name": "کندز",
+          "asciiName": "Kunduz",
+          "geonameId": 1135689,
+          "lat": 36.72895,
+          "lng": 68.857,
+          "tz": "Asia/Kabul",
+          "pop": 161902
+        },
+        {
+          "slug": "ghazni",
+          "name": "غزنین",
+          "asciiName": "Ghazni",
+          "geonameId": 1141269,
+          "lat": 33.55391,
+          "lng": 68.42096,
+          "tz": "Asia/Kabul",
+          "pop": 141000
+        },
+        {
+          "slug": "balkh",
+          "name": "بلخ",
+          "asciiName": "Balkh",
+          "geonameId": 1147290,
+          "lat": 36.75635,
+          "lng": 66.8972,
+          "tz": "Asia/Kabul",
+          "pop": 114883
+        },
+        {
+          "slug": "bagram",
+          "name": "بگرام",
+          "asciiName": "Bagram",
+          "geonameId": 1147513,
+          "lat": 34.96694,
+          "lng": 69.265,
+          "tz": "Asia/Kabul",
+          "pop": 113173
+        },
+        {
+          "slug": "baghlan",
+          "name": "باغلان",
+          "asciiName": "Baghlan",
+          "geonameId": 1147540,
+          "lat": 36.13068,
+          "lng": 68.70829,
+          "tz": "Asia/Kabul",
+          "pop": 108449
+        },
+        {
+          "slug": "gardez",
+          "name": "گردیز",
+          "asciiName": "Gardez",
+          "geonameId": 1141857,
+          "lat": 33.59744,
+          "lng": 69.22592,
+          "tz": "Asia/Kabul",
+          "pop": 103601
+        }
+      ]
+    }
+  ]
+}

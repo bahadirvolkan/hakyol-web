@@ -10,6 +10,10 @@
   function source() {
     var p = location.pathname;
     if (p.indexOf("/namaz-vakitleri") === 0) return p.split("/").filter(Boolean).length > 1 ? "city" : "city_hub";
+    if (/^\/(id\/jadwal-sholat|bn\/namaz-er-somoy|ur\/namaz-ke-auqat|ar\/mawaqit-al-salat|fa\/owghat-sharei)(\/|$)/.test(p)) {
+      var depth = p.split("/").filter(Boolean).length;
+      return depth >= (/^\/(ar|fa)\//.test(p) ? 4 : 3) ? "city_world" : "city_world_hub";
+    }
     return "home";
   }
 

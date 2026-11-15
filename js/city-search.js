@@ -4,9 +4,10 @@
   else { root.HakyolCitySearch = api; api.init(); }
 })(typeof window !== "undefined" ? window : globalThis, function () {
   function normalizeSearch(value) {
-    return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-      .replace(/ß/g, "ss").replace(/ı/g, "i").toLowerCase()
-      .replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+    return String(value || "").normalize("NFD")
+      .replace(/[\u0300-\u036f\u0610-\u061a\u0640\u064b-\u065f\u0670\u06d6-\u06ed]/g, "")
+      .replace(/ß/g, "ss").replace(/ı/g, "i").replace(/[يى]/g, "ی").replace(/ك/g, "ک").replace(/ة/g, "ه").toLowerCase()
+      .replace(/[^\p{L}\p{M}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ");
   }
 
   function rank(key, query) {

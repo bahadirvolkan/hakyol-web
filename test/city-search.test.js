@@ -8,6 +8,14 @@ test("normalizeSearch folds Turkish, German and accented letters", () => {
   assert.equal(normalizeSearch("München Köln Straße Évry"), "munchen koln strasse evry");
 });
 
+test("normalizeSearch preserves Bengali letters", () => {
+  assert.equal(normalizeSearch("  ঢাকা শহর  "), "ঢাকা শহর");
+});
+
+test("normalizeSearch strips Arabic marks and folds Persian and Arabic variants", () => {
+  assert.equal(normalizeSearch("مَكّة ـ يكى كة"), "مکه یکی که");
+});
+
 test("searchCities ranks prefix then word-prefix then contains and parents before children", () => {
   const rows = [
     ["İstanbul ilçesi", "İstanbul", "/namaz-vakitleri/istanbul/istanbul-ilcesi/", "istanbul ilcesi istanbul"],

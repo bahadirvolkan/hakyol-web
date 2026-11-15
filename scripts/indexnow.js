@@ -13,7 +13,7 @@ const ROOT = path.join(__dirname, "..");
 const KEY = fs.readFileSync(path.join(__dirname, "indexnow-key.txt"), "utf8").trim();
 const HOST = "hakyol.app";
 
-const urls = ["sitemap.xml", "sitemap-namaz.xml"]
+const urls = ["sitemap.xml", "sitemap-namaz.xml", "sitemap-world.xml"]
   .filter((f) => fs.existsSync(path.join(ROOT, f)))
   .flatMap((f) => [...fs.readFileSync(path.join(ROOT, f), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
 

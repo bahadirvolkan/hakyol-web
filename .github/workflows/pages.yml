@@ -55,6 +55,9 @@ jobs:
       - name: Şehir sayfalarını üret
         run: node build-cities.js
 
+      - name: Dünya şehir sayfalarını üret
+        run: node build-world.js
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
