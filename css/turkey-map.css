@@ -1,0 +1,8 @@
+.turkey-map{margin:22px 0 10px;text-align:center}
+.turkey-map svg{display:block;width:100%;height:auto;overflow:visible}
+.turkey-map a path{fill:#1b2740;stroke:rgba(212,175,55,.45);stroke-width:.8;vector-effect:non-scaling-stroke;transition:fill .15s ease,stroke .15s ease}
+.turkey-map a:hover path,.turkey-map a:focus path{fill:rgba(212,175,55,.55);stroke:var(--gold)}
+.turkey-map a:focus{outline:none}
+.turkey-map-label{min-height:1.4em;margin:7px 0 0;color:var(--gold-text);font-size:13px;font-weight:600}
+.turkey-map-note{margin:5px 0 0;color:var(--text-faint);font-size:12px}
+@media (max-width:520px){.turkey-map{margin-inline:-8px}.turkey-map-note{padding:0 8px}}

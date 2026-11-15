@@ -29,6 +29,7 @@ const WORLD = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "diyanet-dunya.
 // ayrı vakit vermediği ilçeler. Bunlar il merkezi vaktiyle yayınlanır (Diyanet'in kendi uygulaması).
 const OFFICIAL = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "ilceler-resmi.json"), "utf8"));
 const VAKIT = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "vakitler.json"), "utf8")).ilce;
+const TURKEY_MAP = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "turkiye-iller.svg.json"), "utf8"));
 
 // Diyanet listesinde Türkçe karakteri düşmüş adlar.
 const NAME_FIX = {
@@ -333,7 +334,7 @@ function breadcrumbLd(trail) {
   };
 }
 
-function page({ url, title, description, crumbs, body, ld, localClock }) {
+function page({ url, title, description, crumbs, body, ld, localClock, turkeyMap }) {
   const crumbHtml = crumbs
     .map(([name, href], i) => (i === crumbs.length - 1 ? esc(name) : `<a href="${href}">${esc(name)}</a>`))
     .join(" › ");
@@ -357,6 +358,7 @@ function page({ url, title, description, crumbs, body, ld, localClock }) {
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <link rel="stylesheet" href="/fonts/fonts.css" />
+${turkeyMap ? '<link rel="stylesheet" href="/css/turkey-map.css" />' : ""}
 <style>${CSS}</style>
 ${ld.map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("\n")}
 </head>
@@ -373,6 +375,7 @@ ${body}
 </div></footer>
 <script>${CLIENT_JS}</script>
 <script src="/js/city-search.js" defer></script>
+${turkeyMap ? '<script src="/js/turkey-map.js" defer></script>' : ""}
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 </body>
@@ -424,6 +427,17 @@ const urls = [`${BASE_PATH}/`];
 const rootCrumb = ["Namaz Vakitleri", `${BASE_PATH}/`];
 
 const liveIller = iller.filter((il) => il.rows);
+const ilBySlug = new Map(liveIller.map((il) => [il.slug, il]));
+if (TURKEY_MAP.paths.length !== 81 || TURKEY_MAP.paths.some((item) => !ilBySlug.has(item.slug))) {
+  throw new Error("Türkiye haritasındaki 81 ilin tamamı yayınlanan il listesiyle eşleşmeli");
+}
+const turkeyMapHtml = `<div class="turkey-map" data-turkey-map>
+<svg role="img" aria-label="Türkiye il haritası" viewBox="${esc(TURKEY_MAP.viewBox)}" preserveAspectRatio="xMidYMid meet">
+${TURKEY_MAP.paths.map((item) => `<a href="${BASE_PATH}/${item.slug}/" aria-label="${esc(item.name)} namaz vakitleri" data-map-name="${esc(item.name)}"><path d="${item.d}"><title>${esc(item.name)}</title></path></a>`).join("\n")}
+</svg>
+<p class="turkey-map-label" data-map-label aria-live="polite"></p>
+<p class="turkey-map-note">Haritada bulamadınız mı? Yukarıdan arayın ya da listeden seçin.</p>
+</div>`;
 for (const il of iller) {
   const ilUrl = `${BASE_PATH}/${il.slug}/`;
   const ilceList = il.ilceler.length
@@ -512,11 +526,13 @@ write(
     body: `<h1>Namaz Vakitleri</h1>
 <p class="date">81 il ve ${iller.reduce((n, il) => n + il.ilceler.length, 0)} ilçe için Diyanet verisiyle ezan saatleri. İlinizi seçin.</p>
 <div data-city-search data-index="${BASE_PATH}/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>
+${turkeyMapHtml}
 <ul class="links">${liveIller.map((il) => `<li><a href="${BASE_PATH}/${il.slug}/">${esc(il.name)}</a></li>`).join("")}</ul>
 <h2 class="sec">Yurt dışı namaz vakitleri</h2>
 ${countries.map((country) => `<h3><a href="${BASE_PATH}/${country.slug}/">${esc(country.name)}</a></h3><ul class="links">${country.cities.filter((city) => city.rows).slice(0, 5).map((city) => `<li><a href="${BASE_PATH}/${country.slug}/${city.slug}/">${esc(city.name)}</a></li>`).join("")}</ul>`).join("")}
 ${cta("Bulunduğunuz yer", "city_hub")}`,
     ld: [breadcrumbLd([["Hakyol", "/"], rootCrumb])],
+    turkeyMap: true,
   })
 );
 
