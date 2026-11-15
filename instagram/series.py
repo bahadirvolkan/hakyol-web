@@ -39,6 +39,9 @@ DUAS = ["2:127", "2:128", "2:201", "2:250", "3:8", "3:16", "3:53", "3:147", "3:1
 
 # Kırk Hadis: Peygamberimizin sözü kısa ve tek başına anlaşılır olanlar. Kısas/had içerenler ve
 # uzun soru-cevaplı rivayetler (2, 4, 8, 14, 16, 17, 21, 22, 24, 25, 28, 29, 31) dışarıda.
+# En uzun tırnak her zaman Peygamberimizin sözü değil: 40'ta en uzunu İbn Ömer'in sözü, 7'de cevabın
+# yarısı. Bu ikisi kaynaktaki asıl söz (tur-nawawi metninden aynen).
+OVERRIDE = {7: "Din nasihattir (samimiyettir).", 40: "Dünyada tıpkı bir yabancı veya bir yolcu gibi ol."}
 HADIS = [1, 3, 5, 7, 9, 11, 12, 13, 15, 18, 20, 23, 26, 27, 30, 32, 34, 39, 40, 41]
 
 
@@ -87,7 +90,7 @@ def hadis_items():
     items = []
     for no in HADIS:
         quotes = re.findall(r"[“\"]([^”\"]{25,})[”\"]", by_no[no])
-        text = re.sub(r"\s+", " ", max(quotes, key=len)).strip()
+        text = OVERRIDE.get(no) or re.sub(r"\s+", " ", max(quotes, key=len)).strip()
         body = (f'<div class="kicker">Kırk Hadis · {no}</div><div class="rule"></div>'
                 f'<div class="meal">“{text}”</div><div class="ref">(Hadis-i Şerif)</div>')
         items.append({"kind": "single", "cards": [body],

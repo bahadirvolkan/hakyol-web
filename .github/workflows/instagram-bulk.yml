@@ -1,6 +1,7 @@
 # @hakyol.app toplu reels: queue.json'daki sıradaki ayet/hadis/tema paketlerini yayınlar.
-# Saatlik cron GitHub'da çoğu zaman düşüyor; bunun yerine günde 4 çalışma, her biri 55 dk arayla
-# 5 reels (~4 saat) = günde 20. TSİ ~06:20–02:00. Sıra bitince "sıra bitti" deyip çıkar.
+# GitHub cron'u güvenilmez (11-15: 06:17 turu hiç çalışmadı, diğerleri 1-2 saat gecikti). Her tur
+# 60 dk arayla 5 reels atar ve bitince bir sonrakini kendisi başlatır (zincir); gece TSİ 02-07 arası
+# yayın yok, zincir 07'den sonra cron'la yeniden başlar. Cron'lar yedek. ~19 reels/gün.
 # Sıra: python3 instagram/series.py (yerelde, ağ gerekir) → queue.json commit'le.
 name: instagram-bulk
 
@@ -14,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: instagram-bulk
@@ -38,4 +40,12 @@ jobs:
         run: |
           git config user.name "hakyol-bot"
           git config user.email "info@hakyol.app"
-          cd instagram && python bulk.py --count 5 --gap 3300
+          cd instagram && python bulk.py --count 5 --gap 3600
+
+      - name: Sonraki turu başlat
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          h=$(TZ=Europe/Istanbul date +%-H)
+          if [ "$h" -ge 7 ] && [ "$h" -le 23 ]; then gh workflow run instagram-bulk.yml --ref main; else echo "gece, zincir durdu ($h)"; fi

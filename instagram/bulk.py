@@ -123,4 +123,7 @@ if __name__ == "__main__":
     for i in range(count):
         if i:
             time.sleep(gap)
+        if 2 <= time.gmtime(time.time() + 3 * 3600).tm_hour < 7:  # TSİ gece: yayın yok
+            print("gece, tur bitti")
+            break
         main()
