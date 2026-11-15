@@ -9,6 +9,7 @@ import json
 import random
 import re
 import subprocess
+import urllib.request
 from datetime import date
 from pathlib import Path
 
@@ -84,6 +85,62 @@ def secs_for(body):
     m = re.search(r'class="meal"[^>]*>(.*?)</div>', body, re.S)
     n = len(re.sub(r"<[^>]+>", "", m.group(1))) if m else 300
     return max(8, min(15, round(4 + n / 22)))
+
+
+RECITER = "https://everyayah.com/data/Alafasy_128kbps"  # Mişari Raşid el-Afasi (Quran.com tilavet 7)
+MAX_RECITATION = 60
+
+
+def verse_key(caption):
+    """Açıklamadaki '(Bakara Suresi 186. ayet)' -> '2:186'; ayet yoksa (hadis) None."""
+    # Yalnız ilk paragraf: alttaki takip cümlesinde de bir ayet atfı (Ra'd 28) var.
+    m = re.search(r"\(([^()]+?) Suresi (\d+)(?:[–-](\d+))?\. ayet[,)]", caption.split("\n\n")[0])
+    if not m:
+        return None
+    names = {c["translated_name"]["name"]: c["id"] for c in R.cached("chapters_tr.json", "https://api.quran.com/api/v4/chapters?language=tr")["chapters"]}
+    sura = names.get(m.group(1))
+    return f"{sura}:{m.group(2)}" + (f"-{m.group(3)}" if m.group(3) else "") if sura else None
+
+
+def duration(f):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(f)],
+                                capture_output=True, text=True, check=True).stdout)
+
+
+def recitation(key, out):
+    """Ayetin Arapça tilaveti (müziksiz). Çok ayetliyse uç uca. Çok uzunsa None (ney'e düşülür)."""
+    sura, rng = key.split(":")
+    a, _, b = rng.partition("-")
+    parts = []
+    for n in range(int(a), int(b or a) + 1):
+        f = out.parent / f"tilavet-{int(sura):03d}{n:03d}.mp3"
+        if not f.exists():
+            req = urllib.request.Request(f"{RECITER}/{int(sura):03d}{n:03d}.mp3", headers={"User-Agent": "hakyol.app"})
+            f.write_bytes(urllib.request.urlopen(req, timeout=60).read())
+        parts.append(f)
+    if len(parts) > 1:
+        lst = out.with_suffix(".txt")
+        lst.write_text("".join(f"file '{x}'\n" for x in parts))
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst), "-c:a", "libmp3lame", "-q:a", "2", str(out)], check=True)
+    else:
+        out.write_bytes(parts[0].read_bytes())
+    return out if duration(out) <= MAX_RECITATION else None
+
+
+def reel_recited(jpg, mp4, audio):
+    """Kart + tilavet: süre tilavet kadar (+1 sn baş, +1.5 sn son), yavaş yakınlaşma, müzik yok."""
+    secs = int(duration(audio) + 3.5)
+    frames = secs * 30
+    subprocess.run([
+        "ffmpeg", "-y", "-v", "error", "-loop", "1", "-framerate", "30", "-i", str(jpg), "-i", str(audio), "-t", str(secs),
+        "-filter_complex",
+        f"[0:v]scale=1620:-1,zoompan=z='1+0.05*on/{frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+        f":d={frames}:s=1080x1920:fps=30,format=yuv420p[v];"
+        f"[1:a]adelay=1000|1000,apad,loudnorm=I=-16:TP=-1.5,aresample=44100[a]",
+        "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+        "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(mp4),
+    ], check=True)
+    return secs
 
 
 def reel(jpg, mp4, secs=15, seed=None):

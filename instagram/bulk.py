@@ -78,7 +78,14 @@ def main():
     else:
         jpg = OUT / f"{item['id']}.jpg"
         R.shoot(item["cards"][0], jpg, story=True)
-        PL.reel(jpg, mp4, secs=PL.secs_for(item["cards"][0]), seed=item["id"])
+        # Tilavet denemesi (11-15, kullanıcı onayı): ayet kartlarında ney yerine Arapça tilavet;
+        # hadis ve dualarda ney kalır (öyle önerildi). Tilavet 60 sn'yi aşarsa ney.
+        key = PL.verse_key(item["caption"]) if not any(w in item["caption"] for w in ("Kırk Hadis", "Kur'an'daki dualar")) else None
+        audio = PL.recitation(key, OUT / f"{item['id']}-tilavet.mp3") if key else None
+        if audio:
+            print("tilavet", key, PL.reel_recited(jpg, mp4, audio), "sn")
+        else:
+            PL.reel(jpg, mp4, secs=PL.secs_for(item["cards"][0]), seed=item["id"])
     print("üretildi", mp4)
     if "--dry" in sys.argv:
         return
