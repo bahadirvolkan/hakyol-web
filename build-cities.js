@@ -387,7 +387,7 @@ ${body}
 </div></footer>
 <script>${CLIENT_JS}</script>
 <script src="/js/city-search.js" defer></script>
-${turkeyMap ? '<script src="/js/turkey-map.js" defer></script>' : ""}
+${turkeyMap ? '<script src="/js/maps.js" defer></script>' : ""}
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 ${appName ? '<script src="/js/home-screen.js" defer></script>' : ""}
@@ -469,13 +469,16 @@ const ilBySlug = new Map(liveIller.map((il) => [il.slug, il]));
 if (TURKEY_MAP.paths.length !== 81 || TURKEY_MAP.paths.some((item) => !ilBySlug.has(item.slug))) {
   throw new Error("Türkiye haritasındaki 81 ilin tamamı yayınlanan il listesiyle eşleşmeli");
 }
-const turkeyMapHtml = `<div class="turkey-map" data-turkey-map>
+const turkeyMapHtml = `<div class="map-block turkey-map">
+<div class="map-scroll"><div class="map-canvas">
 <svg role="img" aria-label="Türkiye il haritası" viewBox="${esc(TURKEY_MAP.viewBox)}" preserveAspectRatio="xMidYMid meet">
-${TURKEY_MAP.paths.map((item) => `<a href="${BASE_PATH}/${item.slug}/" aria-label="${esc(item.name)} namaz vakitleri" data-map-name="${esc(item.name)}"><path d="${item.d}"><title>${esc(item.name)}</title></path></a>`).join("\n")}
+${TURKEY_MAP.paths.map((item) => `<a class="map-country map-active" href="${BASE_PATH}/${item.slug}/" aria-label="${esc(item.name)} namaz vakitleri" data-map-name="${esc(item.name)}"><path d="${item.d}"><title>${esc(item.name)}</title></path><text class="map-label map-label-${item.ls}" x="${item.lx}" y="${item.ly}">${esc(item.name)}</text></a>`).join("\n")}
 </svg>
-<p class="turkey-map-label" data-map-label aria-live="polite"></p>
-<p class="turkey-map-note">Haritada bulamadınız mı? Yukarıdan arayın ya da listeden seçin.</p>
+</div></div>
+<p class="map-status" data-map-status aria-live="polite"></p>
+<p class="map-note">Dar ekranda haritayı kaydırabilirsiniz. Haritada bulamadınız mı? Yukarıdan arayın ya da listeden seçin.</p>
 </div>`;
+const worldMapHtml = `<div class="map-block world-map"><div class="map-scroll"><div class="map-canvas" data-map-src="/maps/dunya.svg" aria-busy="true"></div><noscript><object class="map-canvas" data="/maps/dunya.svg" type="image/svg+xml" aria-label="Dünya namaz vakitleri haritası"></object></noscript></div><p class="map-status" data-map-status aria-live="polite"></p><p class="map-note">Dar ekranda haritayı kaydırabilirsiniz. Renkli ülkelerden birini seçin.</p></div>`;
 for (const il of iller) {
   const ilUrl = `${BASE_PATH}/${il.slug}/`;
   const ilceList = il.ilceler.length
@@ -567,6 +570,7 @@ write(
 ${turkeyMapHtml}
 <ul class="links">${liveIller.map((il) => `<li><a href="${BASE_PATH}/${il.slug}/">${esc(il.name)}</a></li>`).join("")}</ul>
 <h2 class="sec">Yurt dışı namaz vakitleri</h2>
+${worldMapHtml}
 ${countries.map((country) => `<h3><a href="${BASE_PATH}/${country.slug}/">${esc(country.name)}</a></h3><ul class="links">${country.cities.filter((city) => city.rows).slice(0, 5).map((city) => `<li><a href="${BASE_PATH}/${country.slug}/${city.slug}/">${esc(city.name)}</a></li>`).join("")}</ul>`).join("")}
 ${cta("Bulunduğunuz yer", "city_hub")}`,
     ld: [breadcrumbLd([["Hakyol", "/"], rootCrumb])],

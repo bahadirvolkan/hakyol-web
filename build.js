@@ -98,9 +98,14 @@ function cityLinksHtml(lang = "tr") {
     ([slug, name]) => `<li><a href="/namaz-vakitleri/${slug}/" title="${name} namaz vakitleri">${name}</a></li>`
   ).join("");
   return (
-    `<section class="city-links"><div class="wrap"><div class="box">` +
+    `<section class="city-links home-maps" data-map-tabs><div class="wrap"><div class="box">` +
     `<h2>Türkiye Namaz Vakitleri</h2>` +
     `<div data-city-search data-index="/namaz-vakitleri/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>` +
+    `<div class="map-tabs" role="tablist" aria-label="Namaz vakitleri haritası">` +
+    `<button class="map-tab" id="map-tab-tr" type="button" role="tab" aria-selected="true" aria-controls="map-panel-tr">Türkiye</button>` +
+    `<button class="map-tab" id="map-tab-world" type="button" role="tab" aria-selected="false" aria-controls="map-panel-world" tabindex="-1">Dünya</button></div>` +
+    `<div class="map-panel map-block turkey-map" id="map-panel-tr" role="tabpanel" aria-labelledby="map-tab-tr"><div class="map-scroll"><div class="map-canvas" data-map-src="/maps/turkiye.svg"></div><noscript><object class="map-canvas" data="/maps/turkiye.svg" type="image/svg+xml" aria-label="Türkiye il haritası"></object></noscript></div><p class="map-status" data-map-status aria-live="polite"></p><p class="map-note">Dar ekranda haritayı kaydırabilirsiniz.</p></div>` +
+    `<div class="map-panel map-block world-map" id="map-panel-world" role="tabpanel" aria-labelledby="map-tab-world"><div class="map-scroll"><div class="map-canvas" data-map-src="/maps/dunya.svg"></div><noscript><object class="map-canvas" data="/maps/dunya.svg" type="image/svg+xml" aria-label="Dünya namaz vakitleri haritası"></object></noscript></div><p class="map-status" data-map-status aria-live="polite"></p><p class="map-note">Dar ekranda haritayı kaydırabilirsiniz.</p></div>` +
     `<p>81 il ve 921 ilçe için güncel ezan vakitleri</p>` +
     `<ul>${items}</ul>` +
     `<a class="all" href="/namaz-vakitleri/">Tüm il ve ilçeler</a>` +
@@ -227,6 +232,7 @@ function buildLang(lang) {
     "beforeend",
     "\n" + hreflangCluster(lang) + "\n" + faviconBlock + "\n" + jsonLd(lang) + "\n"
   );
+  if (lang === "tr") head.insertAdjacentHTML("beforeend", '\n<link rel="stylesheet" href="/css/turkey-map.css" />\n');
 
   // 4. language switcher: buttons -> links to the per-language URLs
   root.querySelectorAll(".lang-switch button").forEach((btn) => {
@@ -296,6 +302,7 @@ function buildLang(lang) {
     "beforeend",
     '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n' +
       (lang !== "en" ? '<script src="/js/city-search.js" defer></script>\n' : '') +
+      (lang === "tr" ? '<script src="/js/maps.js" defer></script>\n' : '') +
       '<script src="/js/analytics.js" defer></script>\n<script src="/js/app-popup.js" defer></script>\n'
   );
 
