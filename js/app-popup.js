@@ -45,7 +45,7 @@
     "padding:6px;cursor:pointer;font-family:inherit}";
 
   function btn(href, label) {
-    return '<a class="hk-btn" href="' + href + '" rel="noopener">' + label + "</a>";
+    return '<a class="hk-btn" href="' + href + '" target="_blank" rel="noopener">' + label + "</a>";
   }
 
   function show() {

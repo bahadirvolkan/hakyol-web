@@ -269,7 +269,7 @@ function cta(place, campaign) {
 <span class="free">ÜCRETSİZ · ÜYELİK YOK · ABONELİK YOK</span>
 <h2>${esc(place)} için ezan vaktini kaçırmayın</h2>
 <p>Hakyol vakit girince ezan sesiyle haber verir. Kıble pusulası, Kur'an-ı Kerim, zikirmatik ve Kâbe canlı yayını da içinde.</p>
-<div class="btns"><a href="${esc(s.appStore)}" rel="noopener">App Store'dan indir</a><a href="${esc(s.play)}" rel="noopener">Google Play'den indir</a></div>
+<div class="btns"><a href="${esc(s.appStore)}" target="_blank" rel="noopener">App Store'dan indir</a><a href="${esc(s.play)}" target="_blank" rel="noopener">Google Play'den indir</a></div>
 </div>`;
 }
 

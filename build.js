@@ -42,6 +42,42 @@ const PW_CSS = `
     #prayer-widget { padding: 18px 14px; } }
 `;
 
+const CITY_CSS = `
+  .city-links { padding: 0 0 32px; }
+  .city-links .box { background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 18px; padding: 22px 24px; max-width: 560px; margin: 0 auto; text-align: center; }
+  .city-links h2 { font-family: var(--serif); font-size: 20px; margin: 0 0 4px; color: var(--gold-text); }
+  .city-links p { margin: 0 0 14px; color: var(--text-soft); font-size: 14px; }
+  .city-links ul { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 8px; }
+  .city-links li a { display: inline-block; background: var(--gold-soft); color: var(--text);
+    border-radius: 999px; padding: 7px 14px; font-size: 14px; text-decoration: none; }
+  .city-links li a:hover { color: var(--gold-text); }
+  .city-links .all { display: inline-block; border: 1px solid var(--gold); background: var(--gold);
+    color: #241a04; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 999px;
+    text-decoration: none; }
+`;
+
+const BIG_CITIES = [
+  ["istanbul", "İstanbul"], ["ankara", "Ankara"], ["izmir", "İzmir"], ["bursa", "Bursa"],
+  ["antalya", "Antalya"], ["konya", "Konya"], ["adana", "Adana"], ["gaziantep", "Gaziantep"],
+  ["sanliurfa", "Şanlıurfa"], ["kocaeli", "Kocaeli"], ["diyarbakir", "Diyarbakır"], ["kayseri", "Kayseri"],
+];
+
+function cityLinksHtml() {
+  const items = BIG_CITIES.map(
+    ([slug, name]) => `<li><a href="/namaz-vakitleri/${slug}/" title="${name} namaz vakitleri">${name}</a></li>`
+  ).join("");
+  return (
+    `<section class="city-links"><div class="wrap"><div class="box">` +
+    `<h2>Türkiye Namaz Vakitleri</h2>` +
+    `<p>81 il ve 921 ilçe için güncel ezan vakitleri</p>` +
+    `<ul>${items}</ul>` +
+    `<a class="all" href="/namaz-vakitleri/">Tüm il ve ilçeler</a>` +
+    `</div></div></section>`
+  );
+}
+
 // language -> output directory ("" = repo root)
 const outDir = (lang) => (lang === "tr" ? "" : lang);
 const urlFor = (lang) => (lang === "tr" ? `${SITE}/` : `${SITE}/${lang}/`);
@@ -178,6 +214,8 @@ function buildLang(lang) {
   root.querySelectorAll(".store-badge").forEach((badge) => {
     const apple = badge.getAttribute("href").includes("apps.apple.com");
     badge.setAttribute("href", apple ? appStore : play);
+    badge.setAttribute("target", "_blank");
+    badge.setAttribute("rel", "noopener");
     const small = badge.querySelector(".small");
     const big = badge.querySelector(".big");
     if (small) small.set_content(apple ? b.appstore_small : b.play_small);
@@ -214,9 +252,14 @@ function buildLang(lang) {
       '\n<section class="pw-wrap"><div class="wrap"><div id="prayer-widget"></div></div></section>\n'
     );
   }
+  // 9b. Turkish home: internal links to the il/ilçe prayer-time pages (SEO + navigation)
+  if (lang === "tr") {
+    const pw = root.querySelector("section.pw-wrap");
+    if (pw) pw.insertAdjacentHTML("afterend", "\n" + cityLinksHtml() + "\n");
+  }
   root.querySelectorAll("style").forEach((st) => {
     if (st.innerHTML.includes(":root")) {
-      st.set_content(st.innerHTML + "\n" + PW_CSS);
+      st.set_content(st.innerHTML + "\n" + PW_CSS + "\n" + CITY_CSS);
     }
   });
   root.querySelector("body").insertAdjacentHTML(
