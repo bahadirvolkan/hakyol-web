@@ -1,0 +1,2089 @@
+{
+  "generated": "2026-11-15T08:16:35.197Z",
+  "countries": [
+    {
+      "slug": "almanya",
+      "name": "Almanya",
+      "ulkeId": "13",
+      "cities": [
+        {
+          "slug": "berlin",
+          "name": "Berlin",
+          "ilceId": "11002",
+          "pop": 3426354,
+          "lat": 52.52437,
+          "lng": 13.41053
+        },
+        {
+          "slug": "hamburg",
+          "name": "Hamburg",
+          "ilceId": "11012",
+          "pop": 1973896,
+          "lat": 53.55073,
+          "lng": 9.99302
+        },
+        {
+          "slug": "munih",
+          "name": "Münih",
+          "ilceId": "11022",
+          "pop": 1505005,
+          "lat": 48.13743,
+          "lng": 11.57549,
+          "alias": "Munich"
+        },
+        {
+          "slug": "koln",
+          "name": "Köln",
+          "ilceId": "11019",
+          "pop": 1024621,
+          "lat": 50.93333,
+          "lng": 6.95
+        },
+        {
+          "slug": "frankfurt",
+          "name": "Frankfurt",
+          "ilceId": "11010",
+          "pop": 650000,
+          "lat": 50.11552,
+          "lng": 8.68417,
+          "alias": "Frankfurt am Main"
+        },
+        {
+          "slug": "dusseldorf",
+          "name": "Düsseldorf",
+          "ilceId": "11008",
+          "pop": 618685,
+          "lat": 51.22319,
+          "lng": 6.77927
+        },
+        {
+          "slug": "stuttgart",
+          "name": "Stuttgart",
+          "ilceId": "11027",
+          "pop": 612663,
+          "lat": 48.78232,
+          "lng": 9.17702
+        },
+        {
+          "slug": "essen",
+          "name": "Essen",
+          "ilceId": "11009",
+          "pop": 593085,
+          "lat": 51.45657,
+          "lng": 7.01228
+        },
+        {
+          "slug": "dortmund",
+          "name": "Dortmund",
+          "ilceId": "11006",
+          "pop": 588462,
+          "lat": 51.51494,
+          "lng": 7.466
+        },
+        {
+          "slug": "dresden",
+          "name": "Dresden",
+          "ilceId": "11035",
+          "pop": 564904,
+          "lat": 51.05089,
+          "lng": 13.73832
+        },
+        {
+          "slug": "bremen",
+          "name": "Bremen",
+          "ilceId": "11005",
+          "pop": 546501,
+          "lat": 53.07582,
+          "lng": 8.80717
+        },
+        {
+          "slug": "nurnberg",
+          "name": "Nürnberg",
+          "ilceId": "11024",
+          "pop": 515543,
+          "lat": 49.45421,
+          "lng": 11.07752,
+          "alias": "Nuremberg"
+        },
+        {
+          "slug": "hannover",
+          "name": "Hannover",
+          "ilceId": "11013",
+          "pop": 515140,
+          "lat": 52.37052,
+          "lng": 9.73322
+        },
+        {
+          "slug": "leipzig",
+          "name": "Leipzig",
+          "ilceId": "11100",
+          "pop": 504971,
+          "lat": 51.33962,
+          "lng": 12.37129
+        },
+        {
+          "slug": "duisburg",
+          "name": "Duisburg",
+          "ilceId": "11007",
+          "pop": 504358,
+          "lat": 51.43247,
+          "lng": 6.76516
+        },
+        {
+          "slug": "bochum",
+          "name": "Bochum",
+          "ilceId": "11126",
+          "pop": 385729,
+          "lat": 51.48165,
+          "lng": 7.21648
+        },
+        {
+          "slug": "wuppertal",
+          "name": "Wuppertal",
+          "ilceId": "11031",
+          "pop": 360797,
+          "lat": 51.25627,
+          "lng": 7.14816
+        },
+        {
+          "slug": "bielefeld",
+          "name": "Bielefeld",
+          "ilceId": "11003",
+          "pop": 331906,
+          "lat": 52.03333,
+          "lng": 8.53333
+        },
+        {
+          "slug": "bonn",
+          "name": "Bonn",
+          "ilceId": "11004",
+          "pop": 330579,
+          "lat": 50.73438,
+          "lng": 7.09549
+        },
+        {
+          "slug": "munster",
+          "name": "Münster",
+          "ilceId": "11023",
+          "pop": 308258,
+          "lat": 51.96236,
+          "lng": 7.62571
+        },
+        {
+          "slug": "mannheim",
+          "name": "Mannheim",
+          "ilceId": "11021",
+          "pop": 307960,
+          "lat": 49.4891,
+          "lng": 8.46694
+        },
+        {
+          "slug": "augsburg",
+          "name": "Augsburg",
+          "ilceId": "11036",
+          "pop": 301105,
+          "lat": 48.37154,
+          "lng": 10.89851
+        },
+        {
+          "slug": "wiesbaden",
+          "name": "Wiesbaden",
+          "ilceId": "11056",
+          "pop": 288850,
+          "lat": 50.08601,
+          "lng": 8.24435
+        },
+        {
+          "slug": "karlsruhe",
+          "name": "Karlsruhe",
+          "ilceId": "11014",
+          "pop": 283799,
+          "lat": 49.00937,
+          "lng": 8.40444
+        },
+        {
+          "slug": "gelsenkirchen",
+          "name": "Gelsenkirchen",
+          "ilceId": "11037",
+          "pop": 270028,
+          "lat": 51.50508,
+          "lng": 7.09654
+        },
+        {
+          "slug": "aachen",
+          "name": "Aachen",
+          "ilceId": "33305",
+          "pop": 265208,
+          "lat": 50.77664,
+          "lng": 6.08342
+        },
+        {
+          "slug": "monchengladbach",
+          "name": "Mönchengladbach",
+          "ilceId": "11128",
+          "pop": 261742,
+          "lat": 51.18539,
+          "lng": 6.44172
+        },
+        {
+          "slug": "kiel",
+          "name": "Kiel",
+          "ilceId": "11016",
+          "pop": 252668,
+          "lat": 54.32133,
+          "lng": 10.13489
+        },
+        {
+          "slug": "chemnitz",
+          "name": "Chemnitz",
+          "ilceId": "11099",
+          "pop": 247220,
+          "lat": 50.8357,
+          "lng": 12.92922
+        },
+        {
+          "slug": "braunschweig",
+          "name": "Braunschweig",
+          "ilceId": "16754",
+          "pop": 244715,
+          "lat": 52.26594,
+          "lng": 10.52673
+        },
+        {
+          "slug": "magdeburg",
+          "name": "Magdeburg",
+          "ilceId": "10875",
+          "pop": 244329,
+          "lat": 52.13129,
+          "lng": 11.63189
+        },
+        {
+          "slug": "krefeld",
+          "name": "Krefeld",
+          "ilceId": "11066",
+          "pop": 237984,
+          "lat": 51.33645,
+          "lng": 6.55381
+        },
+        {
+          "slug": "halle",
+          "name": "Halle",
+          "ilceId": "11089",
+          "pop": 237865,
+          "lat": 51.48158,
+          "lng": 11.97947,
+          "alias": "Halle (Saale)"
+        },
+        {
+          "slug": "freiburg",
+          "name": "Freiburg",
+          "ilceId": "11011",
+          "pop": 237460,
+          "lat": 47.9959,
+          "lng": 7.85222
+        },
+        {
+          "slug": "mainz",
+          "name": "Mainz",
+          "ilceId": "11020",
+          "pop": 222889,
+          "lat": 49.98185,
+          "lng": 8.28008
+        },
+        {
+          "slug": "oberhausen",
+          "name": "Oberhausen",
+          "ilceId": "16705",
+          "pop": 219176,
+          "lat": 51.47805,
+          "lng": 6.8625
+        },
+        {
+          "slug": "erfurt",
+          "name": "Erfurt",
+          "ilceId": "10874",
+          "pop": 218793,
+          "lat": 50.97734,
+          "lng": 11.03536
+        },
+        {
+          "slug": "lubeck",
+          "name": "Lübeck",
+          "ilceId": "11117",
+          "pop": 212207,
+          "lat": 53.86893,
+          "lng": 10.68729
+        },
+        {
+          "slug": "rostock",
+          "name": "Rostock",
+          "ilceId": "10551",
+          "pop": 198293,
+          "lat": 54.0887,
+          "lng": 12.14049
+        },
+        {
+          "slug": "kassel",
+          "name": "Kassel",
+          "ilceId": "11015",
+          "pop": 197230,
+          "lat": 51.31667,
+          "lng": 9.5
+        },
+        {
+          "slug": "saarbrucken",
+          "name": "Saarbrücken",
+          "ilceId": "11026",
+          "pop": 182971,
+          "lat": 49.23262,
+          "lng": 7.00982
+        },
+        {
+          "slug": "hamm",
+          "name": "Hamm",
+          "ilceId": "11127",
+          "pop": 178967,
+          "lat": 51.68033,
+          "lng": 7.82089
+        },
+        {
+          "slug": "mulheim",
+          "name": "Mülheim",
+          "ilceId": "11062",
+          "pop": 173050,
+          "lat": 51.43218,
+          "lng": 6.87967
+        },
+        {
+          "slug": "herne",
+          "name": "Herne",
+          "ilceId": "10565",
+          "pop": 172108,
+          "lat": 51.5388,
+          "lng": 7.22572
+        },
+        {
+          "slug": "darmstadt",
+          "name": "Darmstadt",
+          "ilceId": "11079",
+          "pop": 167029,
+          "lat": 49.87167,
+          "lng": 8.65027
+        },
+        {
+          "slug": "osnabruck",
+          "name": "Osnabrück",
+          "ilceId": "11055",
+          "pop": 166462,
+          "lat": 52.27411,
+          "lng": 8.05056
+        },
+        {
+          "slug": "solingen",
+          "name": "Solingen",
+          "ilceId": "10291",
+          "pop": 164359,
+          "lat": 51.17343,
+          "lng": 7.0845
+        },
+        {
+          "slug": "ludwigshafen",
+          "name": "Ludwigshafen",
+          "ilceId": "11094",
+          "pop": 163196,
+          "lat": 49.48121,
+          "lng": 8.44641,
+          "alias": "Ludwigshafen am Rhein"
+        },
+        {
+          "slug": "leverkusen",
+          "name": "Leverkusen",
+          "ilceId": "10183",
+          "pop": 162738,
+          "lat": 51.0303,
+          "lng": 6.98432
+        },
+        {
+          "slug": "oldenburg",
+          "name": "Oldenburg",
+          "ilceId": "10555",
+          "pop": 159218,
+          "lat": 53.14039,
+          "lng": 8.21479
+        },
+        {
+          "slug": "neuss",
+          "name": "Neuss",
+          "ilceId": "10575",
+          "pop": 152457,
+          "lat": 51.19807,
+          "lng": 6.68504
+        },
+        {
+          "slug": "regensburg",
+          "name": "Regensburg",
+          "ilceId": "11025",
+          "pop": 151389,
+          "lat": 49.01513,
+          "lng": 12.10161
+        },
+        {
+          "slug": "heidelberg",
+          "name": "Heidelberg",
+          "ilceId": "11033",
+          "pop": 143345,
+          "lat": 49.40768,
+          "lng": 8.69079
+        },
+        {
+          "slug": "paderborn",
+          "name": "Paderborn",
+          "ilceId": "11064",
+          "pop": 142161,
+          "lat": 51.71905,
+          "lng": 8.75439
+        },
+        {
+          "slug": "wurzburg",
+          "name": "Würzburg",
+          "ilceId": "11029",
+          "pop": 133731,
+          "lat": 49.79391,
+          "lng": 9.95121
+        },
+        {
+          "slug": "furth",
+          "name": "Fürth",
+          "ilceId": "11081",
+          "pop": 132036,
+          "lat": 49.47593,
+          "lng": 10.98856
+        },
+        {
+          "slug": "wolfsburg",
+          "name": "Wolfsburg",
+          "ilceId": "10543",
+          "pop": 123064,
+          "lat": 52.4236,
+          "lng": 10.77597
+        },
+        {
+          "slug": "recklinghausen",
+          "name": "Recklinghausen",
+          "ilceId": "10583",
+          "pop": 122438,
+          "lat": 51.61379,
+          "lng": 7.19738
+        },
+        {
+          "slug": "gottingen",
+          "name": "Göttingen",
+          "ilceId": "11105",
+          "pop": 122149,
+          "lat": 51.53443,
+          "lng": 9.93228
+        },
+        {
+          "slug": "heilbronn",
+          "name": "Heilbronn",
+          "ilceId": "11051",
+          "pop": 120733,
+          "lat": 49.13995,
+          "lng": 9.22054
+        },
+        {
+          "slug": "ingolstadt",
+          "name": "Ingolstadt",
+          "ilceId": "11108",
+          "pop": 120658,
+          "lat": 48.76508,
+          "lng": 11.42372
+        },
+        {
+          "slug": "ulm",
+          "name": "Ulm",
+          "ilceId": "11028",
+          "pop": 120451,
+          "lat": 48.39841,
+          "lng": 9.99155
+        },
+        {
+          "slug": "bottrop",
+          "name": "Bottrop",
+          "ilceId": "10942",
+          "pop": 119909,
+          "lat": 51.52392,
+          "lng": 6.9285
+        },
+        {
+          "slug": "pforzheim",
+          "name": "Pforzheim",
+          "ilceId": "11119",
+          "pop": 119313,
+          "lat": 48.88436,
+          "lng": 8.69892
+        },
+        {
+          "slug": "offenbach",
+          "name": "Offenbach",
+          "ilceId": "10569",
+          "pop": 119192,
+          "lat": 50.10061,
+          "lng": 8.76647
+        },
+        {
+          "slug": "bremerhaven",
+          "name": "Bremerhaven",
+          "ilceId": "11116",
+          "pop": 118610,
+          "lat": 53.55357,
+          "lng": 8.57553
+        },
+        {
+          "slug": "remscheid",
+          "name": "Remscheid",
+          "ilceId": "11076",
+          "pop": 117118,
+          "lat": 51.17983,
+          "lng": 7.1925
+        },
+        {
+          "slug": "reutlingen",
+          "name": "Reutlingen",
+          "ilceId": "11042",
+          "pop": 112627,
+          "lat": 48.49144,
+          "lng": 9.20427
+        },
+        {
+          "slug": "koblenz",
+          "name": "Koblenz",
+          "ilceId": "11017",
+          "pop": 107319,
+          "lat": 50.35357,
+          "lng": 7.57883
+        },
+        {
+          "slug": "siegen",
+          "name": "Siegen",
+          "ilceId": "11102",
+          "pop": 107242,
+          "lat": 50.87481,
+          "lng": 8.02431
+        },
+        {
+          "slug": "salzgitter",
+          "name": "Salzgitter",
+          "ilceId": "11078",
+          "pop": 104970,
+          "lat": 52.15705,
+          "lng": 10.4154
+        },
+        {
+          "slug": "jena",
+          "name": "Jena",
+          "ilceId": "10627",
+          "pop": 104712,
+          "lat": 50.92878,
+          "lng": 11.5899
+        },
+        {
+          "slug": "gera",
+          "name": "Gera",
+          "ilceId": "10008",
+          "pop": 104659,
+          "lat": 50.88029,
+          "lng": 12.08187
+        },
+        {
+          "slug": "moers",
+          "name": "Moers",
+          "ilceId": "10210",
+          "pop": 103487,
+          "lat": 51.45342,
+          "lng": 6.6326
+        },
+        {
+          "slug": "hildesheim",
+          "name": "Hildesheim",
+          "ilceId": "11054",
+          "pop": 103052,
+          "lat": 52.15077,
+          "lng": 9.95112
+        },
+        {
+          "slug": "erlangen",
+          "name": "Erlangen",
+          "ilceId": "10561",
+          "pop": 102675,
+          "lat": 49.59099,
+          "lng": 11.00783
+        },
+        {
+          "slug": "trier",
+          "name": "Trier",
+          "ilceId": "11125",
+          "pop": 100129,
+          "lat": 49.75565,
+          "lng": 6.63935
+        },
+        {
+          "slug": "zwickau",
+          "name": "Zwickau",
+          "ilceId": "10547",
+          "pop": 98796,
+          "lat": 50.72724,
+          "lng": 12.48839
+        }
+      ]
+    },
+    {
+      "slug": "hollanda",
+      "name": "Hollanda",
+      "ulkeId": "4",
+      "cities": [
+        {
+          "slug": "rotterdam",
+          "name": "Rotterdam",
+          "ilceId": "13980",
+          "pop": 868135,
+          "lat": 51.9225,
+          "lng": 4.47917
+        },
+        {
+          "slug": "amsterdam",
+          "name": "Amsterdam",
+          "ilceId": "13976",
+          "pop": 741636,
+          "lat": 52.37403,
+          "lng": 4.88969
+        },
+        {
+          "slug": "lahey",
+          "name": "Lahey",
+          "ilceId": "13977",
+          "pop": 474292,
+          "lat": 52.07667,
+          "lng": 4.29861,
+          "alias": "The Hague"
+        },
+        {
+          "slug": "utrecht",
+          "name": "Utrecht",
+          "ilceId": "13975",
+          "pop": 376435,
+          "lat": 52.09083,
+          "lng": 5.12222
+        },
+        {
+          "slug": "groningen",
+          "name": "Groningen",
+          "ilceId": "13979",
+          "pop": 244807,
+          "lat": 53.21917,
+          "lng": 6.56667
+        },
+        {
+          "slug": "eindhoven",
+          "name": "Eindhoven",
+          "ilceId": "13978",
+          "pop": 235691,
+          "lat": 51.44083,
+          "lng": 5.47778
+        },
+        {
+          "slug": "tilburg",
+          "name": "Tilburg",
+          "ilceId": "13890",
+          "pop": 221947,
+          "lat": 51.55551,
+          "lng": 5.0913
+        },
+        {
+          "slug": "breda",
+          "name": "Breda",
+          "ilceId": "13887",
+          "pop": 184126,
+          "lat": 51.58656,
+          "lng": 4.77596
+        },
+        {
+          "slug": "nijmegen",
+          "name": "Nijmegen",
+          "ilceId": "13897",
+          "pop": 177359,
+          "lat": 51.8425,
+          "lng": 5.85278
+        },
+        {
+          "slug": "almere",
+          "name": "Almere",
+          "ilceId": "13906",
+          "pop": 176432,
+          "lat": 52.37025,
+          "lng": 5.21413,
+          "alias": "Almere Stad"
+        },
+        {
+          "slug": "haarlem",
+          "name": "Haarlem",
+          "ilceId": "13877",
+          "pop": 162543,
+          "lat": 52.38084,
+          "lng": 4.63683
+        },
+        {
+          "slug": "arnhem",
+          "name": "Arnhem",
+          "ilceId": "13894",
+          "pop": 162424,
+          "lat": 51.98,
+          "lng": 5.91111
+        },
+        {
+          "slug": "s-hertogenbosch",
+          "name": "'s-Hertogenbosch",
+          "ilceId": "13886",
+          "pop": 160783,
+          "lat": 51.69917,
+          "lng": 5.30417
+        },
+        {
+          "slug": "enschede",
+          "name": "Enschede",
+          "ilceId": "13883",
+          "pop": 153655,
+          "lat": 52.21833,
+          "lng": 6.89583
+        },
+        {
+          "slug": "zaanstad",
+          "name": "Zaanstad",
+          "ilceId": "13730",
+          "pop": 140085,
+          "lat": 52.45313,
+          "lng": 4.81356
+        },
+        {
+          "slug": "amersfoort",
+          "name": "Amersfoort",
+          "ilceId": "13876",
+          "pop": 139914,
+          "lat": 52.155,
+          "lng": 5.3875
+        },
+        {
+          "slug": "apeldoorn",
+          "name": "Apeldoorn",
+          "ilceId": "13895",
+          "pop": 136670,
+          "lat": 52.21,
+          "lng": 5.96944
+        },
+        {
+          "slug": "hoofddorp",
+          "name": "Hoofddorp",
+          "ilceId": "13931",
+          "pop": 132734,
+          "lat": 52.3025,
+          "lng": 4.68889
+        },
+        {
+          "slug": "zwolle",
+          "name": "Zwolle",
+          "ilceId": "13881",
+          "pop": 129840,
+          "lat": 52.5125,
+          "lng": 6.09444
+        },
+        {
+          "slug": "leeuwarden",
+          "name": "Leeuwarden",
+          "ilceId": "13879",
+          "pop": 124481,
+          "lat": 53.20271,
+          "lng": 5.80973
+        },
+        {
+          "slug": "maastricht",
+          "name": "Maastricht",
+          "ilceId": "13904",
+          "pop": 122378,
+          "lat": 50.84833,
+          "lng": 5.68889
+        },
+        {
+          "slug": "leiden",
+          "name": "Leiden",
+          "ilceId": "13973",
+          "pop": 119713,
+          "lat": 52.15833,
+          "lng": 4.49306
+        },
+        {
+          "slug": "dordrecht",
+          "name": "Dordrecht",
+          "ilceId": "13889",
+          "pop": 119260,
+          "lat": 51.81,
+          "lng": 4.67361
+        },
+        {
+          "slug": "zoetermeer",
+          "name": "Zoetermeer",
+          "ilceId": "13971",
+          "pop": 115845,
+          "lat": 52.0575,
+          "lng": 4.49306
+        },
+        {
+          "slug": "venlo",
+          "name": "Venlo",
+          "ilceId": "13898",
+          "pop": 101988,
+          "lat": 51.37,
+          "lng": 6.16806
+        }
+      ]
+    },
+    {
+      "slug": "belcika",
+      "name": "Belçika",
+      "ulkeId": "11",
+      "cities": [
+        {
+          "slug": "bruksel",
+          "name": "Brüksel",
+          "ilceId": "11915",
+          "pop": 1019022,
+          "lat": 50.85045,
+          "lng": 4.34878,
+          "alias": "Brussels"
+        },
+        {
+          "slug": "anvers",
+          "name": "Anvers",
+          "ilceId": "11914",
+          "pop": 529247,
+          "lat": 51.22047,
+          "lng": 4.40026,
+          "alias": "Antwerp"
+        },
+        {
+          "slug": "gent",
+          "name": "Gent",
+          "ilceId": "11916",
+          "pop": 265086,
+          "lat": 51.05,
+          "lng": 3.71667
+        },
+        {
+          "slug": "charleroi",
+          "name": "Charleroi",
+          "ilceId": "11895",
+          "pop": 200132,
+          "lat": 50.41136,
+          "lng": 4.44448
+        },
+        {
+          "slug": "liege",
+          "name": "Liège",
+          "ilceId": "11917",
+          "pop": 195278,
+          "lat": 50.63373,
+          "lng": 5.56749
+        },
+        {
+          "slug": "brugge",
+          "name": "Brugge",
+          "ilceId": "11891",
+          "pop": 118509,
+          "lat": 51.20892,
+          "lng": 3.22424
+        },
+        {
+          "slug": "namur",
+          "name": "Namur",
+          "ilceId": "11889",
+          "pop": 110939,
+          "lat": 50.4669,
+          "lng": 4.86746
+        },
+        {
+          "slug": "mons",
+          "name": "Mons",
+          "ilceId": "11901",
+          "pop": 95299,
+          "lat": 50.45413,
+          "lng": 3.95229
+        },
+        {
+          "slug": "hasselt",
+          "name": "Hasselt",
+          "ilceId": "11899",
+          "pop": 77651,
+          "lat": 50.93106,
+          "lng": 5.33781
+        },
+        {
+          "slug": "aalst",
+          "name": "Aalst",
+          "ilceId": "11704",
+          "pop": 77534,
+          "lat": 50.93604,
+          "lng": 4.0355
+        },
+        {
+          "slug": "la-louviere",
+          "name": "La Louvière",
+          "ilceId": "11907",
+          "pop": 76668,
+          "lat": 50.48657,
+          "lng": 4.18785
+        },
+        {
+          "slug": "kortrijk",
+          "name": "Kortrijk",
+          "ilceId": "11888",
+          "pop": 73879,
+          "lat": 50.82803,
+          "lng": 3.26487
+        },
+        {
+          "slug": "tournai",
+          "name": "Tournai",
+          "ilceId": "11763",
+          "pop": 69554,
+          "lat": 50.60715,
+          "lng": 3.38932
+        },
+        {
+          "slug": "ostende",
+          "name": "Ostende",
+          "ilceId": "11705",
+          "pop": 69011,
+          "lat": 51.21551,
+          "lng": 2.927,
+          "alias": "Ostend"
+        },
+        {
+          "slug": "genk",
+          "name": "Genk",
+          "ilceId": "11898",
+          "pop": 63666,
+          "lat": 50.965,
+          "lng": 5.50082
+        }
+      ]
+    },
+    {
+      "slug": "fransa",
+      "name": "Fransa",
+      "ulkeId": "21",
+      "cities": [
+        {
+          "slug": "paris",
+          "name": "Paris",
+          "ilceId": "13382",
+          "pop": 2138551,
+          "lat": 48.85341,
+          "lng": 2.3488
+        },
+        {
+          "slug": "marsilya",
+          "name": "Marsilya",
+          "ilceId": "13383",
+          "pop": 877215,
+          "lat": 43.29695,
+          "lng": 5.38107,
+          "alias": "Marseille"
+        },
+        {
+          "slug": "lyon",
+          "name": "Lyon",
+          "ilceId": "13381",
+          "pop": 520774,
+          "lat": 45.74906,
+          "lng": 4.84789
+        },
+        {
+          "slug": "toulouse",
+          "name": "Toulouse",
+          "ilceId": "13385",
+          "pop": 511684,
+          "lat": 43.60426,
+          "lng": 1.44367
+        },
+        {
+          "slug": "nice",
+          "name": "Nice",
+          "ilceId": "13390",
+          "pop": 342669,
+          "lat": 43.70313,
+          "lng": 7.26608
+        },
+        {
+          "slug": "nantes",
+          "name": "Nantes",
+          "ilceId": "13386",
+          "pop": 325070,
+          "lat": 47.21725,
+          "lng": -1.55336
+        },
+        {
+          "slug": "strazburg",
+          "name": "Strazburg",
+          "ilceId": "13384",
+          "pop": 274845,
+          "lat": 48.58392,
+          "lng": 7.74553,
+          "alias": "Strasbourg"
+        },
+        {
+          "slug": "bordeaux",
+          "name": "Bordeaux",
+          "ilceId": "13387",
+          "pop": 265328,
+          "lat": 44.84124,
+          "lng": -0.58046
+        },
+        {
+          "slug": "montpellier",
+          "name": "Montpellier",
+          "ilceId": "13295",
+          "pop": 248252,
+          "lat": 43.61093,
+          "lng": 3.87635
+        },
+        {
+          "slug": "lille",
+          "name": "Lille",
+          "ilceId": "13369",
+          "pop": 238695,
+          "lat": 50.63391,
+          "lng": 3.05512
+        },
+        {
+          "slug": "rennes",
+          "name": "Rennes",
+          "ilceId": "13312",
+          "pop": 227830,
+          "lat": 48.11109,
+          "lng": -1.67431
+        },
+        {
+          "slug": "reims",
+          "name": "Reims",
+          "ilceId": "13293",
+          "pop": 196565,
+          "lat": 49.26526,
+          "lng": 4.02853
+        },
+        {
+          "slug": "le-havre",
+          "name": "Le Havre",
+          "ilceId": "12949",
+          "pop": 185972,
+          "lat": 49.49346,
+          "lng": 0.10785
+        },
+        {
+          "slug": "saint-etienne",
+          "name": "Saint-Étienne",
+          "ilceId": "13294",
+          "pop": 176280,
+          "lat": 45.43389,
+          "lng": 4.39
+        },
+        {
+          "slug": "toulon",
+          "name": "Toulon",
+          "ilceId": "13422",
+          "pop": 168701,
+          "lat": 43.12442,
+          "lng": 5.92836
+        },
+        {
+          "slug": "angers",
+          "name": "Angers",
+          "ilceId": "13314",
+          "pop": 168279,
+          "lat": 47.47156,
+          "lng": -0.55202
+        },
+        {
+          "slug": "dijon",
+          "name": "Dijon",
+          "ilceId": "13429",
+          "pop": 159941,
+          "lat": 47.31344,
+          "lng": 5.01391
+        },
+        {
+          "slug": "grenoble",
+          "name": "Grenoble",
+          "ilceId": "13313",
+          "pop": 158552,
+          "lat": 45.17869,
+          "lng": 5.71479
+        },
+        {
+          "slug": "nimes",
+          "name": "Nîmes",
+          "ilceId": "12950",
+          "pop": 148236,
+          "lat": 43.83665,
+          "lng": 4.35788
+        },
+        {
+          "slug": "clermont-ferrand",
+          "name": "Clermont-Ferrand",
+          "ilceId": "13070",
+          "pop": 147865,
+          "lat": 45.77969,
+          "lng": 3.08682
+        },
+        {
+          "slug": "aix-en-provence",
+          "name": "Aix-en-Provence",
+          "ilceId": "13393",
+          "pop": 146821,
+          "lat": 43.5283,
+          "lng": 5.44973
+        },
+        {
+          "slug": "brest",
+          "name": "Brest",
+          "ilceId": "13352",
+          "pop": 144899,
+          "lat": 48.39029,
+          "lng": -4.48628
+        },
+        {
+          "slug": "le-mans",
+          "name": "Le Mans",
+          "ilceId": "13425",
+          "pop": 144515,
+          "lat": 48.0021,
+          "lng": 0.20251
+        },
+        {
+          "slug": "amiens",
+          "name": "Amiens",
+          "ilceId": "12945",
+          "pop": 143086,
+          "lat": 49.9,
+          "lng": 2.3
+        },
+        {
+          "slug": "tours",
+          "name": "Tours",
+          "ilceId": "13332",
+          "pop": 141621,
+          "lat": 47.39484,
+          "lng": 0.70398
+        },
+        {
+          "slug": "limoges",
+          "name": "Limoges",
+          "ilceId": "13426",
+          "pop": 141176,
+          "lat": 45.83362,
+          "lng": 1.24759
+        },
+        {
+          "slug": "besancon",
+          "name": "Besançon",
+          "ilceId": "13297",
+          "pop": 128426,
+          "lat": 47.24878,
+          "lng": 6.01815
+        },
+        {
+          "slug": "metz",
+          "name": "Metz",
+          "ilceId": "13301",
+          "pop": 123914,
+          "lat": 49.11911,
+          "lng": 6.17269
+        },
+        {
+          "slug": "orleans",
+          "name": "Orléans",
+          "ilceId": "13307",
+          "pop": 116344,
+          "lat": 47.90248,
+          "lng": 1.90407
+        },
+        {
+          "slug": "rouen",
+          "name": "Rouen",
+          "ilceId": "13326",
+          "pop": 116331,
+          "lat": 49.44313,
+          "lng": 1.09932
+        }
+      ]
+    },
+    {
+      "slug": "avusturya",
+      "name": "Avusturya",
+      "ulkeId": "35",
+      "cities": [
+        {
+          "slug": "viyana",
+          "name": "Viyana",
+          "ilceId": "11618",
+          "pop": 1691468,
+          "lat": 48.20849,
+          "lng": 16.37208,
+          "alias": "Vienna"
+        },
+        {
+          "slug": "graz",
+          "name": "Graz",
+          "ilceId": "11600",
+          "pop": 303270,
+          "lat": 47.06733,
+          "lng": 15.44197
+        },
+        {
+          "slug": "linz",
+          "name": "Linz",
+          "ilceId": "11615",
+          "pop": 204846,
+          "lat": 48.30639,
+          "lng": 14.28611
+        },
+        {
+          "slug": "salzburg",
+          "name": "Salzburg",
+          "ilceId": "11617",
+          "pop": 157245,
+          "lat": 47.79941,
+          "lng": 13.04399
+        },
+        {
+          "slug": "innsbruck",
+          "name": "Innsbruck",
+          "ilceId": "11596",
+          "pop": 132493,
+          "lat": 47.26266,
+          "lng": 11.39454
+        },
+        {
+          "slug": "klagenfurt",
+          "name": "Klagenfurt",
+          "ilceId": "11602",
+          "pop": 100316,
+          "lat": 46.62472,
+          "lng": 14.30528,
+          "alias": "Klagenfurt am Wörthersee"
+        },
+        {
+          "slug": "villach",
+          "name": "Villach",
+          "ilceId": "11604",
+          "pop": 58882,
+          "lat": 46.61028,
+          "lng": 13.85583
+        },
+        {
+          "slug": "dornbirn",
+          "name": "Dornbirn",
+          "ilceId": "11576",
+          "pop": 49278,
+          "lat": 47.41427,
+          "lng": 9.74195
+        },
+        {
+          "slug": "wiener-neustadt",
+          "name": "Wiener Neustadt",
+          "ilceId": "11607",
+          "pop": 44820,
+          "lat": 47.80485,
+          "lng": 16.23196
+        },
+        {
+          "slug": "steyr",
+          "name": "Steyr",
+          "ilceId": "11608",
+          "pop": 38331,
+          "lat": 48.04274,
+          "lng": 14.42127
+        },
+        {
+          "slug": "feldkirch",
+          "name": "Feldkirch",
+          "ilceId": "11613",
+          "pop": 33420,
+          "lat": 47.23645,
+          "lng": 9.59734
+        },
+        {
+          "slug": "bregenz",
+          "name": "Bregenz",
+          "ilceId": "11619",
+          "pop": 29806,
+          "lat": 47.50311,
+          "lng": 9.7471
+        },
+        {
+          "slug": "baden",
+          "name": "Baden",
+          "ilceId": "11558",
+          "pop": 26286,
+          "lat": 48.00543,
+          "lng": 16.23264
+        },
+        {
+          "slug": "traun",
+          "name": "Traun",
+          "ilceId": "11561",
+          "pop": 25345,
+          "lat": 48.22086,
+          "lng": 14.23833
+        }
+      ]
+    },
+    {
+      "slug": "isvicre",
+      "name": "İsviçre",
+      "ulkeId": "49",
+      "cities": [
+        {
+          "slug": "zurih",
+          "name": "Zürih",
+          "ilceId": "14547",
+          "pop": 415367,
+          "lat": 47.36667,
+          "lng": 8.55,
+          "alias": "Zürich"
+        },
+        {
+          "slug": "cenevre",
+          "name": "Cenevre",
+          "ilceId": "14550",
+          "pop": 201741,
+          "lat": 46.20222,
+          "lng": 6.14569,
+          "alias": "Geneva"
+        },
+        {
+          "slug": "basel",
+          "name": "Basel",
+          "ilceId": "14525",
+          "pop": 177595,
+          "lat": 47.55839,
+          "lng": 7.57327
+        },
+        {
+          "slug": "lausanne",
+          "name": "Lausanne",
+          "ilceId": "14551",
+          "pop": 139111,
+          "lat": 46.516,
+          "lng": 6.63282
+        },
+        {
+          "slug": "bern",
+          "name": "Bern",
+          "ilceId": "18945",
+          "pop": 121631,
+          "lat": 46.94809,
+          "lng": 7.44744
+        },
+        {
+          "slug": "winterthur",
+          "name": "Winterthur",
+          "ilceId": "14543",
+          "pop": 111840,
+          "lat": 47.50564,
+          "lng": 8.72413
+        },
+        {
+          "slug": "luzern",
+          "name": "Luzern",
+          "ilceId": "14539",
+          "pop": 81691,
+          "lat": 47.05048,
+          "lng": 8.30635
+        },
+        {
+          "slug": "st-gallen",
+          "name": "St. Gallen",
+          "ilceId": "14526",
+          "pop": 75833,
+          "lat": 47.42391,
+          "lng": 9.37477,
+          "alias": "Sankt Gallen"
+        },
+        {
+          "slug": "lugano",
+          "name": "Lugano",
+          "ilceId": "14549",
+          "pop": 63185,
+          "lat": 46.01008,
+          "lng": 8.96004
+        },
+        {
+          "slug": "biel",
+          "name": "Biel",
+          "ilceId": "14534",
+          "pop": 55120,
+          "lat": 47.13713,
+          "lng": 7.24608,
+          "alias": "Biel/Bienne"
+        },
+        {
+          "slug": "thun",
+          "name": "Thun",
+          "ilceId": "14542",
+          "pop": 43723,
+          "lat": 46.75118,
+          "lng": 7.62166
+        },
+        {
+          "slug": "bellinzona",
+          "name": "Bellinzona",
+          "ilceId": "14435",
+          "pop": 43220,
+          "lat": 46.19278,
+          "lng": 9.01703
+        },
+        {
+          "slug": "koniz",
+          "name": "Köniz",
+          "ilceId": "14510",
+          "pop": 41784,
+          "lat": 46.92436,
+          "lng": 7.41457
+        },
+        {
+          "slug": "fribourg",
+          "name": "Fribourg",
+          "ilceId": "14537",
+          "pop": 38365,
+          "lat": 46.80237,
+          "lng": 7.15128
+        },
+        {
+          "slug": "la-chaux-de-fonds",
+          "name": "La Chaux-de-Fonds",
+          "ilceId": "14538",
+          "pop": 37942,
+          "lat": 47.09993,
+          "lng": 6.82586
+        }
+      ]
+    },
+    {
+      "slug": "ingiltere",
+      "name": "İngiltere",
+      "ulkeId": "15",
+      "cities": [
+        {
+          "slug": "londra",
+          "name": "Londra",
+          "ilceId": "14096",
+          "pop": 8961989,
+          "lat": 51.50853,
+          "lng": -0.12574,
+          "alias": "London"
+        },
+        {
+          "slug": "birmingham",
+          "name": "Birmingham",
+          "ilceId": "14105",
+          "pop": 1157603,
+          "lat": 52.48142,
+          "lng": -1.89983
+        },
+        {
+          "slug": "glasgow",
+          "name": "Glasgow",
+          "ilceId": "14097",
+          "pop": 626410,
+          "lat": 55.86515,
+          "lng": -4.25763
+        },
+        {
+          "slug": "manchester",
+          "name": "Manchester",
+          "ilceId": "14098",
+          "pop": 568996,
+          "lat": 53.48095,
+          "lng": -2.23743
+        },
+        {
+          "slug": "sheffield",
+          "name": "Sheffield",
+          "ilceId": "14018",
+          "pop": 556500,
+          "lat": 53.38297,
+          "lng": -1.4659
+        },
+        {
+          "slug": "leeds",
+          "name": "Leeds",
+          "ilceId": "14107",
+          "pop": 536280,
+          "lat": 53.79648,
+          "lng": -1.54785
+        },
+        {
+          "slug": "edinburg",
+          "name": "Edinburg",
+          "ilceId": "14124",
+          "pop": 514990,
+          "lat": 55.95206,
+          "lng": -3.19648,
+          "alias": "Edinburgh"
+        },
+        {
+          "slug": "liverpool",
+          "name": "Liverpool",
+          "ilceId": "14073",
+          "pop": 496770,
+          "lat": 53.41058,
+          "lng": -2.97794
+        },
+        {
+          "slug": "bristol",
+          "name": "Bristol",
+          "ilceId": "14090",
+          "pop": 479024,
+          "lat": 51.45523,
+          "lng": -2.59665
+        },
+        {
+          "slug": "cardiff",
+          "name": "Cardiff",
+          "ilceId": "14011",
+          "pop": 372089,
+          "lat": 51.48,
+          "lng": -3.18
+        },
+        {
+          "slug": "leicester",
+          "name": "Leicester",
+          "ilceId": "14013",
+          "pop": 368600,
+          "lat": 52.6386,
+          "lng": -1.13169
+        },
+        {
+          "slug": "bradford",
+          "name": "Bradford",
+          "ilceId": "14114",
+          "pop": 366187,
+          "lat": 53.79391,
+          "lng": -1.75206
+        },
+        {
+          "slug": "belfast",
+          "name": "Belfast",
+          "ilceId": "14028",
+          "pop": 348005,
+          "lat": 54.59682,
+          "lng": -5.92541
+        },
+        {
+          "slug": "coventry",
+          "name": "Coventry",
+          "ilceId": "14084",
+          "pop": 345324,
+          "lat": 52.40656,
+          "lng": -1.51217
+        },
+        {
+          "slug": "nottingham",
+          "name": "Nottingham",
+          "ilceId": "14103",
+          "pop": 323632,
+          "lat": 52.9536,
+          "lng": -1.15047
+        }
+      ]
+    },
+    {
+      "slug": "abd",
+      "name": "ABD",
+      "ulkeId": "33",
+      "cities": [
+        {
+          "slug": "new-york",
+          "name": "New York",
+          "ilceId": "8785",
+          "pop": 8804190,
+          "lat": 40.71427,
+          "lng": -74.00597,
+          "alias": "New York City"
+        },
+        {
+          "slug": "los-angeles",
+          "name": "Los Angeles",
+          "ilceId": "8626",
+          "pop": 3820914,
+          "lat": 34.05223,
+          "lng": -118.24368
+        },
+        {
+          "slug": "chicago",
+          "name": "Chicago",
+          "ilceId": "8760",
+          "pop": 2664452,
+          "lat": 41.85003,
+          "lng": -87.65005
+        },
+        {
+          "slug": "houston",
+          "name": "Houston",
+          "ilceId": "8986",
+          "pop": 2314157,
+          "lat": 29.76328,
+          "lng": -95.36327
+        },
+        {
+          "slug": "phoenix",
+          "name": "Phoenix",
+          "ilceId": "8595",
+          "pop": 1650070,
+          "lat": 33.44838,
+          "lng": -112.07404
+        },
+        {
+          "slug": "philadelphia",
+          "name": "Philadelphia",
+          "ilceId": "8955",
+          "pop": 1573916,
+          "lat": 39.95238,
+          "lng": -75.16362
+        },
+        {
+          "slug": "san-antonio",
+          "name": "San Antonio",
+          "ilceId": "8991",
+          "pop": 1526656,
+          "lat": 29.42412,
+          "lng": -98.49363
+        },
+        {
+          "slug": "san-diego",
+          "name": "San Diego",
+          "ilceId": "8647",
+          "pop": 1404452,
+          "lat": 32.71571,
+          "lng": -117.16472
+        },
+        {
+          "slug": "dallas",
+          "name": "Dallas",
+          "ilceId": "8981",
+          "pop": 1326087,
+          "lat": 32.78306,
+          "lng": -96.80667
+        },
+        {
+          "slug": "fort-worth",
+          "name": "Fort Worth",
+          "ilceId": "8984",
+          "pop": 1008106,
+          "lat": 32.72541,
+          "lng": -97.32085
+        },
+        {
+          "slug": "san-jose",
+          "name": "San Jose",
+          "ilceId": "8649",
+          "pop": 997368,
+          "lat": 37.33939,
+          "lng": -121.89496
+        },
+        {
+          "slug": "austin",
+          "name": "Austin",
+          "ilceId": "8975",
+          "pop": 974447,
+          "lat": 30.26715,
+          "lng": -97.74306
+        },
+        {
+          "slug": "columbus",
+          "name": "Columbus",
+          "ilceId": "8744",
+          "pop": 913175,
+          "lat": 39.96118,
+          "lng": -82.99879
+        },
+        {
+          "slug": "charlotte",
+          "name": "Charlotte",
+          "ilceId": "8910",
+          "pop": 911311,
+          "lat": 35.22709,
+          "lng": -80.84313
+        },
+        {
+          "slug": "indianapolis",
+          "name": "Indianapolis",
+          "ilceId": "8774",
+          "pop": 887642,
+          "lat": 39.76838,
+          "lng": -86.15804
+        },
+        {
+          "slug": "san-francisco",
+          "name": "San Francisco",
+          "ilceId": "8648",
+          "pop": 827526,
+          "lat": 37.77493,
+          "lng": -122.41942
+        },
+        {
+          "slug": "seattle",
+          "name": "Seattle",
+          "ilceId": "9012",
+          "pop": 780995,
+          "lat": 47.60621,
+          "lng": -122.33207
+        },
+        {
+          "slug": "denver",
+          "name": "Denver",
+          "ilceId": "8669",
+          "pop": 729019,
+          "lat": 39.73915,
+          "lng": -104.9847
+        },
+        {
+          "slug": "washington",
+          "name": "Washington",
+          "ilceId": "8696",
+          "pop": 689545,
+          "lat": 38.89511,
+          "lng": -77.03637
+        },
+        {
+          "slug": "nashville",
+          "name": "Nashville",
+          "ilceId": "8973",
+          "pop": 689447,
+          "lat": 36.16589,
+          "lng": -86.78444
+        },
+        {
+          "slug": "oklahoma-city",
+          "name": "Oklahoma City",
+          "ilceId": "8937",
+          "pop": 681054,
+          "lat": 35.46756,
+          "lng": -97.51643
+        },
+        {
+          "slug": "el-paso",
+          "name": "El Paso",
+          "ilceId": "8983",
+          "pop": 678815,
+          "lat": 31.75872,
+          "lng": -106.48693
+        },
+        {
+          "slug": "boston",
+          "name": "Boston",
+          "ilceId": "8806",
+          "pop": 653833,
+          "lat": 42.35843,
+          "lng": -71.05977
+        },
+        {
+          "slug": "portland",
+          "name": "Portland",
+          "ilceId": "8941",
+          "pop": 652503,
+          "lat": 45.52345,
+          "lng": -122.67621
+        }
+      ]
+    },
+    {
+      "slug": "kktc",
+      "name": "KKTC",
+      "ulkeId": "1",
+      "cities": [
+        {
+          "slug": "lefkosa",
+          "name": "Lefkoşa",
+          "ilceId": "15158",
+          "pop": 0,
+          "lat": 35.1856,
+          "lng": 33.3823
+        },
+        {
+          "slug": "gazimagusa",
+          "name": "Gazimağusa",
+          "ilceId": "15160",
+          "pop": 0,
+          "lat": 35.125,
+          "lng": 33.9417
+        },
+        {
+          "slug": "girne",
+          "name": "Girne",
+          "ilceId": "15159",
+          "pop": 0,
+          "lat": 35.3364,
+          "lng": 33.3192
+        },
+        {
+          "slug": "guzelyurt",
+          "name": "Güzelyurt",
+          "ilceId": "15155",
+          "pop": 0,
+          "lat": 35.1983,
+          "lng": 32.9933
+        },
+        {
+          "slug": "iskele",
+          "name": "İskele",
+          "ilceId": "15154",
+          "pop": 0,
+          "lat": 35.2869,
+          "lng": 33.8919
+        },
+        {
+          "slug": "lefke",
+          "name": "Lefke",
+          "ilceId": "15153",
+          "pop": 0,
+          "lat": 35.1108,
+          "lng": 32.8497
+        },
+        {
+          "slug": "dipkarpaz",
+          "name": "Dipkarpaz",
+          "ilceId": "15156",
+          "pop": 0,
+          "lat": 35.6,
+          "lng": 34.38
+        }
+      ]
+    },
+    {
+      "slug": "azerbaycan",
+      "name": "Azerbaycan",
+      "ulkeId": "5",
+      "cities": [
+        {
+          "slug": "baku",
+          "name": "Bakü",
+          "ilceId": "11631",
+          "pop": 2351300,
+          "lat": 40.37767,
+          "lng": 49.89201,
+          "alias": "Baku"
+        },
+        {
+          "slug": "sumgayit",
+          "name": "Sumgayıt",
+          "ilceId": "11641",
+          "pop": 427000,
+          "lat": 40.58972,
+          "lng": 49.66861,
+          "alias": "Sumgayit"
+        },
+        {
+          "slug": "gence",
+          "name": "Gence",
+          "ilceId": "11634",
+          "pop": 330663,
+          "lat": 40.68157,
+          "lng": 46.36134,
+          "alias": "Ganja"
+        },
+        {
+          "slug": "yevlah",
+          "name": "Yevlah",
+          "ilceId": "11638",
+          "pop": 127400,
+          "lat": 40.61832,
+          "lng": 47.15014,
+          "alias": "Yevlakh"
+        },
+        {
+          "slug": "mingecevir",
+          "name": "Mingeçevir",
+          "ilceId": "11625",
+          "pop": 106048,
+          "lat": 40.76422,
+          "lng": 47.06227,
+          "alias": "Mingachevir"
+        },
+        {
+          "slug": "nahcivan",
+          "name": "Nahçıvan",
+          "ilceId": "11637",
+          "pop": 97200,
+          "lat": 39.20889,
+          "lng": 45.41222,
+          "alias": "Naxçıvan"
+        },
+        {
+          "slug": "seki",
+          "name": "Şeki",
+          "ilceId": "11635",
+          "pop": 68400,
+          "lat": 41.19194,
+          "lng": 47.17056,
+          "alias": "Sheki"
+        },
+        {
+          "slug": "goycay",
+          "name": "Göyçay",
+          "ilceId": "11627",
+          "pop": 42500,
+          "lat": 40.65055,
+          "lng": 47.74219
+        },
+        {
+          "slug": "samahi",
+          "name": "Şamahı",
+          "ilceId": "11643",
+          "pop": 40300,
+          "lat": 40.63141,
+          "lng": 48.64137,
+          "alias": "Shamakhi"
+        }
+      ]
+    },
+    {
+      "slug": "isvec",
+      "name": "İsveç",
+      "ulkeId": "12",
+      "cities": [
+        {
+          "slug": "stockholm",
+          "name": "Stockholm",
+          "ilceId": "14351",
+          "pop": 1515017,
+          "lat": 59.32938,
+          "lng": 18.06871
+        },
+        {
+          "slug": "goteborg",
+          "name": "Göteborg",
+          "ilceId": "14320",
+          "pop": 608462,
+          "lat": 57.70716,
+          "lng": 11.96679,
+          "alias": "Gothenburg"
+        },
+        {
+          "slug": "malmo",
+          "name": "Malmö",
+          "ilceId": "14350",
+          "pop": 362133,
+          "lat": 55.60587,
+          "lng": 13.00073
+        },
+        {
+          "slug": "uppsala",
+          "name": "Uppsala",
+          "ilceId": "14402",
+          "pop": 177074,
+          "lat": 59.85882,
+          "lng": 17.63889
+        },
+        {
+          "slug": "linkoping",
+          "name": "Linköping",
+          "ilceId": "14361",
+          "pop": 166673,
+          "lat": 58.41086,
+          "lng": 15.62157
+        },
+        {
+          "slug": "orebro",
+          "name": "Örebro",
+          "ilceId": "14404",
+          "pop": 155989,
+          "lat": 59.27412,
+          "lng": 15.2066
+        },
+        {
+          "slug": "umea",
+          "name": "Umeå",
+          "ilceId": "14401",
+          "pop": 130224,
+          "lat": 63.82842,
+          "lng": 20.25972
+        },
+        {
+          "slug": "vasteras",
+          "name": "Västerås",
+          "ilceId": "14395",
+          "pop": 127799,
+          "lat": 59.61617,
+          "lng": 16.55276
+        }
+      ]
+    },
+    {
+      "slug": "danimarka",
+      "name": "Danimarka",
+      "ulkeId": "26",
+      "cities": [
+        {
+          "slug": "kopenhag",
+          "name": "Kopenhag",
+          "ilceId": "12618",
+          "pop": 1153615,
+          "lat": 55.67594,
+          "lng": 12.56553,
+          "alias": "Copenhagen"
+        },
+        {
+          "slug": "aarhus",
+          "name": "Aarhus",
+          "ilceId": "12620",
+          "pop": 285273,
+          "lat": 56.15674,
+          "lng": 10.21076,
+          "alias": "Århus"
+        },
+        {
+          "slug": "odense",
+          "name": "Odense",
+          "ilceId": "12619",
+          "pop": 180863,
+          "lat": 55.39594,
+          "lng": 10.38831
+        },
+        {
+          "slug": "aalborg",
+          "name": "Aalborg",
+          "ilceId": "12647",
+          "pop": 142937,
+          "lat": 57.048,
+          "lng": 9.9187
+        },
+        {
+          "slug": "esbjerg",
+          "name": "Esbjerg",
+          "ilceId": "12638",
+          "pop": 71698,
+          "lat": 55.47028,
+          "lng": 8.45187
+        },
+        {
+          "slug": "randers",
+          "name": "Randers",
+          "ilceId": "12643",
+          "pop": 62802,
+          "lat": 56.4607,
+          "lng": 10.03639
+        }
+      ]
+    }
+  ]
+}

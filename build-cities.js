@@ -13,6 +13,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { normalizeSearch } = require("./js/city-search");
 
 const ROOT = __dirname;
 const SITE = "https://hakyol.app";
@@ -23,6 +24,7 @@ const PKG = "com.bahadir.hakyol";
 const DAYS_SHOWN = 30;
 
 const LIST = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "diyanet-tr.json"), "utf8"));
+const WORLD = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "diyanet-dunya.json"), "utf8"));
 // Resmî 973 ilçe (tr.wikipedia "Türkiye'nin ilçeleri", İçişleri envanteri): doğru yazım + Diyanet'in
 // ayrı vakit vermediği ilçeler. Bunlar il merkezi vaktiyle yayınlanır (Diyanet'in kendi uygulaması).
 const OFFICIAL = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "ilceler-resmi.json"), "utf8"));
@@ -134,6 +136,16 @@ const iller = LIST.map((il) => {
   return { name, slug, centerId: center.ilceId, ilceler, viaCenter };
 }).sort((a, b) => a.name.localeCompare(b.name, "tr"));
 
+const ilSlugs = new Set(iller.map((il) => il.slug));
+for (const country of WORLD.countries) {
+  if (ilSlugs.has(country.slug)) throw new Error(`Ülke slug'ı il slug'ıyla çakışıyor: ${country.slug}`);
+}
+
+const countries = WORLD.countries.map((country) => ({
+  ...country,
+  cities: country.cities.map((city) => ({ ...city, rows: rowsFor(city.ilceId) })),
+}));
+
 // Instagram gönderileri aynı il/ilçe eşleştirmesini kullanır (instagram/places.py); nüfus etiket sırası için.
 const nufus = Object.fromEntries(OFFICIAL.map((r) => [slugify(r.il) + "/" + slugify(r.ilce), r.nufus]));
 fs.writeFileSync(
@@ -227,6 +239,8 @@ footer a{color:var(--text-soft);margin-right:14px}
 .disc{font-size:12px;color:var(--text-faint);margin-top:10px}
 .ig{margin:28px 0 0;padding:14px 16px;border:1px solid var(--card-border);border-radius:12px;font-size:15px;color:var(--text-soft);text-align:center}
 .ig a{font-weight:700}
+.city-search{position:relative;margin:0 0 22px}.city-search input{width:100%;min-height:48px;border:1px solid var(--card-border);border-radius:12px;background:var(--card);color:var(--text);font:16px var(--sans);padding:11px 14px;outline:none}.city-search input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.city-search-results{position:absolute;z-index:20;inset-inline:0;top:calc(100% + 4px);background:var(--card);border:1px solid var(--card-border);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.35);overflow:hidden}.city-search-results:empty{display:none}.city-search-results a{display:block;padding:10px 14px;color:var(--text);text-decoration:none}.city-search-results a[aria-selected="true"],.city-search-results a:hover{background:var(--gold-soft)}.city-search-results span{color:var(--text-faint)}
 @media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}.cell .t{font-size:20px}
 table{min-width:0;font-size:12px}th,td{padding:7px 3px}th{font-size:10.5px}td:first-child,th:first-child{padding-left:8px}}
 `;
@@ -235,7 +249,7 @@ table{min-width:0;font-size:12px}th,td{padding:7px 3px}th{font-size:10.5px}td:fi
 const CLIENT_JS = `
 (function(){
   var rows=document.querySelectorAll('tr[data-d]');if(!rows.length)return;
-  function trNow(){return new Date(Date.now()+3*3600000);}
+  function trNow(){if(document.documentElement.hasAttribute('data-local-clock')){var d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000);}return new Date(Date.now()+3*3600000);}
   function tick(){
     var now=trNow(),d=now.toISOString().slice(0,10),row=null;
     rows.forEach(function(r){r.classList.toggle('today',r.getAttribute('data-d')===d);if(r.getAttribute('data-d')===d)row=r;});
@@ -294,11 +308,12 @@ function monthTable(rows) {
   return `<div class="tbl-wrap"><table>${head}${body}</table></div>`;
 }
 
-function faq(place, r) {
+function faq(place, r, foreign) {
+  const where = foreign ? `${place} için` : loc(place);
   const qa = [
-    [`${loc(place)} bugün akşam ezanı saat kaçta?`, `${longDate(r[0])} günü ${place} için akşam ezanı saati: ${r[5]}. Ramazan'da iftar vakti de bu saattir.`],
-    [`${loc(place)} imsak (sahur) vakti saat kaçta?`, `Bugün ${place} için imsak vakti: ${r[1]}. Sabah namazı imsak ile güneşin doğuşu (${r[2]}) arasında kılınır.`],
-    [`${loc(place)} cuma namazı saat kaçta?`, `Cuma namazı öğle vaktinde kılınır. Bugün ${place} için öğle vakti: ${r[3]}. Cuma gününün saatini yukarıdaki aylık tablodan görebilirsiniz.`],
+    [`${where} bugün akşam ezanı saat kaçta?`, `${longDate(r[0])} günü ${place} için akşam ezanı saati: ${r[5]}. Ramazan'da iftar vakti de bu saattir.`],
+    [`${where} imsak (sahur) vakti saat kaçta?`, `Bugün ${place} için imsak vakti: ${r[1]}. Sabah namazı imsak ile güneşin doğuşu (${r[2]}) arasında kılınır.`],
+    [`${where} cuma namazı saat kaçta?`, `Cuma namazı öğle vaktinde kılınır. Bugün ${place} için öğle vakti: ${r[3]}. Cuma gününün saatini yukarıdaki aylık tablodan görebilirsiniz.`],
     [`${place} için kıble saati nedir?`, `Kıble saati, güneşin tam kıble yönünde bulunduğu andır. Bugün ${place} için kıble saati: ${r[7]}. Bu saatte güneşe dönen kişi kıbleye dönmüş olur.`],
   ];
   const html = `<div class="faq">${qa.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("")}</div>`;
@@ -318,12 +333,12 @@ function breadcrumbLd(trail) {
   };
 }
 
-function page({ url, title, description, crumbs, body, ld }) {
+function page({ url, title, description, crumbs, body, ld, localClock }) {
   const crumbHtml = crumbs
     .map(([name, href], i) => (i === crumbs.length - 1 ? esc(name) : `<a href="${href}">${esc(name)}</a>`))
     .join(" › ");
   return `<!doctype html>
-<html lang="tr" dir="ltr">
+<html lang="tr" dir="ltr"${localClock ? " data-local-clock" : ""}>
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -357,6 +372,7 @@ ${body}
 <p class="disc">Vakitler Diyanet İşleri Başkanlığı verisine dayanır. Resmî kaynak namazvakti.diyanet.gov.tr'dir. © 2026 3B Tech.</p>
 </div></footer>
 <script>${CLIENT_JS}</script>
+<script src="/js/city-search.js" defer></script>
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 </body>
@@ -364,22 +380,23 @@ ${body}
 `;
 }
 
-function placePage({ place, fullPlace, url, crumbs, rows, campaign, extra, note }) {
+function placePage({ place, fullPlace, url, crumbs, rows, campaign, extra, note, country }) {
   const r = rows[0];
-  const f = faq(place, r);
-  const title = `${fullPlace} Namaz Vakitleri — Ezan Saatleri ${thisMonth} | Hakyol`;
-  const description =
-    `${fullPlace} namaz vakitleri: bugün imsak ${r[1]}, öğle ${r[3]}, ikindi ${r[4]}, akşam ${r[5]}, yatsı ${r[6]}. ` +
-    `Diyanet verisiyle ${DAYS_SHOWN} günlük ezan saatleri ve kıble saati.`;
+  const f = faq(place, r, !!country);
+  const title = country ? `${place} Namaz Vakitleri — ${country} | Hakyol` : `${fullPlace} Namaz Vakitleri — Ezan Saatleri ${thisMonth} | Hakyol`;
+  const description = country
+    ? `${place} (${country}) için Diyanet İşleri Başkanlığı verisiyle güncel imsak, güneş, öğle, ikindi, akşam ve yatsı vakitleri.`
+    : `${fullPlace} namaz vakitleri: bugün imsak ${r[1]}, öğle ${r[3]}, ikindi ${r[4]}, akşam ${r[5]}, yatsı ${r[6]}. Diyanet verisiyle ${DAYS_SHOWN} günlük ezan saatleri ve kıble saati.`;
   const body = `
 <h1>${esc(fullPlace)} Namaz Vakitleri</h1>
 <p class="date"><span data-long>${esc(longDate(r[0]))}</span></p>
+<div data-city-search data-index="${BASE_PATH}/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>
 ${note ? `<p class="note">${esc(note)}</p>` : ""}
 ${todayBox(r)}
 ${cta(place, campaign)}
 <h2 class="sec">${esc(place)} ${DAYS_SHOWN} günlük namaz vakitleri</h2>
 ${monthTable(rows)}
-<p class="prose">${esc(place)} için ezan saatleri Diyanet İşleri Başkanlığı'nın yayımladığı vakitlerdir. ${esc(loc(place))} bugün ezan saatleri şöyle: imsak ${r[1]}, güneş ${r[2]}, öğle ${r[3]}, ikindi ${r[4]}, akşam ${r[5]}, yatsı ${r[6]}. Tablodaki öbür günlerin vakitleri de Diyanet takvimiyle aynıdır.</p>
+<p class="prose">${esc(place)} için ezan saatleri Diyanet İşleri Başkanlığı'nın yayımladığı vakitlerdir. ${country ? `${esc(place)} için` : esc(loc(place))} bugün ezan saatleri şöyle: imsak ${r[1]}, güneş ${r[2]}, öğle ${r[3]}, ikindi ${r[4]}, akşam ${r[5]}, yatsı ${r[6]}. Tablodaki öbür günlerin vakitleri de Diyanet takvimiyle aynıdır.</p>
 ${extra || ""}
 <h2 class="sec">Sık sorulanlar</h2>
 ${f.html}`;
@@ -390,6 +407,7 @@ ${f.html}`;
     crumbs,
     body,
     ld: [breadcrumbLd(crumbs.map(([n, h]) => [n, h])), f.ld],
+    localClock: !!country,
   });
 }
 
@@ -452,6 +470,37 @@ for (const il of iller) {
   }
 }
 
+for (const country of countries) {
+  const countryUrl = `${BASE_PATH}/${country.slug}/`;
+  const liveCities = country.cities.filter((city) => city.rows);
+  write(
+    country.slug,
+    page({
+      url: countryUrl,
+      title: `${country.name} Namaz Vakitleri — Şehirler | Hakyol`,
+      description: `${country.name} şehirleri için Diyanet verisiyle güncel namaz vakitleri ve ezan saatleri.`,
+      crumbs: [["Hakyol", "/"], rootCrumb, [country.name, countryUrl]],
+      body: `<h1>${esc(country.name)} Namaz Vakitleri</h1><p class="date">Şehrinizi seçin.</p>
+<div data-city-search data-index="${BASE_PATH}/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>
+<ul class="links">${liveCities.map((city) => `<li><a href="${countryUrl}${city.slug}/">${esc(city.name)}</a></li>`).join("")}</ul>`,
+      ld: [breadcrumbLd([["Hakyol", "/"], rootCrumb, [country.name, countryUrl]])],
+    })
+  );
+  urls.push(countryUrl);
+  for (const city of liveCities) {
+    const url = `${countryUrl}${city.slug}/`;
+    const others = liveCities.filter((other) => other !== city).map((other) => `<li><a href="${countryUrl}${other.slug}/">${esc(other.name)}</a></li>`).join("");
+    write(`${country.slug}/${city.slug}`, placePage({
+      place: city.name, fullPlace: `${city.name}, ${country.name}`, country: country.name, url,
+      crumbs: [rootCrumb, [country.name, countryUrl], [city.name, url]], rows: city.rows,
+      campaign: `city_${country.slug}_${city.slug}`,
+      note: `Saatler ${city.name} yerel saatine göredir.`,
+      extra: `<h2 class="sec">${esc(country.name)} ve diğer şehirler</h2><ul class="links">${others}</ul>`,
+    }));
+    urls.push(url);
+  }
+}
+
 // Hub: 81 il
 write(
   "",
@@ -462,11 +511,30 @@ write(
     crumbs: [["Hakyol", "/"], rootCrumb],
     body: `<h1>Namaz Vakitleri</h1>
 <p class="date">81 il ve ${iller.reduce((n, il) => n + il.ilceler.length, 0)} ilçe için Diyanet verisiyle ezan saatleri. İlinizi seçin.</p>
+<div data-city-search data-index="${BASE_PATH}/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>
 <ul class="links">${liveIller.map((il) => `<li><a href="${BASE_PATH}/${il.slug}/">${esc(il.name)}</a></li>`).join("")}</ul>
+<h2 class="sec">Yurt dışı namaz vakitleri</h2>
+${countries.map((country) => `<h3><a href="${BASE_PATH}/${country.slug}/">${esc(country.name)}</a></h3><ul class="links">${country.cities.filter((city) => city.rows).slice(0, 5).map((city) => `<li><a href="${BASE_PATH}/${country.slug}/${city.slug}/">${esc(city.name)}</a></li>`).join("")}</ul>`).join("")}
 ${cta("Bulunduğunuz yer", "city_hub")}`,
     ld: [breadcrumbLd([["Hakyol", "/"], rootCrumb])],
   })
 );
+
+function searchKey(parts) {
+  const aliases = { "münih": "munchen" };
+  const text = normalizeSearch(parts.join(" "));
+  return `${text} ${aliases[parts[0].toLocaleLowerCase("tr-TR")] || ""}`.trim().replace(/\s+/g, " ");
+}
+const searchIndex = [];
+for (const il of liveIller) {
+  searchIndex.push([il.name, "Türkiye", `${BASE_PATH}/${il.slug}/`, searchKey([il.name, "Türkiye"])]);
+  for (const district of il.ilceler) searchIndex.push([district.name, il.name, `${BASE_PATH}/${il.slug}/${district.slug}/`, searchKey([district.name, il.name])]);
+}
+for (const country of countries) {
+  searchIndex.push([country.name, "Yurt dışı", `${BASE_PATH}/${country.slug}/`, searchKey([country.name])]);
+  for (const city of country.cities.filter((item) => item.rows)) searchIndex.push([city.name, country.name, `${BASE_PATH}/${country.slug}/${city.slug}/`, searchKey([city.name, city.alias || "", country.name])]);
+}
+fs.writeFileSync(path.join(OUT_DIR, "arama.json"), JSON.stringify(searchIndex));
 
 // Bölümün site haritası (robots.txt'te ayrı Sitemap satırı)
 const xml =

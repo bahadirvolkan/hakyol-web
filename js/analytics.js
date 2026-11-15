@@ -51,4 +51,9 @@
     var place = a.closest(".hk-pop") ? "popup" : a.closest(".cta") ? "city_cta" : a.closest(".premium") ? "free_section" : "hero";
     window.hakyolTrack("store_click", { store: store, place: place });
   });
+
+  document.addEventListener("city-search-select", function (ev) {
+    var d = ev.detail || {};
+    window.hakyolTrack("city_search", { q_len: d.q_len || 0, result_url: d.result_url || "" });
+  });
 })();

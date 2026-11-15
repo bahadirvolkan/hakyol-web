@@ -58,6 +58,21 @@ const CITY_CSS = `
     text-decoration: none; }
 `;
 
+const SEARCH_CSS = `
+  .city-links [data-city-search] { margin: 14px 0; text-align: start; }
+  .city-search { position: relative; }
+  .city-search input { width: 100%; min-height: 48px; border: 1px solid var(--card-border); border-radius: 12px;
+    background: var(--bg); color: var(--text); font: 16px var(--sans); padding: 11px 14px; outline: none; }
+  .city-search input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+  .city-search-results { position: absolute; z-index: 20; inset-inline: 0; top: calc(100% + 4px);
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+  .city-search-results:empty { display: none; }
+  .city-search-results a { display: block; padding: 10px 14px; color: var(--text); text-decoration: none; }
+  .city-search-results a[aria-selected="true"], .city-search-results a:hover { background: var(--gold-soft); }
+  .city-search-results span { color: var(--text-faint); }
+`;
+
 const BIG_CITIES = [
   ["istanbul", "İstanbul"], ["ankara", "Ankara"], ["izmir", "İzmir"], ["bursa", "Bursa"],
   ["antalya", "Antalya"], ["konya", "Konya"], ["adana", "Adana"], ["gaziantep", "Gaziantep"],
@@ -71,6 +86,7 @@ function cityLinksHtml() {
   return (
     `<section class="city-links"><div class="wrap"><div class="box">` +
     `<h2>Türkiye Namaz Vakitleri</h2>` +
+    `<div data-city-search data-index="/namaz-vakitleri/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div>` +
     `<p>81 il ve 921 ilçe için güncel ezan vakitleri</p>` +
     `<ul>${items}</ul>` +
     `<a class="all" href="/namaz-vakitleri/">Tüm il ve ilçeler</a>` +
@@ -259,12 +275,14 @@ function buildLang(lang) {
   }
   root.querySelectorAll("style").forEach((st) => {
     if (st.innerHTML.includes(":root")) {
-      st.set_content(st.innerHTML + "\n" + PW_CSS + "\n" + CITY_CSS);
+      st.set_content(st.innerHTML + "\n" + PW_CSS + "\n" + CITY_CSS + (lang === "tr" ? "\n" + SEARCH_CSS : ""));
     }
   });
   root.querySelector("body").insertAdjacentHTML(
     "beforeend",
-    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n<script src="/js/analytics.js" defer></script>\n<script src="/js/app-popup.js" defer></script>\n'
+    '\n<script src="/js/adhan.min.js"></script>\n<script src="/js/prayer-widget.js"></script>\n' +
+      (lang === "tr" ? '<script src="/js/city-search.js" defer></script>\n' : '') +
+      '<script src="/js/analytics.js" defer></script>\n<script src="/js/app-popup.js" defer></script>\n'
   );
 
   const dest = path.join(ROOT, outDir(lang), "index.html");

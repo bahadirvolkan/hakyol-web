@@ -267,6 +267,20 @@
   .city-links .all { display: inline-block; border: 1px solid var(--gold); background: var(--gold);
     color: #241a04; font-weight: 700; font-size: 14px; padding: 10px 20px; border-radius: 999px;
     text-decoration: none; }
+
+
+  .city-links [data-city-search] { margin: 14px 0; text-align: start; }
+  .city-search { position: relative; }
+  .city-search input { width: 100%; min-height: 48px; border: 1px solid var(--card-border); border-radius: 12px;
+    background: var(--bg); color: var(--text); font: 16px var(--sans); padding: 11px 14px; outline: none; }
+  .city-search input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+  .city-search-results { position: absolute; z-index: 20; inset-inline: 0; top: calc(100% + 4px);
+    background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+  .city-search-results:empty { display: none; }
+  .city-search-results a { display: block; padding: 10px 14px; color: var(--text); text-decoration: none; }
+  .city-search-results a[aria-selected="true"], .city-search-results a:hover { background: var(--gold-soft); }
+  .city-search-results span { color: var(--text-faint); }
 </style>
 
 <link rel="alternate" hreflang="tr" href="https://hakyol.app/" >
@@ -361,7 +375,7 @@
   </div>
 </header>
 <section class="pw-wrap"><div class="wrap"><div id="prayer-widget"></div></div></section>
-<section class="city-links"><div class="wrap"><div class="box"><h2>Türkiye Namaz Vakitleri</h2><p>81 il ve 921 ilçe için güncel ezan vakitleri</p><ul><li><a href="/namaz-vakitleri/istanbul/" title="İstanbul namaz vakitleri">İstanbul</a></li><li><a href="/namaz-vakitleri/ankara/" title="Ankara namaz vakitleri">Ankara</a></li><li><a href="/namaz-vakitleri/izmir/" title="İzmir namaz vakitleri">İzmir</a></li><li><a href="/namaz-vakitleri/bursa/" title="Bursa namaz vakitleri">Bursa</a></li><li><a href="/namaz-vakitleri/antalya/" title="Antalya namaz vakitleri">Antalya</a></li><li><a href="/namaz-vakitleri/konya/" title="Konya namaz vakitleri">Konya</a></li><li><a href="/namaz-vakitleri/adana/" title="Adana namaz vakitleri">Adana</a></li><li><a href="/namaz-vakitleri/gaziantep/" title="Gaziantep namaz vakitleri">Gaziantep</a></li><li><a href="/namaz-vakitleri/sanliurfa/" title="Şanlıurfa namaz vakitleri">Şanlıurfa</a></li><li><a href="/namaz-vakitleri/kocaeli/" title="Kocaeli namaz vakitleri">Kocaeli</a></li><li><a href="/namaz-vakitleri/diyarbakir/" title="Diyarbakır namaz vakitleri">Diyarbakır</a></li><li><a href="/namaz-vakitleri/kayseri/" title="Kayseri namaz vakitleri">Kayseri</a></li></ul><a class="all" href="/namaz-vakitleri/">Tüm il ve ilçeler</a></div></div></section>
+<section class="city-links"><div class="wrap"><div class="box"><h2>Türkiye Namaz Vakitleri</h2><div data-city-search data-index="/namaz-vakitleri/arama.json" data-placeholder="İl, ilçe veya şehir ara" data-no-results="Sonuç yok"></div><p>81 il ve 921 ilçe için güncel ezan vakitleri</p><ul><li><a href="/namaz-vakitleri/istanbul/" title="İstanbul namaz vakitleri">İstanbul</a></li><li><a href="/namaz-vakitleri/ankara/" title="Ankara namaz vakitleri">Ankara</a></li><li><a href="/namaz-vakitleri/izmir/" title="İzmir namaz vakitleri">İzmir</a></li><li><a href="/namaz-vakitleri/bursa/" title="Bursa namaz vakitleri">Bursa</a></li><li><a href="/namaz-vakitleri/antalya/" title="Antalya namaz vakitleri">Antalya</a></li><li><a href="/namaz-vakitleri/konya/" title="Konya namaz vakitleri">Konya</a></li><li><a href="/namaz-vakitleri/adana/" title="Adana namaz vakitleri">Adana</a></li><li><a href="/namaz-vakitleri/gaziantep/" title="Gaziantep namaz vakitleri">Gaziantep</a></li><li><a href="/namaz-vakitleri/sanliurfa/" title="Şanlıurfa namaz vakitleri">Şanlıurfa</a></li><li><a href="/namaz-vakitleri/kocaeli/" title="Kocaeli namaz vakitleri">Kocaeli</a></li><li><a href="/namaz-vakitleri/diyarbakir/" title="Diyarbakır namaz vakitleri">Diyarbakır</a></li><li><a href="/namaz-vakitleri/kayseri/" title="Kayseri namaz vakitleri">Kayseri</a></li></ul><a class="all" href="/namaz-vakitleri/">Tüm il ve ilçeler</a></div></div></section>
 
 
 
@@ -592,6 +606,7 @@
 
 <script src="/js/adhan.min.js"></script>
 <script src="/js/prayer-widget.js"></script>
+<script src="/js/city-search.js" defer></script>
 <script src="/js/analytics.js" defer></script>
 <script src="/js/app-popup.js" defer></script>
 </body>
