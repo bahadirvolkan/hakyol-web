@@ -30,7 +30,7 @@ RULES = [
     (r"allah razi", "Cümlemizden razı olsun."),
     (r"s[uü]b?h?ana?l+ah|allah[u -]*ekber|allahuekber|sadakallah", "Allah razı olsun, hayırlı günler."),
 ]
-ONLY_HEARTS = re.compile(r"^[\s❤️\U0001F49A-\U0001F49F\U0001F90D\U0001F90E\U0001F932\U0001F64F\U0001F33A\U0001F339♥]+$")
+ONLY_HEARTS = re.compile(r"^[\s❤️\U0001F49A-\U0001F49F\U0001F90D\U0001F90E\U0001F932\U0001F64F\U0001F33A\U0001F339\U0001F3FB-\U0001F3FF\u200d♥]+$")
 
 
 SITE = "https://hakyol.app/namaz-vakitleri"
