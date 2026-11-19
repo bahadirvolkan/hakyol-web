@@ -21,6 +21,18 @@ import publish as P
 
 ME = "hakyol.app"
 MAX_PER_RUN = 15
+# Hediye kampanyası (11-19..25): bu gönderideki her dua yorumuna "Âmin" (11-20 kullanıcı onayı). Gönderi
+# sabitli ama son 25 gönderinin dışına düşer, ayrıca taranır. Yalnız etiket ya da soru olan yorum cevapsız.
+CAMPAIGN = "18040455986900331"
+CAMPAIGN_REPLY = "Âmin. Allah kabul etsin."
+MENTION = re.compile(r"@[\w.]+")
+
+
+def campaign_answer(text):
+    rest = MENTION.sub(" ", text)
+    if "?" in rest or len(re.findall(r"[^\W\d_]{2,}", rest)) < 2:
+        return None
+    return CAMPAIGN_REPLY
 
 # (desen, cevap) — ilk eşleşen kazanır; desenler aksansız küçük harf metne uygulanır.
 RULES = [
@@ -113,12 +125,25 @@ def send_city(c, place):
 
 def run(dry=False, media_limit=25):
     done = 0
-    for m in P.call("GET", f"{P.IG_USER}/media", fields="id,comments_count", limit=media_limit)["data"]:
+    media = P.call("GET", f"{P.IG_USER}/media", fields="id,comments_count", limit=media_limit)["data"]
+    if not any(m["id"] == CAMPAIGN for m in media):
+        media.append({"id": CAMPAIGN, "comments_count": 1})
+    for m in media:
         if not m.get("comments_count"):
             continue
         comments = P.call("GET", f"{m['id']}/comments", fields="id,text,username,replies{username}", limit=50)["data"]
         for c in comments:
             if c.get("username") == ME or any(r.get("username") == ME for r in c.get("replies", {}).get("data", [])):
+                continue
+            if m["id"] == CAMPAIGN:
+                reply = campaign_answer(c.get("text") or "")
+                if reply:
+                    print("kampanya", repr(c["text"][:40]), "->", reply)
+                    if not dry:
+                        P.call("POST", f"{c['id']}/replies", message=reply)
+                    done += 1
+                    if done >= MAX_PER_RUN:
+                        return done
                 continue
             place = place_for(c.get("text") or "")
             if place:

@@ -225,6 +225,8 @@ def page(body, story=False):
     # 11-19: dua kartı yorumda "Âmin" ister (dualar en çok yorumu alıyor); sabah kartı güne ayetle başlamaya davet.
     if "Kur&#x27;an&#x27;daki Dualar" in body or "Kur'an'daki Dualar" in body:
         small, big = "Her gün bir dua için takip edin.", "Duaya katılmak için yoruma Âmin yazın."
+    elif "Gelen Dualardan" in body:
+        small, big = "Kabul olsun, Âmin.", "Siz de duanızı hediye gönderimize yazın."
     elif "Hayırlı Sabahlar" in body:
         small, big = "Hayırlı sabahlar, hayırlı işler.", "Güne bir ayetle başlamak için takip edin."
     small = f'<p>{html.escape(small)}</p>' if small else ""
@@ -279,10 +281,47 @@ def post_for(d):
     return body, f"{cap}\n\n{follow_caption(cap)}\n\n{CTA}\n\n{TAGS['ayet']}"
 
 
+CAMPAIGN = "18040455986900331"
+CAMPAIGN_DAYS = (date(2026, 11, 20), date(2026, 11, 25))
+DUA_WORDS = re.compile(r"rab|allah|mevla|amin|eyle|nasip|kabul|bagisla|affet|olsun|kil")
+
+
+def clean_dua(text):
+    """Etiket, emoji ve fazla boşluk silinir; dua değilse, soru/link içeriyorsa ya da çok kısa/uzunsa None."""
+    import replies
+    t = re.sub(r"@[\w.]+|https?://\S+", " ", text)
+    t = "".join(c for c in t if c.isalnum() or c.isspace() or c in ".,;:'’!-()")
+    t = re.sub(r"\s+", " ", t).strip(" .,;:-")
+    if "?" in text or not 4 <= len(t.split()) <= 45 or not DUA_WORDS.search(replies.norm(t)):
+        return None
+    return t[0].upper() + t[1:] + ("" if t[-1] in ".!" else ".")
+
+
+def gelen_dualar(d):
+    """Kampanya günlerinde akşam hikâyesi: hediye gönderisine yazılan dualardan ikisi, isimsiz (11-20 kullanıcı onayı).
+    Günler sırayla ilerler (en eski yorumdan); dua yoksa None."""
+    import publish as P
+    rows = P.call("GET", f"{CAMPAIGN}/comments", fields="text,timestamp", limit=50).get("data", [])
+    duas = list(dict.fromkeys(x for x in (clean_dua(r.get("text") or "") for r in sorted(rows, key=lambda r: r["timestamp"])) if x))
+    if not duas:
+        return None
+    n = (d - CAMPAIGN_DAYS[0]).days
+    pick_ = [duas[(2 * n + i) % len(duas)] for i in range(min(2, len(duas)))]
+    # Tek .meal içinde: FIT_JS yalnız ilk .meal'i küçültüyor, iki dua aynı boyda kalsın.
+    items = '<div class="meal">' + '<div class="rule"></div>'.join(f"“{html.escape(x)}”" for x in pick_) + '</div>'
+    return (f'<div class="kicker">Hakyol · Hediye</div><div class="title">Gelen Dualardan</div>'
+            f'<div class="rule"></div>{items}<div class="rule"></div>'
+            f'<div class="ref">Takipçilerimizin dualarından, isimsiz</div>')
+
+
 def story_for(d, slot):
     """Günde 4 hikâye: 0 günün reels'i, 1-3 sıradaki tek ayet/hadis kartları (11-13: vakit kartları ilgi görmedi)."""
     if slot == 0:
         return post_for(d)[0]
+    if slot == 3 and CAMPAIGN_DAYS[0] <= d <= CAMPAIGN_DAYS[1]:
+        body = gelen_dualar(d)
+        if body:
+            return body
     singles = [q for q in json.loads((HERE / "queue.json").read_text()) if q["kind"] == "single"]
     n = (d - START).days
     return singles[(3 * n + slot * 7) % len(singles)]["cards"][0]
