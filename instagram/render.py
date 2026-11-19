@@ -225,7 +225,7 @@ def page(body, story=False):
     # 11-19: dua kartı yorumda "Âmin" ister (dualar en çok yorumu alıyor); sabah kartı güne ayetle başlamaya davet.
     if "Kur&#x27;an&#x27;daki Dualar" in body or "Kur'an'daki Dualar" in body:
         small, big = "Her gün bir dua için takip edin.", "Duaya katılmak için yoruma Âmin yazın."
-    elif "Gelen Dualardan" in body:
+    elif "Sizin Duanız" in body:
         small, big = "Duanızı kime ediyorsanız onu etiketleyin.", "Siz de duanızı hediye gönderimize yazın."
     elif "Hayırlı Sabahlar" in body:
         small, big = "Hayırlı sabahlar, hayırlı işler.", "Güne bir ayetle başlamak için takip edin."
@@ -298,7 +298,7 @@ def clean_dua(text):
 
 
 def gelen_dualar(d):
-    """Kampanya günlerinde akşam hikâyesi: hediye gönderisine yazılan dualardan ikisi, isimsiz (11-20 kullanıcı onayı).
+    """Kampanya günlerinde akşam hikâyesi: hediye gönderisine yazılan dualardan biri, isimsiz (11-20 kullanıcı onayı).
     Günler sırayla ilerler (en eski yorumdan); dua yoksa None."""
     import publish as P
     rows = P.call("GET", f"{CAMPAIGN}/comments", fields="text,timestamp", limit=50).get("data", [])
@@ -306,12 +306,11 @@ def gelen_dualar(d):
     if not duas:
         return None
     n = (d - CAMPAIGN_DAYS[0]).days
-    pick_ = [duas[(2 * n + i) % len(duas)] for i in range(min(2, len(duas)))]
-    # Tek .meal içinde: FIT_JS yalnız ilk .meal'i küçültüyor, iki dua aynı boyda kalsın.
-    items = '<div class="meal">' + '<div class="rule"></div>'.join(f"“{html.escape(x)}”" for x in pick_) + '</div>'
-    return (f'<div class="kicker">Hakyol · Hediye</div><div class="title">Gelen Dualardan</div>'
+    # 11-20 kullanıcı: başlık "Sizin Duanız" — kartta tek dua.
+    items = f'<div class="meal">“{html.escape(duas[n % len(duas)])}”</div>'
+    return (f'<div class="kicker">Hakyol · Hediye</div><div class="title">Sizin Duanız</div>'
             f'<div class="rule"></div>{items}<div class="rule"></div>'
-            f'<div class="ref">Takipçilerimizin dualarından, isimsiz</div>')
+            f'<div class="ref">Takipçimizin duası, isimsiz</div>')
 
 
 def story_for(d, slot):
