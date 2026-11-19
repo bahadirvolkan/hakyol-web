@@ -226,7 +226,7 @@ def page(body, story=False):
     if "Kur&#x27;an&#x27;daki Dualar" in body or "Kur'an'daki Dualar" in body:
         small, big = "Her gün bir dua için takip edin.", "Duaya katılmak için yoruma Âmin yazın."
     elif "Gelen Dualardan" in body:
-        small, big = "Kabul olsun, Âmin.", "Siz de duanızı hediye gönderimize yazın."
+        small, big = "Duanızı kime ediyorsanız onu etiketleyin.", "Siz de duanızı hediye gönderimize yazın."
     elif "Hayırlı Sabahlar" in body:
         small, big = "Hayırlı sabahlar, hayırlı işler.", "Güne bir ayetle başlamak için takip edin."
     small = f'<p>{html.escape(small)}</p>' if small else ""
