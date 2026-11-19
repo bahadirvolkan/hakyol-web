@@ -145,7 +145,7 @@ for (const country of WORLD.countries) {
 
 const countries = WORLD.countries.map((country) => ({
   ...country,
-  cities: country.cities.map((city) => ({ ...city, rows: rowsFor(city.ilceId) })),
+  cities: country.cities.map((city) => ({ ...city, rows: rowsFor(city.ilceId, localDay(worldTz(country, city))) })),
 }));
 
 // Instagram gönderileri aynı il/ilçe eşleştirmesini kullanır (instagram/places.py); nüfus etiket sırası için.
@@ -168,13 +168,18 @@ fs.writeFileSync(
   ),
 );
 
-function rowsFor(id) {
-  const rows = (VAKIT[id] || []).filter((r) => r[0] >= today).slice(0, DAYS_SHOWN);
-  return rows.length && rows[0][0] === today ? rows : null;
+// day: o yerin yerel bugünü (yurt dışı şehirlerde yayın 00:30 TSİ'de, orada hâlâ dün olabilir).
+function rowsFor(id, day = today) {
+  const rows = (VAKIT[id] || []).filter((r) => r[0] >= day).slice(0, DAYS_SHOWN);
+  return rows.length && rows[0][0] === day ? rows : null;
+}
+function localDay(tz) {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: tz, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 }
 
 function apiRows(id) {
-  return (VAKIT[id] || []).filter((r) => r[0] >= today).map((r) => r.slice(0, 7));
+  const from = new Date(Date.parse(today + "T12:00:00Z") - 86400000).toISOString().slice(0, 10);
+  return (VAKIT[id] || []).filter((r) => r[0] >= from).map((r) => r.slice(0, 7));
 }
 
 function worldTz(country, city) {
@@ -332,7 +337,7 @@ function monthTable(rows) {
   const body = rows
     .map(
       (r) =>
-        `<tr data-d="${r[0]}" data-long="${esc(longDate(r[0]))}"${r[0] === today ? ' class="today"' : ""}><td>${shortDate(r[0])}</td>${r
+        `<tr data-d="${r[0]}" data-long="${esc(longDate(r[0]))}"${r[0] === rows[0][0] ? ' class="today"' : ""}><td>${shortDate(r[0])}</td>${r
           .slice(1, 7)
           .map((t) => `<td>${t}</td>`)
           .join("")}</tr>`

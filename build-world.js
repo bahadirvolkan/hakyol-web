@@ -86,7 +86,8 @@ function clientJs(lang, tz) {
 }
 function cta(lang, campaign) { const t = TEXT[lang], app = `https://apps.apple.com/app/hakyol/id${APP_ID}?ct=${campaign}&mt=8`, play = `https://play.google.com/store/apps/details?id=${PKG}&referrer=utm_source%3Dhakyol.app%26utm_medium%3Dweb%26utm_campaign%3D${campaign}`; return `<div class="cta"><h2>${t.cta}</h2><p>${t.desc}</p><div class="btns"><a href="${app}" target="_blank" rel="noopener">${t.as}</a><a href="${play}" target="_blank" rel="noopener">${t.gp}</a></div></div>`; }
 function search(lang) { const t = TEXT[lang]; return `<div class="search" data-city-search data-index="/${lang}/${ROOTS[lang]}/search.json" data-placeholder="${esc(t.search)}" data-no-results="${esc(t.none)}"></div>`; }
-function cityPage(country, city, start) {
+function cityPage(country, city, buildStart) {
+  const start = city.tz ? new Date(`${localYmd(new Date(), city.tz)}T12:00:00Z`) : buildStart;
   const lang = country.lang, t = TEXT[lang], base = `/${lang}/${ROOTS[lang]}`, countryUrl = `${base}/${country.slug}/`, url = lang === "id" || lang === "bn" || lang === "ur" ? `${base}/${city.slug}/` : `${countryUrl}${city.slug}/`;
   const rows = Array.from({ length: DAYS }, (_, i) => { const ymd = iso(addDays(start, i)); return { ymd, times: calculateTimes(country, city, ymd) }; });
   const names = PRAYERS[lang], first = rows[0];
@@ -96,7 +97,10 @@ function cityPage(country, city, start) {
   const title = t.cityTitle.replace("{city}", city.name), crumbs = [["Hakyol", `/${lang}/`], [t.title, `${base}/`]];
   if (lang === "ar" || lang === "fa") crumbs.push([country.names[lang], countryUrl]);
   crumbs.push([city.name, url]);
-  return { url, html: page({ lang, url, title, description: `${title} — ${DAYS} ${t.month}`, crumbs, tz: city.tz, body: `<h1>${esc(title)}</h1><p class="lead">${digits(languageDate(first.ymd, lang), lang)}</p>${search(lang)}<div class="card"><div class="grid">${cells}</div><p class="next-line"></p></div>${cta(lang, `city_${country.cc.toLowerCase()}_${city.slug}`)}<h2>${t.month}</h2><div class="tbl"><table>${head}${body}</table></div><p class="method">${methodText(country)}</p>` }) };
+  const SEO = { id: ["Jadwal Sholat {city} Hari Ini, {date}", "Jadwal sholat {city} hari ini: {times}. Jadwal 30 hari dan notifikasi azan.", ", "], ar: ["مواقيت الصلاة في {city} اليوم، {date}", "مواقيت الصلاة في {city} اليوم: {times}. مواقيت 30 يومًا وتنبيه الأذان.", "، "], fa: ["اوقات شرعی {city} امروز، {date}", "اوقات شرعی {city} امروز: {times}. اوقات ۳۰ روزه و اعلان اذان.", "، "], ur: ["{city} نماز کے اوقات آج، {date}", "{city} میں آج نماز کے اوقات: {times}۔ 30 دن کے اوقات اور اذان کی اطلاع۔", "، "], bn: ["{city} আজকের নামাজের সময়, {date}", "{city} আজকের নামাজের সময়: {times}। ৩০ দিনের সময়সূচি ও আজানের নোটিফিকেশন।", ", "] }[lang];
+  const dateText = digits(languageDate(first.ymd, lang).split(" · ")[0], lang), timesText = names.filter(([k]) => k !== "imsak" && k !== "sunrise").map(([k, n]) => `${n} ${digits(first.times[k], lang)}`).join(SEO[2]);
+  const seoTitle = SEO[0].replace("{city}", city.name).replace("{date}", dateText), seoDesc = SEO[1].replace("{city}", city.name).replace("{times}", timesText);
+  return { url, html: page({ lang, url, title: seoTitle, description: seoDesc, crumbs, tz: city.tz, body: `<h1>${esc(title)}</h1><p class="lead">${digits(languageDate(first.ymd, lang), lang)}</p>${search(lang)}<div class="card"><div class="grid">${cells}</div><p class="next-line"></p></div>${cta(lang, `city_${country.cc.toLowerCase()}_${city.slug}`)}<h2>${t.month}</h2><div class="tbl"><table>${head}${body}</table></div><p class="method">${methodText(country)}</p>` }) };
 }
 function writeUrl(url, html) { const dest = path.join(ROOT, url, "index.html"); fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, html); }
 function build() {
