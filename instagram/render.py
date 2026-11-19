@@ -220,8 +220,15 @@ def page(body, story=False):
     # Kutuda her zaman takip cümlesi; paylaşım cümleleri kutunun üstünde küçük satır (11-14).
     follows = [c for c in options if "takip" in c.lower()]
     shares = [c for c in options if "takip" not in c.lower()]
-    small = f'<p>{html.escape(pick(shares, body).format(tur=tur))}</p>' if shares else ""
-    follow = f'<div class="follow">{small}<div>{html.escape(pick(follows, body).format(tur=tur))}</div></div>'
+    small = pick(shares, body).format(tur=tur) if shares else ""
+    big = pick(follows, body).format(tur=tur)
+    # 11-19: dua kartı yorumda "Âmin" ister (dualar en çok yorumu alıyor); sabah kartı güne ayetle başlamaya davet.
+    if "Kur&#x27;an&#x27;daki Dualar" in body or "Kur'an'daki Dualar" in body:
+        small, big = "Her gün bir dua için takip edin.", "Duaya katılmak için yoruma Âmin yazın."
+    elif "Hayırlı Sabahlar" in body:
+        small, big = "Hayırlı sabahlar, hayırlı işler.", "Güne bir ayetle başlamak için takip edin."
+    small = f'<p>{html.escape(small)}</p>' if small else ""
+    follow = f'<div class="follow">{small}<div>{html.escape(big)}</div></div>'
     css = CSS + (STORY_CSS if story else "")
     return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap"><div class="inner">{body}</div></div>{follow}{foot}{FIT_JS}'
 
@@ -229,7 +236,7 @@ def page(body, story=False):
 def ayet(key, kicker, title=None):
     vs = verses(key)
     ar = " ".join(v[0] for v in vs)
-    meal = " ".join(v[1] for v in vs)
+    meal = " ".join(dict.fromkeys(v[1] for v in vs))  # birleşik mealde (30:17-18) aynı metin bir kez
     sura, nums = key.split(":")
     ref = f"{sura_name(sura)} Suresi {nums.replace('-', '–')}. ayet"
     body = (

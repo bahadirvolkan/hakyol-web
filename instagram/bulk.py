@@ -2,14 +2,16 @@
 
     IG_TOKEN=... python3 instagram/bulk.py [--dry] [--count N --gap SANİYE]
 
-Durumsuz: son ~300 gönderinin açıklamasına bakar, henüz paylaşılmamış ilk öğeyi seçer.
-Tekli öğe: places.reel (yavaş yakınlaşma, meal uzunluğuna göre 8-15 sn). Paket: kart başına kısa klipler, geçişli,
+Durumsuz: son ~300 gönderinin içeriğine bakar, henüz paylaşılmamış ilk öğeyi seçer (sabah: dua + 3 sabah ayeti).
+Tekli öğe: places.reel (yavaş yakınlaşma, 6-8 sn). Paket: kart başına kısa klipler, geçişli,
 tek fon müziği. Video tek dosyalık ig-bulk dalına itilir (raw URL).
 """
 import random
+import re
 import subprocess
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import places as PL
@@ -21,18 +23,50 @@ import json
 HERE = Path(__file__).resolve().parent
 OUT = R.OUT / "bulk"
 RAW = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-bulk"
+TSI = timezone(timedelta(hours=3))
 
 
-def published_captions():
-    caps, params = set(), {"fields": "caption", "limit": 100}
+PREFIXES = ("Kur'an'daki dualar.", "Hayırlı sabahlar, hayırlı işler.", "Hayırlı Cumalar.")
+
+
+def key(caption):
+    """Aynı ayet/hadis farklı açıklama kalıbıyla (eski/yeni CTA, sabah, dua) ikinci kez paylaşılmasın: ilk içerik paragrafı."""
+    paras = [p for p in caption.strip().split("\n\n") if p.strip() not in PREFIXES]
+    return re.sub(r"\W+", "", paras[0].lower())[:80] if paras else ""
+
+
+def published():
+    """Son ~300 gönderi: (içerik anahtarları, bugün TSİ yayınlananların açıklamaları)."""
+    keys, today, params = set(), [], {"fields": "caption,timestamp", "limit": 100}
+    tsi = lambda ts: datetime.strptime(ts, "%Y-%m-%dT%H:%M:%S%z").astimezone(TSI)
+    now = datetime.now(TSI)
     for _ in range(3):
         page = P.call("GET", f"{P.IG_USER}/media", **params)
-        caps |= {(m.get("caption") or "").strip() for m in page["data"]}
+        for m in page["data"]:
+            cap = (m.get("caption") or "").strip()
+            keys.add(key(cap))
+            if tsi(m["timestamp"]).date() == now.date():
+                today.append(cap)
         after = page.get("paging", {}).get("cursors", {}).get("after")
         if not page.get("paging", {}).get("next") or not after:
             break
         params["after"] = after
-    return caps
+    return keys, today
+
+
+def choose(queue, keys, today, hour):
+    """Sabah (TSİ 11'den önce): önce bir dua, sonra 3 'Hayırlı sabahlar' ayeti; gün içinde normal sıra (ayet, ayet, dua)."""
+    fresh = [q for q in queue if q["kind"] != "pack" and key(q["caption"]) not in keys]
+    if hour < 11:
+        if not any(c.startswith("Kur'an'daki dualar") for c in today):
+            dua = next((q for q in fresh if q.get("slot") == "dua"), None)
+            if dua:
+                return dua
+        if sum(c.startswith("Hayırlı sabahlar") for c in today) < 3:
+            sabah = next((q for q in fresh if q.get("slot") == "sabah"), None)
+            if sabah:
+                return sabah
+    return next((q for q in fresh if q.get("slot") != "sabah"), None)
 
 
 def pack_video(cards, mp4, seed):
@@ -65,9 +99,9 @@ def pack_video(cards, mp4, seed):
 
 def main():
     queue = json.loads((HERE / "queue.json").read_text())
-    done = published_captions()
+    keys, today = published()
     # Tema paketleri (çok kartlı, ~30 sn) 7/7 denemede 5-16 izlenmede kaldı; tek kartlar ~1500. Paket atlanır.
-    item = next((q for q in queue if q["kind"] != "pack" and q["caption"].strip() not in done), None)
+    item = choose(queue, keys, today, datetime.now(TSI).hour)
     if not item:
         print("sıra bitti")
         return

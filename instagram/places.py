@@ -81,20 +81,22 @@ def card(d, il_rec, ilce=None):
 
 
 def secs_for(body):
-    """Reels süresi meal uzunluğuna göre 8-15 sn: kısa ayet sonuna kadar izlensin (ort. izlenme ~4 sn, 11-14)."""
+    """Reels süresi 6-8 sn (11-19 analiz: süre ne olursa olsun ort. izlenme ~4 sn; kısa video = yüksek tamamlanma, döngü)."""
     m = re.search(r'class="meal"[^>]*>(.*?)</div>', body, re.S)
     n = len(re.sub(r"<[^>]+>", "", m.group(1))) if m else 300
-    return max(8, min(15, round(4 + n / 22)))
+    return max(6, min(8, round(5 + n / 100)))
 
 
 RECITER = "https://everyayah.com/data/Alafasy_128kbps"  # Mişari Raşid el-Afasi (Quran.com tilavet 7)
-MAX_RECITATION = 60
+MAX_RECITATION = 7  # 11-19: yalnız kısa ayetler tilavetli (reels 6-9 sn); uzunlar kısa ney
 
 
 def verse_key(caption):
     """Açıklamadaki '(Bakara Suresi 186. ayet)' -> '2:186'; ayet yoksa (hadis) None."""
     # Yalnız ilk paragraf: alttaki takip cümlesinde de bir ayet atfı (Ra'd 28) var.
-    m = re.search(r"\(([^()]+?) Suresi (\d+)(?:[–-](\d+))?\. ayet[,)]", caption.split("\n\n")[0])
+    # Sabah/dua açıklamalarında ilk paragraf "Hayırlı sabahlar…" ya da "Kur'an'daki dualar." olur: atlanır.
+    paras = [p for p in caption.split("\n\n") if not p.startswith(("Hayırlı sabahlar", "Kur'an'daki dualar"))]
+    m = re.search(r"\(([^()]+?) Suresi (\d+)(?:[–-](\d+))?\. ayet[,)]", paras[0] if paras else "")
     if not m:
         return None
     names = {c["translated_name"]["name"]: c["id"] for c in R.cached("chapters_tr.json", "https://api.quran.com/api/v4/chapters?language=tr")["chapters"]}
@@ -128,15 +130,15 @@ def recitation(key, out):
 
 
 def reel_recited(jpg, mp4, audio):
-    """Kart + tilavet: süre tilavet kadar (+1 sn baş, +1.5 sn son), yavaş yakınlaşma, müzik yok."""
-    secs = int(duration(audio) + 3.5)
+    """Kart + tilavet: süre tilavet kadar (+0.5 sn baş, +1 sn son), yavaş yakınlaşma, müzik yok."""
+    secs = max(6, round(duration(audio) + 1.5))
     frames = secs * 30
     subprocess.run([
         "ffmpeg", "-y", "-v", "error", "-loop", "1", "-framerate", "30", "-i", str(jpg), "-i", str(audio), "-t", str(secs),
         "-filter_complex",
         f"[0:v]scale=1620:-1,zoompan=z='1+0.05*on/{frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
         f":d={frames}:s=1080x1920:fps=30,format=yuv420p[v];"
-        f"[1:a]adelay=1000|1000,apad,loudnorm=I=-16:TP=-1.5,aresample=44100[a]",
+        f"[1:a]adelay=500|500,apad,loudnorm=I=-16:TP=-1.5,aresample=44100[a]",
         "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
         "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(mp4),
     ], check=True)
