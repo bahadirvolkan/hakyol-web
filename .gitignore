@@ -2,6 +2,12 @@ node_modules/
 graphify-out/
 .superpowers/
 /namaz-vakitleri/
+/api/
+/cuma-namazi-saati/
+/kible-yonu/
+/hicri-takvim/
+/sitenize-ekleyin/
+/de/gebetszeiten-widget/
 /sitemap-namaz.xml
 /sitemap-world.xml
 /id/jadwal-sholat/

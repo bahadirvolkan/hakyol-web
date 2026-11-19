@@ -58,6 +58,9 @@ jobs:
       - name: Dünya şehir sayfalarını üret
         run: node build-world.js
 
+      - name: Cuma, kıble, hicri ve widget sayfalarını üret
+        run: node build-features.js
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

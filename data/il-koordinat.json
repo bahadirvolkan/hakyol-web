@@ -1,0 +1,411 @@
+{
+  "source": "GeoNames TR dump, CC BY 4.0",
+  "generated": "2026-11-19T08:42:44.836Z",
+  "iller": {
+    "ADANA": {
+      "lat": 36.98615,
+      "lng": 35.32531,
+      "geonameId": 325363
+    },
+    "ADIYAMAN": {
+      "lat": 37.76441,
+      "lng": 38.27629,
+      "geonameId": 325330
+    },
+    "AFYONKARAHİSAR": {
+      "lat": 38.75667,
+      "lng": 30.54333,
+      "geonameId": 325303
+    },
+    "AĞRI": {
+      "lat": 39.71467,
+      "lng": 43.04015,
+      "geonameId": 309647
+    },
+    "AKSARAY": {
+      "lat": 38.37255,
+      "lng": 34.02537,
+      "geonameId": 324496
+    },
+    "AMASYA": {
+      "lat": 40.65333,
+      "lng": 35.83306,
+      "geonameId": 752015
+    },
+    "ANKARA": {
+      "lat": 39.91987,
+      "lng": 32.85427,
+      "geonameId": 323786
+    },
+    "ANTALYA": {
+      "lat": 36.90812,
+      "lng": 30.69556,
+      "geonameId": 323777
+    },
+    "ARDAHAN": {
+      "lat": 41.10871,
+      "lng": 42.70222,
+      "geonameId": 751952
+    },
+    "ARTVİN": {
+      "lat": 41.18161,
+      "lng": 41.82172,
+      "geonameId": 751817
+    },
+    "AYDIN": {
+      "lat": 37.84501,
+      "lng": 27.83963,
+      "geonameId": 322830
+    },
+    "BALIKESİR": {
+      "lat": 39.64917,
+      "lng": 27.88611,
+      "geonameId": 322165
+    },
+    "BARTIN": {
+      "lat": 41.63583,
+      "lng": 32.3375,
+      "geonameId": 751057
+    },
+    "BATMAN": {
+      "lat": 37.88738,
+      "lng": 41.13221,
+      "geonameId": 321836
+    },
+    "BAYBURT": {
+      "lat": 40.25631,
+      "lng": 40.22289,
+      "geonameId": 750938
+    },
+    "BİLECİK": {
+      "lat": 40.14192,
+      "lng": 29.97932,
+      "geonameId": 750598
+    },
+    "BİNGÖL": {
+      "lat": 38.88472,
+      "lng": 40.49389,
+      "geonameId": 321082
+    },
+    "BİTLİS": {
+      "lat": 38.40115,
+      "lng": 42.10784,
+      "geonameId": 321025
+    },
+    "BOLU": {
+      "lat": 40.73583,
+      "lng": 31.60611,
+      "geonameId": 750516
+    },
+    "BURDUR": {
+      "lat": 37.72028,
+      "lng": 30.29083,
+      "geonameId": 320392
+    },
+    "BURSA": {
+      "lat": 40.19559,
+      "lng": 29.06013,
+      "geonameId": 750269
+    },
+    "ÇANAKKALE": {
+      "lat": 40.15552,
+      "lng": 26.41271,
+      "geonameId": 749780
+    },
+    "ÇANKIRI": {
+      "lat": 40.59995,
+      "lng": 33.6153,
+      "geonameId": 749748
+    },
+    "ÇORUM": {
+      "lat": 40.54889,
+      "lng": 34.95333,
+      "geonameId": 748879
+    },
+    "DENİZLİ": {
+      "lat": 37.77417,
+      "lng": 29.0875,
+      "geonameId": 317109
+    },
+    "DİYARBAKIR": {
+      "lat": 37.91363,
+      "lng": 40.21721,
+      "geonameId": 316541
+    },
+    "DÜZCE": {
+      "lat": 40.83889,
+      "lng": 31.16389,
+      "geonameId": 747764
+    },
+    "EDİRNE": {
+      "lat": 41.67719,
+      "lng": 26.55597,
+      "geonameId": 747712
+    },
+    "ELAZIĞ": {
+      "lat": 38.67431,
+      "lng": 39.22321,
+      "geonameId": 315808
+    },
+    "ERZİNCAN": {
+      "lat": 39.73919,
+      "lng": 39.49015,
+      "geonameId": 315373
+    },
+    "ERZURUM": {
+      "lat": 39.90861,
+      "lng": 41.27694,
+      "geonameId": 315368
+    },
+    "ESKİŞEHİR": {
+      "lat": 39.77667,
+      "lng": 30.52056,
+      "geonameId": 315202
+    },
+    "GAZİANTEP": {
+      "lat": 37.05944,
+      "lng": 37.3825,
+      "geonameId": 314830
+    },
+    "GİRESUN": {
+      "lat": 40.91698,
+      "lng": 38.38741,
+      "geonameId": 746881
+    },
+    "GÜMÜŞHANE": {
+      "lat": 40.46001,
+      "lng": 39.47176,
+      "geonameId": 746425
+    },
+    "HAKKARİ": {
+      "lat": 37.57444,
+      "lng": 43.74083,
+      "geonameId": 318137
+    },
+    "HATAY": {
+      "lat": 36.20655,
+      "lng": 36.15722,
+      "geonameId": 323779
+    },
+    "IĞDIR": {
+      "lat": 39.92371,
+      "lng": 44.045,
+      "geonameId": 311665
+    },
+    "ISPARTA": {
+      "lat": 37.76444,
+      "lng": 30.55222,
+      "geonameId": 311073
+    },
+    "İSTANBUL": {
+      "lat": 41.01384,
+      "lng": 28.94966,
+      "geonameId": 745044
+    },
+    "İZMİR": {
+      "lat": 38.41273,
+      "lng": 27.13838,
+      "geonameId": 311046
+    },
+    "KAHRAMANMARAŞ": {
+      "lat": 37.5847,
+      "lng": 36.92641,
+      "geonameId": 310859
+    },
+    "KARABÜK": {
+      "lat": 41.20488,
+      "lng": 32.62768,
+      "geonameId": 744562
+    },
+    "KARAMAN": {
+      "lat": 37.18111,
+      "lng": 33.215,
+      "geonameId": 309527
+    },
+    "KARS": {
+      "lat": 40.59825,
+      "lng": 43.08548,
+      "geonameId": 743952
+    },
+    "KASTAMONU": {
+      "lat": 41.37805,
+      "lng": 33.77528,
+      "geonameId": 743882
+    },
+    "KAYSERİ": {
+      "lat": 38.73222,
+      "lng": 35.48528,
+      "geonameId": 308464
+    },
+    "KİLİS": {
+      "lat": 36.71611,
+      "lng": 37.115,
+      "geonameId": 307864
+    },
+    "KIRIKKALE": {
+      "lat": 39.84528,
+      "lng": 33.50639,
+      "geonameId": 307654
+    },
+    "KIRKLARELİ": {
+      "lat": 41.73508,
+      "lng": 27.22521,
+      "geonameId": 743166
+    },
+    "KIRŞEHİR": {
+      "lat": 39.14583,
+      "lng": 34.16389,
+      "geonameId": 307515
+    },
+    "KOCAELİ": {
+      "lat": 40.76499,
+      "lng": 29.92928,
+      "geonameId": 745028
+    },
+    "KONYA": {
+      "lat": 37.87135,
+      "lng": 32.48464,
+      "geonameId": 306571
+    },
+    "KÜTAHYA": {
+      "lat": 39.42417,
+      "lng": 29.98333,
+      "geonameId": 305268
+    },
+    "MALATYA": {
+      "lat": 38.35018,
+      "lng": 38.31667,
+      "geonameId": 304922
+    },
+    "MANİSA": {
+      "lat": 38.61202,
+      "lng": 27.42647,
+      "geonameId": 304827
+    },
+    "MARDİN": {
+      "lat": 37.31309,
+      "lng": 40.74357,
+      "geonameId": 304797
+    },
+    "MERSİN": {
+      "lat": 36.81196,
+      "lng": 34.63886,
+      "geonameId": 304531
+    },
+    "MUĞLA": {
+      "lat": 37.21807,
+      "lng": 28.3665,
+      "geonameId": 304184
+    },
+    "MUŞ": {
+      "lat": 38.73163,
+      "lng": 41.48482,
+      "geonameId": 304081
+    },
+    "NEVŞEHİR": {
+      "lat": 38.625,
+      "lng": 34.71222,
+      "geonameId": 303831
+    },
+    "NİĞDE": {
+      "lat": 37.96583,
+      "lng": 34.67935,
+      "geonameId": 303827
+    },
+    "ORDU": {
+      "lat": 40.97782,
+      "lng": 37.89047,
+      "geonameId": 741100
+    },
+    "OSMANİYE": {
+      "lat": 37.07417,
+      "lng": 36.24778,
+      "geonameId": 303195
+    },
+    "RİZE": {
+      "lat": 41.02083,
+      "lng": 40.52194,
+      "geonameId": 740483
+    },
+    "SAKARYA": {
+      "lat": 40.78056,
+      "lng": 30.40333,
+      "geonameId": 752850
+    },
+    "SAMSUN": {
+      "lat": 41.27976,
+      "lng": 36.3361,
+      "geonameId": 740264
+    },
+    "ŞANLIURFA": {
+      "lat": 37.16708,
+      "lng": 38.79392,
+      "geonameId": 298333
+    },
+    "SİİRT": {
+      "lat": 37.9293,
+      "lng": 41.94134,
+      "geonameId": 300822
+    },
+    "SİNOP": {
+      "lat": 42.02683,
+      "lng": 35.16253,
+      "geonameId": 739600
+    },
+    "ŞIRNAK": {
+      "lat": 37.51393,
+      "lng": 42.45432,
+      "geonameId": 300640
+    },
+    "SİVAS": {
+      "lat": 39.74833,
+      "lng": 37.01611,
+      "geonameId": 300619
+    },
+    "TEKİRDAĞ": {
+      "lat": 40.9781,
+      "lng": 27.51101,
+      "geonameId": 738927
+    },
+    "TOKAT": {
+      "lat": 40.31389,
+      "lng": 36.55444,
+      "geonameId": 738743
+    },
+    "TRABZON": {
+      "lat": 41.005,
+      "lng": 39.72694,
+      "geonameId": 738648
+    },
+    "TUNCELİ": {
+      "lat": 39.09921,
+      "lng": 39.54351,
+      "geonameId": 298846
+    },
+    "UŞAK": {
+      "lat": 38.67351,
+      "lng": 29.4058,
+      "geonameId": 298299
+    },
+    "VAN": {
+      "lat": 38.49457,
+      "lng": 43.38323,
+      "geonameId": 298117
+    },
+    "YALOVA": {
+      "lat": 40.65501,
+      "lng": 29.27693,
+      "geonameId": 738025
+    },
+    "YOZGAT": {
+      "lat": 39.82,
+      "lng": 34.80444,
+      "geonameId": 296562
+    },
+    "ZONGULDAK": {
+      "lat": 41.45139,
+      "lng": 31.79305,
+      "geonameId": 737022
+    }
+  }
+}

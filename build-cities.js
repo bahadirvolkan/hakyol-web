@@ -19,6 +19,7 @@ const ROOT = __dirname;
 const SITE = "https://hakyol.app";
 const BASE_PATH = "/namaz-vakitleri";
 const OUT_DIR = path.join(ROOT, "namaz-vakitleri");
+const API_DIR = path.join(ROOT, "api", "vakit");
 const APP_ID = "6794740149";
 const PKG = "com.bahadir.hakyol";
 const DAYS_SHOWN = 30;
@@ -172,13 +173,38 @@ function rowsFor(id) {
   return rows.length && rows[0][0] === today ? rows : null;
 }
 
+function apiRows(id) {
+  return (VAKIT[id] || []).filter((r) => r[0] >= today).map((r) => r.slice(0, 7));
+}
+
+function worldTz(country, city) {
+  const fixed = { almanya: "Europe/Berlin", hollanda: "Europe/Amsterdam", belcika: "Europe/Brussels", fransa: "Europe/Paris", avusturya: "Europe/Vienna", isvicre: "Europe/Zurich", ingiltere: "Europe/London", kktc: "Asia/Famagusta", azerbaycan: "Asia/Baku", isvec: "Europe/Stockholm", danimarka: "Europe/Copenhagen" };
+  if (country.slug !== "abd") return fixed[country.slug];
+  if (city.slug === "phoenix") return "America/Phoenix";
+  if (city.slug === "indianapolis") return "America/Indiana/Indianapolis";
+  if (city.lng < -115) return "America/Los_Angeles";
+  if (city.lng < -100) return "America/Denver";
+  if (city.lng < -85) return "America/Chicago";
+  return "America/New_York";
+}
+
+function writeApi(route, ad, url, tz, rows) {
+  const dest = path.join(API_DIR, `${route}.json`);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.writeFileSync(dest, JSON.stringify({ ad, url: `${SITE}${url}`, tz, gunler: rows }));
+}
+
 // Bugünün verisi olmayan yer o gün yayınlanmaz (bağlantılardan da düşer); çoğu eksikse üretim durur.
 const ilceCount = iller.reduce((n, il) => n + il.ilceler.length + 1, 0);
 const missing = [];
 for (const il of iller) {
   il.rows = rowsFor(il.centerId);
   if (!il.rows) missing.push(il.name);
-  il.ilceler = il.ilceler.filter((x) => (x.rows = rowsFor(x.id)) || !missing.push(`${x.name}, ${il.name}`));
+  il.ilceler = il.ilceler.filter((x) => {
+    x.rows = rowsFor(x.id);
+    if (!x.rows && il.rows) { x.rows = il.rows; x.viaCenter = true; }
+    return !!x.rows || !missing.push(`${x.name}, ${il.name}`);
+  });
   if (il.rows) il.ilceler.push(...il.viaCenter.map((x) => ({ ...x, rows: il.rows })));
   il.ilceler.sort((a, b) => a.name.localeCompare(b.name, "tr"));
 }
@@ -382,7 +408,7 @@ ${body}
 <p class="ig">Günlük ayet ve hadisler için Instagram'da takip edin: <a href="https://www.instagram.com/hakyol.app/" rel="noopener">@hakyol.app</a></p>
 </main>
 <footer><div class="wrap">
-<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a><a href="https://www.instagram.com/hakyol.app/" rel="noopener">Instagram</a>
+<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="/sitenize-ekleyin/">Sitenize ekleyin</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a><a href="https://www.instagram.com/hakyol.app/" rel="noopener">Instagram</a>
 <p class="disc">Vakitler Diyanet İşleri Başkanlığı verisine dayanır. Resmî kaynak namazvakti.diyanet.gov.tr'dir. © 2026 3B Tech.</p>
 </div></footer>
 <script>${CLIENT_JS}</script>
@@ -415,6 +441,7 @@ ${cta(place, campaign)}
 ${monthTable(rows)}
 <p class="prose">${esc(place)} için ezan saatleri Diyanet İşleri Başkanlığı'nın yayımladığı vakitlerdir. ${country ? `${esc(place)} için` : esc(loc(place))} bugün ezan saatleri şöyle: imsak ${r[1]}, güneş ${r[2]}, öğle ${r[3]}, ikindi ${r[4]}, akşam ${r[5]}, yatsı ${r[6]}. Tablodaki öbür günlerin vakitleri de Diyanet takvimiyle aynıdır.</p>
 ${extra || ""}
+<p class="prose"><a href="/sitenize-ekleyin/?sehir=${url.slice(BASE_PATH.length + 1, -1)}">Bu vakitleri sitenize ekleyin</a></p>
 <h2 class="sec">Sık sorulanlar</h2>
 ${f.html}`;
   return page({
@@ -461,6 +488,7 @@ function write(rel, html) {
 }
 
 fs.rmSync(OUT_DIR, { recursive: true, force: true });
+fs.rmSync(API_DIR, { recursive: true, force: true });
 const urls = [`${BASE_PATH}/`];
 const rootCrumb = ["Namaz Vakitleri", `${BASE_PATH}/`];
 
@@ -486,6 +514,7 @@ for (const il of iller) {
         .map((x) => `<li><a href="${ilUrl}${x.slug}/">${esc(x.name)}</a></li>`)
         .join("")}</ul>`
     : "";
+  const featureLinks = `<h2 class="sec">${esc(il.name)} için diğer araçlar</h2><ul class="links"><li><a href="/cuma-namazi-saati/${il.slug}/">Cuma namazı saati</a></li><li><a href="/kible-yonu/${il.slug}/">Kıble yönü</a></li></ul>`;
   if (il.rows) write(
     il.slug,
     placePage({
@@ -495,10 +524,11 @@ for (const il of iller) {
       crumbs: [["Hakyol", "/"], rootCrumb, [il.name, ilUrl]],
       rows: il.rows,
       campaign: `city_${il.slug}`,
-      extra: ilceList,
+      extra: ilceList + featureLinks,
     })
   );
   if (il.rows) urls.push(ilUrl);
+  if (il.rows) writeApi(il.slug, il.name, ilUrl, "Europe/Istanbul", apiRows(il.centerId));
 
   for (const x of il.ilceler) {
     const url = `${ilUrl}${x.slug}/`;
@@ -522,6 +552,7 @@ for (const il of iller) {
       })
     );
     urls.push(url);
+    writeApi(`${il.slug}/${x.slug}`, x.name, url, "Europe/Istanbul", apiRows(x.viaCenter ? il.centerId : (x.id || il.centerId)));
   }
 }
 
@@ -553,6 +584,7 @@ for (const country of countries) {
       extra: `<h2 class="sec">${esc(country.name)} ve diğer şehirler</h2><ul class="links">${others}</ul>`,
     }));
     urls.push(url);
+    writeApi(`${country.slug}/${city.slug}`, city.name, url, worldTz(country, city), apiRows(city.ilceId));
   }
 }
 
@@ -572,6 +604,7 @@ ${turkeyMapHtml}
 <h2 class="sec">Yurt dışı namaz vakitleri</h2>
 ${worldMapHtml}
 ${countries.map((country) => `<h3><a href="${BASE_PATH}/${country.slug}/">${esc(country.name)}</a></h3><ul class="links">${country.cities.filter((city) => city.rows).slice(0, 5).map((city) => `<li><a href="${BASE_PATH}/${country.slug}/${city.slug}/">${esc(city.name)}</a></li>`).join("")}</ul>`).join("")}
+<h2 class="sec">Takvim ve araçlar</h2><ul class="links"><li><a href="/hicri-takvim/">Hicri takvim</a></li><li><a href="/cuma-namazi-saati/">Cuma namazı saatleri</a></li><li><a href="/kible-yonu/">Kıble yönü</a></li><li><a href="/sitenize-ekleyin/">Sitenize ekleyin</a></li></ul>
 ${cta("Bulunduğunuz yer", "city_hub")}`,
     ld: [breadcrumbLd([["Hakyol", "/"], rootCrumb])],
     turkeyMap: true,
