@@ -310,7 +310,7 @@ def gelen_dualar(d):
     items = f'<div class="meal">“{html.escape(duas[n % len(duas)])}”</div>'
     return (f'<div class="kicker">Hakyol · Hediye</div><div class="title">Sizin Duanız</div>'
             f'<div class="rule"></div>{items}<div class="rule"></div>'
-            f'<div class="ref">Takipçimizin duası, isimsiz</div>')
+            f'<div class="ref">Takipçimizin duası</div>')
 
 
 def story_for(d, slot):
