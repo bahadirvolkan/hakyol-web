@@ -62,6 +62,9 @@ def main():
             return
 
     url = f"{RAW}/{name}.mp4"
+    # Hediye kampanyası (11-19..25, kullanıcı onayı): her gün 1. hikâye kampanya kartı (ig-campaign dalı).
+    if story and sys.argv[sys.argv.index("--story") + 1] == "1" and date(2026, 11, 20) <= d <= date(2026, 11, 25):
+        url = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-campaign/hediye.mp4"
     for _ in range(10):  # raw.githubusercontent push'tan hemen sonra 404 verebilir
         try:
             urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=20)
