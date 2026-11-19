@@ -28,7 +28,7 @@ CAMPAIGN_REPLY = "Âmin. Allah kabul etsin."
 MENTION = re.compile(r"@[\w.]+")
 
 
-# 11-20 kullanıcı: öne çıkarılan gönderide yorum sabitlenemiyor; her 5 katılımcı yorumunda katılım notu yeniden yazılır.
+# 11-20 kullanıcı: öne çıkarılan gönderide yorum sabitlenemiyor; her 10 katılımcı yorumunda katılım notu yeniden yazılır.
 NOTE_PREFIX = "Katılım notu:"
 NOTE = ("Katılım notu: Yoruma duanızı yazın; bu duayı kime ediyorsanız onu etiketleyin, duanız ona ulaşsın. "
         "Uygulamayı indirmek isteğe bağlıdır, katılım şartı değildir. Gelen dualardan bazılarını isimsiz olarak hikâyemizde paylaşıyoruz.")
@@ -37,7 +37,7 @@ NOTE = ("Katılım notu: Yoruma duanızı yazın; bu duayı kime ediyorsanız on
 def campaign_note(comments, dry=False):
     users = sum(1 for c in comments if c.get("username") != ME)
     notes = sum(1 for c in comments if c.get("username") == ME and (c.get("text") or "").startswith(NOTE_PREFIX))
-    if notes < 1 + users // 5:
+    if notes < 1 + users // 10:
         print("kampanya katılım notu", users, "yorum,", notes, "not")
         if not dry:
             P.call("POST", f"{CAMPAIGN}/comments", message=NOTE)
