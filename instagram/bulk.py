@@ -114,6 +114,19 @@ def due_extra(today):
                  and x["caption"].strip() not in done), None)
 
 
+
+def old_reel(item, mp4):
+    jpg = OUT / f"{item['id']}.jpg"
+    R.shoot(item["cards"][0], jpg, story=True)
+    # Tilavet denemesi (11-15, kullanıcı onayı): ayet kartlarında ney yerine Arapça tilavet;
+    # hadis ve dualarda ney kalır (öyle önerildi). Tilavet 60 sn'yi aşarsa ney.
+    key = PL.verse_key(item["caption"]) if not any(w in item["caption"] for w in ("Kırk Hadis", "Kur'an'daki dualar")) else None
+    audio = PL.recitation(key, OUT / f"{item['id']}-tilavet.mp3") if key else None
+    if audio:
+        print("tilavet", key, PL.reel_recited(jpg, mp4, audio), "sn")
+    else:
+        PL.reel(jpg, mp4, secs=PL.secs_for(item["cards"][0]), seed=item["id"])
+
 def main():
     queue = json.loads((HERE / "queue.json").read_text())
     keys, today = published()
@@ -133,16 +146,15 @@ def main():
     if item["kind"] == "pack":
         pack_video(item["cards"], mp4, item["id"])
     else:
-        jpg = OUT / f"{item['id']}.jpg"
-        R.shoot(item["cards"][0], jpg, story=True)
-        # Tilavet denemesi (11-15, kullanıcı onayı): ayet kartlarında ney yerine Arapça tilavet;
-        # hadis ve dualarda ney kalır (öyle önerildi). Tilavet 60 sn'yi aşarsa ney.
-        key = PL.verse_key(item["caption"]) if not any(w in item["caption"] for w in ("Kırk Hadis", "Kur'an'daki dualar")) else None
-        audio = PL.recitation(key, OUT / f"{item['id']}-tilavet.mp3") if key else None
-        if audio:
-            print("tilavet", key, PL.reel_recited(jpg, mp4, audio), "sn")
-        else:
-            PL.reel(jpg, mp4, secs=PL.secs_for(item["cards"][0]), seed=item["id"])
+        # 11-20 kullanıcı: kart arka planı yerine kendi çektiği gökyüzü videoları (sky.py, ig-sky dalı). Tilavet
+        # bu biçimde yok (11-19 analizi: tilavet ile ney arasında izlenme farkı çıkmadı). Hata olursa eski kart.
+        try:
+            import sky
+            sky.card_reel(item["cards"][0], mp4, item["id"])
+            print("gökyüzü", item["id"])
+        except Exception as e:  # noqa: BLE001
+            print("gökyüzü hatası, kart:", e)
+            old_reel(item, mp4)
     print("üretildi", mp4)
     if "--dry" in sys.argv:
         return

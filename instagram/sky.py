@@ -86,6 +86,78 @@ def build(source, start, crop_x, key, mp4, kicker="Hayırlı Cumalar"):
     return mp4
 
 
+# Normal akış (11-20 kullanıcı: kart arka planı yerine gökyüzü videoları): hazır 10 sn'lik dikey arka planlar
+# ig-sky dalında (media/bulut/bg.txt ile kesildi, kokpit/silecek/çerçeve görünmeyen bölümler). Kartın kendisi
+# (bulk öğesinin gövdesi) üç şeffaf katman olarak üstüne biner: başlık, ayet/meal, kaynak + takip.
+SKY_RAW = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-sky"
+BACKGROUNDS = [f"bg{i:02d}" for i in range(1, 11)]
+CARD_CSS = """
+html,body{background:transparent!important}.pattern{display:none}
+body{text-shadow:0 2px 18px rgba(4,8,20,.8)}
+.follow div{background:rgba(11,18,32,.55)}
+"""
+GROUPS = [
+    ".inner>*:not(.kicker):not(.title),.follow,.foot{visibility:hidden}",
+    ".frame,.kicker,.title,.ref,.follow,.foot{visibility:hidden}"
+    "body:before{content:'';position:absolute;left:-200px;right:-200px;top:380px;bottom:420px;"
+    "background:radial-gradient(ellipse at center,rgba(8,14,28,.6) 0%,rgba(8,14,28,.35) 45%,transparent 72%)}",
+    ".frame,.inner>*:not(.ref){visibility:hidden}",
+]
+
+
+def card_layers(body, stem):
+    R.CACHE.mkdir(exist_ok=True)
+    out = []
+    for i, g in enumerate(GROUPS):
+        src, png = R.CACHE / f"{stem}-k{i}.html", R.CACHE / f"{stem}-k{i}.png"
+        src.write_text(R.page(body, story=True).replace("</style>", CARD_CSS + g + "</style>", 1))
+        subprocess.run([R.chrome(), "--headless=new", "--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1",
+                        "--default-background-color=00000000", "--window-size=1080,1920", "--virtual-time-budget=5000",
+                        f"--screenshot={png}", f"file://{src}"], check=True, capture_output=True)
+        out.append(png)
+    return out
+
+
+def background(seed, cache):
+    """Öğeye göre sabit bir arka plan klibi (indirip önbellekte tutar)."""
+    import urllib.request
+    import zlib
+    name = BACKGROUNDS[zlib.crc32(seed.encode()) % len(BACKGROUNDS)]
+    f = cache / f"{name}.mp4"
+    if not f.exists():
+        cache.mkdir(parents=True, exist_ok=True)
+        urllib.request.urlretrieve(f"{SKY_RAW}/{name}.mp4", f)
+    return f
+
+
+def compose(bg, layers, mp4, seed):
+    rnd = random.Random(seed)
+    track = rnd.choice(MUSIC)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(track)],
+                               capture_output=True, text=True, check=True).stdout)
+    a_start = rnd.uniform(5, dur - SECS - 5)
+    fades = [(0.3, 0.9), (1.4, 1.0), (3.0, 0.9)]
+    inputs = ["-i", str(bg)]
+    for p in layers:
+        inputs += ["-loop", "1", "-framerate", "30", "-t", str(SECS), "-i", str(p)]
+    inputs += ["-ss", f"{a_start:.1f}", "-t", str(SECS), "-i", str(track)]
+    fc = f"[0:v]drawbox=c=0x0B1220@0.28:t=fill,trim=duration={SECS}[bg];"
+    last = "bg"
+    for i, (st, d) in enumerate(fades):
+        fc += f"[{i + 1}:v]format=rgba,fade=t=in:st={st}:d={d}:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[v{i}];"
+        last = f"v{i}"
+    fc += (f"[{last}]fade=t=in:d=0.4,fade=t=out:st={SECS - 0.6}:d=0.6,format=yuv420p[v];"
+           f"[4:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.2,afade=t=out:st={SECS - 1.5}:d=1.5,aresample=44100[a]")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
+                    "-t", str(SECS), "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
+                    "-movflags", "+faststart", str(mp4)], check=True)
+    return mp4
+
+
+def card_reel(body, mp4, seed):
+    return compose(background(seed, R.CACHE / "sky"), card_layers(body, mp4.stem), mp4, seed)
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     kick = a[a.index("--kicker") + 1] if "--kicker" in a else "Hayırlı Cumalar"
