@@ -55,9 +55,9 @@ def published():
 
 
 def choose(queue, keys, today, hour):
-    """Sabah (TSİ 11'den önce): önce bir dua, sonra 3 'Hayırlı sabahlar' ayeti; gün içinde normal sıra (ayet, ayet, dua)."""
+    """Sabah (TSİ 05-11): önce bir dua, sonra 3 'Hayırlı sabahlar' ayeti; gün içinde normal sıra (ayet, ayet, dua)."""
     fresh = [q for q in queue if q["kind"] != "pack" and key(q["caption"]) not in keys]
-    if hour < 11:
+    if 5 <= hour < 11:  # gece yarısından sonraki son tur sabah sayılmasın (11-20: 01:52 "Hayırlı sabahlar")
         if not any(c.startswith("Kur'an'daki dualar") for c in today):
             dua = next((q for q in fresh if q.get("slot") == "dua"), None)
             if dua:
