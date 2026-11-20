@@ -106,7 +106,9 @@ def due_extra(today):
     f = HERE / "extra.json"
     if not f.exists():
         return None
-    now = datetime.now(TSI).strftime("%Y-%m-%dT%H:%M")
+    # Yerel zamanlayıcı tam saatte EXTRA_LEAD=20 ile çalışır; Actions zinciri 20 dk sonra yedek olarak yakalar.
+    import os
+    now = (datetime.now(TSI) + timedelta(minutes=int(os.environ.get("EXTRA_LEAD", 0)))).strftime("%Y-%m-%dT%H:%M")
     done = {c.strip() for c in today}
     return next((x for x in json.loads(f.read_text()) if x["at"][:10] == now[:10] and x["at"] <= now
                  and x["caption"].strip() not in done), None)
