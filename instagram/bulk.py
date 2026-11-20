@@ -117,7 +117,7 @@ def due_extra(today):
 def main():
     queue = json.loads((HERE / "queue.json").read_text())
     keys, today = published()
-    extra = due_extra(today)
+    extra = None  # 11-20: ek videolar ayrı iş (extra.py, tam saatinde); zincir karışmaz
     if extra:
         print("ek video", extra["id"])
         if "--dry" not in sys.argv:

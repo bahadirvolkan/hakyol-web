@@ -1,0 +1,24 @@
+# extra.json'daki bugünkü hazır videoları saatinde yayınlar (instagram/extra.py). Elle başlatılır.
+name: instagram-extra
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: instagram-extra
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Saatinde yayınla
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: cd instagram && python extra.py
