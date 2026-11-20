@@ -18,6 +18,8 @@ import render as R
 HERE = Path(__file__).resolve().parent
 PLACES = json.loads((HERE / "places.json").read_text())
 # Kullanıcının seçtiği Pixabay parçaları (11-12); Desert Sunrise Ney favori, iki kat sık çalar.
+# 11-20 kullanıcı: hareketli, oyun havası gibi parçalar dini içerikte hoş karşılanmıyor; yalnız yavaş ney/flüt/sufi.
+# atlas-turkey ve turkish-classical bu yüzden silindi, bir daha eklenmez.
 MUSIC = sorted((HERE / "music").glob("*.mp3"))
 MUSIC += [m for m in MUSIC if m.stem == "desert-sunrise-ney"]
 GENERIC = ["#namazvakitleri", "#ezanvakti", "#namaz", "#ezan", "#islam", "#hakyol"]

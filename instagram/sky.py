@@ -2,7 +2,7 @@
 
     python3 instagram/sky.py SOURCE.MOV START_SN CROP_X AYET_KEY OUT.mp4 [--kicker "Hayırlı Cumalar"]
 
-Kaynak yatay 1920x1080; dikey 608x1080 parça (CROP_X soldan piksel) 1080x1920'ye büyütülür, SPEED kat hızlandırılır (11-20 kullanıcı: hareket belli olsun, 3x).
+Kaynak yatay 1920x1080; dikey 608x1080 parça (CROP_X soldan piksel) 1080x1920'ye büyütülür, SPEED kat hızlandırılır (11-20 kullanıcı 3x ile 2x'i izleyip 2x'i seçti).
 Lacivert örtü yazıyı okunur kılar. Yazı üç katman (başlık, meal, kaynak + takip) şeffaf PNG, sırayla belirir.
 Açıklama OUT.txt'ye yazılır. Kaynak videolar repoda değil: media/bulut/raw (gitignore).
 """
@@ -16,7 +16,7 @@ import render as R
 from places import MUSIC
 
 SECS = 10
-SPEED = 3
+SPEED = int(__import__("os").environ.get("SKY_SPEED", 2))
 LAYER_CSS = """
 html,body{width:1080px;height:1920px;background:transparent!important}
 body{color:#F5F3EC;font-family:'Manrope',sans-serif;position:relative;text-shadow:0 2px 18px rgba(4,8,20,.75)}
