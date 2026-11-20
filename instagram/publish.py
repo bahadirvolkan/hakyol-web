@@ -56,7 +56,7 @@ def main():
             return
     else:
         params = {"media_type": "REELS", "caption": (ROOT / "ig" / f"{name}.txt").read_text().strip()}
-        recent = call("GET", f"{IG_USER}/media", fields="caption", limit=5).get("data", [])
+        recent = call("GET", f"{IG_USER}/media", fields="caption", limit=50).get("data", [])
         if any((m.get("caption") or "").strip() == params["caption"] for m in recent):
             print(f"{name} zaten paylaşılmış, atlandı")
             return

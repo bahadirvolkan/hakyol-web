@@ -173,7 +173,7 @@ def publish(url, caption, item_id, kind):
         except P.urllib.error.HTTPError:
             time.sleep(15)
     for attempt in range(3):
-        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption)["id"]
+        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption, thumb_offset=5000)["id"]
         for _ in range(72):
             r = P.call("GET", c, fields="status_code,status")
             if r["status_code"] in ("FINISHED", "ERROR"):
