@@ -97,9 +97,30 @@ def pack_video(cards, mp4, seed):
                     "-movflags", "+faststart", str(mp4)], check=True)
 
 
+EXTRA_RAW = "https://raw.githubusercontent.com/bahadirvolkan/hakyol-web/ig-extra"
+
+
+def due_extra(today):
+    """extra.json: hazır videolar (11-20 Cuma gökyüzü reels'i, sky.py), "at" (TSİ) geldiyse bugün henüz paylaşılmamış ilki.
+    Video ig-extra dalında. Aynı ayet daha önce kartla paylaşılmış olabilir; tekrar denetimi bugünkü tam açıklamayla."""
+    f = HERE / "extra.json"
+    if not f.exists():
+        return None
+    now = datetime.now(TSI).strftime("%Y-%m-%dT%H:%M")
+    done = {c.strip() for c in today}
+    return next((x for x in json.loads(f.read_text()) if x["at"][:10] == now[:10] and x["at"] <= now
+                 and x["caption"].strip() not in done), None)
+
+
 def main():
     queue = json.loads((HERE / "queue.json").read_text())
     keys, today = published()
+    extra = due_extra(today)
+    if extra:
+        print("ek video", extra["id"])
+        if "--dry" not in sys.argv:
+            publish(f"{EXTRA_RAW}/{extra['file']}", extra["caption"], extra["id"], "extra")
+        return
     # Tema paketleri (çok kartlı, ~30 sn) 7/7 denemede 5-16 izlenmede kaldı; tek kartlar ~1500. Paket atlanır.
     item = choose(queue, keys, today, datetime.now(TSI).hour)
     if not item:
@@ -127,7 +148,10 @@ def main():
     tree = subprocess.run(["git", "mktree"], cwd=R.ROOT, input=f"100644 blob {blob}\t{mp4.name}\n", capture_output=True, text=True, check=True).stdout.strip()
     commit = subprocess.run(["git", "commit-tree", tree, "-m", f"media {mp4.name}"], cwd=R.ROOT, capture_output=True, text=True, check=True).stdout.strip()
     subprocess.run(["git", "push", "-fq", "origin", f"{commit}:refs/heads/ig-bulk"], cwd=R.ROOT, check=True)
-    url = f"{RAW}/{mp4.name}"
+    publish(f"{RAW}/{mp4.name}", item["caption"], item["id"], item["kind"])
+
+
+def publish(url, caption, item_id, kind):
     for _ in range(10):  # raw.githubusercontent push'tan hemen sonra 404 verebilir
         try:
             P.urllib.request.urlopen(P.urllib.request.Request(url, method="HEAD"), timeout=20)
@@ -135,7 +159,7 @@ def main():
         except P.urllib.error.HTTPError:
             time.sleep(15)
     for attempt in range(3):
-        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=item["caption"])["id"]
+        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption)["id"]
         for _ in range(72):
             r = P.call("GET", c, fields="status_code,status")
             if r["status_code"] in ("FINISHED", "ERROR"):
@@ -143,15 +167,15 @@ def main():
             time.sleep(5)
         if r["status_code"] == "FINISHED":
             P.call("POST", f"{P.IG_USER}/media_publish", creation_id=c)
-            print("yayınlandı", item["id"], item["kind"])
+            print("yayınlandı", item_id, kind)
             try:
                 replies.run()
             except (Exception, SystemExit) as e:  # yorum cevabı yayını asla düşürmesin
                 print("yorum cevabı hatası:", e)
             return
-        print("tekrar", item["id"], r.get("status"))
+        print("tekrar", item_id, r.get("status"))
         time.sleep(90)
-    sys.exit(f"{item['id']} yayınlanamadı")
+    sys.exit(f"{item_id} yayınlanamadı")
 
 
 def arg(name, default):
