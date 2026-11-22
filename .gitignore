@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 graphify-out/
 .superpowers/
 /namaz-vakitleri/
@@ -18,6 +18,12 @@ graphify-out/
 /ur/namaz-ke-auqat/
 /ar/mawaqit-al-salat/
 /fa/owghat-sharei/
+/imsakiye/
+/id/jadwal-imsakiyah/
+/ur/ramzan-timings/
+/bn/ramadan-calendar/
+/fa/ramazan/
+/ar/imsakiya/
 /instagram/.cache/
 /ig/
 __pycache__/

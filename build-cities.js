@@ -372,6 +372,10 @@ function breadcrumbLd(trail) {
 }
 
 function page({ url, title, description, crumbs, body, ld, localClock, turkeyMap, appName }) {
+  const route = url.replace(`${BASE_PATH}/`, "").split("/").filter(Boolean);
+  const foreign = countries.some((country) => country.slug === route[0]);
+  const imsakiyePath = route.length ? `/imsakiye/${foreign ? route.slice(0, 2).join("/") : route[0]}/` : "/imsakiye/";
+  const imsakiyeName = route.length ? `${crumbs.at(-1)[0]} İmsakiye 2027` : "İmsakiye 2027";
   const crumbHtml = crumbs
     .map(([name, href], i) => (i === crumbs.length - 1 ? esc(name) : `<a href="${href}">${esc(name)}</a>`))
     .join(" › ");
@@ -413,7 +417,7 @@ ${body}
 <p class="ig">Günlük ayet ve hadisler için Instagram'da takip edin: <a href="https://www.instagram.com/hakyol.app/" rel="noopener">@hakyol.app</a></p>
 </main>
 <footer><div class="wrap">
-<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="/sitenize-ekleyin/">Sitenize ekleyin</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a><a href="https://www.instagram.com/hakyol.app/" rel="noopener">Instagram</a>
+<a href="/">Hakyol</a><a href="${BASE_PATH}/">Namaz vakitleri</a><a href="${imsakiyePath}">${esc(imsakiyeName)}</a><a href="/sitenize-ekleyin/">Sitenize ekleyin</a><a href="/privacy-policy.html">Gizlilik Politikası</a><a href="/kvkk-aydinlatma-metni.html">KVKK</a><a href="https://www.instagram.com/hakyol.app/" rel="noopener">Instagram</a>
 <p class="disc">Vakitler Diyanet İşleri Başkanlığı verisine dayanır. Resmî kaynak namazvakti.diyanet.gov.tr'dir. © 2026 3B Tech.</p>
 </div></footer>
 <script>${CLIENT_JS}</script>
