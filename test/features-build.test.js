@@ -34,6 +34,19 @@ test("dünya üretimi eski slug dizinlerini bırakmaz",()=>{
   assert.equal(actual,expected);
 });
 
+test("yerel widget hazırlama sayfaları Türkçe ve İngilizce kabuk metni içermez",()=>{
+  const pages={
+    "id/widget-jadwal-sholat":["Pratinjau","Tanya jawab","Terang","Gelap","Transparan"],
+    "ur/namaz-timings-widget":["پیش منظر","عام سوالات","ہلکا","گہرا","شفاف"],
+    "bn/namaz-somoy-widget":["প্রিভিউ","সাধারণ প্রশ্ন","হালকা","গাঢ়","স্বচ্ছ"],
+  };
+  for(const [rel,wants] of Object.entries(pages)){
+    const html=fs.readFileSync(path.join(ROOT,rel,"index.html"),"utf8");
+    for(const forbidden of ["Namaz vakitleri","Kıble yönü","Sitenize ekleyin",">Preview<",">FAQ<"])assert.doesNotMatch(html,new RegExp(forbidden),`${rel}: ${forbidden}`);
+    for(const want of wants)assert.match(html,new RegExp(want),`${rel}: ${want}`);
+  }
+});
+
 test("sitemap yeni sayfaları içerir ama API ve widget betiğini içermez",()=>{
   const x=fs.readFileSync(path.join(ROOT,"sitemap-namaz.xml"),"utf8");
   for(const u of ["/cuma-namazi-saati/","/kible-yonu/","/hicri-takvim/","/sitenize-ekleyin/"])assert.match(x,new RegExp(u.replaceAll("/","\\/")));
