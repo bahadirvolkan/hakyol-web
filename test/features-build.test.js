@@ -11,9 +11,11 @@ test("GeoNames verisi 81 il merkezini Türkiye sınırlarında içerir",()=>{
 
 test("üretilen tüm vakit API dosyaları şemaya uyar ve indeksle bire birdir",()=>{
   const dir=path.join(ROOT,"api/vakit"),json=[];
-  (function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith(".json")&&e.name!=="index.json")json.push(p)}})(dir);
+  (function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith(".json")&&!/^index(?:-|\.)/.test(e.name))json.push(p)}})(dir);
   for(const f of json)assert.equal(validateApiPayload(JSON.parse(fs.readFileSync(f))),true,path.relative(ROOT,f));
   assert.equal(JSON.parse(fs.readFileSync(path.join(dir,"index.json"))).length,json.length);
+  const world=require("../data/world-cities.json").countries.reduce((n,c)=>n+c.cities.length,0);
+  assert.equal(json.filter(f=>f.includes(`${path.sep}w${path.sep}`)).length,world);
 });
 
 test("cuma kıble hicri ve widget hazırlama sayfaları üretilir",()=>{
@@ -22,6 +24,14 @@ test("cuma kıble hicri ve widget hazırlama sayfaları üretilir",()=>{
   assert.equal(fs.existsSync(path.join(ROOT,"hicri-takvim/index.html")),true);
   assert.equal(fs.existsSync(path.join(ROOT,"sitenize-ekleyin/index.html")),true);
   assert.equal(fs.existsSync(path.join(ROOT,"de/gebetszeiten-widget/index.html")),true);
+  for(const p of ["id/widget-jadwal-sholat","ur/namaz-timings-widget","bn/namaz-somoy-widget"])assert.equal(fs.existsSync(path.join(ROOT,p,"index.html")),true);
+});
+
+test("dünya üretimi eski slug dizinlerini bırakmaz",()=>{
+  const world=require("../data/world-cities.json"),roots={id:"jadwal-sholat",bn:"namaz-er-somoy",ur:"namaz-ke-auqat",ar:"mawaqit-al-salat",fa:"owghat-sharei"};
+  const actual=Object.entries(roots).reduce((n,[lang,root])=>n+files(path.join(ROOT,lang,root)).length,0);
+  const expected=world.countries.reduce((n,c)=>n+c.cities.length,0)+Object.keys(roots).length+world.countries.filter(c=>["ar","fa"].includes(c.lang)).length;
+  assert.equal(actual,expected);
 });
 
 test("sitemap yeni sayfaları içerir ama API ve widget betiğini içermez",()=>{

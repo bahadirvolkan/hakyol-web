@@ -1,4 +1,4 @@
-/** Başkent + en büyük iki şehir için adhan-js sonuçlarını AlAdhan API ile karşılaştırır. */
+/** Başkentler ve 10 genişletilmiş ID şehri için sonuçları bağımsız AlAdhan API ile karşılaştırır. */
 const path = require("path");
 const DATA = require("../data/world-cities.json");
 const { calculateTimes } = require("../build-world");
@@ -32,7 +32,10 @@ async function main() {
   for (const country of DATA.countries) {
     const capital = country.cities.find((c) => c.asciiName.toLowerCase() === CAPITAL[country.cc].toLowerCase());
     if (!capital) throw new Error(`${country.cc} başkenti bulunamadı: ${CAPITAL[country.cc]}`);
-    const cities = [capital, ...country.cities].filter((city, i, all) => all.findIndex((x) => x.geonameId === city.geonameId) === i).slice(0, 3);
+    const unique = [capital, ...country.cities].filter((city, i, all) => all.findIndex((x) => x.geonameId === city.geonameId) === i);
+    const cities = country.cc === "ID"
+      ? unique.slice().sort((a, b) => ((a.geonameId * 2654435761) >>> 0) - ((b.geonameId * 2654435761) >>> 0)).slice(0, 10)
+      : unique.slice(0, 3);
     for (const city of cities) for (const ymd of dates) {
       const local = calculateTimes(country, city, ymd), api = await fetchApi(country, city, ymd);
       // Kemenag sayfaları şartname gereği API'nin çıplak 20°/18° sonucuna ihtiyat uygular.

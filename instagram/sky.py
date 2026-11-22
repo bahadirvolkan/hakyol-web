@@ -74,7 +74,7 @@ def build(source, start, crop_x, key, mp4, kicker="Hayırlı Cumalar"):
     for i, (st, d) in enumerate(fades):
         fc += f"[{i + 1}:v]format=rgba,fade=t=in:st={st}:d={d}:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[v{i}];"
         last = f"v{i}"
-    fc += (f"[{last}]fade=t=out:st={SECS - 0.6}:d=0.6,format=yuv420p[v];"
+    fc += (f"[{last}]format=yuv420p[v];"  # 11-22 kullanıcı: sonda karartma yok, arka plan görünsün
            f"[4:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.2,afade=t=out:st={SECS - 1.5}:d=1.5,aresample=44100[a]")
     subprocess.run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
                     "-t", str(SECS), "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
