@@ -174,7 +174,10 @@ body{background:radial-gradient(ellipse at 50% 0%,#1A2742 0%,#0B1220 55%,#070C16
 .foot img{width:52px;height:52px;border-radius:13px}
 .foot span{color:#7C8AA3;font-weight:500}
 .follow{position:absolute;left:0;right:0;bottom:150px;display:flex;flex-direction:column;align-items:center}
-.follow p{margin-bottom:16px;font-size:26px;font-weight:600;color:#D4AF37}
+.follow p{margin-bottom:16px;font-size:30px;font-weight:700;color:#D4AF37;display:flex;align-items:center;gap:12px}
+.follow p svg{width:34px;height:34px}
+.follow div:has(svg){display:flex;align-items:center;gap:14px}
+.follow div svg{width:38px;height:38px;flex:none}
 .follow div{max-width:900px;padding:18px 40px;border:3px solid #D4AF37;border-radius:60px;background:rgba(212,175,55,.14);text-align:center;font-size:34px;line-height:1.3;font-weight:800;color:#F2D58C;letter-spacing:.01em}
 table{width:100%;border-collapse:collapse;margin-top:8px}
 td{padding:22px 10px;border-bottom:1px solid rgba(212,175,55,.18);font-size:40px}
@@ -211,6 +214,14 @@ html,body{height:1920px}
 """
 
 
+# Feather Icons (MIT): send, user-plus
+SEND_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">'
+            '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>')
+FOLLOW_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+              '<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/>'
+              '<line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>')
+
+
 def page(body, story=False):
     foot = f'<div class="foot"><img src="file://{ROOT / "icon.png"}"> hakyol.app <span>· ücretsiz</span></div>'
     tur = "hadis" if "Hadis-i Şerif" in body else "ayet"
@@ -229,8 +240,15 @@ def page(body, story=False):
         small, big = "Duanızı kime ediyorsanız onu etiketleyin.", "Siz de duanızı hediye gönderimize yazın."
     elif "Hayırlı Sabahlar" in body:
         small, big = "Hayırlı sabahlar, hayırlı işler.", "Güne bir ayetle başlamak için takip edin."
-    small = f'<p>{html.escape(small)}</p>' if small else ""
-    follow = f'<div class="follow">{small}<div>{html.escape(big)}</div></div>'
+    # 11-22 kullanıcı: tek ayet/hadis/dua kartında üst satır "Bu ... en sevdiklerine gönder." + gönder simgesi,
+    # takip kutusunda kişi+ simgesi (paylaşım 1/1000 izlenmeydi; yayılma için gönderme gerekiyor). Simgeler SVG, emoji yok.
+    send = SEND_SVG if specific and "Sizin Duanız" not in body else ""
+    if send:
+        small = "Bu duayı en sevdiklerine gönder." if "Kur'an'daki Dualar" in body or "Kur&#x27;an&#x27;daki Dualar" in body \
+            else f"Bu {tur}i en sevdiklerine gönder."
+    icon = FOLLOW_SVG if "takip" in big.lower() else ""
+    small = f'<p>{html.escape(small)}{send}</p>' if small else ""
+    follow = f'<div class="follow">{small}<div>{html.escape(big)}{icon}</div></div>'
     css = CSS + (STORY_CSS if story else "")
     return f'<!doctype html><meta charset="utf-8"><style>{css}</style><div class="pattern"></div><div class="frame"></div><div class="wrap"><div class="inner">{body}</div></div>{follow}{foot}{FIT_JS}'
 

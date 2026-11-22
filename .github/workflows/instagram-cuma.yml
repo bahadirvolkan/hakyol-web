@@ -1,0 +1,36 @@
+# Cuma sabahı gökyüzü reels'i (instagram/cuma.py): 07:30-12:30 saat başı 6 reels, 13:00'ten sonra Cuma içeriği yok.
+# instagram-bulk'un sabah işi Cuma 07:00'de tetikler; cron (07:20 TSİ) yalnız yedek, GitHub cron'u güvenilmez.
+name: instagram-cuma
+
+on:
+  schedule:
+    - cron: "20 4 * * 5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-cuma
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow && sudo apt-get install -y -qq ffmpeg >/dev/null
+
+      - name: Cuma reels'i
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          git config user.name "hakyol-bot"
+          git config user.email "info@hakyol.app"
+          cd instagram && python cuma.py

@@ -42,7 +42,7 @@ jobs:
         id: plan
         run: |
           case "${{ github.event.schedule }}" in
-            "30 5 * * *") echo "items=post 0" ;;
+            "30 5 * * *") echo "items=0" ;;  # 11-22: reels yalnız bulk/cuma akışından (tek akış, 60 dk aralık)
             "30 9 * * *") echo "items=1" ;;
             "30 14 * * *") echo "items=2" ;;
             "0 18 * * *") echo "items=3" ;;

@@ -1,8 +1,9 @@
 # @hakyol.app toplu reels: queue.json'daki sıradaki ayet/hadis/tema paketlerini yayınlar.
 # GitHub cron'u güvenilmez (11-15: 06:17 turu hiç çalışmadı, diğerleri 1-2 saat gecikti). Her tur
-# 60 dk arayla 5 reels atar ve bitince bir sonrakini kendisi başlatır (zincir); gece TSİ 02-07 arası
+# 80 dk arayla 4 reels atar ve bitince bir sonrakini kendisi başlatır (zincir); gece TSİ 02-07 arası
 # yayın yok; zincir gece kendi içinde 07:00'ye kadar bekleyip devam eder (11-22: 07:05 ve 11:47 cron'ları
-# ikisi de düştü, hesap yarım gün sessiz kaldı). Cron'lar yalnız yedek. ~19 reels/gün.
+# ikisi de düştü, hesap yarım gün sessiz kaldı). Cron'lar yalnız yedek. ~14 reels/gün (11-22: 19/gün takipçi getirmedi,
+# sık atılanlar takıldı). Cuma 07-13 arası sıra atlanır, Cuma reels'ini instagram-cuma atar.
 # Sıra: python3 instagram/series.py (yerelde, ağ gerekir) → queue.json commit'le.
 name: instagram-bulk
 
@@ -25,7 +26,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
 
@@ -41,7 +42,7 @@ jobs:
         run: |
           git config user.name "hakyol-bot"
           git config user.email "info@hakyol.app"
-          cd instagram && python bulk.py --count 5 --gap 3600
+          cd instagram && python bulk.py --count 4 --gap 4800
 
       - name: Sonraki turu başlat
         if: success()
@@ -50,6 +51,7 @@ jobs:
         run: |
           h=$(TZ=Europe/Istanbul date +%-H)
           if [ "$h" -ge 7 ] && [ "$h" -le 23 ]; then gh workflow run instagram-bulk.yml --ref main; else echo "gece ($h), sabah işi bekleyecek"; fi
+          if [ "$(TZ=Europe/Istanbul date +%u)" = 5 ] && [ "$h" -ge 7 ] && [ "$h" -le 11 ]; then gh workflow run instagram-cuma.yml --ref main; fi
 
   # Gece biten turdan sonra 07:00 TSİ'ye kadar bekleyip zinciri sürdürür (ayrı iş: kendi 6 saatlik sınırı var).
   sabah:
@@ -67,3 +69,4 @@ jobs:
           [ "$wait" -gt 0 ] || wait=0
           echo "07:00 TSİ'ye $wait sn"; sleep "$wait"
           gh workflow run instagram-bulk.yml --ref main --repo "$GITHUB_REPOSITORY"
+          if [ "$(TZ=Europe/Istanbul date +%u)" = 5 ]; then gh workflow run instagram-cuma.yml --ref main --repo "$GITHUB_REPOSITORY"; fi

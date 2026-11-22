@@ -39,6 +39,19 @@ def call(method, path, **params):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read().decode()[:400]}")
 
 
+def wait_gap(minutes=60):
+    """11-22 analizi: 40 dk'dan sık atılan reels'in %26'sı dağıtım almadı (Cuma 30 dk'lık seri: 5'in 4'ü).
+    Son reels'ten bu yana en az `minutes` dk geçmesini bekler (hikâyeler sayılmaz)."""
+    last = call("GET", f"{IG_USER}/media", fields="timestamp", limit=1).get("data", [])
+    if not last:
+        return
+    ago = datetime.now(timezone.utc) - datetime.strptime(last[0]["timestamp"], "%Y-%m-%dT%H:%M:%S%z")
+    wait = timedelta(minutes=minutes) - ago
+    if wait.total_seconds() > 0:
+        print(f"son reels {int(ago.total_seconds() // 60)} dk önce, {int(wait.total_seconds() // 60)} dk bekleniyor")
+        time.sleep(wait.total_seconds())
+
+
 def main():
     tr_today = datetime.now(timezone(timedelta(hours=3))).date()
     args = [a for a in sys.argv[1:] if re.fullmatch(r"\d{4}-\d\d-\d\d", a)]

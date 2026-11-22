@@ -172,8 +172,9 @@ def publish(url, caption, item_id, kind):
             break
         except P.urllib.error.HTTPError:
             time.sleep(15)
+    P.wait_gap(60)
     for attempt in range(3):
-        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption, thumb_offset=5000)["id"]
+        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption, thumb_offset=1000)["id"]
         for _ in range(72):
             r = P.call("GET", c, fields="status_code,status")
             if r["status_code"] in ("FINISHED", "ERROR"):
@@ -202,7 +203,11 @@ if __name__ == "__main__":
     for i in range(count):
         if i:
             time.sleep(gap)
-        if 2 <= time.gmtime(time.time() + 3 * 3600).tm_hour < 7:  # TSİ gece: yayın yok
+        tsi = time.gmtime(time.time() + 3 * 3600)
+        if 2 <= tsi.tm_hour < 7:  # TSİ gece: yayın yok
             print("gece, tur bitti")
             break
+        if tsi.tm_wday == 4 and 7 <= tsi.tm_hour < 13:  # Cuma sabahı cuma.py'nin (11-22 kullanıcı: 07:30-12:30 saat başı)
+            print("cuma penceresi, atlandı")
+            continue
         main()

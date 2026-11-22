@@ -130,26 +130,31 @@ def background(seed, cache):
     return f
 
 
-def compose(bg, layers, mp4, seed):
+# 11-22 analizi: ort. izleme 4 sn, 10 sn'lik reels çoğunlukla yarıda bırakılıyordu. Kart reels'i 6 sn; yazı ilk
+# kareden ekranda (sırayla belirme yok), sonda karartma yok: sonuna kadar izlenip başa sarması (döngü) için.
+CARD_SECS = 6
+
+
+def compose(bg, layers, mp4, seed, secs=CARD_SECS):
     rnd = random.Random(seed)
     track = rnd.choice(MUSIC)
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(track)],
                                capture_output=True, text=True, check=True).stdout)
-    a_start = rnd.uniform(5, dur - SECS - 5)
-    fades = [(0.3, 0.9), (1.4, 1.0), (3.0, 0.9)]
+    a_start = rnd.uniform(5, dur - secs - 5)
     inputs = ["-i", str(bg)]
     for p in layers:
-        inputs += ["-loop", "1", "-framerate", "30", "-t", str(SECS), "-i", str(p)]
-    inputs += ["-ss", f"{a_start:.1f}", "-t", str(SECS), "-i", str(track)]
-    fc = f"[0:v]drawbox=c=0x0B1220@0.28:t=fill,trim=duration={SECS}[bg];"
+        inputs += ["-loop", "1", "-framerate", "30", "-t", str(secs), "-i", str(p)]
+    inputs += ["-ss", f"{a_start:.1f}", "-t", str(secs), "-i", str(track)]
+    fc = f"[0:v]drawbox=c=0x0B1220@0.28:t=fill,trim=duration={secs},setpts=PTS-STARTPTS[bg];"
     last = "bg"
-    for i, (st, d) in enumerate(fades):
-        fc += f"[{i + 1}:v]format=rgba,fade=t=in:st={st}:d={d}:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[v{i}];"
+    for i in range(len(layers)):
+        fc += f"[{last}][{i + 1}:v]overlay=0:0[v{i}];"
         last = f"v{i}"
-    fc += (f"[{last}]fade=t=out:st={SECS - 0.6}:d=0.6,format=yuv420p[v];"
-           f"[4:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=1.2,afade=t=out:st={SECS - 1.5}:d=1.5,aresample=44100[a]")
+    a = len(layers) + 1
+    fc += (f"[{last}]format=yuv420p[v];"
+           f"[{a}:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.4,afade=t=out:st={secs - 0.8}:d=0.8,aresample=44100[a]")
     subprocess.run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
-                    "-t", str(SECS), "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
+                    "-t", str(secs), "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
                     "-movflags", "+faststart", str(mp4)], check=True)
     return mp4
 
