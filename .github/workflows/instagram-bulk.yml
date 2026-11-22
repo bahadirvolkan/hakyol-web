@@ -1,7 +1,8 @@
 # @hakyol.app toplu reels: queue.json'daki sıradaki ayet/hadis/tema paketlerini yayınlar.
 # GitHub cron'u güvenilmez (11-15: 06:17 turu hiç çalışmadı, diğerleri 1-2 saat gecikti). Her tur
 # 60 dk arayla 5 reels atar ve bitince bir sonrakini kendisi başlatır (zincir); gece TSİ 02-07 arası
-# yayın yok, zincir 07'den sonra cron'la yeniden başlar. Cron'lar yedek. ~19 reels/gün.
+# yayın yok; zincir gece kendi içinde 07:00'ye kadar bekleyip devam eder (11-22: 07:05 ve 11:47 cron'ları
+# ikisi de düştü, hesap yarım gün sessiz kaldı). Cron'lar yalnız yedek. ~19 reels/gün.
 # Sıra: python3 instagram/series.py (yerelde, ağ gerekir) → queue.json commit'le.
 name: instagram-bulk
 
@@ -48,4 +49,21 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           h=$(TZ=Europe/Istanbul date +%-H)
-          if [ "$h" -ge 7 ] && [ "$h" -le 23 ]; then gh workflow run instagram-bulk.yml --ref main; else echo "gece, zincir durdu ($h)"; fi
+          if [ "$h" -ge 7 ] && [ "$h" -le 23 ]; then gh workflow run instagram-bulk.yml --ref main; else echo "gece ($h), sabah işi bekleyecek"; fi
+
+  # Gece biten turdan sonra 07:00 TSİ'ye kadar bekleyip zinciri sürdürür (ayrı iş: kendi 6 saatlik sınırı var).
+  sabah:
+    needs: run
+    if: success()
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          h=$(TZ=Europe/Istanbul date +%-H)
+          if [ "$h" -ge 7 ] && [ "$h" -le 23 ]; then echo "gündüz, zincir zaten sürüyor"; exit 0; fi
+          wait=$(( $(TZ=Europe/Istanbul date -d "today 07:00" +%s) - $(date +%s) ))
+          [ "$wait" -gt 0 ] || wait=0
+          echo "07:00 TSİ'ye $wait sn"; sleep "$wait"
+          gh workflow run instagram-bulk.yml --ref main --repo "$GITHUB_REPOSITORY"
