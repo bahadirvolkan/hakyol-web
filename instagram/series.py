@@ -8,6 +8,7 @@ Hadisler hadith-api tur-nawawi'den; kartta yalnız Peygamberimizin sözü ve "(H
 (derleyen adı yazılmaz). Sırayı bulk.py saat başı birer birer yayınlar.
 """
 import json
+import random
 import re
 import urllib.request
 from pathlib import Path
@@ -148,7 +149,6 @@ def main():
             items.append({"kind": "single", "cards": [body], "caption": cap(c, R.TAGS["ayet"])})
         by_theme.append(items)
     # Sırayla dönüşüm yetmedi: eski temalar paylaşıldıkça kalanlar son temalarda kümeleniyor. Sabit tohumla karıştır.
-    import random
     singles = [x for items in by_theme for x in items]
     random.Random(1123).shuffle(singles)
     duas = []
@@ -156,6 +156,7 @@ def main():
         body, c = R.ayet(k, "Kur'an'daki Dualar")
         duas.append({"kind": "single", "slot": "dua", "cards": [body],
                      "caption": cap(f"Kur'an'daki dualar.\n\n{c}\n\n{AMIN}", "#dua #kurandakidualar #rabbena #amin #ayet #kuran #islam #müslüman #hakyol")})
+    random.Random(1124).shuffle(duas)  # yeni dualar sona birikmesin
     sabah = []
     for k in checked(SABAH, SABAH_PAT):
         body, c = R.ayet(k, "Hayırlı Sabahlar")
