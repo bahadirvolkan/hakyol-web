@@ -163,6 +163,80 @@ def card_reel(body, mp4, seed):
     return compose(background(seed, R.CACHE / "sky"), card_layers(body, mp4.stem), mp4, seed)
 
 
+# 11-23 test B (kullanıcı onayı): 15-27 sn'lik uzun pasaj (Âyetü'l-Kürsî, İnşirah...). Meal okuma hızında kelime
+# kelime akar (akan altyazı gibi); satır satır yavaş belirme izlemeyi kısaltıyordu. Başlık, kaynak ve davet ilk kareden
+# ekranda. Müzik aynı ney/sufi listesi. Her kelime için bir ekran görüntüsü; geçişler tmix ile yumuşatılır.
+WPS = 3.0  # saniyede kelime (Türkçe sessiz okuma ~200 kelime/dk)
+FLOW_LEAD, FLOW_HOLD = 0.6, 2.6
+FLOW_CSS = """
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:transparent!important;color:#F5F3EC;font-family:'Manrope',sans-serif;position:relative;text-shadow:0 2px 18px rgba(4,8,20,.8)}
+.box{position:absolute;left:90px;right:90px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.top{top:250px}
+.title{font-size:84px;margin-top:18px}
+.mid{top:520px;bottom:640px;justify-content:center}
+.meal{font-size:56px;line-height:1.42;font-style:italic}
+.meal span.h{visibility:hidden}
+.bot{bottom:420px}
+.ref{font-size:26px;color:#E6E9F0;margin-top:0}
+.follow{position:static;margin-top:28px}
+.follow div{background:rgba(11,18,32,.55)}
+.shade{position:absolute;left:-200px;right:-200px;top:420px;bottom:560px;background:radial-gradient(ellipse at center,rgba(8,14,28,.62) 0%,rgba(8,14,28,.38) 50%,transparent 76%)}
+"""
+FLOW_FIT = """<script>document.fonts.ready.then(function(){var m=document.querySelector('.mid'),t=m.firstElementChild;
+for(var i=0;i<40&&t.scrollHeight>m.clientHeight;i++){t.style.fontSize=(parseFloat(getComputedStyle(t).fontSize)-2)+'px'}})</script>"""
+
+
+def flow_secs(meal):
+    return round(FLOW_LEAD + len(meal.split()) / WPS + FLOW_HOLD, 1)
+
+
+def flow_frames(title, ref, meal, send, stem):
+    """Kelime kelime kareler: 0..n kelime görünür; gizli kelimeler yer tutar (satırlar kaymaz)."""
+    R.CACHE.mkdir(exist_ok=True)
+    words = meal.split()
+    words[0], words[-1] = "“" + words[0], words[-1] + "”"  # tırnaklar kelimeyle birlikte belirsin
+    head = (f'<div class="shade"></div><div class="box top"><div class="kicker">Hakyol</div>'
+            f'<div class="title">{html.escape(title)}</div></div>')
+    foot = (f'<div class="box bot"><div class="ref">{html.escape(ref)}</div><div class="follow">'
+            f'<p>{html.escape(send)}{R.SEND_SVG}</p><div>Günlük ayetler için takip edin.{R.FOLLOW_SVG}</div></div></div>')
+    out = []
+    for n in range(len(words) + 1):
+        spans = " ".join(f'<span{"" if i < n else " class=h"}>{html.escape(w)}</span>' for i, w in enumerate(words))
+        src, png = R.CACHE / f"{stem}-f{n:03d}.html", R.CACHE / f"{stem}-f{n:03d}.png"
+        src.write_text(f'<!doctype html><meta charset="utf-8"><style>{R.CSS}{FLOW_CSS}</style>{head}'
+                       f'<div class="box mid"><div class="meal">{spans}</div></div>{foot}{FLOW_FIT}')
+        subprocess.run([R.chrome(), "--headless=new", "--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1",
+                        "--default-background-color=00000000", "--window-size=1080,1920", "--virtual-time-budget=3000",
+                        f"--screenshot={png}", f"file://{src}"], check=True, capture_output=True)
+        out.append(png)
+    return out
+
+
+def flow_reel(title, ref, meal, send, mp4, seed):
+    frames = flow_frames(title, ref, meal, send, mp4.stem)
+    secs = flow_secs(meal)
+    durs = [FLOW_LEAD] + [1 / WPS] * (len(frames) - 2) + [secs - FLOW_LEAD - (len(frames) - 2) / WPS]
+    lst = R.CACHE / f"{mp4.stem}-flow.txt"
+    lst.write_text("".join(f"file '{f}'\nduration {d:.4f}\n" for f, d in zip(frames, durs)) + f"file '{frames[-1]}'\n")
+    bg = background(seed, R.CACHE / "sky")
+    rnd = random.Random(seed)
+    track = rnd.choice(MUSIC)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(track)],
+                               capture_output=True, text=True, check=True).stdout)
+    a_start = rnd.uniform(5, dur - secs - 5)
+    # 10 sn'lik gökyüzü klibi yarı hızda (20 sn) ve döngüde: uzun pasajda da arka plan akar.
+    fc = (f"[0:v]setpts=2.0*PTS,fps=30,drawbox=c=0x0B1220@0.30:t=fill,trim=duration={secs},setpts=PTS-STARTPTS[bg];"
+          f"[1:v]fps=30,format=gbrap,tmix=frames=5,format=rgba[t];[bg][t]overlay=0:0,format=yuv420p[v];"
+          f"[2:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.6,afade=t=out:st={secs - 1.2}:d=1.2,aresample=44100[a]")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(bg),
+                    "-f", "concat", "-safe", "0", "-i", str(lst), "-ss", f"{a_start:.1f}", "-t", str(secs), "-i", str(track),
+                    "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-t", str(secs),
+                    "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
+                    "-movflags", "+faststart", str(mp4)], check=True)
+    return mp4, secs
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     kick = a[a.index("--kicker") + 1] if "--kicker" in a else "Hayırlı Cumalar"

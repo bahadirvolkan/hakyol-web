@@ -246,6 +246,10 @@ def page(body, story=False):
     if send:
         small = "Bu duayı en sevdiklerine gönder." if "Kur'an'daki Dualar" in body or "Kur&#x27;an&#x27;daki Dualar" in body \
             else f"Bu {tur}i en sevdiklerine gönder."
+    # 11-23 test A: hedefli paylaşım duası; kart gövdesindeki <!--send:...--> satırı ("Bu duayı annene, babana gönder.").
+    target = re.search(r"<!--send:(.+?)-->", body)
+    if target:
+        small, big = target.group(1), "Her gün bir dua için takip edin."
     icon = FOLLOW_SVG if "takip" in big.lower() else ""
     small = f'<p>{html.escape(small)}{send}</p>' if small else ""
     follow = f'<div class="follow">{small}<div>{html.escape(big)}{icon}</div></div>'
@@ -339,7 +343,7 @@ def story_for(d, slot):
         body = gelen_dualar(d)
         if body:
             return body
-    singles = [q for q in json.loads((HERE / "queue.json").read_text()) if q["kind"] == "single"]
+    singles = [q for q in json.loads((HERE / "queue.json").read_text()) if q["kind"] == "single" and not q.get("test")]
     n = (d - START).days
     return singles[(3 * n + slot * 7) % len(singles)]["cards"][0]
 

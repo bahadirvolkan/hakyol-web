@@ -66,7 +66,15 @@ def choose(queue, keys, today, hour):
             sabah = next((q for q in fresh if q.get("slot") == "sabah"), None)
             if sabah:
                 return sabah
-    return next((q for q in fresh if q.get("slot") != "sabah"), None)
+    # 11-23 test (kullanıcı onayı): günde 2 test reels'i, 13:00'ten sonra ilki, 19:00'dan sonra ikincisi.
+    # A (hedefli paylaşım duası) ve B (akan uzun pasaj) sırası güne göre değişir: saat etkisi iki teste eşit dağılsın.
+    tests = [q for q in fresh if q.get("slot") == "test"]
+    test_keys = {key(q["caption"]) for q in queue if q.get("slot") == "test"}
+    done = sum(key(c) in test_keys for c in today)
+    if tests and ((hour >= 13 and done < 1) or (hour >= 19 and done < 2)):
+        want = "AB"[(datetime.now(TSI).toordinal() + done) % 2]
+        return next((q for q in tests if q["test"] == want), tests[0])
+    return next((q for q in fresh if q.get("slot") not in ("sabah", "test")), None)
 
 
 def pack_video(cards, mp4, seed):
@@ -143,7 +151,13 @@ def main():
         return
     OUT.mkdir(parents=True, exist_ok=True)
     mp4 = OUT / f"{item['id']}.mp4"
-    if item["kind"] == "pack":
+    thumb = 1000
+    if item["kind"] == "flow":
+        import sky
+        _, secs = sky.flow_reel(item["title"], item["ref"], item["meal"], item["send"], mp4, item["id"])
+        thumb = int((secs - 1) * 1000)  # kapak: metnin tamamı
+        print("akan pasaj", item["id"], secs, "sn")
+    elif item["kind"] == "pack":
         pack_video(item["cards"], mp4, item["id"])
     else:
         # 11-20 kullanıcı: kart arka planı yerine kendi çektiği gökyüzü videoları (sky.py, ig-sky dalı). Tilavet
@@ -162,10 +176,10 @@ def main():
     tree = subprocess.run(["git", "mktree"], cwd=R.ROOT, input=f"100644 blob {blob}\t{mp4.name}\n", capture_output=True, text=True, check=True).stdout.strip()
     commit = subprocess.run(["git", "commit-tree", tree, "-m", f"media {mp4.name}"], cwd=R.ROOT, capture_output=True, text=True, check=True).stdout.strip()
     subprocess.run(["git", "push", "-fq", "origin", f"{commit}:refs/heads/ig-bulk"], cwd=R.ROOT, check=True)
-    publish(f"{RAW}/{mp4.name}", item["caption"], item["id"], item["kind"])
+    publish(f"{RAW}/{mp4.name}", item["caption"], item["id"], item["kind"], thumb)
 
 
-def publish(url, caption, item_id, kind):
+def publish(url, caption, item_id, kind, thumb=1000):
     for _ in range(10):  # raw.githubusercontent push'tan hemen sonra 404 verebilir
         try:
             P.urllib.request.urlopen(P.urllib.request.Request(url, method="HEAD"), timeout=20)
@@ -174,7 +188,7 @@ def publish(url, caption, item_id, kind):
             time.sleep(15)
     P.wait_gap(60)
     for attempt in range(3):
-        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption, thumb_offset=1000)["id"]
+        c = P.call("POST", f"{P.IG_USER}/media", media_type="REELS", video_url=url, caption=caption, thumb_offset=thumb)["id"]
         for _ in range(72):
             r = P.call("GET", c, fields="status_code,status")
             if r["status_code"] in ("FINISHED", "ERROR"):

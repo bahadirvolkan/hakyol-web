@@ -56,6 +56,56 @@ DUAS = ["2:127", "2:128", "2:201", "2:250", "3:8", "3:16", "3:53", "3:147", "3:1
         "20:25", "20:26", "20:27", "21:83", "23:29", "23:97", "26:169", "28:16", "28:24", "37:100",
         "3:38", "3:191", "14:35", "60:5", "66:11", "7:89", "7:151", "10:86", "11:47", "12:101", "26:84", "26:85", "26:87", "2:286"]
 
+# 11-23 test (kullanıcı onayı, günde 2; bulk.py sırayla A/B): tavan ~2.000 izlenme, paylaşım 1-3/1000.
+# A: hedefli paylaşım duası (aile grubuna gönderilecek), 6 sn kart. (anahtar, üst başlık, açıklama başlığı, kart satırı)
+TEST_A = [
+    ("17:24", "Anne ve Baba İçin Dua", "Anne ve babanız için Kur'an'dan bir dua", "Bu duayı annene, babana gönder."),
+    ("21:83", "Hasta İçin Dua", "Hasta yakınlarınız için Kur'an'dan bir dua", "Bu duayı hasta bir yakınına gönder."),
+    ("25:74", "Aile İçin Dua", "Eşiniz ve çocuklarınız için Kur'an'dan bir dua", "Bu duayı eşine gönder."),
+    ("59:10", "Vefat Edenlerimiz İçin Dua", "Bizden önce göçüp gidenler için Kur'an'dan bir dua", "Bu duayı ailene gönder."),
+    ("21:87", "Sıkıntıdan Kurtuluş Duası", "Sıkıntıda olanlar için Kur'an'dan bir dua", "Sıkıntıdaki bir dostuna gönder."),
+    ("14:40", "Evlat İçin Dua", "Çocuklarınız için Kur'an'dan bir dua", "Bu duayı çocuğu olan bir dostuna gönder."),
+    ("2:201", "Sevdiklerin İçin Dua", "Tüm sevdikleriniz için Kur'an'dan bir dua", "Bu duayı en sevdiklerine gönder."),
+    ("28:24", "Hayırlı Kapı İçin Dua", "İş ve hayırlı kapı arayanlar için Kur'an'dan bir dua", "İş arayan bir dostuna gönder."),
+    ("37:100", "Evlat Bekleyenler İçin Dua", "Evlat bekleyenler için Kur'an'dan bir dua", "Evlat bekleyen birine gönder."),
+    ("14:41", "Anne ve Baba İçin Dua", "Anne, baba ve tüm müminler için Kur'an'dan bir dua", "Bu duayı annene, babana gönder."),
+    ("23:29", "Yeni Yer İçin Dua", "Yeni bir eve, yeni bir yere geçenler için Kur'an'dan bir dua", "Taşınan bir dostuna gönder."),
+    ("3:38", "Evlat Bekleyenler İçin Dua", "Hayırlı evlat isteyenler için Kur'an'dan bir dua", "Evlat bekleyen birine gönder."),
+]
+# B: uzun pasaj, meal kelime kelime akar (sky.flow_reel, 15-27 sn). (anahtar, başlık)
+TEST_B = [
+    ("2:255", "Âyetü'l-Kürsî"), ("94:1-8", "İnşirah Suresi"), ("17:23-24", "Anne Babaya İyilik"), ("1:1-7", "Fâtiha Suresi"),
+    ("112:1-4", "İhlâs Suresi"), ("93:1-11", "Duhâ Suresi"), ("13:28-29", "Kalplerin Huzuru"), ("59:22-24", "Haşr Suresi Son Ayetleri"),
+    ("2:286", "Bakara Suresi Son Ayeti"), ("103:1-3", "Asr Suresi"), ("24:35", "Nur Ayeti"), ("3:190-191", "Düşünenler İçin"),
+    ("113:1-5", "Felak Suresi"), ("114:1-6", "Nâs Suresi"), ("55:1-13", "Rahmân Suresi"), ("67:1-2", "Mülk Suresi"),
+    ("3:26-27", "Mülkün Sahibi"), ("36:82-83", "Yâsîn Suresi Son Ayetleri"), ("2:186", "Dua ve Kabul"),
+]
+FLOW_MAX_WORDS = 72  # ~27 sn
+
+
+def test_items():
+    a, b = [], []
+    for k, kicker, label, send in TEST_A:
+        last = f"{k.split(':')[0]}:{k.split('-')[-1].split(':')[-1]}"
+        if merged(k) or merged(last):
+            print(f"ELENDİ test {k}: birleşik meal")
+            continue
+        body, c = R.ayet(k, kicker)
+        a.append({"kind": "single", "slot": "test", "test": "A", "cards": [body + f"<!--send:{send}-->"],
+                  "caption": cap(f"{label} ({ref(k)}).\n\n{c}\n\n{send}\n\n{AMIN}",
+                                 "#dua #kurandakidualar #rabbena #amin #ayet #kuran #islam #müslüman #hakyol")})
+    for k, title in TEST_B:
+        m = " ".join(dict.fromkeys(v[1] for v in R.verses(k)))
+        if len(m.split()) > FLOW_MAX_WORDS:
+            print(f"ELENDİ test {k}: uzun ({len(m.split())} kelime)")
+            continue
+        send = "Bu ayeti en sevdiklerine gönder." if "-" not in k else "Bu ayetleri en sevdiklerine gönder."
+        c = f"“{m}”\n({ref(k)}, Diyanet İşleri meali)"
+        b.append({"kind": "flow", "slot": "test", "test": "B", "title": title, "ref": ref(k), "meal": m, "send": send,
+                  "caption": cap(f"{title}.\n\n{c}\n\n{send}", R.TAGS["ayet"])})
+    return a, b
+
+
 # Kırk Hadis: Peygamberimizin sözü kısa ve tek başına anlaşılır olanlar. Kısas/had içerenler ve
 # uzun soru-cevaplı rivayetler (2, 4, 8, 14, 16, 17, 21, 22, 24, 25, 28, 29, 31) dışarıda.
 # En uzun tırnak her zaman Peygamberimizin sözü değil: 40'ta en uzunu İbn Ömer'in sözü, 7'de cevabın
@@ -178,6 +228,8 @@ def main():
         if i % 4 == 0 and hadis:
             queue.append(hadis.pop(0))
     queue += sabah
+    test_a, test_b = test_items()
+    queue += test_a + test_b  # bulk.py günde 2 test seçer, A/B sırası güne göre
     for n, q in enumerate(queue):
         q["id"] = f"q{n:03d}"
     (HERE / "queue.json").write_text(json.dumps(queue, ensure_ascii=False, indent=0))
