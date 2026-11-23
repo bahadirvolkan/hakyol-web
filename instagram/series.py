@@ -139,11 +139,18 @@ def hadis_items():
 
 
 def main():
-    singles = []
+    # 11-23 kullanıcı: temalar art arda gelmesin (11-22'de 9 reels'in 8'i sabır ayetiydi); temalar sırayla dönüşümlü.
+    by_theme = []
     for title, sub, pat, keys in THEMES:
+        items = []
         for k in checked(keys, pat):
             body, c = R.ayet(k, "Kur'an-ı Kerim")
-            singles.append({"kind": "single", "cards": [body], "caption": cap(c, R.TAGS["ayet"])})
+            items.append({"kind": "single", "cards": [body], "caption": cap(c, R.TAGS["ayet"])})
+        by_theme.append(items)
+    # Sırayla dönüşüm yetmedi: eski temalar paylaşıldıkça kalanlar son temalarda kümeleniyor. Sabit tohumla karıştır.
+    import random
+    singles = [x for items in by_theme for x in items]
+    random.Random(1123).shuffle(singles)
     duas = []
     for k in checked(DUAS, r"rabb"):
         body, c = R.ayet(k, "Kur'an'daki Dualar")
