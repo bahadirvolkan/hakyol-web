@@ -19,11 +19,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # Derleme ve yayın ayrı işler: aynı işte deploy-pages, yeni yüklenen paketi bazen
+  # göremiyor ("Fetching artifact metadata failed", 11-20/22/24). GitHub'ın standart düzeni.
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      changed: ${{ steps.data.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
 
@@ -70,11 +71,30 @@ jobs:
         with:
           path: .
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-      # Bing/Yandex'e bildirim: push'ta ve haftalık vakit yenilemesinde (her gece değil — spam sayılmasın).
+  # Bing/Yandex'e bildirim: push'ta ve haftalık vakit yenilemesinde (her gece değil — spam sayılmasın).
+  indexnow:
+    needs: [build, deploy]
+    if: github.event_name != 'schedule' || needs.build.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: IndexNow
-        if: github.event_name != 'schedule' || steps.data.outputs.changed == 'true'
-        continue-on-error: true
-        run: sleep 60 && node scripts/indexnow.js # yeni yayının anahtar dosyası görünsün
+        # Üretilen site haritaları repoda yok; yayındaki sürümü indir.
+        run: |
+          sleep 60
+          for f in sitemap-namaz.xml sitemap-world.xml; do curl -fsS "https://hakyol.app/$f" -o "$f"; done
+          node scripts/indexnow.js
