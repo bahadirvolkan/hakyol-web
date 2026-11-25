@@ -34,7 +34,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pillow && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - run: pip install pillow && sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
 
       - name: Sıradaki reels
         env:
