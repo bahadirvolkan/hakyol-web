@@ -125,20 +125,32 @@ def verses(key):
 
 
 # Quran.com'daki Diyanet meali bazı ayetlerde "tanrı" der (ör. Tâhâ 14); güncel Diyanet meali
-# ve takipçiler "ilah" bekliyor (11-13 şikâyet). Ekler ünlü/ünsüz uyumuna göre çevrilir.
-ILAH_EKLERI = {"": "", "yı": "ı", "ya": "a", "nın": "ın", "sı": "ı", "dan": "tan", "da": "ta", "yla": "la",
-               "m": "ım", "n": "ın", "mız": "ımız", "nız": "ınız", "mızı": "ımızı", "nızı": "ınızı", "ları": "ları",
-               "lar": "lar", "lara": "lara", "ların": "ların", "lardan": "lardan", "larda": "larda",
-               "larınız": "larınız", "larımız": "larımız"}
+# ve takipçiler "ilah" bekliyor (11-13 şikâyet, 11-25 kullanıcı kararı). Diyanet mealinde (77) geçen
+# 28 çekimin tamamı elle eşlendi (ünlü/ünsüz uyumu: tanrıya → ilaha, Tanrı'dır → İlah'tır).
+# Uygulamadaki hakyol/src/utils/trDeityTerm.js ile aynı tablo. Tabloda olmayan bir çekim çıkarsa
+# yanlış metin yayınlamamak için hata verilir.
+ILAH_FORMLARI = {
+    "tanrı": "ilah", "tanrılar": "ilahlar", "tanrınız": "ilahınız", "tanrıları": "ilahları",
+    "tanrısı": "ilahı", "tanrı'dır": "ilah'tır", "tanrılarımız": "ilahlarımız", "tanrıya": "ilaha",
+    "tanrılarınıza": "ilahlarınıza", "tanrıdır": "ilahtır", "tanrıçalara": "ilahelere",
+    "tanrınızın": "ilahınızın", "tanrılarımızı": "ilahlarımızı", "tanrının": "ilahın",
+    "tanrılarınızı": "ilahlarınızı", "tanrılarına": "ilahlarına", "tanrısını": "ilahını",
+    "tanrına": "ilahına", "tanrılarını": "ilahlarını", "tanrı'dan": "ilah'tan",
+    "tanrılarımdan": "ilahlarımdan", "tanrısıdır": "ilahıdır", "tanrıyım": "ilahım",
+    "tanrılarımıza": "ilahlarımıza", "tanrımız": "ilahımız", "tanrıların": "ilahların",
+    "tanrılara": "ilahlara", "tanrılarımızdan": "ilahlarımızdan",
+}
 
 
 def ilah(text):
     def sub(m):
-        root, ek = m.group(1), m.group(2)
-        if ek not in ILAH_EKLERI:
-            raise ValueError(f"'{m.group(0)}' için ilah karşılığı tanımlı değil")
-        return ("İlah" if root[0] == "T" else "ilah") + ILAH_EKLERI[ek]
-    return re.sub(r"\b([Tt]anrı)([a-zçğıöşü]*)", sub, text)
+        word = m.group(0)
+        key = word.replace("I", "ı").replace("İ", "i").lower()
+        if key not in ILAH_FORMLARI:
+            raise ValueError(f"'{word}' için ilah karşılığı tanımlı değil")
+        repl = ILAH_FORMLARI[key]
+        return ("İ" + repl[1:]) if word[0] == "T" else repl
+    return re.sub(r"[A-Za-zÇĞİÖŞÜçğıöşüâîû']*[Tt]anr[ıi][A-Za-zÇĞİÖŞÜçğıöşüâîû']*", sub, text)
 
 
 def sura_name(sura):
