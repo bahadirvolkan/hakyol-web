@@ -163,11 +163,11 @@ def card_reel(body, mp4, seed):
     return compose(background(seed, R.CACHE / "sky"), card_layers(body, mp4.stem), mp4, seed)
 
 
-# 11-23 test B (kullanıcı onayı): 15-27 sn'lik uzun pasaj (Âyetü'l-Kürsî, İnşirah...). Meal okuma hızında kelime
-# kelime akar (akan altyazı gibi); satır satır yavaş belirme izlemeyi kısaltıyordu. Başlık, kaynak ve davet ilk kareden
-# ekranda. Müzik aynı ney/sufi listesi. Her kelime için bir ekran görüntüsü; geçişler tmix ile yumuşatılır.
-WPS = 3.0  # saniyede kelime (Türkçe sessiz okuma ~200 kelime/dk)
-FLOW_LEAD, FLOW_HOLD = 0.6, 2.6
+# 11-23 test B (kullanıcı onayı): 15-30 sn'lik uzun pasaj (Âyetü'l-Kürsî, İnşirah...). Başlık, kaynak ve davet ilk
+# kareden ekranda; meal yazılır gibi harf harf belirir (11-26 kullanıcı: kelime kelime akış takibi zorlaştırıyordu).
+# Metin bir kez çizilir, harf konumları tarayıcıda ölçülür; maske harf harf açılır (Pillow, ham kareler ffmpeg'e).
+CPS = 16  # saniyede harf (Türkçe sessiz okumanın biraz altında: yazı okunarak takip edilsin)
+FLOW_LEAD, FLOW_HOLD = 0.5, 2.6
 FLOW_CSS = """
 html,body{width:1080px;height:1920px;overflow:hidden}
 body{background:transparent!important;color:#F5F3EC;font-family:'Manrope',sans-serif;position:relative;text-shadow:0 2px 18px rgba(4,8,20,.8)}
@@ -176,49 +176,62 @@ body{background:transparent!important;color:#F5F3EC;font-family:'Manrope',sans-s
 .title{font-size:84px;margin-top:18px}
 .mid{top:520px;bottom:640px;justify-content:center}
 .meal{font-size:56px;line-height:1.42;font-style:italic}
-.meal span.h{visibility:hidden}
 .bot{bottom:420px}
 .ref{font-size:26px;color:#E6E9F0;margin-top:0}
 .follow{position:static;margin-top:28px}
 .follow div{background:rgba(11,18,32,.55)}
 .shade{position:absolute;left:-200px;right:-200px;top:420px;bottom:560px;background:radial-gradient(ellipse at center,rgba(8,14,28,.62) 0%,rgba(8,14,28,.38) 50%,transparent 76%)}
 """
-FLOW_FIT = """<script>document.fonts.ready.then(function(){var m=document.querySelector('.mid'),t=m.firstElementChild;
-for(var i=0;i<40&&t.scrollHeight>m.clientHeight;i++){t.style.fontSize=(parseFloat(getComputedStyle(t).fontSize)-2)+'px'}})</script>"""
+# Önce sığdır (yazı küçülür), sonra her harfin kutusunu ölç: [[sol, üst, sağ, alt], ...] boşluklar hariç.
+FLOW_JS = """<script>document.fonts.ready.then(function(){var m=document.querySelector('.mid'),t=m.firstElementChild;
+for(var i=0;i<40&&t.scrollHeight>m.clientHeight;i++){t.style.fontSize=(parseFloat(getComputedStyle(t).fontSize)-2)+'px'}
+var n=t.firstChild,r=document.createRange(),out=[];
+for(var k=0;k<n.length;k++){if(/\\s/.test(n.data[k]))continue;r.setStart(n,k);r.setEnd(n,k+1);var b=r.getBoundingClientRect();
+out.push([Math.floor(b.left),Math.floor(b.top),Math.ceil(b.right),Math.ceil(b.bottom)])}
+var p=document.createElement('pre');p.id='rects';p.textContent=JSON.stringify(out);document.body.appendChild(p);p.style.display='none'})</script>"""
 
 
-def flow_secs(meal):
-    return round(FLOW_LEAD + len(meal.split()) / WPS + FLOW_HOLD, 1)
-
-
-def flow_frames(title, ref, meal, send, stem):
-    """Kelime kelime kareler: 0..n kelime görünür; gizli kelimeler yer tutar (satırlar kaymaz)."""
-    R.CACHE.mkdir(exist_ok=True)
-    words = meal.split()
-    words[0], words[-1] = "“" + words[0], words[-1] + "”"  # tırnaklar kelimeyle birlikte belirsin
+def flow_html(title, ref, meal, send, part):
+    """part: "base" (meal gizli) ya da "text" (yalnız meal)."""
     head = (f'<div class="shade"></div><div class="box top"><div class="kicker">Hakyol</div>'
             f'<div class="title">{html.escape(title)}</div></div>')
     foot = (f'<div class="box bot"><div class="ref">{html.escape(ref)}</div><div class="follow">'
             f'<p>{html.escape(send)}{R.SEND_SVG}</p><div>Günlük ayetler için takip edin.{R.FOLLOW_SVG}</div></div></div>')
-    out = []
-    for n in range(len(words) + 1):
-        spans = " ".join(f'<span{"" if i < n else " class=h"}>{html.escape(w)}</span>' for i, w in enumerate(words))
-        src, png = R.CACHE / f"{stem}-f{n:03d}.html", R.CACHE / f"{stem}-f{n:03d}.png"
-        src.write_text(f'<!doctype html><meta charset="utf-8"><style>{R.CSS}{FLOW_CSS}</style>{head}'
-                       f'<div class="box mid"><div class="meal">{spans}</div></div>{foot}{FLOW_FIT}')
-        subprocess.run([R.chrome(), "--headless=new", "--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1",
-                        "--default-background-color=00000000", "--window-size=1080,1920", "--virtual-time-budget=3000",
-                        f"--screenshot={png}", f"file://{src}"], check=True, capture_output=True)
-        out.append(png)
-    return out
+    hide = ".meal{visibility:hidden}" if part == "base" else ".shade,.top,.bot{visibility:hidden}"
+    return (f'<!doctype html><meta charset="utf-8"><style>{R.CSS}{FLOW_CSS}{hide}</style>{head}'
+            f'<div class="box mid"><div class="meal">“{html.escape(meal)}”</div></div>{foot}{FLOW_JS}')
+
+
+def flow_layers(title, ref, meal, send, stem):
+    import json as J
+    import re as RE
+    R.CACHE.mkdir(exist_ok=True)
+    out = {}
+    for part in ("base", "text"):
+        src, png = R.CACHE / f"{stem}-{part}.html", R.CACHE / f"{stem}-{part}.png"
+        src.write_text(flow_html(title, ref, meal, send, part))
+        args = [R.chrome(), "--headless=new", "--no-sandbox", "--hide-scrollbars", "--force-device-scale-factor=1",
+                "--default-background-color=00000000", "--window-size=1080,1920", "--virtual-time-budget=5000"]
+        subprocess.run(args + [f"--screenshot={png}", f"file://{src}"], check=True, capture_output=True)
+        out[part] = png
+        if part == "text":
+            dom = subprocess.run(args + ["--dump-dom", f"file://{src}"], check=True, capture_output=True, text=True).stdout
+            rects = J.loads(html.unescape(RE.search(r'<pre id="rects"[^>]*>(.*?)</pre>', dom, RE.S).group(1)))
+    return out["base"], out["text"], rects
+
+
+def flow_secs(meal):
+    return round(FLOW_LEAD + len(meal.replace(" ", "")) / CPS + FLOW_HOLD, 1)
 
 
 def flow_reel(title, ref, meal, send, mp4, seed):
-    frames = flow_frames(title, ref, meal, send, mp4.stem)
+    from PIL import Image, ImageDraw
+    base, text, rects = flow_layers(title, ref, meal, send, mp4.stem)
     secs = flow_secs(meal)
-    durs = [FLOW_LEAD] + [1 / WPS] * (len(frames) - 2) + [secs - FLOW_LEAD - (len(frames) - 2) / WPS]
-    lst = R.CACHE / f"{mp4.stem}-flow.txt"
-    lst.write_text("".join(f"file '{f}'\nduration {d:.4f}\n" for f, d in zip(frames, durs)) + f"file '{frames[-1]}'\n")
+    txt = Image.open(text).convert("RGBA")
+    clear = Image.new("RGBA", txt.size, (0, 0, 0, 0))
+    mask = Image.new("L", txt.size, 0)
+    draw = ImageDraw.Draw(mask)
     bg = background(seed, R.CACHE / "sky")
     rnd = random.Random(seed)
     track = rnd.choice(MUSIC)
@@ -227,13 +240,27 @@ def flow_reel(title, ref, meal, send, mp4, seed):
     a_start = rnd.uniform(5, dur - secs - 5)
     # 10 sn'lik gökyüzü klibi yarı hızda (20 sn) ve döngüde: uzun pasajda da arka plan akar.
     fc = (f"[0:v]setpts=2.0*PTS,fps=30,drawbox=c=0x0B1220@0.30:t=fill,trim=duration={secs},setpts=PTS-STARTPTS[bg];"
-          f"[1:v]fps=30,format=gbrap,tmix=frames=5,format=rgba[t];[bg][t]overlay=0:0,format=yuv420p[v];"
-          f"[2:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.6,afade=t=out:st={secs - 1.2}:d=1.2,aresample=44100[a]")
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(bg),
-                    "-f", "concat", "-safe", "0", "-i", str(lst), "-ss", f"{a_start:.1f}", "-t", str(secs), "-i", str(track),
-                    "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-t", str(secs),
-                    "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
-                    "-movflags", "+faststart", str(mp4)], check=True)
+          f"[bg][1:v]overlay=0:0[b];[b][2:v]overlay=0:0,format=yuv420p[v];"
+          f"[3:a]loudnorm=I=-16:TP=-1.5,afade=t=in:d=0.6,afade=t=out:st={secs - 1.2}:d=1.2,aresample=44100[a]")
+    proc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(bg),
+                             "-loop", "1", "-framerate", "30", "-t", str(secs), "-i", str(base),
+                             "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{txt.size[0]}x{txt.size[1]}", "-r", "30", "-i", "-",
+                             "-ss", f"{a_start:.1f}", "-t", str(secs), "-i", str(track),
+                             "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-t", str(secs),
+                             "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-c:a", "aac", "-b:a", "128k",
+                             "-movflags", "+faststart", str(mp4)], stdin=subprocess.PIPE)
+    shown, frame = 0, clear.tobytes()
+    for f in range(int(secs * 30) + 1):
+        want = min(len(rects), max(0, int((f / 30 - FLOW_LEAD) * CPS)))
+        if want != shown:
+            for left, top, right, bottom in rects[shown:want]:
+                draw.rectangle([left - 6, top - 4, right + 3, bottom + 4], fill=255)  # italik taşma payı
+            shown = want
+            frame = Image.composite(txt, clear, mask).tobytes()
+        proc.stdin.write(frame)
+    proc.stdin.close()
+    if proc.wait():
+        raise RuntimeError("ffmpeg akan pasaj")
     return mp4, secs
 
 
