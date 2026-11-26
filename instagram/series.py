@@ -79,8 +79,9 @@ TEST_A = [
 # B: uzun pasaj, meal kelime kelime akar (sky.flow_reel, 15-27 sn). (anahtar, başlık)
 TEST_B = [
     ("2:255", "Âyetü'l-Kürsî"), ("94:1-8", "İnşirah Suresi"), ("17:23-24", "Anne Babaya İyilik"), ("1:1-7", "Fâtiha Suresi"),
-    ("112:1-4", "İhlâs Suresi"), ("93:1-11", "Duhâ Suresi"), ("13:28-29", "Kalplerin Huzuru"), ("59:22-24", "Haşr Suresi Son Ayetleri"),
-    ("2:286", "Bakara Suresi Son Ayeti"), ("103:1-3", "Asr Suresi"), ("24:35", "Nur Ayeti"), ("3:190-191", "Düşünenler İçin"),
+    ("94:1-8", "İnşirah Suresi", "tekrar"),
+    ("112:1-4", "İhlâs Suresi"), ("93:1-11", "Duhâ Suresi"), ("13:28-29", "Kalplerin Huzuru"), ("2:255", "Âyetü'l-Kürsî", "tekrar"), ("59:22-24", "Haşr Suresi Son Ayetleri"),
+    ("2:286", "Bakara Suresi Son Ayeti"), ("17:23-24", "Anne Babaya İyilik", "tekrar"), ("103:1-3", "Asr Suresi"), ("24:35", "Nur Ayeti"), ("3:190-191", "Düşünenler İçin"),
     ("113:1-5", "Felak Suresi"), ("114:1-6", "Nâs Suresi"), ("55:1-13", "Rahmân Suresi"), ("67:1-2", "Mülk Suresi"),
     ("3:26-27", "Mülkün Sahibi"), ("36:82-83", "Yâsîn Suresi Son Ayetleri"), ("2:186", "Dua ve Kabul"),
 ]
@@ -98,7 +99,9 @@ def test_items():
         a.append({"kind": "single", "slot": "test", "test": "A", "cards": [body + f"<!--send:{send}-->"],
                   "caption": cap(f"{label} ({ref(k)}).\n\n{c}\n\n{send}\n\n{AMIN}",
                                  "#dua #kurandakidualar #rabbena #amin #ayet #kuran #islam #müslüman #hakyol")})
-    for k, title in TEST_B:
+    # 11-26 kullanıcı: kelime kelime biçimle paylaşılan 3 pasaj harf harf biçimle bir kez daha ("tekrar");
+    # açıklamanın ilk paragrafı farklı (tekrar denetimi o paragrafa bakar).
+    for k, title, *again in TEST_B:
         m = " ".join(dict.fromkeys(v[1] for v in R.verses(k)))
         if len(m.split()) > FLOW_MAX_WORDS:
             print(f"ELENDİ test {k}: uzun ({len(m.split())} kelime)")
@@ -106,7 +109,7 @@ def test_items():
         send = "Bu ayeti en sevdiklerine gönder." if "-" not in k else "Bu ayetleri en sevdiklerine gönder."
         c = f"“{m}”\n({ref(k)}, Diyanet İşleri meali)"
         b.append({"kind": "flow", "slot": "test", "test": "B", "title": title, "ref": ref(k), "meal": m, "send": send,
-                  "caption": cap(f"{title}.\n\n{c}\n\n{send}", R.TAGS["ayet"])})
+                  "caption": cap(f"{title} ({ref(k).split(' Suresi ')[-1] if 'Suresi' in title else ref(k)}).\n\n{c}\n\n{send}" if again else f"{title}.\n\n{c}\n\n{send}", R.TAGS["ayet"])})
     return a, b
 
 
