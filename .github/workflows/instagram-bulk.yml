@@ -1,4 +1,6 @@
 # @hakyol.app toplu reels: queue.json'daki sıradaki ayet/hadis/tema paketlerini yayınlar.
+# 11-28 test (7 gün): günde 4 reels (bulk.PLAN: 07:00 sabah, 12:00 harf harf, 17:00 dua, 20:30 harf harf); tur 30 dk
+# arayla 10 kez yoklar, saati gelen yuvayı doldurur.
 # GitHub cron'u güvenilmez (11-15: 06:17 turu hiç çalışmadı, diğerleri 1-2 saat gecikti). Her tur
 # 80 dk arayla 4 reels atar ve bitince bir sonrakini kendisi başlatır (zincir); gece TSİ 02-07 arası
 # yayın yok; zincir gece kendi içinde 07:00'ye kadar bekleyip devam eder (11-22: 07:05 ve 11:47 cron'ları
@@ -42,7 +44,7 @@ jobs:
         run: |
           git config user.name "hakyol-bot"
           git config user.email "info@hakyol.app"
-          cd instagram && python bulk.py --count 4 --gap 4800
+          cd instagram && python bulk.py --count 10 --gap 1800
 
       - name: Sonraki turu başlat
         if: success()

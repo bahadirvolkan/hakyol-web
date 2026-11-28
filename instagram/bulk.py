@@ -54,27 +54,54 @@ def published():
     return keys, today
 
 
-def choose(queue, keys, today, hour):
-    """Sabah (TSİ 05-11): önce bir dua, sonra 3 'Hayırlı sabahlar' ayeti; gün içinde normal sıra (ayet, ayet, dua)."""
+# 11-28 test (kullanıcı onayı, 7 gün): günde 14 yerine 4 reels. 11-20..27 günlük toplam izlenme gönderi sayısından
+# bağımsız ~20-23k; reels başı ~2k tavan. Az ve güçlü gönderiyle reels başına sinyal artıyor mu, toplam düşüyor mu bakılacak.
+# A testi (hedefli paylaşım duası) durdu: paylaşım normalden düşük (0,7/1k). B (harf harf) paylaşımı ~3 kat, 2/gün.
+PLAN = [((7, 0), "sabah"), ((12, 0), "B"), ((17, 0), "dua"), ((20, 30), "B")]
+DAILY = len(PLAN)
+
+
+def kind_of(caption, b_keys):
+    if caption.startswith(("Hayırlı sabahlar", "Hayırlı Cumalar")):
+        return "sabah"
+    if caption.startswith("Kur'an'daki dualar"):
+        return "dua"
+    if key(caption) in b_keys:
+        return "B"
+    return "ayet"
+
+
+def choose(queue, keys, today, now):
+    """Günde 4 reels (PLAN). Saati gelmiş ve henüz doldurulmamış ilk yuva için öğe; hiçbiri yoksa None.
+    Sabah yuvası yalnız TSİ 07-11 (öğleden sonra 'Hayırlı sabahlar' atılmaz); Cuma'da cuma.py'nin reels'i sabah sayılır.
+    Yuvanın türünde öğe kalmadıysa normal ayet kartı (B yuvasını ayet doldurmuş sayılır)."""
     fresh = [q for q in queue if q["kind"] != "pack" and key(q["caption"]) not in keys]
-    if 5 <= hour < 11:  # gece yarısından sonraki son tur sabah sayılmasın (11-20: 01:52 "Hayırlı sabahlar")
-        if not any(c.startswith("Kur'an'daki dualar") for c in today):
-            dua = next((q for q in fresh if q.get("slot") == "dua"), None)
-            if dua:
-                return dua
-        if sum(c.startswith("Hayırlı sabahlar") for c in today) < 3:
-            sabah = next((q for q in fresh if q.get("slot") == "sabah"), None)
-            if sabah:
-                return sabah
-    # 11-23 test (kullanıcı onayı): günde 2 test reels'i, 13:00'ten sonra ilki, 19:00'dan sonra ikincisi.
-    # A (hedefli paylaşım duası) ve B (akan uzun pasaj) sırası güne göre değişir: saat etkisi iki teste eşit dağılsın.
-    tests = [q for q in fresh if q.get("slot") == "test"]
-    test_keys = {key(q["caption"]) for q in queue if q.get("slot") == "test"}
-    done = sum(key(c) in test_keys for c in today)
-    if tests and ((hour >= 13 and done < 1) or (hour >= 19 and done < 2)):
-        want = "AB"[(datetime.now(TSI).toordinal() + done) % 2]
-        return next((q for q in tests if q["test"] == want), tests[0])
-    return next((q for q in fresh if q.get("slot") not in ("sabah", "test")), None)
+    b_keys = {key(q["caption"]) for q in queue if q.get("test") == "B"}
+    have = {}
+    for c in today:
+        k = kind_of(c, b_keys)
+        have[k] = have.get(k, 0) + 1
+    if len(today) >= DAILY:
+        return None
+    hm = (now.hour, now.minute)
+    need = {}
+    for at, kind in PLAN:
+        if hm < at:
+            break
+        if kind == "sabah" and now.hour >= 11:
+            continue  # sabah kaçtıysa yuva boş kalır
+        need[kind] = need.get(kind, 0) + 1
+        filled = have.get(kind, 0) + (have.get("ayet", 0) if kind == "B" else 0)  # B bitince yerine ayet atılır
+        if filled >= need[kind]:
+            continue
+        pool = {"sabah": lambda q: q.get("slot") == "sabah",
+                "dua": lambda q: q.get("slot") == "dua",
+                "B": lambda q: q.get("test") == "B"}[kind]
+        item = next((q for q in fresh if pool(q)), None)
+        if item is None:  # tür bitti: normal ayet kartı
+            item = next((q for q in fresh if q.get("slot") not in ("sabah", "test", "dua")), None)
+        return item
+    return None
 
 
 def pack_video(cards, mp4, seed):
@@ -145,7 +172,7 @@ def main():
             publish(f"{EXTRA_RAW}/{extra['file']}", extra["caption"], extra["id"], "extra")
         return
     # Tema paketleri (çok kartlı, ~30 sn) 7/7 denemede 5-16 izlenmede kaldı; tek kartlar ~1500. Paket atlanır.
-    item = choose(queue, keys, today, datetime.now(TSI).hour)
+    item = choose(queue, keys, today, datetime.now(TSI))
     if not item:
         print("sıra bitti")
         return

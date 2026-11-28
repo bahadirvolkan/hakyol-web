@@ -17,7 +17,8 @@ import publish as P
 import render as R
 import sky
 
-SLOTS = ["07:30", "08:30", "09:30", "10:30", "11:30", "12:30"]
+# 11-28 test (günde 4 reels): Cuma tek reels, sabah yuvasını o doldurur (bulk.PLAN).
+SLOTS = ["08:30"]
 POOL = ["62:9", "33:56", "2:152", "13:28", "39:53", "10:57",
         "62:10", "2:186", "50:16", "33:41", "21:107", "33:21",
         "9:128", "29:45", "2:153", "7:55", "3:191", "20:14",
